@@ -1,0 +1,11 @@
+# Per-tier values (tier 1, 2, 3) for enchantments whose numbers are fixed in the game's code - applied by the
+# launcher while the game runs (tools/formula_patch.py). No game code is changed. Remove a line to leave that
+# enchantment as the game has it.
+
+BonusShot = [0.30, 0.50, 0.75]         # the extra arrow's share of the shot's damage. Game: 0.10 / 0.17 / 0.24
+Recycler = [15, 10, 5]                 # hits taken before arrows are refilled. Game: 30 / 20 / 10
+Punch = [8, 12, 16]                    # pushback strength. Game: 3 / 4 / 5
+EnigmaResonator = [0.30, 0.40, 0.50]   # chance at full souls for the triple-damage hit. Game: 0.15 / 0.20 / 0.25
+RapidFire = [1.20, 1.35, 1.50]         # attack speed multiplier. Game: 1.10 / 1.15 / 1.20 (C tier before)
+# HealthSynergy = [0.03, 0.04, 0.05]   # heal per artifact use. Left as the game has it (already top tier).
+# CriticalHit = [0.10, 0.15, 0.20]     # chance. Left as the game has it.

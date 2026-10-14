@@ -1,0 +1,9 @@
+# Merchant prices - applied by the launcher while the game runs (tools/prices_patch.py). Data only.
+#
+# Each line multiplies one merchant's base price (and its restock price, if it has one). 1 = the game's own.
+# Not tied to Apocalypse levels: it holds on every difficulty.
+# Merchants: enchantmentmerchant (Enchantsmith), piglinmerchant, shopkeeper (Village Merchant), luxurymerchant,
+# mysterymerchant, blacksmith, giftwrapper. The first two take gold, the rest emeralds.
+
+enchantmentmerchant = 0.1    # rerolls at a tenth: base 20 -> 2 (user, 2026-10-07: 'like 10 gold')
+piglinmerchant = 0.5         # gilded gear for gold at half: base 12 -> 6, restock 5 -> 2

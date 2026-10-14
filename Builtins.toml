@@ -1,0 +1,238 @@
+# Built-in enchantments of unique items - applied by the launcher (Play Endless Apocalypse.bat,
+# steam_launch.bat or tools/play.py). A plain Steam launch keeps the game's own built-ins.
+#
+# Format, one table per item ("<category>/<item id>", see tools/item_registry.json):
+#   <Enchantment> = <level 1-3>                              raise or lower a built-in's tier
+#   <Enchantment> = { to = "<Enchantment>", level = <1-3> }  replace it with another enchantment
+# Enchantment names are the game's internal ones (tools/enchant_ids.json), e.g. PoisonedMelee = Poison Cloud,
+# EmeraldDivination = Lucky Explorer, EnigmaResonatorMelee = Enigma Resonator.
+# Changes apply on the next launch; the in-game text follows the level automatically.
+
+["MeleeWeapons/Axe_Unique1"]           # Firebrand
+FireAspect = 3
+
+["MeleeWeapons/Axe_Unique2"]           # Highland Axe
+Stunning = 3
+
+["MeleeWeapons/Gauntlets_Unique2"]     # Maulers
+Rampaging = 2
+
+["MeleeWeapons/Gauntlets_Unique1"]     # Soul Fists
+EnigmaResonatorMelee = 2
+
+["MeleeWeapons/CoralBlade_Unique1"]    # Sponge Striker (Sponge Strike no longer scales with power)
+SpongeStrike = { to = "PainCycle", level = 3 }
+
+["MeleeWeapons/Daggers_Unique1"]       # Fangs of Frost
+Freezing = 3
+
+["MeleeWeapons/Daggers_Unique3"]       # Sheer Daggers
+Swirling = 3
+
+["MeleeWeapons/Sickles_Unique1"]       # Nightmare's Bite
+PoisonedMelee = 3
+
+["MeleeWeapons/Sword_Unique1"]         # Diamond Sword
+Sharpness = 3
+
+["MeleeWeapons/Hammer_Unique1"]        # Stormlander
+Thundering = 3
+
+["MeleeWeapons/TempestKnife_Unique2"]  # Chill Gale Knife
+Freezing = 3
+
+["MeleeWeapons/SoulKnife_Unique2"]     # Eternal Knife
+SoulSiphon = 3
+
+# --- Armor ---
+["Armor/EmeraldArmor_Unique2"]         # Gilded Glory
+EmeraldDivination = 3
+DeathBarter = 3
+
+["Armor/PhantomArmor_Unique1"]         # Frost Bite
+Snowing = 3
+
+["Armor/PiglinArmor_Unique1"]          # Golden Piglin Armor
+SurpriseGift = 3
+
+["Armor/TurtleArmor_Unique1"]          # Nimble Turtle Armor (Flee = Rush)
+Flee = 3
+
+["Armor/ClimbingGear_Unique2"]         # Goat Gear (MultiDodge = Multi-Roll)
+MultiDodge = 2
+
+["Armor/EvocationRobe_Unique1"]        # Ember Robe
+Burning = 3
+
+["Armor/SnowArmor_Unique1"]            # Frost Armor (tier 2 in the base game)
+Chilling = 3
+
+["Armor/NatureArmor_Unique1"]          # Black Spot Armor
+FoodReserves = 3
+
+["Armor/WolfArmor_Unique2"]            # Black Wolf Armor
+Acrobat = 3
+
+# --- Ranged ---
+["RangedWeapons/Crossbow_Unique1"]         # The Slicer
+Piercing = 3
+
+["RangedWeapons/Crossbow_Unique2"]         # Azure Seeker
+RapidFire = 3
+
+["RangedWeapons/HeavyCrossbow_Unique2"]    # Slayer Crossbow
+Ricochet = 3
+
+["RangedWeapons/Bow_Unique2"]              # Twin Bow
+BonusShot = 3
+
+["RangedWeapons/Bow_Spooky1"]              # Haunted Bow: roll archer - rolling fires arrows and charges the next shot
+BonusShot = { to = "BurstBowstring", level = 2 }   # (was Ricochet 3 + Piercing 2; in the game a Twin Bow copy)
+add = { BurstBowstring = 2, RollCharge = 2 }
+
+["RangedWeapons/Longbow_Unique2"]          # Red Snake
+FuseShot = 3
+
+["RangedWeapons/Bow_Unique1"]              # Bonebow
+Growing = 3
+
+["RangedWeapons/DualCrossbows_Unique2"]    # Baby Crossbows
+Growing = 3
+
+["RangedWeapons/PowerBow_Unique1"]         # Elite Power Bow
+Power = 3
+
+["RangedWeapons/PowerBow_Spooky2"]         # Phantom Bow: charged sniper that slips into shadow (ShadowShot = test)
+Power = { to = "VoidTouchedRanged", level = 2 }
+add = { VoidTouchedRanged = 2, Supercharge = 2 }
+
+["RangedWeapons/Longbow_Unique1"]          # Guardian Bow
+Supercharge = 3
+
+["RangedWeapons/HuntingBow_Unique2"]       # Master's Bow
+Power = 3
+
+["RangedWeapons/HuntingBow_Unique1"]       # Hunter's Promise
+Infinity = 3
+
+["RangedWeapons/HuntingBow_Unique3"]       # Ancient Bow
+DynamoRanged = 2
+
+["RangedWeapons/RapidCrossbow_Unique1"]    # Butterfly Crossbow
+BonusShot = 3
+
+["RangedWeapons/ScatterCrossbow_Unique2"]  # Lightning Harp Crossbow
+Ricochet = 2
+
+["RangedWeapons/PowerBow_Unique2"]         # Sabrewing
+RadianceRanged = 2
+
+["RangedWeapons/SoulCrossbow_Unique1"]     # Feral Soul Crossbow
+EnigmaResonatorRanged = 2
+
+
+# ---- C-tier pass, 2026-10-08 ----
+["MeleeWeapons/Claymore_Unique2"]         # Broadsword
+Sharpness = 3
+
+["MeleeWeapons/Claymore_Unique3"]         # Great Axeblade
+DynamoMelee = 3
+
+["MeleeWeapons/VoidTouchedBlades_Unique1"] # The Beginning and The End
+VoidTouchedMelee = 3
+Leeching = 3
+
+["MeleeWeapons/Sickles_Unique2"]          # The Last Laugh
+Prospector = 3
+add = { CriticalHit = 2 }
+
+["RangedWeapons/HeavyCrossbow_Unique1"]   # Doom Crossbow
+Punch = 3
+add = { Power = 2 }
+
+# ---- Seasonal items as uniques of their own, 2026-10-08 (user: a build their counterpart doesn't do) ----
+# Each replaces the built-in copied from another unique and adds a second one. SharedPain, Rushdown and ShadowShot
+# are effects the game uses on one or two items only: they are here as tests and stay only if they work.
+# Seasonal items are worth the same as an ordinary unique (user, 2026-10-14): one enchantment at tier 3, or two at
+# tier 2 where the playstyle needs both - the same six enchantment points either way. Above the gear cap every
+# built-in climbs to tier 3 like any other. Two were set by the user item by item: the Bonehead Hammer (two at
+# tier 1, less hit damage) and the Shrieking Crossbow (Tempo Theft 2 beside Shadow Shot 1).
+["MeleeWeapons/Sword_Spooky1"]            # Sinister Sword: sustain sword
+CriticalHit = { to = "Leeching", level = 2 }
+add = { Leeching = 2, RadianceMelee = 2 }
+
+["MeleeWeapons/Claymore_Winter1"]         # Frost Slayer: frontline tank - slow the pack, every kill makes you tougher
+Sharpness = { to = "Freezing", level = 2 }
+add = { Freezing = 2, GuardingStrike = 2 }         # (was Freezing 3 + Shared Pain 1)
+
+["MeleeWeapons/Cutlass_Year1"]            # Sparkler: artifact duelist - fire an artifact, then land a big hit
+Rampaging = { to = "DamageSynergy", level = 3 }    # (was Thundering 3 + Critical Hit 2, too close to Stormlander)
+add = { DamageSynergy = 3 }
+
+["MeleeWeapons/SoulScythe_Spooky2"]       # Skull Scythe: soul crit
+Freezing = { to = "EnigmaResonatorMelee", level = 2 }
+add = { EnigmaResonatorMelee = 2, SoulSiphon = 2 }
+
+["MeleeWeapons/Glaive_Spooky2"]           # Cackling Broom: pull and sweep
+Smiting = { to = "Swirling", level = 2 }
+add = { Swirling = 2, GravityMelee = 2 }
+
+["MeleeWeapons/Spear_spooky2"]            # Spine-Chill Spear: mark and execute
+Echo = { to = "VoidTouchedMelee", level = 3 }
+add = { VoidTouchedMelee = 3 }
+
+["RangedWeapons/SoulBow_Winter1"]         # Shivering Bow: heals through souls
+TempoTheft = { to = "AnimaConduitRanged", level = 2 }
+add = { AnimaConduitRanged = 2, SoulSiphon = 2 }
+
+["RangedWeapons/Trickbow_Year1"]          # Sugar Rush: ramping fire rate
+WildRage = { to = "Accelerating", level = 3 }
+add = { Accelerating = 3 }
+
+["RangedWeapons/SlowBow_Spooky2"]         # Webbed Bow: trap bow
+add = { ShockWeb = 2, Gravity = 2 }
+
+["RangedWeapons/BubbleBow_Spooky2"]       # Gloopy Bow: utility bow - shots bring artifacts and potions back sooner
+ReliableRicochet = { to = "CooldownShot", level = 2 }   # (was Poison Cloud 3 + Chain Reaction 2, a third poison bow)
+add = { CooldownShot = 2, PotionThirstRanged = 2 }
+
+["Armor/MercenaryArmor_Spooky1"]          # Hungry Horror: retaliation tank - pulls mobs in to hurt themselves on it
+add = { Thorns = 2, GravityPulse = 2 }
+
+["Armor/MercenaryArmor_Spooky2"]          # Hungriest Horror: low-health berserker
+add = { Reckless = 2, Frenzied = 2 }
+
+["Armor/WolfArmor_Winter1"]               # Arctic Fox Armor: pack leader
+add = { BeastBurst = 2, BeastSurge = 2 }
+
+["Armor/SpelunkersArmor_Year1"]           # Sweet Tooth: consumables
+add = { SurpriseGift = 2, FoodReserves = 2 }
+
+["Armor/FullPlateArmor_Spooky2"]          # Cauldron Armor: furnace tank
+add = { Burning = 2, FireFocus = 2 }
+
+["Armor/GrimArmor_Spooky2"]               # The Spooky Gourdian: last stand
+add = { FinalShout = 2, DeathBarter = 2 }
+
+["Armor/GhostArmor_Spooky2"]              # Cloaked Skull: roll zapper
+FireTrail = { to = "Electrified", level = 2 }
+add = { Electrified = 2, MultiDodge = 2 }
+
+# ---- B-tier pass, 2026-10-08: only the B items the mod had not touched yet ----
+["MeleeWeapons/Battlestaff_Unique1"]      # Growing Staff
+Committed = 3
+
+["MeleeWeapons/Spear_Unique1"]            # Whispering Spear: its Echo at tier 3 (0.1 s gap; tier 1 = 2.1 s)
+Echo = 3
+
+["MeleeWeapons/Spear_Unique2"]            # Fortune Spear
+Looting = 3
+add = { Committed = 2 }
+["MeleeWeapons/Backstabber_Unique1"]      # Swift Striker: every built-in Echo is tier 3 (user, 2026-10-12: Echo is weak)
+Echo = 3
+
+["MeleeWeapons/SkeletonHammer"]           # Bonehead Hammer: pull and detonate - keeps its Gravity and adds Exploding, paid for
+add = { Exploding = 1 }                   # with hit damage (100 against the Hammer of Gravity's 120, SequelGear.toml) - user, 2026-10-13
+
+["RangedWeapons/BatCrossbow"]             # Shrieking Crossbow: a sidegrade to the Veiled Crossbow - Shadow Shot plus
+ShadowBarbRanged = { to = "TempoTheft", level = 2 }   # Tempo Theft where the Veiled has Shadow Barb; same stats (user, 2026-10-13)

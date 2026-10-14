@@ -1,0 +1,35 @@
+# Seasonal gear in missions - applied by the launcher when the game starts (tools/drops_patch.py). Data only.
+#
+# The game keeps seasonal items out of missions by a mark on the item ("belongs to seasonal event N"), which its
+# loot filters turn away. For every item listed here the launcher takes that mark off and links the item to its
+# family's plain item; the game then makes the item's mission list itself. Only if it doesn't is the item given
+# the missions of the items on the right:  "<item>" = ["<item>", ...]  (all their missions together) - every
+# seasonal item drops wherever its plain base item or any unique of that family drops (user, 2026-10-07/08).
+# Item ids: tools/item_registry.json. NOT YET SEEN WORKING in game.
+
+"MeleeWeapons/Sword_Spooky1" = ["MeleeWeapons/Sword_Unique1", "MeleeWeapons/Sword_Unique2", "MeleeWeapons/Sword_Steel"]            # Sinister Sword
+"MeleeWeapons/Claymore_Winter1" = ["MeleeWeapons/Claymore_Unique1", "MeleeWeapons/Claymore_Unique2", "MeleeWeapons/Claymore_Unique3", "MeleeWeapons/Claymore"]      # Frost Slayer
+"MeleeWeapons/Cutlass_Year1" = ["MeleeWeapons/Cutlass_Unique1", "MeleeWeapons/Cutlass_Unique2", "MeleeWeapons/Cutlass"]          # Sparkler
+"MeleeWeapons/Glaive_Spooky2" = ["MeleeWeapons/Glaive_Unique1", "MeleeWeapons/Glaive_Unique2", "MeleeWeapons/Glaive"]          # Cackling Broom
+"MeleeWeapons/SoulScythe_Spooky2" = ["MeleeWeapons/SoulScythe_Unique1", "MeleeWeapons/SoulScythe_Unique2", "MeleeWeapons/SoulScythe"]  # Skull Scythe
+"MeleeWeapons/Spear_spooky2" = ["MeleeWeapons/Spear_Unique1", "MeleeWeapons/Spear_Unique2", "MeleeWeapons/Spear"]            # Spine-Chill Spear
+
+"RangedWeapons/Bow_Spooky1" = ["RangedWeapons/Bow_Unique1", "RangedWeapons/Bow_Unique2", "RangedWeapons/Bow"]              # Haunted Bow
+"RangedWeapons/BubbleBow_Spooky2" = ["RangedWeapons/BubbleBow_Unique1", "RangedWeapons/BubbleBow"]  # Gloopy Bow
+"RangedWeapons/PowerBow_Spooky2" = ["RangedWeapons/PowerBow_Unique1", "RangedWeapons/PowerBow_Unique2", "RangedWeapons/PowerBow"]    # Phantom Bow
+"RangedWeapons/SlowBow_Spooky2" = ["RangedWeapons/SlowBow_Unique1", "RangedWeapons/SlowBow"]      # Webbed Bow
+"RangedWeapons/SoulBow_Winter1" = ["RangedWeapons/SoulBow_Unique1", "RangedWeapons/SoulBow_Unique2", "RangedWeapons/SoulBow"]      # Shivering Bow
+"RangedWeapons/Trickbow_Year1" = ["RangedWeapons/Trickbow_Unique1", "RangedWeapons/Trickbow_Unique2", "RangedWeapons/Trickbow"]      # Sugar Rush
+
+"Armor/FullPlateArmor_Spooky2" = ["Armor/FullPlateArmor_Unique1", "Armor/FullPlateArmor"]        # Cauldron Armor
+"Armor/GhostArmor_Spooky2" = ["Armor/GhostArmor_Unique1", "Armor/GhostArmor"]                # Cloaked Skull
+"Armor/GrimArmor_Spooky2" = ["Armor/GrimArmor_Unique1", "Armor/GrimArmor"]                  # The Spooky Gourdian
+"Armor/MercenaryArmor_Spooky1" = ["Armor/MercenaryArmor_Unique1", "Armor/MercenaryArmor"]        # Hungry Horror
+"Armor/MercenaryArmor_Spooky2" = ["Armor/MercenaryArmor_Unique1", "Armor/MercenaryArmor"]        # Hungriest Horror
+"Armor/SpelunkersArmor_Year1" = ["Armor/SpelunkersArmor_Unique1", "Armor/SpelunkersArmor"]        # Sweet Tooth
+"Armor/WolfArmor_Winter1" = ["Armor/WolfArmor_Unique1", "Armor/WolfArmor_Unique2", "Armor/WolfArmor"]                  # Arctic Fox Armor
+
+# The two Spookiest Fall (2022) weapons, which the files call by other names (checked on minecraft.wiki 2026-10-13:
+# both were released - event, then Tower). In the game they are plain copies of another unique of their family.
+"MeleeWeapons/SkeletonHammer" = ["MeleeWeapons/Hammer_Unique1", "MeleeWeapons/Hammer_Unique2", "MeleeWeapons/Hammer"]   # Bonehead Hammer (= Hammer of Gravity)
+"RangedWeapons/BatCrossbow" = ["RangedWeapons/ShadowCrossbow_Unique1", "RangedWeapons/ShadowCrossbow"]                  # Shrieking Crossbow (= Veiled Crossbow)

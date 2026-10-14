@@ -1,0 +1,287 @@
+{
+ "IronHideAmulet": [],
+ "Arrow": [
+  "Projectile.damage = 20.0",
+  "Projectile.Sphere_GEN_VARIABLE:SphereRadius = 10.0"
+ ],
+ "BootsOfSwiftness": [],
+ "BurningArrow": [],
+ "CorruptedBeacon": [
+  "CorruptedBeaconInstance.OnKillPushback.pushbackStrength = 12.0",
+  "CorruptedBeaconInstance.OnKillPushback.pushbackZFactor = -0.5"
+ ],
+ "CorruptedSeeds": [
+  "CorruptedSeedsInstance.Radius = 1200.0",
+  "CorruptedSeedsInstance.TargetCount = 8"
+ ],
+ "DeathCapMushroom": [],
+ "Elytra": [],
+ "FireworksArrow": [],
+ "FireworksArrowItem": [],
+ "FishingRod": [
+  "FishingRodInstance.StunDuration = 3.0",
+  "FishingRodInstance.TypeHierarchy[0].placement = 1",
+  "FishingRodInstance.TypeHierarchy[1].placement = 2"
+ ],
+ "FlamingQuiver": [],
+ "Food1": [],
+ "Food2": [],
+ "Food3": [],
+ "Food4": [
+  "MelonHealingGameplayEffect.DurationMagnitude.CustomMagnitude.Coefficient.Value = 15.0",
+  "MelonHealingGameplayEffect.Modifiers[0].ModifierMagnitude.CustomMagnitude.Coefficient.Value = 1.0"
+ ],
+ "Food5": [],
+ "GhostCloak": [],
+ "GiftBox": [],
+ "GolemKit": [],
+ "GongOfWeakening": [
+  "GongOfWeakeningInstance.EnemyTakeDamageMultiplier = 2.0",
+  "GongOfWeakeningInstance.WeakenRange = 500"
+ ],
+ "Harvester": [
+  "HarvesterInstance.OnKillPushback.pushbackStrength = 11.0",
+  "HarvesterInstance.OnKillPushback.pushbackZFactor = 2.0"
+ ],
+ "IceWand": [
+  "IceWandInstance.IceDamageOverride = 600.0"
+ ],
+ "LightFeather": [
+  "LightfeatherCustomMover.Pushback.pushbackStrength = 5.5",
+  "LightfeatherCustomMover.Pushback.pushbackZFactor = 0.75",
+  "LightFeatherInstance.MobPush.pushbackStrength = 2.0",
+  "LightFeatherInstance.MobPush.pushbackMultiplierRespectFactor = 0.25"
+ ],
+ "LightningRod": [],
+ "LoveMedallion": [],
+ "MysteryBoxAny": [],
+ "MysteryBoxArmor": [],
+ "MysteryBoxArtifact": [],
+ "MysteryBoxMelee": [],
+ "MysteryBoxRanged": [],
+ "BackstabbersBrew": [],
+ "BurningBrewPotion": [
+  "BurningBrewPotionInstance.Radius = 1000.0",
+  "BurningBrewPotionInstance.MobBurnDamage = 35.0"
+ ],
+ "HealthPotion": [],
+ "OakWoodBrew": [
+  "OakWoodBrewInstance.DefenseBoostAmount = 1.5"
+ ],
+ "StrengthPotion": [],
+ "SweetBrew": [],
+ "SwiftnessPotion": [],
+ "ShockPowder": [],
+ "SoulHealer": [],
+ "SoulTotemOfCasting": [
+  "SoulTotemOfCasting.Beat Delay = 0.8",
+  "SoulTotemOfCasting.Initial Delay = 0.3",
+  "SoulTotemOfCasting.BeatCount = 3",
+  "SoulTotemOfCasting.Aura_Speed = 2.0",
+  "SoulTotemOfCasting.CooldownReductionPercentage = 100.0",
+  "SoulTotemOfCasting.PulseDelaySeconds = 3.5",
+  "SoulTotemOfCasting.RadiusMin = 450.0",
+  "SoulTotemOfCasting.Radius = 600.0",
+  "SoulTotemOfCasting.WeakenedVitalityThresholds[0].Threshold = 0.2",
+  "SoulTotemOfCasting.WeakenedVitalityThresholds[1].Threshold = 0.1",
+  "SoulTotemOfCasting.WeakenedVitalityThresholds[2].Threshold = 0.05",
+  "SoulTotemOfCasting.RemnoveTriangle_Template:TimelineLength = 0.5",
+  "SoulTotemOfCasting.Shake_Template:TimelineLength = 0.3",
+  "SoulTotemOfCasting.Timeline_Dead_Template:TimelineLength = 1.2",
+  "SoulTotemOfCasting.TriangleAdd_Template:TimelineLength = 1.0"
+ ],
+ "TastyBone": [],
+ "TNTBox": [
+  "TNTBoxItem.Size_Template:TimelineLength = 0.3",
+  "LargeExplosionCameraShake.OscillationDuration = 1.0",
+  "LargeExplosionCameraShake.OscillationBlendOutTime = 0.9",
+  "LargeExplosionCameraShake.LocOscillation.X.Amplitude = 15.0",
+  "LargeExplosionCameraShake.LocOscillation.X.Frequency = 101.0",
+  "LargeExplosionCameraShake.LocOscillation.Y.Amplitude = 15.0",
+  "LargeExplosionCameraShake.LocOscillation.Y.Frequency = 101.0",
+  "LargeExplosionCameraShake.LocOscillation.Z.Amplitude = 15.0",
+  "LargeExplosionCameraShake.LocOscillation.Z.Frequency = 101.0"
+ ],
+ "DifficultyToken": [],
+ "MysteryToken": [],
+ "TomeOfDuplication": [
+  "TomeOfDuplicationInstance.WindUpTime = 0.8"
+ ],
+ "TormentProjectile": [
+  "TormentProjectile.LifetimeThresholdSeconds = 0.5",
+  "TormentProjectile.pushback.pushbackStrength = 4.0",
+  "TormentProjectile.pushback.pushbackZFactor = 0.5",
+  "TormentProjectile.HomingThreshold = 150.0",
+  "TormentProjectile.MaxProjectileLifeTime = 2.0",
+  "TormentProjectile.Projectile Movement Component:InitialSpeed = 750.0",
+  "TormentProjectile.Projectile Movement Component:MaxSpeed = 750.0"
+ ],
+ "TormentQuiver": [],
+ "TotemOfRegeneration": [
+  "TotemOfRegenerationActor.Radius = 600.0",
+  "TotemOfRegenerationActor.WeakenedVitalityThresholds[0].Threshold = 0.3",
+  "TotemOfRegenerationActor.WeakenedVitalityThresholds[1].Threshold = 0.3",
+  "TotemOfRegenerationActor.WeakenedVitalityThresholds[2].Threshold = 0.1",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].LODHysteresis = 0.02",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].ReductionSettings.NumOfTrianglesPercentage = 0.5",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].ReductionSettings.NumOfVertPercentage = 0.5",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].ReductionSettings.MaxDeviationPercentage = 0.5",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].ReductionSettings.WeldingThreshold = 0.1",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].ReductionSettings.NormalsThreshold = 60.0",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].ReductionSettings.MaxBonesPerVertex = 4",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].ReductionSettings.VolumeImportance = 1.0",
+  "TotemOfRegeneration.TotemOfRegeneration:LODInfo[0].WeightOfPrioritization = 1.0"
+ ],
+ "TotemOfShielding": [
+  "TotemOfShieldingShield.DestroyTime = 10.0",
+  "TotemOfShieldingShield.WeakenedVitalityThresholds[0].Threshold = 0.3",
+  "TotemOfShieldingShield.WeakenedVitalityThresholds[1].Threshold = 0.2",
+  "TotemOfShieldingShield.WeakenedVitalityThresholds[2].Threshold = 0.1",
+  "TotemOfShieldingShield.SphereCollision_GEN_VARIABLE:SphereRadius = 440.0"
+ ],
+ "WindHorn": [
+  "WindHornInstance.WindPush.pushbackStrength = 4.5",
+  "WindHornInstance.WindPush.pushbackMultiplierRespectFactor = 0.5"
+ ],
+ "WonderfulWheat": [],
+ "ChargedRedstoneMines": [
+  "ChargedRedstoneMine.TimeTillSetup = 1.25",
+  "ChargedRedstoneMine.Pushback.pushbackStrength = 6.0",
+  "ChargedRedstoneMine.Pushback.pushbackZFactor = 2.0",
+  "ChargedRedstoneMine.MineCollission:SphereRadius = 150.0",
+  "ChargedRedstoneMine.Timeline_0_Template:TimelineLength = 2.0",
+  "ChargedRedstoneMinesInstance.DamagePerMine = 660",
+  "ChargedRedstoneMinesInstance.MineSpawnCone = 180.0",
+  "ChargedRedstoneMinesInstance.MineSpawnDistance = 250.0",
+  "ChargedRedstoneMinesInstance.MineKnockbackStrength = 6.0"
+ ],
+ "CorruptedBeacon_Spooky1": [],
+ "EnchantersTome": [
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_10:AggGeom.BoxElems[0].X = 50.5",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_10:AggGeom.BoxElems[0].Y = 6.948",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_11:AggGeom.BoxElems[0].X = 45.786",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_11:AggGeom.BoxElems[0].Y = 3.156",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_12:AggGeom.BoxElems[0].X = 50.5",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_12:AggGeom.BoxElems[0].Y = 6.313",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_13:AggGeom.BoxElems[0].X = 50.105",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_13:AggGeom.BoxElems[0].Y = 3.295",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_14:AggGeom.BoxElems[0].X = 1.01",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_14:AggGeom.BoxElems[0].Y = 1.01",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_15:AggGeom.BoxElems[0].X = 1.01",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_15:AggGeom.BoxElems[0].Y = 1.01",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_16:AggGeom.BoxElems[0].X = 1.01",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_16:AggGeom.BoxElems[0].Y = 1.01",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_17:AggGeom.BoxElems[0].X = 1.01",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_17:AggGeom.BoxElems[0].Y = 1.01",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_9:AggGeom.BoxElems[0].X = 6.313",
+  "EnchantersTome_PhysicsAsset.SkeletalBodySetup_9:AggGeom.BoxElems[0].Y = 18.938"
+ ],
+ "Food6": [],
+ "DenseBrew": [],
+ "SatchelOfTheElements": [
+  "SatchelOfTheElementsInstance.EffectRange = 540"
+ ],
+ "UpdraftTome": [
+  "UpdraftTomeInstance.UpdraftLaunchHeight = 8.5",
+  "UpdraftTomeInstance.UpdraftStunDuration = 2.0"
+ ],
+ "MobMasher": [
+  "MobMasherInstance.ShockwaveDamage = 259.0",
+  "MobMasherInstance.AttackStacks = 5",
+  "MobMasherShockWave.ExpandDurationSeconds = 0.1",
+  "MobMasherShockWave.ExpandTargetRadius = 300.0",
+  "MobMasherShockWave.HitPushback.pushbackStrength = 3.0"
+ ],
+ "NetherWartSporeGrenade": [
+  "SporeGrenade.Pushback.pushbackStrength = 5.0",
+  "SporeGrenade.Pulse_Template:TimelineLength = 0.3"
+ ],
+ "SpinWheel": [
+  "SpinWheelActor.MaxSpeed = 4000.0",
+  "SpinWheelActor.LaunchSideInfluence.TargetSize = 1000.0",
+  "SpinWheelActor.LaunchSideInfluence.Acceleration = 1000.0",
+  "SpinWheelActor.ArcSideInfluence.TargetSize = 1500.0",
+  "SpinWheelActor.ArcSideInfluence.Acceleration = 500.0",
+  "SpinWheelActor.ReturnInfluence.Acceleration = 8000.0",
+  "SpinWheelActor.SuckInDistance = 220.0",
+  "SpinWheelActor.AbsorbDistance = 80.0",
+  "SpinWheelActor.Sphere_GEN_VARIABLE:SphereRadius = 160.0",
+  "SpinWheelInstance.LaunchVelocity = 4000.0",
+  "SpinWheelInstance.LaunchDelay = 0.05",
+  "SpinWheelInstance.Damage = 120.0"
+ ],
+ "ThunderingArrow": [
+  "ThunderingArrow.SerializedExplosionDamage = 37.5",
+  "ThunderingArrow.SerializedExplosionRadius = 150.0",
+  "ThunderingArrow.ExplosionAction_0:ExplosionRadius = 150.0",
+  "ThunderingArrow.ExplosionAction_0:ExplosionDamage = 37.5"
+ ],
+ "ThunderingQuiver": [],
+ "Conduit": [
+  "ConduitItem.SpeedBoostHandle.Handle = -1",
+  "ConduitItem.GameplayEffectTriggerSphere_GEN_VARIABLE:SphereRadius = 500.0",
+  "ConduitItem.eye_GEN_VARIABLE:Elements[0].BaseSizeX = 36.0",
+  "ConduitItem.eye_GEN_VARIABLE:Elements[0].BaseSizeY = 36.0",
+  "ConduitItem.NearMissTargetCollider_GEN_VARIABLE:SphereRadius = 200.0"
+ ],
+ "Food7": [],
+ "GuardianEye": [
+  "GuardianEyeInstance.baseDamage = 200.0",
+  "GuardianEyeInstance.aimingTime = 0.8",
+  "GuardianEyeInstance.laserTime = 4.0",
+  "GuardianEyeInstance.onKillPushback.pushbackStrength = 12.0",
+  "GuardianEyeInstance.onKillPushback.pushbackZFactor = -0.5"
+ ],
+ "HeavyHarpoon": [],
+ "HeavyHarpoonQuiver": [],
+ "WaterBreathingPotion": [],
+ "SatchelofNeed": [],
+ "SatchelofNourishment": [],
+ "Trident": [
+  "TridentItem.EffectRadius = 900.0",
+  "TridentItemProjectile.damage = 100.0",
+  "TridentItemProjectile.Projectile Movement Component:HomingAccelerationMagnitude = 2500000.0",
+  "TridentItemProjectile.Sphere_GEN_VARIABLE:SphereRadius = 18.0"
+ ],
+ "EyeOfEnder": [
+  "EyeOfEnderStorable.Item Drop Effect:DropVelocityMin = 110.0",
+  "EyeOfEnderStorable.Item Drop Effect:DropVelocityMax = 130.0"
+ ],
+ "Food8": [],
+ "LostEvocation": [
+  "LostEvocationInstance.PetAmountCap = 3",
+  "LostEvocationStorable.Item Drop Effect:DropConeRadius = 0.1"
+ ],
+ "PoisonArrow": [],
+ "ShadowSplinter": [
+  "ShadowSplinterInstance.PercentageOfTotalCooldownRefunded = 0.4",
+  "ShadowSplinterInstance.SharedPassiveCooldown = 0.5"
+ ],
+ "VoidArrow": [
+  "VoidArrow.damage = 50.0",
+  "VoidArrow.EffectToRandomTargetsAction_2:Period = -1.0",
+  "VoidArrow.EffectToRandomTargetsAction_2:SearchRadius = 400.0",
+  "VoidArrow.EffectToRandomTargetsAction_2:MaxTargets = 15.0",
+  "VoidArrow.EffectToRandomTargetsAction_2:PowerLevel = 3.0",
+  "VoidArrow.EffectToRandomTargetsAction_3:Period = -1.0",
+  "VoidArrow.EffectToRandomTargetsAction_3:SearchRadius = 400.0",
+  "VoidArrow.EffectToRandomTargetsAction_3:MaxTargets = 15.0",
+  "VoidArrow.EffectToRandomTargetsAction_3:PowerLevel = 3.0"
+ ],
+ "VoidQuiver": [],
+ "Beenest": [
+  "Beenest.AutoDestroyDelay = 4.0",
+  "Beenest.SpawnRadius = 150.0",
+  "BeenestInstance.SpawnDelayRangeMin = 1.0",
+  "BeenestInstance.SpawnDelayRangeMax = 1.3"
+ ],
+ "RainbowGrass": [
+  "RainbowGrassInstance.MobsToChooseFrom[0].Weight = 1.0",
+  "RainbowGrassInstance.MobsToChooseFrom[1].Weight = 1.0",
+  "RainbowGrassInstance.MobsToChooseFrom[2].Weight = 1.0",
+  "RainbowGrassInstance.IncreasedMaxHealthMultiplier = 2.5"
+ ],
+ "SoulLantern": [
+  "SoulLanternInstance.SharedPassiveCooldown = 0.2"
+ ]
+}

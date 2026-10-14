@@ -1,0 +1,50 @@
+# Sequel Mod - text overrides (English)
+#
+# Each line replaces one piece of in-game text. Keys are "Namespace/Key" from the game's text file
+# (tools/game_en.json lists them all). {0}, {1} are numbers the game fills in; keep them if you want
+# the game's number, drop them if it would be wrong. Delete a line to restore the original text.
+# Built into the same SequelMod_P.pak by:  python tools/sequel.py build
+
+[en]
+# Ambush - the game fills {0} from its code default (20/40/60), but the mod's value is 50% per level.
+# Original: "{0}% Damage Bonus"
+"Enchantment/Backstabber_effect" = "+50% Damage Bonus per level"
+
+# Explorer - heals every 10 blocks now (number is written into the text).
+# Original: "For every one hundred blocks explored on the map, you regain a small amount of health."
+"Enchantment/Explorer_desc" = "For every ten blocks explored on the map, you regain a small amount of health."
+
+# Fuse Shot - the 0.1 s fuse shows as "zero seconds".
+# Original: "Every few shots has a timed charge that explodes {0} after impact, dealing {1} damage to nearby mobs."
+"Enchantment/FuseShot_desc" = "Every few shots has a timed charge that explodes almost instantly after impact, dealing {1} damage to nearby mobs."
+
+# Cowardice - the game's {0} shows its own +20/30/40%; the mod adds a flat +20% on top, so the text lists the
+# real values for all three tiers (one text serves every tier, so it can't show just the current one).
+# Original: "{0} increased ranged and melee damage"
+"Enchantment/Cowardice_effect" = "{0} +20% increased ranged and melee damage"
+
+# Frenzied - same: {0} is the game's own number; the mod adds a flat +30% on top.
+# Original: "{0} attack speed"
+"Enchantment/Frenzied_effect" = "{0} +30% attack speed"
+
+# Apocalypse+ mission screen - the game prints the raw health/damage multiplier here. Past A+25 the mod uses that
+# multiplier to slow the mobs' own growth down, so the number falls even though mobs get stronger every level.
+# Originals: "{0}x mob health" / "{0}x mob damage"
+"Mission/endless_struggle_mob_health" = "Mobs have more health"
+"Mission/endless_struggle_mob_damage" = "Mobs deal more damage"
+
+# Armor perks whose numbers the mod changed (SequelMod.toml, [Enchantments.Perk...]). The game fills {0} itself and
+# may already show the new number; the value is written out here so the text is right either way.
+# Keep these in step with the values if they change again.
+# Original: "{0} healing boost"                       (25% -> 50%)
+"ArmorProperties/HealingAura_description" = "50% healing boost"
+# Original: "{0} movespeed aura"                      (15% -> 25%)
+"ArmorProperties/MoveSpeedAura_description" = "+25% movespeed aura"
+# Original: "{0} ranged damage"                       (30% -> 40%)
+"ArmorProperties/RangedDamageBoost_description" = "+40% ranged damage"
+# Original: "{0} chance to teleport away when hit"    (5% -> 15%)
+"ArmorProperties/TeleportChance_description" = "15% chance to teleport away when hit"
+
+# A typo in the game itself: durations of more than one second read "3 second" (seen on Poison Cloud; user, 2026-10-13).
+# Original: "{0} second"
+"ValuesFormat/duration_seconds_more_than_1" = "{0} seconds"

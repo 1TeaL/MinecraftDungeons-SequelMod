@@ -1,0 +1,1433 @@
+{
+ "MeleeWeapons/Anchor": {
+  "fn": "0x1494b0",
+  "global": "0x44f14b8",
+  "builtin_ids": [
+   34,
+   14
+  ]
+ },
+ "MeleeWeapons/Anchor_Unique1": {
+  "fn": "0x1497e0",
+  "global": "0x44f14c0",
+  "builtin_ids": [
+   11,
+   34,
+   14
+  ]
+ },
+ "Armor/ArchersStrappings": {
+  "fn": "0x149b20",
+  "global": "0x44f1798",
+  "builtin_ids": []
+ },
+ "Armor/ArchersStrappings_Unique1": {
+  "fn": "0x149d90",
+  "global": "0x44f17a0",
+  "builtin_ids": []
+ },
+ "Armor/AssassinArmor": {
+  "fn": "0x14a1a0",
+  "global": "0x44f17a8",
+  "builtin_ids": []
+ },
+ "Armor/AssassinArmor_Unique1": {
+  "fn": "0x14a410",
+  "global": "0x44f17b0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Axe": {
+  "fn": "0x14a690",
+  "global": "0x44f1420",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Axe_Unique1": {
+  "fn": "0x14a910",
+  "global": "0x44f1428",
+  "builtin_ids": [
+   5
+  ]
+ },
+ "MeleeWeapons/Axe_Unique2": {
+  "fn": "0x14abb0",
+  "global": "0x44f1430",
+  "builtin_ids": [
+   17
+  ]
+ },
+ "MeleeWeapons/Backstabber": {
+  "fn": "0x14ae50",
+  "global": "0x44f13b0",
+  "builtin_ids": [
+   43
+  ]
+ },
+ "MeleeWeapons/Backstabber_Unique1": {
+  "fn": "0x14b0f0",
+  "global": "0x44f13b8",
+  "builtin_ids": [
+   43,
+   26
+  ]
+ },
+ "Armor/BardsGarb": {
+  "fn": "0x14b5e1",
+  "global": "0x44f1920",
+  "builtin_ids": []
+ },
+ "Armor/BardsGarb_Unique1": {
+  "fn": "0x14b850",
+  "global": "0x44f1928",
+  "builtin_ids": [
+   159
+  ]
+ },
+ "RangedWeapons/BatCrossbow": {
+  "fn": "0x14bb00",
+  "global": "0x44f15e0",
+  "builtin_ids": [
+   88,
+   89
+  ]
+ },
+ "Armor/BattleRobe": {
+  "fn": "0x14bda0",
+  "global": "0x44f17b8",
+  "builtin_ids": []
+ },
+ "Armor/BattleRobe_Unique1": {
+  "fn": "0x14c010",
+  "global": "0x44f17c0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Battlestaff": {
+  "fn": "0x14c250",
+  "global": "0x44f1310",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Battlestaff_Unique1": {
+  "fn": "0x14c4d0",
+  "global": "0x44f1318",
+  "builtin_ids": [
+   21
+  ]
+ },
+ "MeleeWeapons/Battlestaff_Unique2": {
+  "fn": "0x14c780",
+  "global": "0x44f1320",
+  "builtin_ids": [
+   7
+  ]
+ },
+ "Armor/BeeNestArmor": {
+  "fn": "0x14ccc2",
+  "global": "0x44f1728",
+  "builtin_ids": []
+ },
+ "Armor/BeenestArmor_Unique1": {
+  "fn": "0x14cf50",
+  "global": "0x44f1750",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Boneclub": {
+  "fn": "0x14d1f0",
+  "global": "0x44f13e0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Boneclub_Unique1": {
+  "fn": "0x14d470",
+  "global": "0x44f13e8",
+  "builtin_ids": [
+   31
+  ]
+ },
+ "RangedWeapons/Bow": {
+  "fn": "0x14d9c2",
+  "global": "0x44f14c8",
+  "builtin_ids": []
+ },
+ "RangedWeapons/Bow_Spooky1": {
+  "fn": "0x14dc10",
+  "global": "0x44f14d0",
+  "builtin_ids": [
+   67
+  ]
+ },
+ "RangedWeapons/Bow_Unique1": {
+  "fn": "0x14de70",
+  "global": "0x44f14d8",
+  "builtin_ids": [
+   72
+  ]
+ },
+ "RangedWeapons/Bow_Unique2": {
+  "fn": "0x14e0d0",
+  "global": "0x44f14e0",
+  "builtin_ids": [
+   67
+  ]
+ },
+ "RangedWeapons/BubbleBow": {
+  "fn": "0x14e39a",
+  "global": "0x44f16d0",
+  "builtin_ids": []
+ },
+ "RangedWeapons/BubbleBow_Spooky2": {
+  "fn": "0x14e620",
+  "global": "0x44f16e0",
+  "builtin_ids": [
+   69,
+   80
+  ]
+ },
+ "RangedWeapons/BubbleBow_Unique1": {
+  "fn": "0x14e940",
+  "global": "0x44f16d8",
+  "builtin_ids": [
+   69,
+   80
+  ]
+ },
+ "RangedWeapons/BurstCrossbow": {
+  "fn": "0x14f220",
+  "global": "0x44f1630",
+  "builtin_ids": []
+ },
+ "RangedWeapons/BurstCrossbow_Unique1": {
+  "fn": "0x14f4a0",
+  "global": "0x44f1638",
+  "builtin_ids": [
+   60
+  ]
+ },
+ "RangedWeapons/BurstCrossbow_Unique2": {
+  "fn": "0x14f750",
+  "global": "0x44f1640",
+  "builtin_ids": [
+   75
+  ]
+ },
+ "MeleeWeapons/Chainsword": {
+  "fn": "0x14fbf1",
+  "global": "0x44f1390",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Chainsword_Unique1": {
+  "fn": "0x14fdf0",
+  "global": "0x44f1398",
+  "builtin_ids": []
+ },
+ "Armor/ChampionsArmor": {
+  "fn": "0x150020",
+  "global": "0x44f17f8",
+  "builtin_ids": []
+ },
+ "Armor/ChampionsArmor_Unique1": {
+  "fn": "0x1502a0",
+  "global": "0x44f1800",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Claymore": {
+  "fn": "0x1507c0",
+  "global": "0x44f12a0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Claymore_Unique1": {
+  "fn": "0x150a40",
+  "global": "0x44f12a8",
+  "builtin_ids": [
+   12
+  ]
+ },
+ "MeleeWeapons/Claymore_Unique2": {
+  "fn": "0x150ce0",
+  "global": "0x44f12b0",
+  "builtin_ids": [
+   null
+  ]
+ },
+ "MeleeWeapons/Claymore_Unique3": {
+  "fn": "0x150f90",
+  "global": "0x44f12b8",
+  "builtin_ids": [
+   30
+  ]
+ },
+ "MeleeWeapons/Claymore_Winter1": {
+  "fn": "0x151230",
+  "global": "0x44f12c0",
+  "builtin_ids": [
+   null
+  ]
+ },
+ "Armor/ClimbingGear": {
+  "fn": "0x1514e0",
+  "global": "0x44f18c0",
+  "builtin_ids": []
+ },
+ "Armor/ClimbingGear_Unique1": {
+  "fn": "0x151750",
+  "global": "0x44f18c8",
+  "builtin_ids": []
+ },
+ "Armor/ClimbingGear_Unique2": {
+  "fn": "0x1519a0",
+  "global": "0x44f18d0",
+  "builtin_ids": [
+   134
+  ]
+ },
+ "RangedWeapons/CogCrossbow": {
+  "fn": "0x151c00",
+  "global": "0x44f15b0",
+  "builtin_ids": [
+   78,
+   65,
+   71
+  ]
+ },
+ "RangedWeapons/CogCrossbow_Unique1": {
+  "fn": "0x151f40",
+  "global": "0x44f15b8",
+  "builtin_ids": [
+   55,
+   78,
+   65,
+   71
+  ]
+ },
+ "MeleeWeapons/CoralBlade": {
+  "fn": "0x1523f0",
+  "global": "0x44f14a8",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/CoralBlade_Unique1": {
+  "fn": "0x152670",
+  "global": "0x44f14b0",
+  "builtin_ids": [
+   33
+  ]
+ },
+ "Armor/CowardsArmor": {
+  "fn": "0x153200",
+  "global": "0x44f1708",
+  "builtin_ids": []
+ },
+ "Armor/CowardsArmor_Unique1": {
+  "fn": "0x153470",
+  "global": "0x44f1710",
+  "builtin_ids": []
+ },
+ "RangedWeapons/Crossbow": {
+  "fn": "0x153ad0",
+  "global": "0x44f15c0",
+  "builtin_ids": []
+ },
+ "RangedWeapons/Crossbow_Unique1": {
+  "fn": "0x153d50",
+  "global": "0x44f15c8",
+  "builtin_ids": [
+   55
+  ]
+ },
+ "RangedWeapons/Crossbow_Unique2": {
+  "fn": "0x154000",
+  "global": "0x44f15d0",
+  "builtin_ids": [
+   65
+  ]
+ },
+ "MeleeWeapons/Cutlass": {
+  "fn": "0x1542f0",
+  "global": "0x44f13c0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Cutlass_Unique1": {
+  "fn": "0x154570",
+  "global": "0x44f13c8",
+  "builtin_ids": [
+   28
+  ]
+ },
+ "MeleeWeapons/Cutlass_Unique2": {
+  "fn": "0x154810",
+  "global": "0x44f13d0",
+  "builtin_ids": [
+   6
+  ]
+ },
+ "MeleeWeapons/Cutlass_Year1": {
+  "fn": "0x154ab0",
+  "global": "0x44f13d8",
+  "builtin_ids": [
+   6
+  ]
+ },
+ "MeleeWeapons/Daggers": {
+  "fn": "0x154d60",
+  "global": "0x44f1370",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Daggers_Unique1": {
+  "fn": "0x154fe0",
+  "global": "0x44f1378",
+  "builtin_ids": [
+   9
+  ]
+ },
+ "MeleeWeapons/Daggers_Unique2": {
+  "fn": "0x155280",
+  "global": "0x44f1380",
+  "builtin_ids": [
+   15
+  ]
+ },
+ "MeleeWeapons/Daggers_Unique3": {
+  "fn": "0x1555a1",
+  "global": "0x44f1388",
+  "builtin_ids": []
+ },
+ "Armor/DarkArmor": {
+  "fn": "0x1557e0",
+  "global": "0x44f17c8",
+  "builtin_ids": []
+ },
+ "Armor/DarkArmor_Unique1": {
+  "fn": "0x155a50",
+  "global": "0x44f17d0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/DoubleAxe": {
+  "fn": "0x156a30",
+  "global": "0x44f1348",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/DoubleAxe_Unique1": {
+  "fn": "0x156ca0",
+  "global": "0x44f1350",
+  "builtin_ids": [
+   27
+  ]
+ },
+ "MeleeWeapons/DoubleAxe_Unique2": {
+  "fn": "0x156f50",
+  "global": "0x44f1358",
+  "builtin_ids": [
+   7
+  ]
+ },
+ "RangedWeapons/DualCrossbows": {
+  "fn": "0x157620",
+  "global": "0x44f1648",
+  "builtin_ids": []
+ },
+ "RangedWeapons/DualCrossbows_Unique1": {
+  "fn": "0x1578a0",
+  "global": "0x44f1650",
+  "builtin_ids": [
+   68
+  ]
+ },
+ "RangedWeapons/DualCrossbows_Unique2": {
+  "fn": "0x157b40",
+  "global": "0x44f1658",
+  "builtin_ids": [
+   72
+  ]
+ },
+ "Armor/EmeraldArmor": {
+  "fn": "0x158160",
+  "global": "0x44f18d8",
+  "builtin_ids": [
+   135
+  ]
+ },
+ "Armor/EmeraldArmor_Unique1": {
+  "fn": "0x158450",
+  "global": "0x44f18e0",
+  "builtin_ids": [
+   135
+  ]
+ },
+ "Armor/EmeraldArmor_Unique2": {
+  "fn": "0x158700",
+  "global": "0x44f18e8",
+  "builtin_ids": [
+   135,
+   136
+  ]
+ },
+ "Armor/EndRobes": {
+  "fn": "0x158e7a",
+  "global": "0x44f1930",
+  "builtin_ids": []
+ },
+ "Armor/EndRobes_Unique1": {
+  "fn": "0x159100",
+  "global": "0x44f1938",
+  "builtin_ids": [
+   153
+  ]
+ },
+ "Armor/EvocationRobe": {
+  "fn": "0x1594c0",
+  "global": "0x44f1780",
+  "builtin_ids": []
+ },
+ "Armor/EvocationRobe_Unique1": {
+  "fn": "0x159730",
+  "global": "0x44f1788",
+  "builtin_ids": [
+   108
+  ]
+ },
+ "Armor/EvocationRobe_Unique2": {
+  "fn": "0x159976",
+  "global": "0x44f1790",
+  "builtin_ids": [
+   128
+  ]
+ },
+ "RangedWeapons/ExplodingCrossbow": {
+  "fn": "0x159d60",
+  "global": "0x44f1678",
+  "builtin_ids": [
+   69
+  ]
+ },
+ "RangedWeapons/ExplodingCrossbow_Unique1": {
+  "fn": "0x15a050",
+  "global": "0x44f1680",
+  "builtin_ids": [
+   69,
+   58
+  ]
+ },
+ "RangedWeapons/ExplodingCrossbow_Unique2": {
+  "fn": "0x15a370",
+  "global": "0x44f1b30",
+  "builtin_ids": [
+   69,
+   57
+  ]
+ },
+ "Armor/FullPlateArmor": {
+  "fn": "0x15c610",
+  "global": "0x44f1850",
+  "builtin_ids": []
+ },
+ "Armor/FullPlateArmor_Spooky2": {
+  "fn": "0x15c890",
+  "global": "0x44f1860",
+  "builtin_ids": []
+ },
+ "Armor/FullPlateArmor_Unique1": {
+  "fn": "0x15cad0",
+  "global": "0x44f1858",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Gauntlets": {
+  "fn": "0x15cd10",
+  "global": "0x44f12f0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Gauntlets_Unique1": {
+  "fn": "0x15cf90",
+  "global": "0x44f12f8",
+  "builtin_ids": [
+   15
+  ]
+ },
+ "MeleeWeapons/Gauntlets_Unique2": {
+  "fn": "0x15d240",
+  "global": "0x44f1300",
+  "builtin_ids": [
+   6
+  ]
+ },
+ "MeleeWeapons/Gauntlets_Unique3": {
+  "fn": "0x15d4e0",
+  "global": "0x44f1308",
+  "builtin_ids": []
+ },
+ "Armor/GhostArmor": {
+  "fn": "0x15d710",
+  "global": "0x44f1768",
+  "builtin_ids": []
+ },
+ "Armor/GhostArmor_Spooky2": {
+  "fn": "0x15d980",
+  "global": "0x44f1778",
+  "builtin_ids": [
+   111
+  ]
+ },
+ "Armor/GhostArmor_Unique1": {
+  "fn": "0x15dbf0",
+  "global": null,
+  "builtin_ids": [
+   111
+  ]
+ },
+ "MeleeWeapons/Glaive": {
+  "fn": "0x15e340",
+  "global": "0x44f1328",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Glaive_Spooky2": {
+  "fn": "0x15e5c0",
+  "global": "0x44f1340",
+  "builtin_ids": [
+   20
+  ]
+ },
+ "MeleeWeapons/Glaive_Unique1": {
+  "fn": "0x15e870",
+  "global": "0x44f1330",
+  "builtin_ids": [
+   20
+  ]
+ },
+ "MeleeWeapons/Glaive_Unique2": {
+  "fn": "0x15eb10",
+  "global": "0x44f1338",
+  "builtin_ids": [
+   10
+  ]
+ },
+ "Armor/GrimArmor": {
+  "fn": "0x15f950",
+  "global": "0x44f1828",
+  "builtin_ids": []
+ },
+ "Armor/GrimArmor_Spooky2": {
+  "fn": "0x15fbc0",
+  "global": "0x44f1838",
+  "builtin_ids": []
+ },
+ "Armor/GrimArmor_Unique1": {
+  "fn": "0x15fe10",
+  "global": null,
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Hammer": {
+  "fn": "0x1602f2",
+  "global": "0x44f1438",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Hammer_Unique1": {
+  "fn": "0x160590",
+  "global": "0x44f1440",
+  "builtin_ids": [
+   25
+  ]
+ },
+ "MeleeWeapons/Hammer_Unique2": {
+  "fn": "0x160830",
+  "global": "0x44f1448",
+  "builtin_ids": [
+   14
+  ]
+ },
+ "RangedWeapons/HarpoonCrossbow": {
+  "fn": "0x160ad0",
+  "global": "0x44f16e8",
+  "builtin_ids": []
+ },
+ "RangedWeapons/HarpoonCrossbow_Unique1": {
+  "fn": "0x160d50",
+  "global": "0x44f16f0",
+  "builtin_ids": [
+   55
+  ]
+ },
+ "RangedWeapons/HeavyCrossbow": {
+  "fn": "0x1617b0",
+  "global": "0x44f15e8",
+  "builtin_ids": []
+ },
+ "RangedWeapons/HeavyCrossbow_Unique1": {
+  "fn": "0x161aa1",
+  "global": "0x44f15f0",
+  "builtin_ids": []
+ },
+ "RangedWeapons/HeavyCrossbow_Unique2": {
+  "fn": "0x161ce0",
+  "global": "0x44f15f8",
+  "builtin_ids": [
+   50
+  ]
+ },
+ "RangedWeapons/HuntingBow": {
+  "fn": "0x1623f0",
+  "global": "0x44f1540",
+  "builtin_ids": [
+   59
+  ]
+ },
+ "RangedWeapons/HuntingBow_Unique1": {
+  "fn": "0x162690",
+  "global": "0x44f1548",
+  "builtin_ids": [
+   59,
+   53
+  ]
+ },
+ "RangedWeapons/HuntingBow_Unique2": {
+  "fn": "0x162930",
+  "global": "0x44f1550",
+  "builtin_ids": [
+   59,
+   51
+  ]
+ },
+ "RangedWeapons/HuntingBow_Unique3": {
+  "fn": "0x162bd0",
+  "global": "0x44f1558",
+  "builtin_ids": [
+   59,
+   75
+  ]
+ },
+ "MeleeWeapons/Katana": {
+  "fn": "0x163930",
+  "global": "0x44f1250",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Katana_Unique1": {
+  "fn": "0x163b60",
+  "global": "0x44f1258",
+  "builtin_ids": [
+   8
+  ]
+ },
+ "MeleeWeapons/Katana_Unique2": {
+  "fn": "0x163dc0",
+  "global": "0x44f1260",
+  "builtin_ids": [
+   20
+  ]
+ },
+ "RangedWeapons/Longbow": {
+  "fn": "0x1649e0",
+  "global": "0x44f1528",
+  "builtin_ids": []
+ },
+ "RangedWeapons/Longbow_Unique1": {
+  "fn": "0x164c60",
+  "global": "0x44f1530",
+  "builtin_ids": [
+   66
+  ]
+ },
+ "RangedWeapons/Longbow_Unique2": {
+  "fn": "0x164f00",
+  "global": "0x44f1538",
+  "builtin_ids": [
+   69
+  ]
+ },
+ "MeleeWeapons/Mace": {
+  "fn": "0x1656e0",
+  "global": "0x44f13f0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Mace_Unique1": {
+  "fn": "0x165910",
+  "global": "0x44f13f8",
+  "builtin_ids": [
+   23
+  ]
+ },
+ "MeleeWeapons/Mace_Unique2": {
+  "fn": "0x165b70",
+  "global": "0x44f1400",
+  "builtin_ids": [
+   24
+  ]
+ },
+ "Armor/MercenaryArmor": {
+  "fn": "0x165e80",
+  "global": "0x44f1808",
+  "builtin_ids": []
+ },
+ "Armor/MercenaryArmor_Spooky1": {
+  "fn": "0x1660f0",
+  "global": "0x44f1818",
+  "builtin_ids": []
+ },
+ "Armor/MercenaryArmor_Spooky2": {
+  "fn": "0x166340",
+  "global": "0x44f1820",
+  "builtin_ids": []
+ },
+ "Armor/MercenaryArmor_Unique1": {
+  "fn": "0x166590",
+  "global": "0x44f1810",
+  "builtin_ids": []
+ },
+ "Armor/MysteryArmor": {
+  "fn": "0x166ab0",
+  "global": "0x44f1890",
+  "builtin_ids": []
+ },
+ "Armor/MysteryArmor_Unique1": {
+  "fn": "0x166cf0",
+  "global": "0x44f1898",
+  "builtin_ids": []
+ },
+ "Armor/NatureArmor": {
+  "fn": "0x167c10",
+  "global": "0x44f1940",
+  "builtin_ids": []
+ },
+ "Armor/NatureArmor_Unique1": {
+  "fn": "0x167e80",
+  "global": "0x44f1ab0",
+  "builtin_ids": [
+   116
+  ]
+ },
+ "MeleeWeapons/ObsidianClaymore": {
+  "fn": "0x1683f1",
+  "global": "0x44f12c8",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/ObsidianClaymore_Unique1": {
+  "fn": "0x1685f0",
+  "global": "0x44f12d0",
+  "builtin_ids": [
+   41
+  ]
+ },
+ "Armor/OcelotArmor": {
+  "fn": "0x168890",
+  "global": "0x44f18a0",
+  "builtin_ids": []
+ },
+ "Armor/OcelotArmor_Unique1": {
+  "fn": "0x168b00",
+  "global": "0x44f18a8",
+  "builtin_ids": []
+ },
+ "Armor/PhantomArmor": {
+  "fn": "0x168e70",
+  "global": "0x44f1840",
+  "builtin_ids": []
+ },
+ "Armor/PhantomArmor_Unique1": {
+  "fn": "0x1690e0",
+  "global": "0x44f1848",
+  "builtin_ids": [
+   109
+  ]
+ },
+ "MeleeWeapons/Pickaxe_Steel": {
+  "fn": "0x169326",
+  "global": "0x44f1408",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Pickaxe_Unique1_Steel": {
+  "fn": "0x169570",
+  "global": "0x44f1410",
+  "builtin_ids": [
+   4
+  ]
+ },
+ "MeleeWeapons/Pickaxe_Unique2_Steel": {
+  "fn": "0x1697d0",
+  "global": "0x44f1418",
+  "builtin_ids": [
+   2
+  ]
+ },
+ "Armor/PiglinArmor": {
+  "fn": "0x169a30",
+  "global": "0x44f1740",
+  "builtin_ids": []
+ },
+ "Armor/PiglinArmor_Unique1": {
+  "fn": "0x169ca0",
+  "global": "0x44f1748",
+  "builtin_ids": [
+   117
+  ]
+ },
+ "RangedWeapons/PowerBow": {
+  "fn": "0x16a290",
+  "global": "0x44f1590",
+  "builtin_ids": []
+ },
+ "RangedWeapons/PowerBow_Spooky2": {
+  "fn": "0x16a500",
+  "global": "0x44f15a8",
+  "builtin_ids": [
+   51
+  ]
+ },
+ "RangedWeapons/PowerBow_Unique1": {
+  "fn": "0x16a7b0",
+  "global": "0x44f1598",
+  "builtin_ids": [
+   51
+  ]
+ },
+ "RangedWeapons/PowerBow_Unique2": {
+  "fn": "0x16aa50",
+  "global": "0x44f15a0",
+  "builtin_ids": [
+   70
+  ]
+ },
+ "RangedWeapons/RapidCrossbow": {
+  "fn": "0x16b2d0",
+  "global": "0x44f1600",
+  "builtin_ids": []
+ },
+ "RangedWeapons/RapidCrossbow_Unique1": {
+  "fn": "0x16b540",
+  "global": "0x44f1608",
+  "builtin_ids": [
+   67
+  ]
+ },
+ "RangedWeapons/RapidCrossbow_Unique2": {
+  "fn": "0x16b7e0",
+  "global": "0x44f1610",
+  "builtin_ids": [
+   71
+  ]
+ },
+ "MeleeWeapons/Rapier": {
+  "fn": "0x16ba80",
+  "global": "0x44f1288",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Rapier_Unique1": {
+  "fn": "0x16bd98",
+  "global": "0x44f1290",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Rapier_Unique2": {
+  "fn": "0x16bfb0",
+  "global": "0x44f1298",
+  "builtin_ids": [
+   9
+  ]
+ },
+ "Armor/ReinforcedMail": {
+  "fn": "0x16c420",
+  "global": "0x44f1718",
+  "builtin_ids": []
+ },
+ "Armor/ReinforcedMail_Unique1": {
+  "fn": "0x16c6a0",
+  "global": "0x44f1720",
+  "builtin_ids": [
+   115
+  ]
+ },
+ "Armor/ScaleMail": {
+  "fn": "0x16d540",
+  "global": "0x44f1758",
+  "builtin_ids": []
+ },
+ "Armor/ScaleMail_Unique1": {
+  "fn": "0x16d7b0",
+  "global": "0x44f1760",
+  "builtin_ids": [
+   113
+  ]
+ },
+ "RangedWeapons/ScatterCrossbow": {
+  "fn": "0x16d9f6",
+  "global": "0x44f1618",
+  "builtin_ids": []
+ },
+ "RangedWeapons/ScatterCrossbow_Unique1": {
+  "fn": "0x16dc90",
+  "global": "0x44f1620",
+  "builtin_ids": []
+ },
+ "RangedWeapons/ScatterCrossbow_Unique2": {
+  "fn": "0x16dec0",
+  "global": "0x44f1628",
+  "builtin_ids": [
+   50
+  ]
+ },
+ "RangedWeapons/ShadowCrossbow": {
+  "fn": "0x16e160",
+  "global": "0x44f1690",
+  "builtin_ids": [
+   88
+  ]
+ },
+ "RangedWeapons/ShadowCrossbow_Unique1": {
+  "fn": "0x16e3e2",
+  "global": "0x44f1698",
+  "builtin_ids": [
+   88,
+   89
+  ]
+ },
+ "RangedWeapons/Shortbow": {
+  "fn": "0x16ec70",
+  "global": "0x44f1508",
+  "builtin_ids": []
+ },
+ "RangedWeapons/Shortbow_Unique1": {
+  "fn": "0x16eea0",
+  "global": "0x44f1510",
+  "builtin_ids": [
+   65
+  ]
+ },
+ "RangedWeapons/Shortbow_Unique2": {
+  "fn": "0x16f100",
+  "global": "0x44f1518",
+  "builtin_ids": [
+   71
+  ]
+ },
+ "RangedWeapons/Shortbow_Unique3": {
+  "fn": "0x16f360",
+  "global": "0x44f1520",
+  "builtin_ids": [
+   73
+  ]
+ },
+ "Armor/ShulkerArmor": {
+  "fn": "0x16f5c0",
+  "global": "0x44f1910",
+  "builtin_ids": [
+   96,
+   152
+  ]
+ },
+ "Armor/ShulkerArmor_Unique1": {
+  "fn": "0x16f8e0",
+  "global": "0x44f1918",
+  "builtin_ids": [
+   96,
+   152,
+   154
+  ]
+ },
+ "MeleeWeapons/Sickles": {
+  "fn": "0x16fbe0",
+  "global": "0x44f12d8",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Sickles_Unique1": {
+  "fn": "0x16fe60",
+  "global": "0x44f12e0",
+  "builtin_ids": [
+   10
+  ]
+ },
+ "MeleeWeapons/Sickles_Unique2": {
+  "fn": "0x170110",
+  "global": "0x44f12e8",
+  "builtin_ids": [
+   4
+  ]
+ },
+ "MeleeWeapons/SkeletonHammer": {
+  "fn": "0x1703d0",
+  "global": "0x44f1450",
+  "builtin_ids": [
+   14
+  ]
+ },
+ "RangedWeapons/SlowBow": {
+  "fn": "0x170680",
+  "global": "0x44f16a0",
+  "builtin_ids": [
+   74
+  ]
+ },
+ "RangedWeapons/SlowBow_Spooky2": {
+  "fn": "0x170902",
+  "global": "0x44f16b0",
+  "builtin_ids": [
+   74
+  ]
+ },
+ "RangedWeapons/SlowBow_Unique1": {
+  "fn": "0x170bd0",
+  "global": "0x44f16a8",
+  "builtin_ids": [
+   74
+  ]
+ },
+ "Armor/SnowArmor": {
+  "fn": "0x170e70",
+  "global": "0x44f18b0",
+  "builtin_ids": []
+ },
+ "Armor/SnowArmor_Unique1": {
+  "fn": "0x1710e0",
+  "global": "0x44f18b8",
+  "builtin_ids": [
+   105
+  ]
+ },
+ "RangedWeapons/SoulBow": {
+  "fn": "0x171340",
+  "global": "0x44f1560",
+  "builtin_ids": []
+ },
+ "RangedWeapons/SoulBow_Unique1": {
+  "fn": "0x171580",
+  "global": "0x44f1568",
+  "builtin_ids": [
+   47
+  ]
+ },
+ "RangedWeapons/SoulBow_Unique2": {
+  "fn": "0x1717e0",
+  "global": "0x44f1570",
+  "builtin_ids": [
+   54
+  ]
+ },
+ "RangedWeapons/SoulBow_Winter1": {
+  "fn": "0x171a40",
+  "global": "0x44f1588",
+  "builtin_ids": [
+   47
+  ]
+ },
+ "RangedWeapons/SoulCrossbow": {
+  "fn": "0x171cb0",
+  "global": "0x44f1660",
+  "builtin_ids": []
+ },
+ "RangedWeapons/SoulCrossbow_Unique1": {
+  "fn": "0x171ef0",
+  "global": "0x44f1668",
+  "builtin_ids": [
+   60
+  ]
+ },
+ "RangedWeapons/SoulCrossbow_Unique2": {
+  "fn": "0x172160",
+  "global": "0x44f1670",
+  "builtin_ids": [
+   58
+  ]
+ },
+ "MeleeWeapons/SoulKnife": {
+  "fn": "0x1726f1",
+  "global": "0x44f1478",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/SoulKnife_Unique1": {
+  "fn": "0x1728f0",
+  "global": "0x44f1480",
+  "builtin_ids": [
+   21
+  ]
+ },
+ "MeleeWeapons/SoulKnife_Unique2": {
+  "fn": "0x172ba0",
+  "global": "0x44f1488",
+  "builtin_ids": [
+   22
+  ]
+ },
+ "Armor/SoulRobe": {
+  "fn": "0x173140",
+  "global": "0x44f1880",
+  "builtin_ids": []
+ },
+ "Armor/SoulRobe_Unique1": {
+  "fn": "0x1733b0",
+  "global": "0x44f1888",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/SoulScythe": {
+  "fn": "0x1735f0",
+  "global": "0x44f1458",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/SoulScythe_Spooky2": {
+  "fn": "0x173830",
+  "global": "0x44f1470",
+  "builtin_ids": [
+   9
+  ]
+ },
+ "MeleeWeapons/SoulScythe_Unique1": {
+  "fn": "0x173aa0",
+  "global": "0x44f1460",
+  "builtin_ids": [
+   24
+  ]
+ },
+ "MeleeWeapons/SoulScythe_Unique2": {
+  "fn": "0x173d00",
+  "global": "0x44f1468",
+  "builtin_ids": [
+   9
+  ]
+ },
+ "MeleeWeapons/Spear": {
+  "fn": "0x1743a0",
+  "global": "0x44f1268",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Spear_Unique1": {
+  "fn": "0x174620",
+  "global": "0x44f1270",
+  "builtin_ids": [
+   26
+  ]
+ },
+ "MeleeWeapons/Spear_Unique2": {
+  "fn": "0x1748c0",
+  "global": "0x44f1278",
+  "builtin_ids": [
+   3
+  ]
+ },
+ "MeleeWeapons/Spear_spooky2": {
+  "fn": "0x174b70",
+  "global": "0x44f1280",
+  "builtin_ids": [
+   26
+  ]
+ },
+ "Armor/SpelunkersArmor": {
+  "fn": "0x174e20",
+  "global": "0x44f1868",
+  "builtin_ids": []
+ },
+ "Armor/SpelunkersArmor_Unique1": {
+  "fn": "0x175090",
+  "global": "0x44f1870",
+  "builtin_ids": []
+ },
+ "Armor/SpelunkersArmor_Year1": {
+  "fn": "0x175349",
+  "global": "0x44f1878",
+  "builtin_ids": []
+ },
+ "RangedWeapons/SpiderCrossbow": {
+  "fn": "0x175510",
+  "global": "0x44f15d8",
+  "builtin_ids": []
+ },
+ "Armor/SproutArmor": {
+  "fn": "0x175c10",
+  "global": "0x44f1730",
+  "builtin_ids": []
+ },
+ "Armor/SproutArmor_Unique1": {
+  "fn": "0x175e80",
+  "global": "0x44f1738",
+  "builtin_ids": [
+   129
+  ]
+ },
+ "Armor/SquidArmor": {
+  "fn": "0x1760e0",
+  "global": "0x44f18f0",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Sword_Steel": {
+  "fn": "0x176a70",
+  "global": "0x44f1230",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Sword_Spooky1": {
+  "fn": "0x176ca0",
+  "global": "0x44f1248",
+  "builtin_ids": [
+   8
+  ]
+ },
+ "MeleeWeapons/Sword_Unique1": {
+  "fn": "0x176f10",
+  "global": "0x44f1238",
+  "builtin_ids": [
+   null
+  ]
+ },
+ "MeleeWeapons/Sword_Unique2": {
+  "fn": "0x177170",
+  "global": "0x44f1240",
+  "builtin_ids": [
+   8
+  ]
+ },
+ "MeleeWeapons/TempestKnife": {
+  "fn": "0x177880",
+  "global": "0x44f1490",
+  "builtin_ids": [
+   32
+  ]
+ },
+ "MeleeWeapons/TempestKnife_Unique1": {
+  "fn": "0x177b20",
+  "global": "0x44f1498",
+  "builtin_ids": [
+   32,
+   21
+  ]
+ },
+ "MeleeWeapons/TempestKnife_Unique2": {
+  "fn": "0x177dc0",
+  "global": "0x44f14a0",
+  "builtin_ids": [
+   32,
+   9
+  ]
+ },
+ "RangedWeapons/Trickbow": {
+  "fn": "0x179770",
+  "global": "0x44f14e8",
+  "builtin_ids": [
+   50
+  ]
+ },
+ "RangedWeapons/Trickbow_Unique1": {
+  "fn": "0x179a20",
+  "global": "0x44f14f0",
+  "builtin_ids": [
+   62,
+   50
+  ]
+ },
+ "RangedWeapons/Trickbow_Unique2": {
+  "fn": "0x179cc0",
+  "global": "0x44f14f8",
+  "builtin_ids": [
+   73,
+   50
+  ]
+ },
+ "RangedWeapons/Trickbow_Year1": {
+  "fn": "0x179f60",
+  "global": "0x44f1500",
+  "builtin_ids": [
+   73,
+   50
+  ]
+ },
+ "Armor/TurtleArmor": {
+  "fn": "0x17a410",
+  "global": "0x44f1900",
+  "builtin_ids": []
+ },
+ "Armor/TurtleArmor_Unique1": {
+  "fn": "0x17a680",
+  "global": "0x44f1908",
+  "builtin_ids": [
+   145
+  ]
+ },
+ "RangedWeapons/TwistingVineBow": {
+  "fn": "0x17a8e0",
+  "global": "0x44f1578",
+  "builtin_ids": []
+ },
+ "RangedWeapons/TwistingVineBow_Unique1": {
+  "fn": "0x17ab60",
+  "global": "0x44f1580",
+  "builtin_ids": [
+   133
+  ]
+ },
+ "RangedWeapons/VoidBow": {
+  "fn": "0x17b270",
+  "global": "0x44f16f8",
+  "builtin_ids": [
+   87
+  ]
+ },
+ "RangedWeapons/VoidBow_Unique1": {
+  "fn": "0x17b4f2",
+  "global": "0x44f1700",
+  "builtin_ids": [
+   87,
+   69
+  ]
+ },
+ "MeleeWeapons/VoidTouchedBlades": {
+  "fn": "0x17ba50",
+  "global": "0x44f13a0",
+  "builtin_ids": [
+   40
+  ]
+ },
+ "MeleeWeapons/VoidTouchedBlades_Unique1": {
+  "fn": "0x17bdaa",
+  "global": "0x44f13a8",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Whip": {
+  "fn": "0x17c1a0",
+  "global": "0x44f1360",
+  "builtin_ids": []
+ },
+ "MeleeWeapons/Whip_Unique1": {
+  "fn": "0x17c410",
+  "global": "0x44f1368",
+  "builtin_ids": [
+   11
+  ]
+ },
+ "RangedWeapons/WindBow": {
+  "fn": "0x17c6b0",
+  "global": "0x44f16b8",
+  "builtin_ids": [
+   58,
+   52,
+   79
+  ]
+ },
+ "RangedWeapons/WindBow_Unique1": {
+  "fn": "0x17c9f0",
+  "global": "0x44f16c0",
+  "builtin_ids": [
+   58,
+   52,
+   79,
+   50
+  ]
+ },
+ "RangedWeapons/WindBow_Unique2": {
+  "fn": "0x17cd20",
+  "global": "0x44f16c8",
+  "builtin_ids": [
+   58,
+   52,
+   79,
+   133
+  ]
+ },
+ "Armor/WolfArmor": {
+  "fn": "0x17d2f0",
+  "global": "0x44f17d8",
+  "builtin_ids": []
+ },
+ "Armor/WolfArmor_Unique1": {
+  "fn": "0x17d560",
+  "global": "0x44f17e0",
+  "builtin_ids": []
+ },
+ "Armor/WolfArmor_Unique2": {
+  "fn": "0x17d7a0",
+  "global": "0x44f17e8",
+  "builtin_ids": [
+   129
+  ]
+ },
+ "Armor/WolfArmor_Winter1": {
+  "fn": "0x17d9e6",
+  "global": "0x44f17f0",
+  "builtin_ids": []
+ }
+}

@@ -1,0 +1,810 @@
+# Sequel Mod - stat config
+#
+# Change any value, then run:  python tools/sequel.py build
+# The comment after each value is the original game default. Delete a line or set it back
+# to the default to leave that stat vanilla. Don't add new lines - only stats listed here
+# exist in the game files.
+#
+# Everything here ends up in one file: Dungeons/Content/Paks/~mods/SequelMod_P.pak.
+# Defaults come from the game files and from the game's own class defaults.
+
+[Difficulty.EndlessStruggle]  # Apocalypse+ (Endless Struggle) scaling. Each stat goes from MinValue at level IntroducedAt to MaxValue at the top level. IntroducedAt 999 = off.
+"EndlessStruggle.XPMultiplier.MinValue" = 1.0  # default 1.0
+"EndlessStruggle.XPMultiplier.MaxValue" = 1.0  # default 1.0
+"EndlessStruggle.XPMultiplier.IntroducedAt" = 999  # default 999
+"EndlessStruggle.LootPowerMultiplier.MinValue" = 1.0  # default 1.0
+"EndlessStruggle.LootPowerMultiplier.MaxValue" = 1.046  # default 1.0
+"EndlessStruggle.LootPowerMultiplier.IntroducedAt" = 1  # default 999
+"EndlessStruggle.LootQualityBoost.MinValue" = 1.0  # default 1.0
+"EndlessStruggle.LootQualityBoost.MaxValue" = 4.1  # default 4.1
+"EndlessStruggle.LootQualityBoost.IntroducedAt" = 1  # default 1
+"EndlessStruggle.ShopPriceMultiplier.MinValue" = 1.0  # default 1.0
+"EndlessStruggle.ShopPriceMultiplier.MaxValue" = 1.0  # default 1.0
+"EndlessStruggle.ShopPriceMultiplier.IntroducedAt" = 999  # default 999
+"EndlessStruggle.MobCountMultiplier.MinValue" = 1.0  # default 1.0
+"EndlessStruggle.MobCountMultiplier.MaxValue" = 1.0  # default 1.0
+"EndlessStruggle.MobCountMultiplier.IntroducedAt" = 999  # default 999
+"EndlessStruggle.MobMaxHealthMultiplier.MinValue" = 1.1  # default 1.1
+"EndlessStruggle.MobMaxHealthMultiplier.MaxValue" = 1.5  # default 1.5
+"EndlessStruggle.MobMaxHealthMultiplier.IntroducedAt" = 5  # default 5
+"EndlessStruggle.MobPerformHealingMultiplier.MinValue" = 1.0  # default 1.0
+"EndlessStruggle.MobPerformHealingMultiplier.MaxValue" = 2.5  # default 2.5
+"EndlessStruggle.MobPerformHealingMultiplier.IntroducedAt" = 12  # default 12
+"EndlessStruggle.MobMaxEnduranceMultiplier.MinValue" = 1.5  # default 1.5
+"EndlessStruggle.MobMaxEnduranceMultiplier.MaxValue" = 10.0  # default 10.0
+"EndlessStruggle.MobMaxEnduranceMultiplier.IntroducedAt" = 1  # default 1
+"EndlessStruggle.MobRecoverEnduranceMultiplier.MinValue" = 1.0  # default 1.0
+"EndlessStruggle.MobRecoverEnduranceMultiplier.MaxValue" = 10.0  # default 10.0
+"EndlessStruggle.MobRecoverEnduranceMultiplier.IntroducedAt" = 1  # default 1
+"EndlessStruggle.MobDamageMultiplier.MinValue" = 1.1  # default 1.1
+"EndlessStruggle.MobDamageMultiplier.MaxValue" = 1.5  # default 1.5
+"EndlessStruggle.MobDamageMultiplier.IntroducedAt" = 5  # default 5
+"EndlessStruggle.MobStunDurationMultiplier.MinValue" = 1.0  # default 1.0
+"EndlessStruggle.MobStunDurationMultiplier.MaxValue" = 0.3  # default 0.3
+"EndlessStruggle.MobStunDurationMultiplier.IntroducedAt" = 1  # default 1
+"EndlessStruggle.MobSpeedMultiplier.MinValue" = 1.1  # default 1.1
+"EndlessStruggle.MobSpeedMultiplier.MaxValue" = 1.85  # default 1.85
+"EndlessStruggle.MobSpeedMultiplier.IntroducedAt" = 1  # default 1
+"EndlessStruggle.MobResurrectionChance.MinValue" = 0.0  # default 0.0
+"EndlessStruggle.MobResurrectionChance.MaxValue" = 0.0  # default 0.0
+"EndlessStruggle.MobResurrectionChance.IntroducedAt" = 999  # default 999
+"EndlessStruggle.MobDeflectChance.MinValue" = 0.0  # default 0.0
+"EndlessStruggle.MobDeflectChance.MaxValue" = 0.0  # default 0.0
+"EndlessStruggle.MobDeflectChance.IntroducedAt" = 999  # default 999
+"EndlessStruggle.MobPushbackMultiplier.MinValue" = 0.9  # default 0.9
+"EndlessStruggle.MobPushbackMultiplier.MaxValue" = 0.3  # default 0.3
+"EndlessStruggle.MobPushbackMultiplier.IntroducedAt" = 4  # default 4
+"EndlessStruggle.EnchantedMobChanceMultiplier.MinValue" = 3.0  # default 3.0
+"EndlessStruggle.EnchantedMobChanceMultiplier.MaxValue" = 4.25  # default 4.25
+"EndlessStruggle.EnchantedMobChanceMultiplier.IntroducedAt" = 1  # default 1
+"EndlessStruggle.EnchantedMobPowerMultiplier.MinValue" = 1.25  # default 1.25
+"EndlessStruggle.EnchantedMobPowerMultiplier.MaxValue" = 2.25  # default 2.25
+"EndlessStruggle.EnchantedMobPowerMultiplier.IntroducedAt" = 1  # default 1
+"EndlessStruggle.PlayerReceiveHealingMultiplier.MinValue" = 0.95  # default 0.95
+"EndlessStruggle.PlayerReceiveHealingMultiplier.MaxValue" = 0.7  # default 0.7
+"EndlessStruggle.PlayerReceiveHealingMultiplier.IntroducedAt" = 10  # default 10
+
+[Enchantments.Accelerating]  # Accelerate (Ranged)
+"BP_Accelerating.resetDuration" = 1.0  # default 1.0
+"BP_Accelerating.resetDurationMob" = 5.0  # default 5.0
+"BP_AcceleratingLevelOneEffect.SpeedPerShot" = 0.08  # default 0.08
+"BP_AcceleratingLevelOneEffect.StackLimit" = 25  # default 25
+"BP_AcceleratingLevelTwoEffect.SpeedPerShot" = 0.1  # default 0.1
+"BP_AcceleratingLevelTwoEffect.StackLimit" = 20  # default 20
+"BP_AcceleratingLevelThreeEffect.SpeedPerShot" = 0.12  # default 0.12
+"BP_AcceleratingLevelThreeEffect.StackLimit" = 16  # default 16
+
+[Enchantments.Acrobat]  # Acrobat (Armor)
+"BP_Acrobat.ReductionPerlevel" = 0.15  # default 0.15
+
+[Enchantments.Altruistic]  # Altruistic (unique item, mob or shared effect)
+"BP_Altruistic.AffectionRadius" = 6000.0  # default 6000.0
+"BP_Altruistic.PercentageOfDamageToHeal" = 0.25  # default 0.25
+
+[Enchantments.AnimaConduitMelee]  # Anima Conduit (Melee)
+"BP_AnimaConduitMelee.HealingPerSoulFactorPerLevel" = 0.02  # default 0.02
+"BP_AnimaConduitMelee.HealingPerSoulFactorBase" = 0.02  # default 0.02
+
+[Enchantments.AnimaConduitRanged]  # Anima Conduit (Ranged)
+"BP_AnimaConduitRanged.HealingPerSoulFactorBase" = 0.04  # default 0.04
+"BP_AnimaConduitRanged.HealingPerSoulFactorPerLevel" = 0.02  # default 0.02
+
+[Enchantments.ArtifactCharge]  # Artifact Charge (Ranged)
+"BP_ArtifactChargeGameplayEffect.StackLimitCount" = 1  # default 1
+"BP_ArtifactChargeGameplayEffectLevelThree.StackLimitCount" = 3  # default 3
+"BP_ArtifactChargeGameplayEffectLevelTwo.StackLimitCount" = 2  # default 2
+
+[Enchantments.Backstabber]  # Ambush (Melee)
+"BP_Backstabber.DamageMultiplier" = 0.5  # default 0.2
+
+[Enchantments.BagOfSouls]  # Bag Of Souls (Armor)
+"BP_BagOfSouls.MaxSoulsPercentageGainedPerLevel" = 1.0  # default 0.5
+
+[Enchantments.BaneOfIllagers]  # Illager's Bane (Melee)
+"BP_BaneOfIllagers.BaneMultiplier" = 1.5  # default 1.25
+"BP_BaneOfIllagers.BanePercentagePerLevel" = 0.25  # default 0.1
+
+[Enchantments.Barrier]  # Barrier (unique item, mob or shared effect)
+"BP_Barrier.AffectionRadius" = 1500.0  # default 1500.0
+
+[Enchantments.BeastBoss]  # Beast Boss (Armor)
+"BP_BeastBoss.PerLevelDamageBoost" = 0.5  # default 0.2
+"BP_BeastBoss.BaseDamageBoost" = 0.5  # default 0.2
+
+[Enchantments.BeastBurst]  # Beast Burst (Armor)
+"BP_BeastBurst.ExplosionRadius" = 840.0  # default 840.0
+"BP_BeastBurst.BaseDamageValue" = 250.0  # default 250.0
+"BP_BeastBurst.ExtraDamagePerLevel" = 250.0  # default 250.0
+
+[Enchantments.BeastSurge]  # Beast Surge (Armor)
+"BP_BeastSurge.BaseModifier" = 1.5  # default 1.5
+"BP_BeastSurge.Level2Modifier" = 2.0  # default 2.0
+"BP_BeastSurge.Level3Modifier" = 2.5  # default 2.5
+"BP_BeastSurge.PerLevelModifier" = 0.3  # default 0.3
+"BP_BeastSurge.EffectDuration" = 20.0  # default 10.0
+
+[Enchantments.Blind]  # Blind (unique item, mob or shared effect)
+"BP_BlindCloud.Sphere:SphereRadius" = 250.0  # default 250.0
+"BP_BlindCloud.FadeOut_Template:TimelineLength" = 0.5  # default 0.5
+"BP_BlindCloud.squid" = false  # default false
+"BP_BlindCloud.CloudDuration" = 0.0  # default 0.0
+
+[Enchantments.BonusShot]  # Bonus Shot (Ranged)
+"BP_BonusShot.MobDamageFraction" = 0.5  # default 0.5
+
+[Enchantments.Burning]  # Burning (Armor)
+"BP_Burning.Radius" = 400.0  # default 300.0
+"BP_Burning.BurnBaseDamage" = 15.0  # default 5.0
+"BP_Burning.MobBurnDamage" = 45.0  # default 45.0
+"BP_Burning.BurnInterval" = 0.5  # default 0.5
+
+[Enchantments.BurstBowstring]  # Burst Bowstring (Armor)
+"BP_BurstBowstring.AdditionalAttacksPerLevel" = 1  # default 1
+"BP_BurstBowstring.AttacksAtLevelOne" = 1  # default 1
+"BP_BurstBowstring.DamageMultiplier" = 0.4  # default 0.4
+"BP_BurstBowstring.TargetGatheringRadius" = 1200.0  # default 1200.0
+"BP_BurstBowstring.TimeBetweenAttacks" = 0.05  # default 0.05
+
+[Enchantments.BusyBee]  # Busy Bee (Melee)
+"BP_BusyBee.SpawnDelaySeconds" = 0.1  # default 0.1
+"BP_BusyBee.BaseTriggerChance" = 0.33  # default 0.2
+"BP_BusyBee.TriggerChanceIncreasePerLevel" = 0.34  # default 0.1
+"BP_BusyBee.MaxNumMobs" = 3  # default 3
+
+[Enchantments.CaveSpiderPoisonEnchantment]  # CaveSpiderPoisonEnchantment (unique item, mob or shared effect)
+"BP_CaveSpiderPoisonedGameplayEffect.damagePerSecond" = -15.0  # default -15.0
+
+[Enchantments.ChainReaction]  # Chain Reaction (Ranged)
+"BP_ChainReaction.ArrowsToSpawn" = 5  # default 5
+
+[Enchantments.Chains]  # Chains (Melee)
+"BP_Chains.BaseMobChainAmount" = 4  # default 2
+"BP_Chains.ChainDelayTime" = 0.1  # default 0.1
+"BP_Chains.BaseChainDuration" = 1.0  # default 1.0
+"BP_Chains.MobChainDuration" = 4.0  # default 4.0
+"BP_Chains.TriggerChance" = 0.45  # default 0.3
+"BP_Chains.ChainRange" = 1200.0  # default 1200.0
+
+[Enchantments.ChargingAcceleration]  # ChargingAcceleration (unique item, mob or shared effect)
+"BP_ChargingAcceleration.ChargeIntervalSeconds" = 0.5  # default 0.5
+"BP_ChargingAcceleration.AccelerationAmount" = 0.2  # default 0.2
+
+[Enchantments.Chilling]  # Chilling (Armor)
+"BP_Chilling.FreezeTime" = 1.0  # default 1.0
+"BP_Chilling.FreezeInterval" = 2.0  # default 2.0
+"BP_Chilling.Radius" = 1000.0  # default 1000.0
+
+[Enchantments.CogCrossbowEnchantment]  # CogCrossbowEnchantment (unique item, mob or shared effect)
+"BP_CogCrossbowEnchantment.ChargeDelay" = 1.0  # default 1.0
+"BP_CogCrossbowEnchantment.bCanAttack" = false  # default false
+
+[Enchantments.Committed]  # Committed (Melee)
+"BP_Committed.MobMaxDamageBonus" = 3.0  # default 3.0
+
+[Enchantments.CooldownShot]  # Cooldown Shot (Ranged)
+"BP_CooldownShot.CooldownDecreasePerLevelSeconds" = 0.5  # default 0.5
+
+[Enchantments.Cowardice]  # Cowardice (Armor)
+"BP_CowardiceGameplayEffect.ExtraDamageBonus" = 0.2  # default 0.0
+
+[Enchantments.CriticalHit]  # Critical Hit (Melee)
+"BP_CriticalHit.DamageMultiplier" = 5.0  # default 3.0
+
+[Enchantments.DamageCounter]  # DamageCounter (unique item, mob or shared effect)
+"BP_DamageCounter.healthLossTriggerThreshold" = 0.3  # default 0.3
+"BP_DamageCounter.EffectDuration" = 3.5  # default 3.5
+
+[Enchantments.DamageSynergy]  # Artifact Synergy (Melee)
+"BP_DamageSynergy.BaseBonusDamagePercentage" = 2.0  # default 1.2
+"BP_DamageSynergy.BonusDamagePercentagePerLevel" = 0.5  # default 0.2
+
+[Enchantments.DeathBarter]  # Death Barter (Armor)
+"BP_DeathBarter.InvulnerabilityDuration" = 3.0  # default 3.0
+
+[Enchantments.DippingPoison]  # Dipping Poison (Armor)
+"BP_DippingPoison.arrows_given_1" = 10  # default 6
+"BP_DippingPoison.arrows_given_2" = 15  # default 8
+"BP_DippingPoison.arrows_given_3" = 20  # default 12
+"BP_PlayerPoisonArrow.bShouldSpawnArrowProp" = true  # default true
+"BP_PlayerPoisonArrow.IsHoming" = true  # default true
+"BP_PlayerPoisonArrow.CollisionPhysicsForce" = 1500.0  # default 1500.0
+"BP_PlayerPoisonArrow.DestroyOnHit" = true  # default true
+"BP_PlayerPoisonArrow.AffectTargetOnce" = true  # default true
+"BP_PlayerPoisonArrow.VelocityFactor" = 1.0  # default 1.0
+"BP_PlayerPoisonArrow.StunMultiplier" = 1.0  # default 1.0
+"BP_PlayerPoisonArrow.DamageFactor" = 1.0  # default 1.0
+
+[Enchantments.DynamoMelee]  # Dynamo (Melee)
+"BP_DynamoMelee.BaseDamage" = 25.0  # default 25.0
+"BP_DynamoMelee.DamageIncreasePerLevel" = 15.0  # default 15.0
+
+[Enchantments.DynamoRanged]  # Dynamo (Ranged)
+"BP_DynamoRanged.BaseDamage" = 25.0  # default 25.0
+"BP_DynamoRanged.DamageIncreasePerLevel" = 15.0  # default 15.0
+
+[Enchantments.Electrified]  # Electrified (Armor)
+"BP_Electrified.OnKillPushback.enablePushback" = true  # default true
+"BP_Electrified.OnKillPushback.pushbackStrength" = 2.0  # default 2.0
+"BP_Electrified.ZapDelayMob" = 4.0  # default 4.0
+"BP_Electrified.ZapCountMob" = 1  # default 1
+"BP_Electrified.ZapCount" = 4  # default 2
+"BP_Electrified.ZapDamage" = 100.0  # default 50.0
+"BP_Electrified.MobZapDamage" = 90.0  # default 90.0
+"BP_Electrified.Radius" = 700.0  # default 700.0
+
+[Enchantments.EmeraldDivination]  # Lucky Explorer (Armor)
+"BP_EmeraldDivination.PercentageToSpawn" = 0.1  # default 0.05
+"BP_EmeraldDivination.BlockThreshold" = 1  # default 1
+"BP_EmeraldDivination.EmeraldToSpawnBase" = 1.0  # default 1.0
+"BP_EmeraldDivination.EmeraldToSpawnPerLevel" = 2.0  # default 2.0
+
+[Enchantments.EnigmaResonatorMelee]  # Enigma Resonator (Melee)
+"BP_EnigmaResonatorMelee.DamageMultiplier" = 3.0  # default 3.0
+
+[Enchantments.EnigmaResonatorRanged]  # Enigma Resonator (Ranged)
+"BP_EnigmaResonatorRanged.DamageMultiplier" = 3.0  # default 3.0
+
+[Enchantments.Exploding]  # Exploding (Melee)
+"BP_Exploding.ExplosionRadius" = 450.0  # default 450.0
+"BP_Exploding.explosionMaxHealthFactorBase" = 0.2  # default 0.2
+"BP_Exploding.explosionMaxHealthFactorPerLevel" = 0.2  # default 0.2
+
+[Enchantments.Explorer]  # Explorer (Armor)
+"BP_Explorer.BlockThreshold" = 10  # default 100
+
+[Enchantments.FinalShout]  # Final Shout (Armor)
+"BP_FinalShout.triggerCooldownBase" = 8.0  # default 12.0
+"BP_FinalShout.triggerCooldownPerLevel" = 2.0  # default 2.0
+"BP_FinalShout.triggerHealthFractionThreshold" = 0.5  # default 0.25
+
+[Enchantments.FireAspect]  # Fire Aspect (Melee)
+"BP_FireAspect.MobDamagePerSecond" = 100.0  # default 100.0
+"BP_FireAspect.damagePerSecond" = 60.0  # default 30.0
+"BP_FireAspect.fireDuration" = 3.0  # default 3.0
+
+[Enchantments.FireFocus]  # Fire Focus (Armor)
+"BP_FireFocus.DamageIncreasePerLevel" = 0.5  # default 0.25
+
+[Enchantments.FireTrail]  # Fire Trail (Armor)
+"BP_FireBlockEnemy.TotalLifeSpan" = 6.0  # default 6.0
+"BP_FireBlockEnemy.DamageDuration" = 4.0  # default 4.0
+"BP_FireBlockPlayer.TotalLifeSpan" = 8.0  # default 6.0
+"BP_FireBlockPlayer.DamageDuration" = 6.0  # default 4.0
+"BP_FireTrail.DurationAfterDodgeEnd" = 0.5  # default 0.5
+"BP_FireTrail.BaseDamagePerSecond" = 60.0  # default 20.0
+"BP_FireTrail.FireBlockDuration" = 6.0  # default 4.0
+
+[Enchantments.Flee]  # Rush (Armor)
+"BP_Flee.resetDuration" = 1.0  # default 1.0
+"BP_Flee.percentPerLevel" = 0.5  # default 0.3
+
+[Enchantments.Freezing]  # Freezing (Melee)
+"BP_Freezing.SlowAmountBase" = 0.6  # default 0.7
+"BP_Freezing.SlowAmountPerLevel" = 0.15  # default 0.1
+"BP_Freezing.FreezeTime" = 3.0  # default 3.0
+
+[Enchantments.FreezingAoe]  # FreezingAoe (unique item, mob or shared effect)
+"BP_FreezingAoe.SlowAmountBase" = 0.8  # default 0.8
+"BP_FreezingAoe.SlowAmountPerLevel" = 0.1  # default 0.1
+"BP_FreezingAoe.FreezeTime" = 3.0  # default 3.0
+
+[Enchantments.FreezingRanged]  # FreezingRanged (unique item, mob or shared effect)
+"BP_FreezingRanged.SlowAmountBase" = 0.8  # default 0.8
+"BP_FreezingRanged.SlowAmountPerLevel" = 0.1  # default 0.1
+"BP_FreezingRanged.FreezeTime" = 3.0  # default 3.0
+
+[Enchantments.Frenzied]  # Frenzied (Armor)
+"BP_Frenzied.TriggerThreshold" = 0.5  # default 0.5
+"BP_FrenziedGameplayEffect.ExtraAttackSpeedBonus" = 0.3  # default 0.0
+
+[Enchantments.FuseShot]  # Fuse Shot (Ranged)
+"BP_FuseShot.BaseDamageExplosionDamageFactor" = 2.0  # default 1.0
+"BP_FuseShot.ExplosionRadius" = 450.0  # default 300.0
+"BP_FuseShot.ExplosionDelaySeconds" = 0.1  # default 1.0
+
+[Enchantments.GolemKit]  # GolemKit (unique item, mob or shared effect)
+"BP_GolemKitInstance.PetAmountCap" = 1  # default 1
+"BP_GolemKitInstance.IncreasedMaxHealthMultiplier" = 4.5  # default 3.0
+"BP_GolemKitInstance.DealDamageMultiplier" = 1.5  # default 1.0
+"BP_GolemKitInstance.MobSummonOffset" = 500.0  # default 500.0
+"BP_GolemKitInstance.TeleportCooldownFactor" = 0.25  # default 0.25
+"BP_GolemKitInstance.CoolDownForEachPetDeath" = true  # default true
+"BP_GolemKitInstance.ItemPower" = 1.0  # default 1.0
+"BP_GolemKitInstance.SharedPassiveCooldown" = 0.25  # default 0.25
+"BP_GolemKitInstance.bAutomaticDestruction" = true  # default true
+"BP_GolemKitInstance.bIsBigWeapon" = false  # default false
+
+[Enchantments.Gravity]  # Gravity (Ranged)
+"BP_Gravity.PullTime" = 0.5  # default 0.5
+"BP_Gravity.PullRadius" = 500.0  # default 500.0
+"BP_Gravity.MobPullTime" = 3.0  # default 3.0
+"BP_Gravity.MobRangedPullTime" = 1.0  # default 1.0
+
+[Enchantments.GravityMelee]  # Gravity (Melee)
+"BP_GravityMelee.PullTime" = 0.5  # default 0.5
+"BP_GravityMelee.PullRadius" = 500.0  # default 500.0
+"BP_GravityMelee.MobPullTime" = 3.0  # default 3.0
+"BP_GravityMelee.MobRangedPullTime" = 1.0  # default 1.0
+
+[Enchantments.GravityPulse]  # Gravity Pulse (Armor)
+"BP_GravityPulse.PulseInterval" = 3.0  # default 3.0
+"BP_GravityPulse.BaseRadius" = 400.0  # default 400.0
+
+[Enchantments.Growing]  # Growing (Ranged)
+"BP_Growing.MaxDistance" = 1000.0  # default 1600.0
+"BP_Growing.MobMaxDistance" = 1200.0  # default 1200.0
+"BP_Growing.MobDamageFractionBonus" = 3.0  # default 3.0
+
+[Enchantments.GuardianEye]  # GuardianEye (unique item, mob or shared effect)
+"BP_GuardianEyeInstance.baseDamage" = 600.0  # default 200.0
+"BP_GuardianEyeInstance.aimingTime" = 0.8  # default 0.8
+"BP_GuardianEyeInstance.laserTime" = 6.0  # default 4.0
+"BP_GuardianEyeInstance.onKillPushback.enablePushback" = true  # default true
+"BP_GuardianEyeInstance.onKillPushback.pushbackStrength" = 12.0  # default 12.0
+"BP_GuardianEyeInstance.onKillPushback.pushbackZFactor" = -0.5  # default -0.5
+"BP_GuardianEyeInstance.ItemPower" = 1.0  # default 1.0
+"BP_GuardianEyeInstance.SharedPassiveCooldown" = 0.25  # default 0.25
+"BP_GuardianEyeInstance.bAutomaticDestruction" = true  # default true
+"BP_GuardianEyeInstance.bIsBigWeapon" = false  # default false
+
+[Enchantments.GuardingStrike]  # Guarding Strike (Melee)
+"BP_GuardingStrike.effectBaseDuration" = 2.0  # default 2.0
+"BP_GuardingStrike.effectDurationPerLevel" = 1.0  # default 1.0
+"BP_GuardingStrike.DamageReduction" = 0.5  # default 0.5
+
+[Enchantments.HeavyweightEnchantment]  # HeavyweightEnchantment (unique item, mob or shared effect)
+"BP_HeavyweightEnchantment.Resistance" = 0.6  # default 0.6
+"BP_HeavyweightEnchantment.PerLevelResistance" = 0.1  # default 0.1
+
+[Enchantments.Huge]  # Huge (unique item, mob or shared effect)
+"BP_Huge.Scale" = 3.0  # default 3.0
+
+[Enchantments.IceWand]  # IceWand (unique item, mob or shared effect)
+"BP_IceWandInstance.IceDamageOverride" = 1200.0  # default 600.0
+"BP_IceWandInstance.IceSpawnDistance" = 400.0  # default 400.0
+"BP_IceWandInstance.IceSpawnHeight" = 300.0  # default 300.0
+"BP_IceWandInstance.ItemPower" = 1.0  # default 1.0
+"BP_IceWandInstance.SharedPassiveCooldown" = 0.25  # default 0.25
+"BP_IceWandInstance.bAutomaticDestruction" = true  # default true
+"BP_IceWandInstance.bIsBigWeapon" = false  # default false
+
+[Enchantments.Invisible]  # Invisible (unique item, mob or shared effect)
+"BP_Invisible.FadeDurationSeconds" = 2.0  # default 2.0
+
+[Enchantments.JunglePoisonMelee]  # Poison (Melee)
+"BP_JunglePoisonMelee.DamagePercentage" = 0.2  # default 0.2
+"BP_JunglePoisonMelee.Duration" = 5.0  # default 5.0
+
+[Enchantments.JunglePoisonRanged]  # Poison (Ranged)
+"BP_JunglePoisonRanged.DamagePercentage" = 0.1  # default 0.1
+"BP_JunglePoisonRanged.Duration" = 10.0  # default 10.0
+
+[Enchantments.Knockback]  # Knockback (unique item, mob or shared effect)
+"BP_Knockback.knockbackPower" = 6.0  # default 6.0
+
+[Enchantments.Leeching]  # Leeching (Melee)
+"BP_Leeching.HealPerLevelFactor" = 0.02  # default 0.02
+"BP_Leeching.BaseHealFactor" = 0.05  # default 0.05
+
+[Enchantments.LevitationShot]  # Levitation Shot (Ranged)
+"BP_levitationShot.EffectStrength" = -0.03  # default -0.03
+"BP_levitationShot.LaunchStrength" = 0.3  # default 0.3
+"BP_levitationShot.Duration" = 2.0  # default 2.0
+"BP_levitationShot.FallDamagePercentagePerLevel" = 0.1  # default 0.1
+
+[Enchantments.LightningFocus]  # Lightning Focus (Armor)
+"BP_LightningFocus.DamageIncreasePerLevel" = 0.5  # default 0.25
+
+[Enchantments.Looting]  # Looting (Melee)
+"BP_Looting.DropRateIncreasePerLevel" = 1.0  # default 1.0
+"BP_Looting.DropRateIncreaseBaseChance" = 1.0  # default 1.0
+
+[Enchantments.LuckOfTheSea]  # Luck Of The Sea (Armor)
+"BP_LuckOfTheSea.luck_level_1" = 0.25  # default 0.1
+"BP_LuckOfTheSea.luck_level_2" = 0.5  # default 0.2
+"BP_LuckOfTheSea.luck_level_3" = 0.75  # default 0.3
+
+[Enchantments.MultiShot]  # Multishot (Ranged)
+"BP_MultiShot.ExtraArrowsWhenTriggered" = 4  # default 4
+
+[Enchantments.PainCycle]  # Pain Cycle (Melee)
+"BP_PainCycle.DrainMagnitude" = 0.02  # default 0.03
+"BP_PainCycle.MinimumBonusDamageMultiplier" = 4  # default 3
+"BP_PainCycle.BonusDamageMultiplierPerExtraLevel" = 2  # default 1
+"BP_PainCycleStackerGameplayEffect.MaximumPainCycleStacks" = 4  # default 4
+
+[Enchantments.PassiveRegen]  # PassiveRegen (unique item, mob or shared effect)
+"BP_PassiveRegen.HealthRegenerationAmountPerSecond" = 10.0  # default 10.0
+"BP_PassiveRegen.TimeUntilHealthRegeneration" = 10.0  # default 10.0
+"BP_PassiveRegen.TimeUntilFirstBarrierRegeneration" = 6.0  # default 6.0
+"BP_PassiveRegen.TimeUntilDefaultBarrierRegeneration" = 6.0  # default 6.0
+
+[Enchantments.PerkHealingAura]  # PerkHealingAura (unique item, mob or shared effect)
+"BP_HealingAura.PropertyColorPrio.Prio" = 3.0  # default 3.0
+"BP_HealingAura.Amount" = 0.5  # default 0.25
+"BP_HealingAura.Radius" = 1000.0  # default 1000.0
+
+[Enchantments.PerkMoveSpeedAura]  # PerkMoveSpeedAura (unique item, mob or shared effect)
+"BP_MoveSpeedAura.PropertyColorPrio.Prio" = 2.0  # default 2.0
+"BP_MoveSpeedAura.Multiplier" = 1.25  # default 1.15
+"BP_MoveSpeedAura.Radius" = 1000.0  # default 1000.0
+
+[Enchantments.PerkRangedDamageBoost]  # PerkRangedDamageBoost (unique item, mob or shared effect)
+"BP_RangedDamageBoost.Multiplier" = 1.4  # default 1.3
+"BP_RangedDamageBoost.PropertyColorPrio.Prio" = 16.0  # default 16.0
+
+[Enchantments.PerkTeleportChance]  # PerkTeleportChance (unique item, mob or shared effect)
+"BP_TeleportChance.Chance" = 0.15  # default 0.05
+"BP_TeleportChance.PropertyColorPrio.Prio" = 8.0  # default 8.0
+"BP_TeleportChance.TeleportRange" = 1000.0  # default 1000.0
+
+[Enchantments.Piercing]  # Piercing (Ranged)
+"BP_Piercing.NumArrowsToShootUntilPiercing" = 3  # default 3
+
+[Enchantments.Poisoned]  # Poisoned (unique item, mob or shared effect)
+"BP_CloudEffectMob.InitialLifeSpan" = 3.0  # default 3.0
+"BP_CloudEffectMob.FadeIn_Template:TimelineLength" = 1.0  # default 1.0
+"BP_CloudEffectMob.FadeOut_Template:TimelineLength" = 2.0  # default 2.0
+"BP_CloudEffectPlayer.InitialLifeSpan" = 3.0  # default 3.0
+"BP_CloudEffectPlayer.FadeIN_Template:TimelineLength" = 1.0  # default 1.0
+"BP_CloudEffectPlayer.FadeOut_Template:TimelineLength" = 1.5  # default 1.5
+"BP_PoisonCloud.AreaOfEffect" = 400.0  # default 250.0
+"BP_PoisonCloud.DamageDisableTimeBeforeDestroy" = 0.5  # default 0.5
+"BP_PoisonCloud.Lifetime" = 2.5  # default 2.5
+"BP_PoisonCloud.UseDefaultDissolveOnKill" = false  # default false
+"BP_PoisonCloud.ReplaceOldInstances" = false  # default false
+"BP_PoisonCloudGreen.AreaOfEffect" = 250.0  # default 250.0
+"BP_PoisonCloudGreen.DamageDisableTimeBeforeDestroy" = 0.5  # default 0.5
+"BP_PoisonCloudGreen.Lifetime" = 2.5  # default 2.5
+"BP_PoisonCloudGreen.UseDefaultDissolveOnKill" = false  # default false
+"BP_PoisonCloudGreen.ReplaceOldInstances" = false  # default false
+
+[Enchantments.PoisonedMelee]  # Poison Cloud (Melee)
+"BP_PoisonedMelee.EffectGroupParameters.IndividualSpawnRadius" = 150.0  # default 150.0
+"BP_PoisonedMelee.MobDamagePerSecond" = 150.0  # default 150.0
+"BP_PoisonedMelee.BaseDamagePerSecond" = 30.0  # default 15.0
+"BP_PoisonedMelee.TriggerChance" = 0.6  # default 0.3
+"BP_PoisonedMelee.CloudDuration" = 2.5  # default 2.5
+"BP_PoisonedMelee.MobCloudDuration" = 4.0  # default 4.0
+
+[Enchantments.PoisonedRanged]  # Poison Cloud (Ranged)
+"BP_PoisonedRanged.EffectGroupParameters.IndividualSpawnRadius" = 150.0  # default 150.0
+"BP_PoisonedRanged.MobDamagePerSecond" = 150.0  # default 150.0
+"BP_PoisonedRanged.BaseDamagePerSecond" = 30.0  # default 15.0
+"BP_PoisonedRanged.TriggerChance" = 0.6  # default 0.3
+"BP_PoisonedRanged.CloudDuration" = 2.5  # default 2.5
+"BP_PoisonedRanged.MobCloudDuration" = 4.0  # default 4.0
+
+[Enchantments.PoisonFocus]  # Poison Focus (Armor)
+"BP_PoisonFocus.DamageIncreasePerLevel" = 0.5  # default 0.25
+
+[Enchantments.PoisonQuill]  # PoisonQuill (unique item, mob or shared effect)
+"BP_JungleAbominationPoisonProjGameplayEffect.damagePerSecond" = -5.0  # default -5.0
+"BP_JungleAbominationPoisonProjGameplayEffect.DurationMagnitude.CustomMagnitude.Coefficient.Value" = 5.0  # default 5.0
+"BP_JungleAbominationPoisonProjGameplayEffect.Period.Value" = 1.0  # default 1.0
+"BP_PoisonQuillGameplayEffect.damagePerSecond" = -5.0  # default -5.0
+
+[Enchantments.PotionFortification]  # Potion Barrier (Armor)
+"BP_PotionFortification.DamageAbsorbationIncrease" = 10.0  # default 10.0
+
+[Enchantments.PotionThirstMelee]  # Refreshment (Melee)
+"BP_PotionThirstMelee.cooldownReductionPerLevel" = 1.0  # default 1.0
+"BP_PotionThirstMelee.cooldownReductionBase" = 1.0  # default 1.0
+
+[Enchantments.PotionThirstRanged]  # Refreshment (Ranged)
+"BP_PotionThirstRanged.cooldownReductionPerLevel" = 3.0  # default 1.0
+"BP_PotionThirstRanged.cooldownReductionBase" = 3.0  # default 1.0
+
+[Enchantments.Power]  # Power (Ranged)
+"BP_Power.MobDamageMultiplier" = 2.0  # default 2.0
+
+[Enchantments.ProjectileCounter]  # ProjectileCounter (unique item, mob or shared effect)
+"BP_ProjectileCounter.TargetCount" = 15  # default 15
+"BP_ProjectileCounter.EffectDuration" = 3.5  # default 3.5
+
+[Enchantments.Prospector]  # Prospector (Melee)
+"BP_Prospector.DropRateIncreasePerLevel" = 1.0  # default 1.0
+"BP_Prospector.DropRateIncreaseBaseChance" = 1.0  # default 1.0
+
+[Enchantments.RadianceMelee]  # Radiance (Melee)
+"BP_RadianceMelee.HealAreaExpandSizePerSecond" = 750.0  # default 750.0
+"BP_RadianceMelee.HealAreaDuration" = 0.5  # default 0.5
+"BP_RadianceMelee.HealChance" = 1.0  # default 0.2
+"BP_RadianceMelee.BaseHealing" = 6.0  # default 30.0
+"BP_RadianceMelee.MobHealing" = 350.0  # default 350.0
+
+[Enchantments.RadianceRanged]  # Radiance Shot (Ranged)
+"BP_RadianceRanged.HealAreaExpandSizePerSecond" = 750.0  # default 750.0
+"BP_RadianceRanged.HealChance" = 1.0  # default 0.5
+"BP_RadianceRanged.HealAreaDuration" = 0.5  # default 0.5
+"BP_RadianceRanged.BaseHealing" = 20.0  # default 30.0
+"BP_RadianceRanged.MobHealing" = 350.0  # default 350.0
+
+[Enchantments.RainbowGrass]  # RainbowGrass (unique item, mob or shared effect)
+"BP_RainbowGrassInstance.MobsToChooseFrom[0].Weight" = 1.0  # default 1.0
+"BP_RainbowGrassInstance.MobsToChooseFrom[1].Weight" = 1.0  # default 1.0
+"BP_RainbowGrassInstance.MobsToChooseFrom[2].Weight" = 1.0  # default 1.0
+"BP_RainbowGrassInstance.IncreasedMaxHealthMultiplier" = 4.0  # default 2.5
+"BP_RainbowGrassInstance.PetAmountCap" = 2  # default 1
+"BP_RainbowGrassInstance.DealDamageMultiplier" = 1.75  # default 1.0
+"BP_RainbowGrassInstance.MobSummonOffset" = 500.0  # default 500.0
+"BP_RainbowGrassInstance.TeleportCooldownFactor" = 0.25  # default 0.25
+"BP_RainbowGrassInstance.CoolDownForEachPetDeath" = true  # default true
+"BP_RainbowGrassInstance.ItemPower" = 1.0  # default 1.0
+"BP_RainbowGrassInstance.SharedPassiveCooldown" = 0.25  # default 0.25
+"BP_RainbowGrassInstance.bAutomaticDestruction" = true  # default true
+"BP_RainbowGrassInstance.bIsBigWeapon" = false  # default false
+
+[Enchantments.Rampaging]  # Rampaging (Melee)
+"BP_Rampaging.AttackSpeedBoost" = 1.5  # default 1.5
+"BP_Rampaging.BoostTime" = 2.0  # default 5.0
+"BP_Rampaging.TriggerChance" = 1.0  # default 0.1
+
+[Enchantments.Reckless]  # Reckless (Armor)
+"BP_Reckless.DamageIncreaseAtLevelOne" = 1.0  # default 0.5
+"BP_Reckless.HealthDecrease" = 0.4  # default 0.4
+"BP_Reckless.DamageIncreasePerLevel" = 0.25  # default 0.2
+
+[Enchantments.Regeneration]  # Regeneration (unique item, mob or shared effect)
+"BP_Regeneration.MobRegenerationAmountPerSecond" = 30.0  # default 30.0
+"BP_Regeneration.RegenerationAmountPerSecond" = 3.0  # default 3.0
+"BP_Regeneration.MobAmountPerSecond" = 3.0  # default 3.0
+"BP_Regeneration.MobTimeUntilRegeneration" = 0.5  # default 0.5
+"BP_Regeneration.TimeUntilRegeneration" = 10.0  # default 10.0
+
+[Enchantments.ReliableRicochet]  # ReliableRicochet (unique item, mob or shared effect)
+"BP_ReliableRicochet.MaxAllowedRecursionCount" = 3  # default 3
+
+[Enchantments.ResurrectionSurge]  # Life Boost (Armor)
+"BP_ResurrectionSurge.SurgeMultiplier" = 1.11  # default 1.11
+"BP_ResurrectionSurge.SurgePerLevel" = 0.2  # default 0.11
+
+[Enchantments.ResurrectSurroundingMobs]  # ResurrectSurroundingMobs (unique item, mob or shared effect)
+"BP_ResurrectSurroundingMobs.ResurrectRadius" = 5000.0  # default 5000.0
+"BP_ResurrectSurroundingMobs.ResurrectChance" = 1.0  # default 1.0
+"BP_ResurrectSurroundingMobs.ResurrectTime" = 3.0  # default 3.0
+"BP_ResurrectSurroundingMobs.bDebugVisuals" = false  # default false
+
+[Enchantments.Ricochet]  # Ricochet (Ranged)
+"BP_Ricochet.MaxAllowedRecursionCount" = 3  # default 3
+
+[Enchantments.RollCharge]  # Roll Charge (Armor)
+"BP_RollCharge.Duration" = 1.0  # default 1.0
+"BP_RollCharge.DurationPerLevel" = 1.0  # default 1.0
+
+[Enchantments.Rushdown]  # Rushdown (Melee)
+"BP_Rushdown.speedBonus" = 1.1  # default 1.1
+"BP_Rushdown.speedDurationAfterKill" = 0.8  # default 0.8
+"BP_Rushdown.bAlwaysTrigger" = true  # default true
+
+[Enchantments.ShadowFeast]  # Shadow Surge (Armor)
+"BP_ShadowFeast.soulSpawnsPerLevel[1]" = 6  # default 6
+"BP_ShadowFeast.soulSpawnsPerLevel[2]" = 12  # default 12
+"BP_ShadowFeast.soulSpawnsPerLevel[3]" = 16  # default 16
+
+[Enchantments.ShadowFlash]  # Shadow Blast (Armor)
+"BP_ShadowFlash.Damage" = 300.0  # default 100.0
+"BP_ShadowFlash.PushbackStrengthPerLevel[1]" = 5.0  # default 5.0
+"BP_ShadowFlash.PushbackStrengthPerLevel[2]" = 6.0  # default 6.0
+"BP_ShadowFlash.PushbackStrengthPerLevel[3]" = 7.0  # default 7.0
+"BP_ShadowFlash.DamageRadiusPerLevel" = 0  # default 0
+
+[Enchantments.ShadowShot]  # Shadow Shot (Ranged)
+"BP_ShadowShot.DurationMagnitude" = 3.0  # default 3.0
+"BP_ShadowShot.MeleePowerBoostAmount" = 8.0  # default 8.0
+"BP_ShadowShot.TriggerChance" = 0.5  # default 0.5
+
+[Enchantments.SharedPain]  # SharedPain (unique item, mob or shared effect)
+"BP_SharedPain.MobsRange" = 500.0  # default 500.0
+
+[Enchantments.Shielding]  # Shielding (unique item, mob or shared effect)
+"BP_Shielding.ShieldMultiplier" = 0.95  # default 0.95
+"BP_Shielding.ShieldRadius" = 1000.0  # default 1000.0
+
+[Enchantments.Shockwave]  # Shockwave (Melee)
+"BP_Shockwave.BaseDamage" = 60.0  # default 30.0
+"BP_Shockwave.BaseMoveSpeed" = 1850.0  # default 1850.0
+"BP_Shockwave.spawnOffset" = 150.0  # default 150.0
+"BP_Shockwave.spawnSafetyMargin" = 15.0  # default 15.0
+"BP_Shockwave.MobDamage" = 125.0  # default 125.0
+"BP_ShockwaveProjectile.Sphere_GEN_VARIABLE:SphereRadius" = 10.0  # default 10.0
+"BP_ShockwaveProjectile.Duration" = 0.4  # default 0.4
+
+[Enchantments.ShockWeb]  # Shock Web (Ranged)
+"BP_ShockWeb.Range" = 2400.0  # default 2400.0
+"BP_ShockWeb.damagePerSecond" = 75.0  # default 37.5
+"BP_ShockWeb.Period" = 0.25  # default 0.25
+"BP_ShockWeb.Duration" = 20.0  # default 20.0
+"BP_ShockWebNode.WorldSpawnOffset" = 85.0  # default 85.0
+"BP_ShockWebNode.DamageCollision:CapsuleHalfHeight" = 1000.0  # default 1000.0
+"BP_ShockWebNode.TraceBiasTerrain" = 51.0  # default 51.0
+"BP_ShockWebNode.AutoDestroyDelaySeconds" = 1.0  # default 1.0
+"BP_ShockWebNode.bIsBeamActive" = false  # default false
+"BP_ShockWebNode.bIsFading" = false  # default false
+"BP_ShockWebNode.TotalLifeSpan" = 20.0  # default 20.0
+"BP_ShockWebNode.damageDuration" = 20.0  # default 20.0
+
+[Enchantments.ShulkerSentry]  # ShulkerSentry (unique item, mob or shared effect)
+"BP_FriendlyShulkerBullet.levitationDuration" = 3.0  # default 3.0
+"BP_FriendlyShulkerBullet.fallDuration" = 6.0  # default 6.0
+"BP_FriendlyShulkerBullet.LevitationStrength" = -0.03  # default -0.03
+"BP_FriendlyShulkerBullet.LaunchStrength" = 0.3  # default 0.3
+"BP_FriendlyShulkerBullet.MoveToTargetComponent:Acceleration" = 60.0  # default 60.0
+"BP_FriendlyShulkerBullet.MoveToTargetComponent:MaxSpeed" = 600.0  # default 600.0
+"BP_FriendlyShulkerBullet.MoveToTargetComponent:MinSpeed" = 400.0  # default 400.0
+"BP_FriendlyShulkerBullet.MoveToTargetComponent:GridTolerance" = 90.0  # default 90.0
+"BP_FriendlyShulkerBullet.MoveToTargetComponent:LerpStrength" = 20.0  # default 20.0
+"BP_FriendlyShulkerBullet.Timeline_0_Template:TimelineLength" = 1.0  # default 1.0
+"BP_FriendlyShulkerBullet.Timeline_0_Template:bLoop" = true  # default true
+"BP_FriendlyShulkerBullet.Damage" = 50.0  # default 50.0
+"BP_FriendlyShulkerBullet.LevitationDropDamagePercentage" = 0.2  # default 0.2
+"BP_FriendlyShulkerBullet.targetPlayerDistance" = 1000.0  # default 1000.0
+"BP_FriendlyShulkerBullet.targetPowerStations" = 500.0  # default 500.0
+"BP_FriendlyShulkerBullet.mTimeout" = 15.0  # default 15.0
+"BP_ShulkerBulletShooter.CenterOffset" = 110.0  # default 110.0
+"BP_ShulkerBulletShooter.CirculationSpeedScale" = 1.0  # default 1.0
+"BP_ShulkerSentry.Radius" = 2200.0  # default 2200.0
+"BP_ShulkerSentry.MobStunDuration" = 2.0  # default 2.0
+"BP_ShulkerSentry.PlayerStunDuration" = 1.0  # default 1.0
+"BP_ShulkerSentry.BaseInterval" = 5.0  # default 5.0
+"BP_ShulkerSentry.IntervalPerLevel" = -2.0  # default -2.0
+"BP_ShulkerSentry.MinInterval" = 1.0  # default 1.0
+
+[Enchantments.SlowBowEnchantment]  # SlowBowEnchantment (unique item, mob or shared effect)
+"BP_SlowBowEnchantment.mDuration" = 3.0  # default 3.0
+"BP_SlowBowEnchantment.mInitialFreezeAmount" = 0.5  # default 0.5
+"BP_SlowBowEnchantment.mFreezePerLevel" = 0.1  # default 0.1
+
+[Enchantments.SlowResistance]  # SlowResistance (unique item, mob or shared effect)
+"BP_SlowResistanceEnchantment.Resistance" = 0.5  # default 0.5
+"BP_SlowResistanceEnchantment.PerLevelResistance" = 0.1  # default 0.1
+
+[Enchantments.Smiting]  # Smiting (Melee)
+"BP_Smiting.DamageMultiplierBase" = 1.25  # default 1.15
+"BP_Smiting.DamageMultiplierPerLevel" = 0.25  # default 0.1
+
+[Enchantments.Snowing]  # Snowball (Armor)
+"BP_SnowBallThrower.CenterOffset" = 150.0  # default 150.0
+"BP_SnowBallThrower.CirculationSpeedScale" = 1.5  # default 1.5
+"BP_Snowing.MobStunDuration" = 2.0  # default 2.0
+"BP_Snowing.PlayerStunDuration" = 1.0  # default 1.0
+"BP_Snowing.Radius" = 1000.0  # default 1000.0
+"BP_Snowing.BaseInterval" = 3.0  # default 5.0
+"BP_Snowing.IntervalPerLevel" = -1.0  # default -2.0
+"BP_Snowing.MinInterval" = 1.0  # default 1.0
+
+[Enchantments.SoulFocus]  # Soul Focus (Armor)
+"BP_SoulFocus.DamageIncreasePerLevel" = 0.1  # default 0.1
+
+[Enchantments.SoulLantern]  # SoulLantern (unique item, mob or shared effect)
+"BP_SoulLanternInstance.SharedPassiveCooldown" = 0.2  # default 0.2
+"BP_SoulLanternInstance.TeleportRootTime" = 1.0  # default 1.0
+"BP_SoulLanternInstance.PetAmountCap" = 1  # default 1
+"BP_SoulLanternInstance.IncreasedMaxHealthMultiplier" = 4.5  # default 3.0
+"BP_SoulLanternInstance.DealDamageMultiplier" = 1.5  # default 1.0
+"BP_SoulLanternInstance.MobSummonOffset" = 500.0  # default 500.0
+"BP_SoulLanternInstance.TeleportCooldownFactor" = 0.25  # default 0.25
+"BP_SoulLanternInstance.CoolDownForEachPetDeath" = true  # default true
+"BP_SoulLanternInstance.ItemPower" = 1.0  # default 1.0
+"BP_SoulLanternInstance.bAutomaticDestruction" = true  # default true
+"BP_SoulLanternInstance.bIsBigWeapon" = false  # default false
+
+[Enchantments.SoulSiphon]  # Soul Siphon (Melee)
+"BP_SoulSiphon.BaseSoulSpawnAmount" = 1  # default 1
+"BP_SoulSiphon.TriggerChance" = 0.2  # default 0.2
+"BP_SoulSiphon.PerLevelSoulSpawnAmount" = 2  # default 2
+
+[Enchantments.SpeedSynergy]  # Speed Synergy (Armor)
+"BP_SpeedSynergy.MovementSpeedMultiplier" = 1.5  # default 1.2
+
+[Enchantments.SpiritSpeed]  # Soul Speed (Armor)
+"BP_SpiritSpeed.speedBonus" = 0.1  # default 0.05
+
+[Enchantments.Stunning]  # Stunning (Melee)
+"BP_Stunning.ChanceToStunPerLevel" = 0.15  # default 0.05
+"BP_Stunning.DurationSeconds" = 2.0  # default 2.0
+
+[Enchantments.Swiftfooted]  # Swiftfooted (Armor)
+"BP_Swiftfooted.swiftDuration" = 5.0  # default 3.0
+
+[Enchantments.Swirling]  # Swirling (Melee)
+"BP_Swirling.Range" = 400.0  # default 400.0
+"BP_Swirling.DamageIncreaseFactorPerLevel" = 0.5  # default 0.5
+"BP_Swirling.SwirlBaseDamage" = 40.0  # default 40.0
+"BP_Swirling.MobSwirlDamage" = 150.0  # default 150.0
+"BP_Swirling.MinimalHitCountToTrigger" = 1  # default 1
+
+[Enchantments.TastyBone]  # TastyBone (unique item, mob or shared effect)
+"BP_TastyBoneInstance.PetAmountCap" = 1  # default 1
+"BP_TastyBoneInstance.IncreasedMaxHealthMultiplier" = 4.5  # default 3.0
+"BP_TastyBoneInstance.DealDamageMultiplier" = 1.5  # default 1.0
+"BP_TastyBoneInstance.MobSummonOffset" = 500.0  # default 500.0
+"BP_TastyBoneInstance.TeleportCooldownFactor" = 0.25  # default 0.25
+"BP_TastyBoneInstance.CoolDownForEachPetDeath" = true  # default true
+"BP_TastyBoneInstance.ItemPower" = 1.0  # default 1.0
+"BP_TastyBoneInstance.SharedPassiveCooldown" = 0.25  # default 0.25
+"BP_TastyBoneInstance.bAutomaticDestruction" = true  # default true
+"BP_TastyBoneInstance.bIsBigWeapon" = false  # default false
+
+[Enchantments.TempoTheft]  # Tempo Theft (Ranged)
+"BP_TempoTheft.AmountToStealPerLevel" = 0.1666  # default 0.1666
+"BP_TempoTheft.MobAmountToSteal" = 0.5  # default 0.5
+
+[Enchantments.Thorns]  # Thorns (Armor)
+"BP_AncientGuardianThorns.PercentDamageReturnedBase" = 1.0  # default 1.0
+"BP_AncientGuardianThorns.PercentDamageReturnedPerLevel" = 0.5  # default 0.5
+"BP_AncientGuardianThorns.PercentDamageReturnedMob" = 0.1  # default 0.1
+"BP_Thorns.OnKillPushback.enablePushback" = true  # default true
+"BP_Thorns.OnKillPushback.pushbackStrength" = 2.0  # default 2.0
+"BP_Thorns.PercentDamageReturnedBase" = 5.0  # default 1.0
+"BP_Thorns.PercentDamageReturnedPerLevel" = 2.5  # default 0.5
+"BP_Thorns.PercentDamageReturnedMob" = 0.03  # default 0.1
+
+[Enchantments.ThriveUnderPressure]  # Thrive Under Pressure (Armor)
+"BP_ThriveUnderPressure.TriggerRange" = 600.0  # default 600.0
+"BP_ThriveUnderPressure.MobThreshold" = 3  # default 4
+
+[Enchantments.Thundering]  # Thundering (Melee)
+"BP_Thundering.StrikeRadius" = 150.0  # default 150.0
+"BP_Thundering.IndividualChainRadius" = 700.0  # default 700.0
+"BP_Thundering.ChainLightningDelay" = 0.1  # default 0.1
+"BP_Thundering.BaseDamage" = 7.5  # default 12.5
+"BP_Thundering.MobDamage" = 100.0  # default 100.0
+"BP_Thundering.TriggerChance" = 1.0  # default 0.3
+
+[Enchantments.TumbleBee]  # Tumble Bee (Armor)
+"BP_TumbleBee.SpawnDelaySeconds" = 0.1  # default 0.1
+"BP_TumbleBee.BaseTriggerChance" = 0.33  # default 0.33
+"BP_TumbleBee.TriggerChanceIncreasePerLevel" = 0.34  # default 0.34
+"BP_TumbleBee.MaxNumMobs" = 3  # default 3
+
+[Enchantments.VoidBlast]  # VoidBlast (unique item, mob or shared effect)
+"BP_VoidBlast.blastDamage" = 40.0  # default 40.0
+"BP_VoidBlast.blastRange" = 500.0  # default 500.0
+"BP_VoidBlast.slowDuration" = 2.0  # default 2.0
+"BP_VoidBlast.slowMultiplier" = 0.2  # default 0.2
+
+[Enchantments.VoidTouchedMelee]  # Void Strike (Melee)
+"BP_VoidTouchedMelee.bAlwaysTrigger" = true  # default true
+
+[Enchantments.VoidTouchedRanged]  # Void Strike (Ranged)
+"BP_VoidTouchedRanged.bAlwaysTrigger" = true  # default true
+
+[Enchantments.Weakening]  # Weakening (Melee)
+"BP_Weakening.WeakenRange" = 300.0  # default 300.0
+"BP_Weakening.WeakenAmount" = [0.8, 0.7, 0.6]  # default [0.8, 0.7, 0.6]
+"BP_Weakening.Duration" = 5.0  # default 5.0
+"BP_Weakening.MobWeakenAmount" = 0.4  # default 0.4
+"BP_Weakening.MobDuration" = 5.0  # default 5.0
+
+[Enchantments.WildRage]  # Wild Rage (Ranged)
+"BP_WildRage.Duration" = 5.0  # default 5.0
+
+[Enchantments.WindBowEnchantment]  # WindBowEnchantment (unique item, mob or shared effect)
+"BP_WindBowEnchantment.KnockbackRadius" = 400.0  # default 400.0
+"BP_WindBowEnchantment.KnockbackStrength" = 7.0  # default 7.0
+"BP_WindBowEnchantment.KnockbackZFactor" = 0.4  # default 0.4
+"BP_WindBowEnchantment.StunTime" = 1.25  # default 1.25
+"BP_WindBowEnchantment.bAlwaysTrigger" = true  # default true
+
+[Enchantments.WindResistance]  # WindResistance (unique item, mob or shared effect)
+"BP_WindResistance.Resistance" = 0.5  # default 0.5
+"BP_WindResistance.PerLevelResistance" = 0.1  # default 0.1
+
+[Enchantments.WitherEnchantmentMelee]  # WitherEnchantmentMelee (unique item, mob or shared effect)
+"BP_WitherEnchantmentMelee.WitherDamageTotalFraction" = 0.1  # default 0.1
+
+[Enchantments.WitherEnchantmentRanged]  # WitherEnchantmentRanged (unique item, mob or shared effect)
+"BP_WitherEnchantmentRanged.WitherDamageTotalFraction" = 0.1  # default 0.1
+
+[Enchantments.WonderfulWheat]  # WonderfulWheat (unique item, mob or shared effect)
+"BP_WonderfulWheatInstance.PetAmountCap" = 2  # default 1
+"BP_WonderfulWheatInstance.IncreasedMaxHealthMultiplier" = 4.5  # default 3.0
+"BP_WonderfulWheatInstance.DealDamageMultiplier" = 1.75  # default 1.0
+"BP_WonderfulWheatInstance.MobSummonOffset" = 500.0  # default 500.0
+"BP_WonderfulWheatInstance.TeleportCooldownFactor" = 0.25  # default 0.25
+"BP_WonderfulWheatInstance.CoolDownForEachPetDeath" = true  # default true
+"BP_WonderfulWheatInstance.ItemPower" = 1.0  # default 1.0
+"BP_WonderfulWheatInstance.SharedPassiveCooldown" = 0.25  # default 0.25
+"BP_WonderfulWheatInstance.bAutomaticDestruction" = true  # default true
+"BP_WonderfulWheatInstance.bIsBigWeapon" = false  # default false

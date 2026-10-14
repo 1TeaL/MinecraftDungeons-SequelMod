@@ -1,0 +1,24 @@
+# What the launcher does after starting the game (steam_launch.bat / Play Endless Apocalypse.bat / tools/play.py).
+# Set an entry to false to switch that part off.
+
+builtins = true      # unique items' built-in enchantments (Builtins.toml) - data only
+stacking = true      # every enchantment may be rolled in several slots of an item (Stack.toml) - data only
+echo = true          # Echo's gap between repeats (Echo.toml) - data only, checked while the game runs
+formulas = true      # per-tier values of code-fixed enchantments (Formulas.toml) - adds a routine of its own in
+                     # new memory and points live enchantment objects at it; game code is not changed
+artifact_scaling = true   # artifacts above the power cap keep gaining damage and healing (ArtifactScaling.toml)
+                     # - data only, checked while the game runs
+seasonal_drops = true   # seasonal gear drops in missions like its family's uniques (Drops.toml) - data only.
+                     # NOT YET SEEN WORKING: switch off first if loot or the mission screen misbehaves
+prices = true        # merchant base prices (Prices.toml) - data only, checked while the game runs
+mob_pool = true      # enchantments taken out of (or put into) the pool enchanted mobs roll from (MobPool.toml)
+                     # - data only. Not yet seen working
+arrows = false       # arrows refill while you aren't shooting (Arrows.toml) - data only. Not yet seen working
+mob_enchants = true  # Deflect and Levitation Shot switched off on mobs only (MobEnchants.toml) - data only,
+                     # checked while the game runs. Not yet seen working
+qol = true           # quality-of-life changes (QoL.toml) - data only
+bonus = true         # bonus built-in enchantments for gear above the power cap (Bonus.toml) - data only,
+                     # checked every few seconds while the game runs
+endless = true       # Endless Apocalypse: A+ up to 100 (what the levels do is in the pak, Endless.toml) - data only
+cap = false          # raise the power cap above 315 - CHANGES GAME CODE. Tried 2026-10-04: the game crashes when
+                     # a mission starts. Keep it off.

@@ -1,0 +1,15 @@
+# Artifacts above the power cap: their damage and healing keep growing with power - applied by the launcher to
+# each equipped artifact while the game runs (tools/artifact_scale.py). Data only.
+#
+# Up to `cap` nothing changes. Above it, each power point multiplies the artifact's own numbers by the same small
+# percentage, reaching the values below at `top_power` (A+100 gear). Sized to the mob curve of Endless.toml, so
+# artifacts stay as useful at A+100 as they are at A+50:
+#   damage (also pet damage)            x5.0 at 365 = +3.3% per power point   (mob health is x5 by A+100)
+#   healing (also pet health)           x2.2 at 365 = +1.6% per power point   (mob damage is x2.2 by A+100)
+# The game's own pace below the cap is about +4% per point, which would be x7 at 365.
+# Which numbers of which artifact are scaled: tools/artifact_fields.json.
+
+cap = 316
+top_power = 365
+damage_at_top = 5.0
+heal_at_top = 2.5

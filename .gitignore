@@ -1,0 +1,37 @@
+# Sequel Mod - what stays out of the repository.
+
+# Your own character saves and backups
+save_backups/
+save_backup_*/
+save_with_all_enchants_*/
+research/character.json
+research/stack_test_original.json
+research/test_item_perks.json
+research/stack_test_perks.json
+
+# The game's own material (belongs to Mojang / Microsoft): memory image, disassembly, game text, extracted data
+research/dungeons_image.bin
+research/dis*.txt
+tools/game_en.json
+tools/fields.json
+tools/gear_stats.json
+data/
+enchant_dump.txt
+
+# The game's save encryption key
+research/save_key.bin
+
+# Other people's material: video transcripts, wiki copies, tier list images
+research/transcripts/
+research/wiki/
+research/shinkuny/
+tools/wiki_*.json
+
+# Build output, the downloaded portable Python, logs
+build/
+staged/
+dist/
+vendor/
+launcher.log
+__pycache__/
+*.pyc

@@ -1,0 +1,10 @@
+# Arrows come back by themselves while you aren't shooting - applied by the launcher while the game runs
+# (tools/arrows_patch.py). Data only. NOT YET SEEN WORKING.
+#
+# Every 3 seconds the launcher looks at your arrow count. If it has gone down since the last look you are shooting
+# and nothing happens; otherwise a share of a bundle is added, up to one bundle of the bow you have equipped
+# (user, 2026-10-11: refill up to a bundle, every 3 s, only while not shooting).
+
+refill = false           # off until the arrow count has been read once from the running game (see below)
+refill_seconds = 30      # an empty quiver is back to a full bundle after this long without shooting
+default_bundle = 40      # used when the equipped bow's bundle size can't be worked out

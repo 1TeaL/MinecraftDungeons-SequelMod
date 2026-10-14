@@ -1,0 +1,45 @@
+# Extra armor perks - applied by the launcher (data only). A plain Steam launch keeps the game's own perks.
+# What a perk does and its numbers are fixed in the game; this only adds perks an armor doesn't have.
+# Names: the game's own, see PERK_NAMES in tools/perks_patch.py (ItemCooldownDecrease = -40% artifact cooldown,
+# SuperbDamageAbsorption = 35% damage reduction, MissChance = 30% negate hits, AllyDamageBoost = weapon damage aura,
+# AreaHeal = potions heal allies, ItemDamageBoost = +50% artifact damage). `python tools/perks_patch.py --show` lists every armor's perks.
+# Rule: keep each armor's own idea and make it better at it.
+
+["Armor/NatureArmor_Unique1"]          # Black Spot Armor: the potion armor -> potions come back faster
+add = ["PotionCooldownDecrease"]
+
+["Armor/WolfArmor_Unique2"]            # Black Wolf Armor: the pack armor -> a second aura for the group
+add = ["MoveSpeedAura"]
+
+["Armor/SpelunkersArmor_Unique1"]      # Cave Crawler: artifact damage -> artifacts ready more often
+add = ["ItemCooldownDecrease"]
+
+["Armor/SpelunkersArmor_Year1"]        # Sweet Tooth: the consumables armor -> potions come back faster
+add = ["PotionCooldownDecrease"]
+
+["Armor/TurtleArmor_Unique1"]          # Nimble Turtle Armor: tanky healer -> also heals by fighting
+add = ["LifeStealAura"]
+
+["Armor/PiglinArmor_Unique1"]          # Golden Piglin Armor: artifact burst -> artifacts ready more often
+add = ["ItemCooldownDecrease"]
+
+["Armor/CowardsArmor"]                 # Guard's Armor: artifacts and arrows -> the arrows hit harder
+add = ["RangedDamageBoost"]
+
+["Armor/ArchersStrappings_Unique1"]    # Archer's Armor: ranged -> quiver artifacts ready more often
+add = ["ItemCooldownDecrease"]
+
+["Armor/WolfArmor_Unique1"]            # Fox Armor: team tank -> actually tanky
+add = ["SuperbDamageAbsorption"]
+
+["Armor/WolfArmor_Winter1"]            # Arctic Fox Armor: pack leader, as tanky as the Fox
+add = ["SuperbDamageAbsorption"]
+
+["Armor/PhantomArmor_Unique1"]         # Frost Bite: souls and ranged -> more arrows to shoot
+add = ["IncreasedArrowBundleSize"]
+
+["Armor/MercenaryArmor_Spooky1"]       # Hungry Horror: retaliation tank -> heals while it fights
+add = ["LifeStealAura"]
+
+["Armor/ClimbingGear_Unique1"]         # Rugged Climbing Gear: resists everything -> also shrugs off hits
+add = ["MissChance"]

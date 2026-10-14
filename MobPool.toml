@@ -1,0 +1,12 @@
+# Which enchantments enchanted mobs can roll - applied by the launcher when the game starts
+# (tools/mobpool_patch.py). Data only; the player's own enchantments are not affected, and a boss that carries an
+# enchantment by design keeps it.   python tools/mobpool_patch.py --show   lists what mobs can get right now.
+# Names: tools/enchant_ids.json (the game's internal names; LevitationShot = Levitation Shot).
+
+# Taken out of the pool (user, 2026-10-11: Deflect and Levitation Shot gone from mobs; Thorns only weakened - that
+# is "Thorns PercentDamageReturnedMob" in SequelMod.toml).
+remove = ["Deflecting", "LevitationShot"]
+
+# Put into the pool: enchantments mobs don't normally roll. Untested - the game gives some of these to ancient mobs
+# only (Leeching, Sharpness, Cowardice, FuseShot), which suggests they work on a mob.
+add = []

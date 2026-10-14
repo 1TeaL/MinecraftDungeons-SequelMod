@@ -1,0 +1,5 @@
+# The player's own movement - built into the pak by `python tools/sequel.py build` (tools/player.py).
+
+speed_after_roll = 1.0   # share of your speed kept right after a roll. Game: 0.8 (a fifth slower for a moment).
+                         # 1.0 = no slowdown after rolling (user, 2026-10-13).
+# walk_speed = 700       # walking speed. Game: 700. (+10% = 770 was discussed, not applied.)

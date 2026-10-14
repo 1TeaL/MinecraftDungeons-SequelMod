@@ -1,0 +1,6 @@
+# Quality-of-life changes, applied by the launcher when the game starts (data only, no game code).
+
+# Blacksmith: how many missions an item upgrade takes (the game's own number is 3).
+# The Blacksmith's description in game still says 3; that text can't be changed.
+[blacksmith]
+missions = 1

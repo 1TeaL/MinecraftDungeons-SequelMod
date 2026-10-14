@@ -1,0 +1,210 @@
+{
+ "Amulets/IronHideAmulet": [
+  25.0,
+  0.0
+ ],
+ "Beenest": [
+  23.0,
+  0.0
+ ],
+ "BootsOfSwiftness": [
+  5.0,
+  0.0
+ ],
+ "ChargedRedstoneMines": [
+  12.0,
+  0.0
+ ],
+ "CorruptedBeacon": [
+  2.5,
+  2.0
+ ],
+ "CorruptedBeacon_Spooky1": [
+  2.5,
+  2.0
+ ],
+ "CorruptedSeeds": [
+  10.0,
+  0.0
+ ],
+ "DeathCapMushroom": [
+  30.0,
+  0.0
+ ],
+ "EnchantersTome": [
+  15.0,
+  0.0
+ ],
+ "EnderPearl": [
+  15.0,
+  0.0
+ ],
+ "FireworkBomb": [
+  10.0,
+  0.0
+ ],
+ "FireworksArrow": [
+  0.5,
+  0.0
+ ],
+ "FireworksArrowItem": [
+  30.0,
+  0.0
+ ],
+ "FishingRod": [
+  1.5,
+  0.0
+ ],
+ "FlamingQuiver": [
+  30.0,
+  0.0
+ ],
+ "GhostCloak": [
+  6.0,
+  0.0
+ ],
+ "GolemKit": [
+  30.0,
+  0.0
+ ],
+ "GongOfWeakening": [
+  20.0,
+  0.0
+ ],
+ "GuardianEye": [
+  22.0,
+  0.0
+ ],
+ "Harvester": [
+  4.0,
+  40.0
+ ],
+ "Harvester_Unique1": [
+  1.0,
+  40.0
+ ],
+ "HeavyHarpoonQuiver": [
+  30.0,
+  0.0
+ ],
+ "IceWand": [
+  15.0,
+  0.0
+ ],
+ "LightFeather": [
+  3.0,
+  0.0
+ ],
+ "LightningRod": [
+  2.0,
+  15.0
+ ],
+ "LostEvocation": [
+  30.0,
+  0.0
+ ],
+ "LoveMedallion": [
+  30.0,
+  0.0
+ ],
+ "MobMasher": [
+  10.0,
+  0.0
+ ],
+ "NetherWartSporeGrenade": [
+  6.0,
+  0.0
+ ],
+ "PlentifulQuiver": [
+  10.0,
+  0.0
+ ],
+ "RainbowGrass": [
+  30.0,
+  0.0
+ ],
+ "SatchelOfNeed": [
+  25.0,
+  0.0
+ ],
+ "SatchelOfNourishment": [
+  16.0,
+  0.0
+ ],
+ "SatchelOfTheElements": [
+  10.0,
+  0.0
+ ],
+ "ShadowSplinter": [
+  5.0,
+  0.33000001311302185
+ ],
+ "ShockPowder": [
+  15.0,
+  0.0
+ ],
+ "SoulHealer": [
+  5.0,
+  50.0
+ ],
+ "SoulLantern": [
+  5.0,
+  60.0
+ ],
+ "SoulTotemOfCasting": [
+  10.0,
+  70.0
+ ],
+ "SpinWheel": [
+  5.0,
+  0.0
+ ],
+ "TastyBone": [
+  30.0,
+  0.0
+ ],
+ "ThunderingQuiver": [
+  30.0,
+  0.0
+ ],
+ "TomeOfDuplication": [
+  10.0,
+  40.0
+ ],
+ "TormentQuiver": [
+  6.0,
+  30.0
+ ],
+ "TotemOfRegeneration": [
+  25.0,
+  0.0
+ ],
+ "TotemOfShielding": [
+  20.0,
+  0.0
+ ],
+ "TotemOfShielding_Unique1": [
+  30.0,
+  0.0
+ ],
+ "TotemOfSoulProtection": [
+  1.0,
+  40.0
+ ],
+ "UpdraftTome": [
+  10.0,
+  0.0
+ ],
+ "VoidQuiver": [
+  25.0,
+  0.0
+ ],
+ "WindHorn": [
+  10.0,
+  0.0
+ ],
+ "WonderfulWheat": [
+  30.0,
+  0.0
+ ]
+}

@@ -1,0 +1,5 @@
+# Echo: seconds between repeats, applied by the launcher while the game runs (tools/echo_patch.py) - data only.
+# The game works the gap out as  tier 3 gap + 2 / + 1 / + 0  for tier 1 / 2 / 3 (its own: 5 / 4 / 3 s), so only
+# the tier 3 value is set here and each lower tier is one second longer. 0 isn't possible (Echo would stop firing).
+
+tier3_gap = 0.1      # 2.1 / 1.1 / 0.1 s. The game's own: 3.0

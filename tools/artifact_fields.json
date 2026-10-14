@@ -1,0 +1,264 @@
+{
+ "TargetingStrikeItem": {
+  "vtable": "0x3337d20",
+  "size": "0x530",
+  "fields": {
+   "StrikeDamagePerSoul": {
+    "offset": "0x4f8",
+    "type": "float",
+    "kind": "damage",
+    "default": 60.0
+   }
+  }
+ },
+ "CorruptedBeacon": {
+  "vtable": "0x32fdde8",
+  "size": "0x528",
+  "fields": {
+   "DamagePerSoulPerTick": {
+    "offset": "0x4f8",
+    "type": "float",
+    "kind": "damage",
+    "default": 25.0
+   }
+  }
+ },
+ "CorruptedSeeds": {
+  "vtable": "0x32fe578",
+  "size": "0x510",
+  "fields": {
+   "PoisonDamageScale": {
+    "offset": "0x4f4",
+    "type": "float",
+    "kind": "damage",
+    "default": 10.0
+   }
+  }
+ },
+ "HarvesterInstance": {
+  "vtable": "0x3330b08",
+  "size": "0x510",
+  "fields": {
+   "DamagePerSoul": {
+    "offset": "0x4f4",
+    "type": "int",
+    "kind": "damage",
+    "default": 10.0
+   }
+  }
+ },
+ "IceWandInstance": {
+  "vtable": "0x33320a8",
+  "size": "0x500",
+  "fields": {
+   "IceDamageOverride": {
+    "offset": "0x4f0",
+    "type": "float",
+    "kind": "damage",
+    "default": 75.0
+   }
+  }
+ },
+ "ChargedRedstoneMinesInstance": {
+  "vtable": "0x32fd6b8",
+  "size": "0x518",
+  "fields": {
+   "DamagePerMine": {
+    "offset": "0x4e8",
+    "type": "int",
+    "kind": "damage",
+    "default": 400.0
+   }
+  }
+ },
+ "SatchelOfTheElementsInstance": {
+  "vtable": "0x3338468",
+  "size": "0x520",
+  "fields": {
+   "LightningDamage": {
+    "offset": "0x4f4",
+    "type": "float",
+    "kind": "damage",
+    "default": 800.0
+   },
+   "FireDamage": {
+    "offset": "0x4fc",
+    "type": "float",
+    "kind": "damage",
+    "default": 800.0
+   }
+  }
+ },
+ "UpdraftTomeInstance": {
+  "vtable": "0x3343358",
+  "size": "0x528",
+  "fields": {
+   "UpdraftDamage": {
+    "offset": "0x4ec",
+    "type": "float",
+    "kind": "damage",
+    "default": 520.0
+   }
+  }
+ },
+ "MobMasherInstance": {
+  "vtable": "0x3336010",
+  "size": "0x558",
+  "fields": {
+   "ShockwaveDamage": {
+    "offset": "0x50c",
+    "type": "float",
+    "kind": "damage",
+    "default": 60.0
+   }
+  }
+ },
+ "NetherWartSporeGrenadeInstance": {
+  "vtable": "0x3337558",
+  "size": "0x5e8",
+  "fields": {
+   "Damage": {
+    "offset": "0x518",
+    "type": "float",
+    "kind": "damage",
+    "default": 80.0
+   }
+  }
+ },
+ "SpinWheelInstance": {
+  "vtable": "0x333c9f0",
+  "size": "0x528",
+  "fields": {}
+ },
+ "GuardianEyeInstance": {
+  "vtable": "0x3330318",
+  "size": "0x540",
+  "fields": {
+   "BaseDamage": {
+    "offset": "0x4f0",
+    "type": "float",
+    "kind": "damage",
+    "default": 100.0
+   }
+  }
+ },
+ "FireworkBombInstance": {
+  "vtable": "0x3301e20",
+  "size": "0x600",
+  "fields": {
+   "BombDamage": {
+    "offset": "0x528",
+    "type": "float",
+    "kind": "damage",
+    "default": 50.0
+   },
+   "ProjectileDamage": {
+    "offset": "0x52c",
+    "type": "float",
+    "kind": "damage",
+    "default": 50.0
+   }
+  }
+ },
+ "BeeNestItemInstance": {
+  "vtable": "0x32fabb8",
+  "size": "0x520",
+  "fields": {}
+ },
+ "SoulHealer": {
+  "vtable": "0x3339ae0",
+  "size": "0x4f8",
+  "fields": {
+   "HealAmountPerSoul": {
+    "offset": "0x4e8",
+    "type": "float",
+    "kind": "heal",
+    "default": 4.0
+   }
+  }
+ },
+ "TotemOfRegenerationInstance": {
+  "vtable": "0x3340ab0",
+  "size": "0x500",
+  "fields": {
+   "HealthHealedPerSecond": {
+    "offset": "0x4f8",
+    "type": "float",
+    "kind": "heal",
+    "default": 40.0
+   }
+  }
+ },
+ "PileOfBones": {
+  "vtable": "0x33344a0",
+  "size": "0x548",
+  "fields": {
+   "DealDamageMultiplier": {
+    "offset": "0x520",
+    "type": "float",
+    "kind": "damage",
+    "default": 1.0
+   },
+   "IncreasedMaxHealthMultiplier": {
+    "offset": "0x51c",
+    "type": "float",
+    "kind": "heal",
+    "default": 3.0
+   }
+  }
+ },
+ "VillagersWhistle": {
+  "vtable": "0x33344a0",
+  "size": "0x548",
+  "fields": {
+   "DealDamageMultiplier": {
+    "offset": "0x520",
+    "type": "float",
+    "kind": "damage",
+    "default": 1.0
+   },
+   "IncreasedMaxHealthMultiplier": {
+    "offset": "0x51c",
+    "type": "float",
+    "kind": "heal",
+    "default": 3.0
+   }
+  }
+ },
+ "WonderfulWheat": {
+  "vtable": "0x33344a0",
+  "size": "0x548",
+  "fields": {
+   "DealDamageMultiplier": {
+    "offset": "0x520",
+    "type": "float",
+    "kind": "damage",
+    "default": 1.0
+   },
+   "IncreasedMaxHealthMultiplier": {
+    "offset": "0x51c",
+    "type": "float",
+    "kind": "heal",
+    "default": 3.0
+   }
+  }
+ },
+ "SoulLanternInstance": {
+  "vtable": "0x333a248",
+  "size": "0x550",
+  "fields": {
+   "DealDamageMultiplier": {
+    "offset": "0x520",
+    "type": "float",
+    "kind": "damage",
+    "default": 1.0
+   },
+   "IncreasedMaxHealthMultiplier": {
+    "offset": "0x51c",
+    "type": "float",
+    "kind": "heal",
+    "default": 3.0
+   }
+  }
+ }
+}

@@ -1,0 +1,273 @@
+# Bonus built-in enchantments for gear above the cap - applied by the launcher while the game runs (bonus_watch.py).
+#
+# Gear stops getting stronger at power 316 (as shown in game). Past that, every `step` power points is one upgrade
+# step for that item type:
+#   first   its own built-in enchantments rise one tier per step until they are tier 3
+#   then    its three bonus enchantments, one tier per step: 1st to tier 3, then the 2nd, then the 3rd
+# With step = 4 that is 12 steps between 320 and 364: enough for an item that starts with a tier 1 built-in.
+# Bonuses are built-ins: shown on the tooltip, no enchantment points. Copies of one enchantment all fire (tested in
+# play, also at the same tier), so a bonus adds to the same enchantment picked by the player - a pick is never wasted.
+# A bonus the item already has built in is skipped; a list may hold more than three names, the first three the item
+# doesn't own are used.
+# At power `final` (only A+100 drops it) weapons and bows get one more bonus enchantment, at tier 3 straight away:
+# the next name of the list (the last name of each list is there for that).
+# Weapons and bows: one list per family, picked to fit how it plays. Armor: the same defensive three for all.
+# Built-ins belong to the item type, not the single item: the launcher goes by the best copy the player holds.
+
+[thresholds]
+cap = 316        # power shown in game where gear stops getting stronger
+step = 4
+total = 4        # every item ends with this many enchantments beyond its family's plain item, bonuses included:
+                 # a unique with one of its own gets three bonuses, one with two gets two (never fewer than one)
+final = 365       # A+100 gear: weapons and bows get a fourth bonus enchantment (user, 2026-10-06)
+
+# The A+100 extra (power `final`) of every item in a section, before its list is looked at - unless the item has it
+# already, then the list's next name as before. Unchanting adds damage against enchanted mobs, which are everywhere
+# late in Endless, and its copies stack; it suits fast and heavy weapons alike (user, 2026-10-14).
+[final_extra]
+melee = "Unchanting"
+
+# The A+100 ladder (user, 2026-10-14: a for-fun climb after everything is set in stone). Past power `final`, every
+# `step` power adds one tier of a plain damage (or defence) enchantment as new lines under all the others: tier I,
+# II, III, then a second line I, II, III... Copies of these three all stack. Gear has room for 16 enchantments.
+# climb: an A+100 drop comes in this many points above your power level (the save's gear power), so the number
+# keeps creeping up run by run - drops already above that are left as they are.
+[ladder]
+step = 5
+climb = [1, 3]
+melee = "Sharpness"
+ranged = "Power"
+armor = "Protection"
+
+# Lists revised 2026-10-14 (user: aim for enchantments whose copies stack, since a bonus may land on something the
+# player already picked - StackNotes.toml has what was tried). Echo, Gravity, Weakening, Poison Cloud, Pain Cycle,
+# Piercing, Rapid Fire, Potion Barrier, Swiftfooted, the two Synergies and Chilling are out; Void Strike stays only
+# where the weapon is built around it (Firebrand, Stormlander, Venom Glaive, Obsidian Claymore). Every list has a
+# spare at the end, so an item that owns one of the entries still gets its full number of bonuses.
+[melee]
+# Fast weapons get per-hit effects (Thundering, Critical Hit, Rampaging, Leeching, poison); slow, heavy ones get
+# per-swing and combo-end effects (Echo, Shockwave, Swirling, Committed, Void Strike).
+Anchor = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
+Axe = ["Swirling", "CriticalHit", "Committed", "Sharpness", "Shockwave"]
+Backstabber = ["Backstabber!", "CriticalHit", "Leeching", "Committed", "Sharpness"]
+Battlestaff = ["Stunning", "Shockwave", "Committed", "Swirling", "CriticalHit"]
+Boneclub = ["Committed", "Shockwave", "CriticalHit", "Sharpness", "Stunning"]
+Chainsword = ["Chains", "Committed", "CriticalHit", "Thundering", "Sharpness"]
+Claymore = ["Shockwave", "Swirling", "Committed", "Sharpness", "CriticalHit"]
+CoralBlade = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
+Cutlass = ["Rampaging", "CriticalHit", "Leeching", "Committed", "Thundering"]
+Daggers = ["Thundering", "CriticalHit", "Committed", "Stunning", "Leeching"]
+DoubleAxe = ["Swirling", "Shockwave", "CriticalHit", "Committed", "Sharpness"]
+Gauntlets = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
+Glaive = ["Swirling", "Sharpness", "Committed", "CriticalHit", "Shockwave"]
+Hammer = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
+Katana = ["Smiting", "Sharpness", "Committed", "CriticalHit", "Leeching"]   # the fifth is the spare for the Dark Katana, which owns Smiting
+Mace = ["Stunning", "Committed", "CriticalHit", "Shockwave", "Sharpness"]
+ObsidianClaymore = ["VoidTouchedMelee", "Committed", "CriticalHit", "Sharpness", "Shockwave"]
+Pickaxe = ["Prospector", "Committed", "CriticalHit", "Sharpness", "Swirling"]
+Pickaxe_Steel = ["Prospector", "Committed", "CriticalHit", "Sharpness", "Swirling"]
+Rapier = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
+Sickles = ["Thundering", "CriticalHit", "Stunning", "Committed", "Leeching"]
+SkeletonHammer = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
+SoulKnife = ["SoulSiphon", "AnimaConduitMelee", "EnigmaResonatorMelee", "Committed", "CriticalHit"]
+SoulScythe = ["SoulSiphon", "AnimaConduitMelee", "Chains", "EnigmaResonatorMelee", "Committed"]
+Spear = ["Sharpness", "Swirling", "Committed", "CriticalHit", "Shockwave"]
+Sword = ["Sharpness", "CriticalHit", "Swirling", "Committed", "Shockwave"]
+Sword_Steel = ["Sharpness", "CriticalHit", "Swirling", "Committed", "Shockwave"]
+TempestKnife = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
+VoidTouchedBlades = ["CriticalHit", "Leeching", "Rampaging", "Committed", "Thundering"]
+Whip = ["Chains", "Swirling", "Committed", "CriticalHit", "Shockwave"]
+
+# Lanes (2026-10-10). Enchantments that deal their own damage (Fire Aspect, Poison Cloud, Thundering, Shockwave,
+# Swirling) take the kill from the weapon, which switches off whatever needs the kill (Leeching, Exploding,
+# Rampaging, Refreshment, Prospector, Busy Bee, Rushdown). So a list stays in one lane: PROC (the enchantments do
+# the killing) or ON-KILL (the weapon hit does), each filled up with ones that don't care: Critical Hit, Committed,
+# Void Strike, Echo, Stunning, Chains, Weakening, Sharpness.
+# Void Strike goes on the slow, heavy weapons, where the mark has time to grow between hits (user, 2026-10-10).
+# Firebrand, Stormlander and Venom Glaive were slowed down and made heavier for it (SequelGear.toml).
+# Open: the wiki says damage from another source (a burn or poison tick) cashes the mark in early; the user
+# says it does not. To check in play on the Firebrand.
+# A name ending in "!" is a second copy of the item's own built-in - copies all fire, so its signature doubles.
+# Not for Poison Cloud, Exploding or Echo: their copies proc but add nothing (tested 2026-10-13), so those four
+# uniques got another enchantment in place of the copy.
+Axe_Unique1 = ["FireAspect!", "VoidTouchedMelee", "Committed", "CriticalHit", "Sharpness"]          # Firebrand: burn, mark, smash
+Hammer_Unique1 = ["Thundering!", "VoidTouchedMelee", "Committed", "CriticalHit", "Shockwave"]              # Stormlander
+Glaive_Unique2 = ["VoidTouchedMelee", "Committed", "CriticalHit", "Stunning", "Swirling"]           # Venom Glaive
+Sickles_Unique1 = ["Thundering", "CriticalHit", "Stunning", "Chains", "Committed"]          # Nightmare's Bite
+DoubleAxe_Unique1 = ["Shockwave!", "Swirling", "CriticalHit", "Committed", "Sharpness"]             # Whirlwind
+Mace_Unique1 = ["RadianceMelee!", "Stunning", "Committed", "CriticalHit", "Shockwave"]                     # Sun's Grace
+DoubleAxe_Unique2 = ["Leeching", "Rampaging", "CriticalHit", "Committed", "Swirling"]             # Cursed Axe (on-kill)
+Battlestaff_Unique2 = ["Leeching", "Committed", "CriticalHit", "Rampaging", "Shockwave"]           # Battlestaff of Terror (on-kill)
+Claymore_Unique1 = ["Leeching!", "Committed", "CriticalHit", "Shockwave", "Swirling"]                   # Heartstealer (on-kill)
+Cutlass_Unique2 = ["Rampaging!", "CriticalHit", "Leeching", "Committed", "Thundering"]               # Dancer's Sword (on-kill)
+Gauntlets_Unique2 = ["Rampaging!", "Leeching", "CriticalHit", "Committed", "Thundering"]             # Maulers (on-kill)
+Sickles_Unique2 = ["Leeching", "Rampaging", "CriticalHit", "Committed", "Thundering"]                # The Last Laugh (on-kill)
+# Enigma Resonator built in: it grows with the souls held, so these get soul bonuses (user, 2026-10-14)
+Daggers_Unique2 = ["SoulSiphon", "AnimaConduitMelee", "CriticalHit", "Committed", "Thundering"]       # Moon Daggers
+Gauntlets_Unique1 = ["SoulSiphon", "AnimaConduitMelee", "CriticalHit", "Committed", "Leeching"]       # Soul Fists
+# Seasonal items (own identities, Builtins.toml)
+Sword_Spooky1 = ["Rampaging", "CriticalHit", "Sharpness", "Committed", "Swirling"]
+Claymore_Winter1 = ["Sharpness", "Committed", "CriticalHit", "Stunning", "Smiting"]   # no Shockwave: Guarding Strike needs its own kills (user, 2026-10-14)
+Cutlass_Year1 = ["Thundering", "CriticalHit", "Committed", "Chains", "Leeching"]
+SoulScythe_Spooky2 = ["AnimaConduitMelee", "Committed", "Chains", "CriticalHit", "Sharpness"]
+Glaive_Spooky2 = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
+Spear_spooky2 = ["Committed", "CriticalHit", "Sharpness", "Swirling", "Shockwave"]
+
+[ranged]
+BatCrossbow = ["Unchanting", "BonusShot", "Infinity", "MultiShot", "Power"]
+Bow = ["Power", "MultiShot", "Infinity", "Ricochet", "BonusShot"]
+BubbleBow = ["MultiShot", "ChainReaction", "Infinity", "Ricochet", "BonusShot"]
+BurstCrossbow = ["ChainReaction", "Infinity", "Power", "BonusShot", "MultiShot"]
+CogCrossbow = ["Power", "Infinity", "Ricochet", "BonusShot", "Supercharge"]
+Crossbow = ["Power", "Infinity", "BonusShot", "Accelerating", "MultiShot"]
+DualCrossbows = ["MultiShot", "ChainReaction", "Infinity", "Ricochet", "BonusShot"]
+ExplodingCrossbow = ["ChainReaction", "FuseShot", "Infinity", "MultiShot", "Power", "BonusShot"]   # 6: the Firebolt Thrower owns the first two
+HarpoonCrossbow = ["Power", "Infinity", "Supercharge", "BonusShot", "Ricochet"]
+HeavyCrossbow = ["Infinity", "Power", "BonusShot", "Ricochet", "Supercharge"]
+HuntingBow = ["Power", "Supercharge", "DynamoRanged", "Infinity", "BonusShot"]
+Longbow = ["Supercharge", "Power", "Infinity", "BonusShot", "MultiShot"]
+PowerBow = ["Infinity", "Supercharge", "Power", "BonusShot", "MultiShot"]
+RapidCrossbow = ["Accelerating", "Infinity", "ChainReaction", "MultiShot", "BonusShot"]
+ScatterCrossbow = ["ChainReaction", "MultiShot", "Ricochet", "Infinity", "BonusShot"]
+ShadowCrossbow = ["Unchanting", "BonusShot", "Infinity", "MultiShot", "Power"]
+Shortbow = ["Accelerating", "Infinity", "MultiShot", "BonusShot", "ChainReaction"]
+SlowBow = ["MultiShot", "Ricochet", "Power", "Infinity", "BonusShot"]
+SoulBow = ["SoulSiphon", "AnimaConduitRanged", "MultiShot", "EnigmaResonatorRanged", "Infinity"]
+SoulCrossbow = ["SoulSiphon", "AnimaConduitRanged", "EnigmaResonatorRanged", "MultiShot", "Infinity"]
+SpiderCrossbow = ["ChainReaction", "MultiShot", "Ricochet", "Infinity", "BonusShot"]
+Trickbow = ["ChainReaction", "MultiShot", "Ricochet", "Infinity", "BonusShot"]
+TwistingVineBow = ["Infinity", "MultiShot", "ChainReaction", "Ricochet", "BonusShot"]
+VoidBow = ["FuseShot", "Ricochet", "MultiShot", "ChainReaction", "Infinity"]
+WindBow = ["Supercharge", "Ricochet", "MultiShot", "Infinity", "BonusShot"]
+
+BurstCrossbow_Unique1 = ["SoulSiphon", "AnimaConduitRanged", "Infinity", "Power", "BonusShot"]   # Soul Hunter Crossbow: Enigma Resonator built in (user, 2026-10-14)
+
+# Seasonal items (own identities, Builtins.toml)
+Bow_Spooky1 = ["ChainReaction", "MultiShot", "Infinity", "Power", "BonusShot"]
+SoulBow_Winter1 = ["EnigmaResonatorRanged", "MultiShot", "Infinity", "Ricochet", "BonusShot"]
+Trickbow_Year1 = ["Infinity", "ChainReaction", "MultiShot", "Ricochet", "BonusShot"]
+PowerBow_Spooky2 = ["Power", "Infinity", "Unchanting", "BonusShot", "MultiShot"]
+SlowBow_Spooky2 = ["Supercharge", "Infinity", "MultiShot", "Ricochet", "ChainReaction"]
+BubbleBow_Spooky2 = ["MultiShot", "Infinity", "Ricochet", "FuseShot", "ChainReaction"]
+
+[armor]
+# Default for every armor: the defensive three everyone runs anyway.
+all = ["Protection", "Celerity", "Thorns", "Snowing"]   # Protection, Cool Down, Thorns (Snowball is the spare)
+# Armors with a strong identity keep building on it instead (user, 2026-10-05: pet armors are for pet builds,
+# so they get pet bonuses too).
+WolfArmor = ["BeastBoss", "BeastSurge", "BeastBurst", "Protection"]             # Wolf Armor, Fox Armor, Black Wolf Armor
+SpelunkersArmor = ["BeastBoss", "BeastSurge", "Celerity", "Protection"]         # Spelunker's Armor, Cave Crawler
+BeenestArmor = ["TumbleBee", "BeastBoss", "BeastBurst", "Protection"]           # Beehive Armor
+BeeNestArmor = ["TumbleBee", "BeastBoss", "BeastBurst", "Protection"]           # Beenest Armor (the base item's id is spelled differently)
+SoulRobe = ["SoulFocus", "BagOfSouls", "Protection", "Celerity"]             # Soul Robe, Souldancer: soul artifacts
+GrimArmor = ["SoulFocus", "BagOfSouls", "Protection", "Celerity"]             # Grim Armor, Wither Armor
+DarkArmor = ["BagOfSouls", "Protection", "Celerity", "Thorns"]   # Dark Armor, Titan's Shroud
+EvocationRobe = ["Celerity", "FireFocus", "Burning", "Protection"]         # Evocation Robe, Ember Robe, Verdant Robe
+BattleRobe = ["Celerity", "LightningFocus", "Electrified", "Protection"]      # Battle Robe, Splendid Robe
+SnowArmor = ["Snowing", "Protection", "Thorns", "Celerity"]                 # Snow Armor, Frost Armor
+EmeraldArmor = ["EmeraldDivination", "DeathBarter", "LuckOfTheSea", "Protection"]   # Emerald Gear, Opulent Armor, Gilded Glory
+ArchersStrappings = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]  # Hunter's Armor, Archer's Armor
+CowardsArmor = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]       # Guard's Armor, Curious Armor
+
+# Defensive packages by archetype (2026-10-08): not every armor ends on Potion Barrier + Protection + Cool Down.
+FullPlateArmor = ["Thorns", "Protection", "Celerity", "Burning"]          # heavy tanks: punish what hits them
+ReinforcedMail = ["Protection", "Thorns", "Celerity", "Snowing"]          # potion tanks
+ChampionsArmor = ["Protection", "FoodReserves", "Thorns", "Celerity"]
+ShulkerArmor = ["Thorns", "Deflecting", "Protection", "Celerity"]
+TurtleArmor = ["Protection", "Thorns", "Celerity", "Snowing"]      # healer tank
+MercenaryArmor = ["Protection", "FireTrail", "Thorns", "Celerity"]       # brawlers: damage while healthy
+ScaleMail = ["Protection", "Celerity", "Electrified", "Thorns"]
+AssassinArmor = ["Acrobat", "Protection", "Electrified", "Celerity"]                  # assassins and roll armors: avoid the hit
+OcelotArmor = ["Acrobat", "Electrified", "Protection", "Celerity"]
+SquidArmor = ["Acrobat", "MultiDodge", "Electrified", "Protection"]
+GhostArmor = ["Acrobat", "FireTrail", "MultiDodge", "Protection"]
+SproutArmor = ["Acrobat", "PoisonFocus", "MultiDodge", "Protection"]
+EndRobes = ["Celerity", "SoulFocus", "Protection", "Thorns"]                     # casters: artifacts as the defence
+PiglinArmor = ["Celerity", "FireTrail", "Protection", "Thorns"]
+NatureArmor = ["FoodReserves", "Celerity", "Protection", "Thorns"]
+ClimbingGear = ["Celerity", "Protection", "Snowing", "Thorns"]
+BardsGarb = ["Celerity", "SurpriseGift", "Protection", "Thorns"]
+PhantomArmor = ["BurstBowstring", "Recycler", "Celerity", "Protection"]
+# Seasonal armors (own identities, Builtins.toml)
+MercenaryArmor_Spooky1 = ["Protection", "Celerity", "Deflecting", "Burning"]
+MercenaryArmor_Spooky2 = ["Acrobat", "DeathBarter", "Electrified", "Protection"]
+WolfArmor_Winter1 = ["BeastBoss", "TumbleBee", "Celerity", "Protection"]
+SpelunkersArmor_Year1 = ["Celerity", "Protection", "Thorns", "Snowing"]
+FullPlateArmor_Spooky2 = ["Thorns", "Protection", "Celerity", "Electrified"]
+GrimArmor_Spooky2 = ["Celerity", "Protection", "Thorns", "Snowing"]
+GhostArmor_Spooky2 = ["Acrobat", "LightningFocus", "Protection", "Celerity"]
+
+# Extra perks for armor above the cap. Unlike the enchantments these go on the single armor (the game saves them with
+# it), one more at each power level listed. Reworked 2026-10-07 after the Wiper "every armor stat" ranking: before,
+# most armors got the same top traits. Now each list reads
+#     [its archetype's perk, 35% damage reduction, a second archetype perk, spares...]
+# and an armor takes the first ones it doesn't have. So every armor gains damage reduction by the middle level
+# (mob damage rises past A+50, health doesn't - user), and one that already has it moves on to its second
+# archetype perk and then to the first spare (30% chance to negate hits, then life steal).
+# Perk names: PERK_NAMES in tools/perks_patch.py. Resonant = +30% positive effect duration (my reading of its
+# blueprint; to confirm in game).
+[armor_perks]
+levels = [330, 345, 360]
+all = ["ItemCooldownDecrease", "SuperbDamageAbsorption", "AllyDamageBoost", "MissChance", "LifeStealAura"]
+FullPlateArmor = ["MeleeDamageBoost", "SuperbDamageAbsorption", "PotionCooldownDecrease", "MissChance", "LifeStealAura"]
+ReinforcedMail = ["PotionCooldownDecrease", "SuperbDamageAbsorption", "Resonant", "MissChance", "LifeStealAura"]
+ChampionsArmor = ["Resonant", "SuperbDamageAbsorption", "MissChance", "MissChance", "LifeStealAura"]
+TurtleArmor = ["LifeStealAura", "SuperbDamageAbsorption", "PotionCooldownDecrease", "MissChance", "LifeStealAura"]
+SnowArmor = ["EnvironmentalProtection", "SuperbDamageAbsorption", "MissChance", "MissChance", "LifeStealAura"]
+ShulkerArmor = ["Heavyweight", "SuperbDamageAbsorption", "MissChance", "MissChance", "LifeStealAura"]
+MercenaryArmor = ["MeleeDamageBoost", "SuperbDamageAbsorption", "DodgeSpeedIncrease", "MissChance", "LifeStealAura"]
+ScaleMail = ["MeleeAttackSpeedBoost", "SuperbDamageAbsorption", "DodgeSpeedIncrease", "MissChance", "LifeStealAura"]
+AssassinArmor = ["MeleeDamageBoost", "SuperbDamageAbsorption", "MoveSpeedAura", "MissChance", "LifeStealAura"]
+OcelotArmor = ["MeleeDamageBoost", "SuperbDamageAbsorption", "MoveSpeedAura", "MissChance", "LifeStealAura"]
+EmeraldArmor = ["EmeraldShield", "SuperbDamageAbsorption", "MissChance", "MissChance", "LifeStealAura"]
+BattleRobe = ["ItemDamageBoost", "SuperbDamageAbsorption", "Resonant", "MissChance", "LifeStealAura"]
+EvocationRobe = ["ItemDamageBoost", "SuperbDamageAbsorption", "Resonant", "MissChance", "LifeStealAura"]
+EndRobes = ["ItemDamageBoost", "SuperbDamageAbsorption", "ItemCooldownDecrease", "MissChance", "LifeStealAura"]
+PiglinArmor = ["PotionCooldownDecrease", "SuperbDamageAbsorption", "ItemCooldownDecrease", "MissChance", "LifeStealAura"]
+NatureArmor = ["PotionCooldownDecrease", "SuperbDamageAbsorption", "ItemCooldownDecrease", "MissChance", "LifeStealAura"]
+NatureArmor_Unique1 = ["ItemCooldownDecrease", "SuperbDamageAbsorption", "Resonant", "MissChance", "LifeStealAura"]
+SoulRobe = ["ItemCooldownDecrease", "SuperbDamageAbsorption", "MissChance", "MissChance", "LifeStealAura"]
+GrimArmor = ["ItemDamageBoost", "SuperbDamageAbsorption", "ItemCooldownDecrease", "MissChance", "LifeStealAura"]
+DarkArmor = ["ItemDamageBoost", "SuperbDamageAbsorption", "MissChance", "MissChance", "LifeStealAura"]
+ArchersStrappings = ["DodgeSpeedIncrease", "SuperbDamageAbsorption", "ItemCooldownDecrease", "MissChance", "LifeStealAura"]
+CowardsArmor = ["RangedDamageBoost", "SuperbDamageAbsorption", "DodgeSpeedIncrease", "MissChance", "LifeStealAura"]
+PhantomArmor = ["DodgeSpeedIncrease", "SuperbDamageAbsorption", "ItemCooldownDecrease", "MissChance", "LifeStealAura"]
+SquidArmor = ["DodgeSpeedIncrease", "SuperbDamageAbsorption", "DodgeInvulnerability", "MissChance", "LifeStealAura"]
+GhostArmor = ["DodgeSpeedIncrease", "SuperbDamageAbsorption", "MoveSpeedAura", "MissChance", "LifeStealAura"]
+SproutArmor = ["DodgeSpeedIncrease", "SuperbDamageAbsorption", "PotionCooldownDecrease", "MissChance", "LifeStealAura"]
+WolfArmor = ["PetBat", "SuperbDamageAbsorption", "Beekeeper", "MissChance", "LifeStealAura"]
+BeenestArmor = ["PetBat", "SuperbDamageAbsorption", "AllyDamageBoost", "MissChance", "LifeStealAura"]
+BeeNestArmor = ["PetBat", "SuperbDamageAbsorption", "AllyDamageBoost", "MissChance", "LifeStealAura"]
+ClimbingGear = ["EnvironmentalProtection", "SuperbDamageAbsorption", "DodgeSpeedIncrease", "MissChance", "LifeStealAura"]
+SpelunkersArmor = ["Beekeeper", "SuperbDamageAbsorption", "DodgeSpeedIncrease", "MissChance", "LifeStealAura"]
+BardsGarb = ["AllyDamageBoost", "SuperbDamageAbsorption", "MoveSpeedAura", "MissChance", "LifeStealAura"]
+
+# Gilded gear as the reward for entering Endless (user, 2026-10-06): from `from_power` up - about A+26 - each weapon,
+# bow or armor has `chance` to be gilded, i.e. to carry one extra enchantment that costs no points, at tier 1, 2
+# or 3 with the chances given. Which enchantment: see `pool`. Decided once per item (from its name and
+# exact power), stored on the item and saved by the game; items that are gilded already are left alone.
+# Only new drops (user, 2026-10-06): items that were in the character saves when the launcher started never
+# change. An item whose power changes (Blacksmith upgrade) counts as new.
+# The bonus enchantments themselves start at the gear cap (316), as before.
+[gilded]
+from_power = 257
+pool = "any"      # "any": any enchantment that can roll on that kind of gear, like the game's own gilded items
+                  # "list": only the names of the item's bonus list above
+chance = 0.2
+tier_chances = [0.5, 0.35, 0.15]
+
+# Merchant stock (user, 2026-10-07: 'whatever formula they had before but just scale beyond base game'): the game
+# stocks its shops near the hero's power level, but stops counting at about power 254 (A+25). With this on, the
+# game still picks the stock; the weapons and armor on the shelves of the Village, Luxury and Piglin merchants are
+# then moved up by (your power level - game_ceiling), so each merchant keeps its own spread around your level.
+# Your power level is what the save records as the gear power. Shelf items do not count for the bonus
+# enchantments until you buy them. The Blacksmith's slot and Tower rewards are never touched.
+[merchants]
+follow_power = true
+game_ceiling = 254
+
+# Blacksmith (user, 2026-10-14: "so it matches my power"): the game sets an upgrade's power from the difficulty of
+# the missions won, and its difficulties end at A+25. With this on, a collected upgrade below your power level (the
+# save's gear power, as for the merchants) is raised to it, once, after the game next saves. Never lowered.
+[blacksmith]
+match_power = true

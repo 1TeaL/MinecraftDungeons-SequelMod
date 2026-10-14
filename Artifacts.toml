@@ -1,0 +1,56 @@
+# Artifact cooldowns, soul costs and base durations - applied by the launcher (data only).
+# A plain Steam launch keeps the game's own values. `python tools/artifacts_patch.py --show` lists them all.
+# cooldown and duration are in seconds. Durations may still grow with item power in the game's code.
+# Rule (2026-10-05): buff the weak artifacts for max difficulty, light touches on the good ones, top tier untouched.
+
+# --- pretty bad ---
+[GuardianEye]              # Eye of the Guardian (beam damage and length are in SequelMod.toml)
+cooldown = 8               # 22
+[SoulTotemOfCasting]       # Totem of Casting
+souls = 30                 # 70
+cooldown = 5               # 10
+[WonderfulWheat]
+cooldown = 15              # 30
+[RainbowGrass]             # Enchanted Grass
+cooldown = 15              # 30
+[GolemKit]
+cooldown = 15              # 30
+
+# --- mediocre ---
+[SoulHealer]
+souls = 20                 # 50
+[SatchelOfNourishment]     # Satchel of Snacks
+cooldown = 8               # 16
+[TotemOfRegeneration]
+cooldown = 15              # 25
+duration = 15              # 10
+[SatchelOfTheElements]
+cooldown = 5               # 10
+
+# --- good ---
+[IceWand]                  # block damage is in SequelMod.toml
+cooldown = 8               # 15
+[TastyBone]
+cooldown = 15              # 30
+[BootsOfSwiftness]
+duration = 3               # 1.5
+[FlamingQuiver]
+cooldown = 15              # 30
+[ChargedRedstoneMines]     # Scatter Mines
+cooldown = 8               # 12
+
+# --- very good: light touches ---
+[UpdraftTome]
+cooldown = 8               # 10
+[GhostCloak]
+duration = 2.5             # 1.5
+[TomeOfDuplication]
+souls = 30                 # 40
+[LoveMedallion]
+cooldown = 25              # 30
+
+# B-tier pass, 2026-10-08: the B artifacts the mod had not touched yet
+[ShockPowder]
+cooldown = 10              # 15
+[TotemOfShielding]
+cooldown = 12              # 20

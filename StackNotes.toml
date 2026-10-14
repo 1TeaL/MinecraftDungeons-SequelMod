@@ -1,0 +1,47 @@
+# What happens when one item carries several copies of the same enchantment (a built-in one plus chosen ones, or the
+# same pick in more than one slot). Tested in game by the user on 2026-10-13; shown in CHANGES.md and on the shared
+# page (tools/change_sheet.py). Names: tools/enchant_ids.json.
+
+full = ["BaneOfIllagers", "PotionThirstMelee", "RadianceRanged", "ShockWeb", "FireFocus", "LightningFocus", "PoisonFocus",
+        "SoulFocus", "CooldownShot", "FireTrail", "Reckless", "Unchanting", "Snowing", "Thorns", "Celerity", "Leeching", "Backstabber", "BusyBee", "Supercharge", "CriticalHit", "Thundering", "FireAspect", "Shockwave", "Swirling", "Sharpness", "Committed", "Smiting",
+        "EnigmaResonatorMelee", "SoulSiphon", "AnimaConduitMelee", "BonusShot", "ChainReaction", "FuseShot", "Infinity",
+        "WildRage", "Protection", "Burning", "Electrified"]
+
+[partly]
+Rampaging = "the boost lasts longer in total"
+DynamoMelee = "stacks build faster, the cap of 20 stays"
+MultiShot = "the chance goes up"
+Ricochet = "the chance goes up; an arrow still bounces twice at most"
+RadianceMelee = "extra copies heal at about half strength"
+Growing = "only partly: a second tier 3 adds, mixed tiers don't seem to"
+Accelerating = "every copy adds its speed per shot, so the limit is reached sooner; the limit itself stays"
+
+[none]
+PoisonedMelee = "procs several times, no extra damage"
+PoisonedRanged = "procs several times, no extra damage"
+Exploding = "procs several times, no extra damage"
+Echo = "shows several procs, one extra hit"
+Punch = ""
+DamageSynergy = ""
+TempoTheft = ""
+VoidTouchedRanged = ""
+GravityMelee = ""
+Gravity = ""
+Piercing = "counts every few arrows, so copies change nothing"
+PainCycle = "worse: the stacks build faster and overshoot the fifth hit"
+Weakening = ""
+VoidTouchedMelee = ""
+RapidFire = ""
+MultiCharge = ""
+Chilling = "the aura's slow is the same"
+PotionFortification = "still the same duration"
+Swiftfooted = ""
+SpeedSynergy = "several procs, same speed"
+HealthSynergy = ""
+GuardingStrike = "same duration, same damage reduction"
+Freezing = "procs again, the slow gets no stronger"
+FinalShout = ""
+Cowardice = ""
+Flee = "a buff"
+Frenzied = "a buff"
+SpiritSpeed = "a buff"

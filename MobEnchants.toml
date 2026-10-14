@@ -1,0 +1,16 @@
+# Enchantments switched off or weakened on MOBS only - applied by the launcher while the game runs
+# (tools/mob_enchants.py). Data only; the player's own copy of the same enchantment is never touched.
+# Deflect: seen working on enchanted mobs (user, 2026-10-13). Levitation Shot: not yet seen.
+
+# Every mob's Deflect, also where a mob carries it by design - ancient mobs, the Tower Guard's shield
+# (user, 2026-10-13: "all deflect should be gone"). Enchanted mobs no longer roll it at all (MobPool.toml); this
+# catches the rest. All zeros also clears the "always triggers" mark mobs' copies carry.
+[Deflecting]
+chance = [0.0, 0.0, 0.0]     # chance per tier that a mob sends your arrow back. Game: 0.25 / 0.35 / 0.45.
+                             # A returned arrow has no damage setting of its own, so it is taken out (user, 2026-10-11).
+
+[Levitation]                 # Levitation Shot on mobs: all zero = the shot does nothing (user: remove it)
+LaunchStrength = 0.0         # game: 0.3
+EffectStrength = 0.0         # game: -0.03
+FallDamagePercentagePerLevel = 0.0   # game: 0.1
+# Duration is left at the game's 2.0: a zero-length effect might be treated as endless
