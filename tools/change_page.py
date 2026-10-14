@@ -9,6 +9,7 @@ every section (and one for everything) that puts plain text lines on the clipboa
 import html
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -91,10 +92,11 @@ def render(secs):
     return "\n".join(nav), "\n".join(body)
 
 
-PAGE = """<title>Sequel Mod Changes</title>
+PAGE = """<title>Sequel Mod</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Pixelify+Sans:wght@500;600&display=swap">
 <style>
-/* Layout: a section list down the left (a strip across the top on a phone), patch-note tables on the right. */
+/* Layout: a readme up top (download, what it does, install, good to know), then the patch notes: a section list
+   down the left (a strip across the top on a phone) and the tables on the right. */
 :root {
   --bg: #f1f4ef; --panel: #ffffff; --ink: #1b241e; --muted: #5c6a61; --line: #d3dad3;
   --accent: #1c7c45; --accent-ink: #ffffff; --new: #0f6a38; --hit: #fff3c2;
@@ -115,7 +117,24 @@ PAGE = """<title>Sequel Mod Changes</title>
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); padding-inline: 16px; padding-block: 20px 60px; }
 .wrap { max-width: 1120px; margin-inline: auto; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 28px; align-items: start; }
-header.top { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between;
+.hero { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 18px 40px; align-items: end; justify-content: space-between;
+  padding-block: 6px 20px; border-bottom: 2px solid var(--ink); }
+.hero h1 { font-size: 52px; }
+.tagline { margin: 10px 0 0; font-size: 18px; line-height: 1.45; max-width: 58ch; text-wrap: pretty; }
+.meta { margin: 10px 0 0; font: 13px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.get { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+a.dl { display: inline-block; text-decoration: none; font: 600 16px var(--body); padding: 13px 22px; cursor: pointer; background: var(--accent); color: var(--accent-ink);
+  border: 2px solid var(--accent); border-radius: 2px; box-shadow: 4px 4px 0 var(--ink); }
+a.dl:hover { transform: translate(1px, 1px); box-shadow: 3px 3px 0 var(--ink); }
+.dl-note { margin: 0; font-size: 13px; color: var(--muted); max-width: 34ch; min-height: 1.5em; }
+.readme { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.readme > div { min-width: 0; }
+.readme h2 { margin-bottom: 10px; }
+.readme ol, .readme ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.readme li { margin: 0; }
+.readme b { font-weight: 600; }
+.path { font: 13px var(--mono); background: var(--panel); border: 1px solid var(--line); padding: 0 4px; border-radius: 2px; overflow-wrap: anywhere; }
+header.top { grid-column: 1 / -1; margin-top: 12px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between;
   border-bottom: 2px solid var(--ink); padding-bottom: 14px; }
 h1 { font: 600 34px/1.05 var(--display); margin: 0; letter-spacing: 0.5px; text-wrap: balance; }
 .sub { margin: 6px 0 0; color: var(--muted); max-width: 60ch; }
@@ -166,14 +185,60 @@ footer { grid-column: 1 / -1; color: var(--muted); font-size: 13px; border-top: 
   h1 { font-size: 28px; }
   input[type="search"] { width: 100%; }
   .tools { width: 100%; }
+  .readme { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .hero h1 { font-size: 40px; }
 }
+@media (prefers-reduced-motion: reduce) { a.dl:hover { transform: none; } }
 </style>
 <div class="wrap">
+  <header class="hero">
+    <div>
+      <h1>Sequel Mod</h1>
+      <p class="tagline">A rebalance for Minecraft Dungeons that makes more builds worth playing, and Endless Apocalypse:
+        Apocalypse Plus all the way to A+100, with rewards past the gear cap.</p>
+      <p class="meta">Version __VERSION__ &middot; __DATE__ &middot; Steam version on Windows</p>
+    </div>
+    <div class="get">
+      <a class="dl" href="__RELEASES__" target="_blank" rel="noopener">Download the mod &middot; __SIZE__</a>
+      <p class="dl-note">SequelMod-__VERSION__.zip on GitHub, everything included</p>
+    </div>
+  </header>
+  <section class="readme" aria-label="About the mod">
+    <div>
+      <h2>What it does</h2>
+      <ul>
+        <li><b>Endless Apocalypse.</b> A+26 to A+100. Gear power climbs to the cap of 315 by A+38; past that, levels unlock
+          bonus enchantments, extra armor perks, a final enchantment at A+100 and an endless Sharpness / Power / Protection ladder after it.</li>
+        <li><b>Rebalanced gear.</b> Weak weapons, bows, enchantments, artifacts and armor perks brought up to the strong ones. Every unique beats its base item.</li>
+        <li><b>Seasonal uniques are back.</b> They drop in missions and show up at merchants, each with a build of its own.</li>
+        <li><b>Fairer mobs.</b> Enchanted mobs no longer roll Deflect or Levitation Shot.</li>
+        <li><b>Less grind in camp.</b> Blacksmith upgrades take one mission, merchants stock gear at your power level, no slowdown after a roll.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Install</h2>
+      <ol>
+        <li>Download the zip above.</li>
+        <li>In Steam, right-click <b>Minecraft Dungeons</b>, then <b>Manage</b> &gt; <b>Browse local files</b>.</li>
+        <li>Extract the zip into that folder. You get <span class="path">Mods\\SequelMod</span> and <span class="path">Play Sequel Mod.bat</span> next to the game.</li>
+        <li>Start the game with <span class="path">Play Sequel Mod.bat</span> and keep its black window open while you play.</li>
+      </ol>
+    </div>
+    <div>
+      <h2>Good to know</h2>
+      <ul>
+        <li><b>Nothing else to install.</b> The launcher brings its own Python.</li>
+        <li><b>Multiplayer:</b> everyone in the party needs the mod, started the same way.</li>
+        <li><b>Your saves</b> are backed up at every start, to <span class="path">Mods\\SequelMod\\save_backups</span>.</li>
+        <li><b>Steam Deck:</b> the stat changes work; Endless and the enchantment rewards need Windows for now.</li>
+        <li><b>Uninstall:</b> delete <span class="path">Mods\\SequelMod</span> and <span class="path">Dungeons\\Content\\Paks\\~mods\\SequelMod_P.pak</span>.</li>
+      </ul>
+    </div>
+  </section>
   <header class="top">
     <div>
-      <h1>Sequel Mod changes</h1>
-      <p class="sub">Everything the mod changes in Minecraft Dungeons, with the base game's value next to each one.</p>
-      <p class="sub">__INSTALL__</p>
+      <h2>Every change</h2>
+      <p class="sub">Everything the mod changes, with the base game's value next to each one.</p>
     </div>
     <div class="tools">
       <input type="search" id="filter" placeholder="Find a weapon, enchantment…" aria-label="Filter the tables">
@@ -191,6 +256,7 @@ __BODY__
 </div>
 <script>
 (function () {
+
   var main = document.getElementById('main');
   var sections = Array.prototype.slice.call(main.querySelectorAll('section'));
 
@@ -285,12 +351,19 @@ __BODY__
 """
 
 
+RELEASES = "https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest"   # where the zip is downloaded
+
+
 def build():
     lines = change_sheet.build()
     nav, body = render(sections(lines))
     out = ROOT / "changes_page.html"
-    install = next((html.escape(line) for line in lines if line.startswith("Install (")), "")
-    out.write_text(PAGE.replace("__NAV__", nav).replace("__BODY__", body).replace("__INSTALL__", install), encoding="utf-8")
+    import package
+    zipped = ROOT / "dist" / f"SequelMod-{package.VERSION}.zip"
+    size = f"{zipped.stat().st_size / 1e6:.0f} MB" if zipped.exists() else "zip"
+    page = (PAGE.replace("__NAV__", nav).replace("__BODY__", body).replace("__VERSION__", package.VERSION)
+            .replace("__DATE__", date.today().strftime("%d %B %Y").lstrip("0")).replace("__SIZE__", size).replace("__RELEASES__", RELEASES))
+    out.write_text(page, encoding="utf-8")
     print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
     return out
 

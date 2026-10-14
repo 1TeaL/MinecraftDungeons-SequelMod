@@ -100,18 +100,63 @@ def _encrypt_block(b, rk):
     return bytes(s)
 
 
+KEY_STRING = 0x44F86B8   # the game's copy of the key: a std::string (MSVC: data or pointer, size +0x10, room +0x18)
+
+
+def game_key(check=None):
+    """The key read from the running game, or None. (The mod's zip doesn't carry the key: the launcher reads it from
+    the game the first time it needs it and keeps it in research/save_key.bin.) `check`: save bytes the key must
+    turn into JSON - the game only builds the key once it has loaded a save."""
+    try:
+        import struct
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from aplus_patch import open_game
+        from memprobe import read
+        h, base = open_game()
+        raw = read(h, base + KEY_STRING, 0x20) if h else None
+        if not raw:
+            return None
+        size, room = struct.unpack_from("<QQ", raw, 0x10)
+        if size != 32 or room < size:
+            return None
+        key = read(h, struct.unpack_from("<Q", raw)[0], size) if room >= 16 else raw[:size]
+        if not key or (check and not decrypt_first(check, key).lstrip().startswith(b"{")):
+            return None
+        return key
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def key_bytes():
+    """The save key: research/save_key.bin, else read from the running game (then kept in that file)."""
+    if KEY.exists():
+        return KEY.read_bytes()
+    saves = sorted((Path.home() / "Saved Games" / "Mojang Studios" / "Dungeons").glob("*/Characters/*.dat"))
+    key = game_key(saves[-1].read_bytes() if saves else None)
+    if not key:
+        raise FileNotFoundError("save key not known yet (it is read from the game once a character is loaded)")
+    KEY.parent.mkdir(exist_ok=True)
+    KEY.write_bytes(key)
+    return key
+
+
+def decrypt_first(data, key):
+    """The first block of a save, decrypted (to check a key)."""
+    return _decrypt_block(data[8:24], expand(key)) if data[:8] == MAGIC and len(data) >= 24 else b""
+
+
 def decrypt(data, key=None):
     """Save file bytes -> JSON text."""
     if data[:8] != MAGIC or (len(data) - 8) % 16:
         raise ValueError("not a Dungeons save")
-    rk = expand(key or KEY.read_bytes())
+    rk = expand(key or key_bytes())
     body = b"".join(_decrypt_block(data[i:i + 16], rk) for i in range(8, len(data), 16))
     return body.rstrip(b"\0").decode("utf-8")
 
 
 def encrypt(text, key=None):
     """JSON text -> save file bytes."""
-    rk = expand(key or KEY.read_bytes())
+    rk = expand(key or key_bytes())
     body = text.encode("utf-8")
     body += b"\0" * (-len(body) % 16)
     return MAGIC + b"".join(_encrypt_block(body[i:i + 16], rk) for i in range(0, len(body), 16))

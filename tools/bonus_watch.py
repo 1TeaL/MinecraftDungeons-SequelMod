@@ -169,8 +169,9 @@ class Watch:
         self.wares = set()                                   # item objects that are merchant stock
         self.shifted = set()                                 # ...whose power was raised in this session
         got = upgraded_items() if base else None             # Blacksmith: upgrades already collected don't count
-        self.upgrades_seen = got[1] if got else set()
+        self.upgrades_seen = got[1] if got else None         # None: the save couldn't be read yet (no key yet)
         self.upgrades_time = got[2] if got else 0.0
+        self.saves_retry = 0.0
         self.upgrades_due = {}                               # (id, power bytes) -> (power level, when first seen)
         self.upgrades_checked = 0.0
 
@@ -377,6 +378,8 @@ class Watch:
                 got = upgraded_items()
                 if got:
                     level, done, self.upgrades_time = got
+                    if self.upgrades_seen is None:            # first read: what is there now isn't new
+                        self.upgrades_seen = set(done)
                     for key in done - self.upgrades_seen:
                         self.upgrades_due[key] = (level, now)
                     self.upgrades_seen |= done
@@ -491,6 +494,14 @@ class Watch:
     def tick(self, quiet=False):
         if not self.types and not self.learn_types():
             return
+        if self.old_items is None and time.time() - self.saves_retry >= 10:
+            # On a first start without research/save_key.bin the saves can't be read until the game has loaded a
+            # character (the key is read from the game then). The game only saves new drops after a mission, so
+            # a read in the menu still shows what was there before this session.
+            self.saves_retry = time.time()
+            self.old_items = saved_items()
+            if not self.seed:
+                self.seed = saved_best()
         best = self.items()
         if best:
             self.seen_live = True

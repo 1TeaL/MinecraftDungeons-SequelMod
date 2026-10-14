@@ -22,7 +22,7 @@ VERSION = "1.0"
 PAK = "SequelMod_P.pak"
 PYTHON = ROOT / "vendor" / "python-3.12.10-embed-amd64.zip"   # md5 fe8ef205f2e9c3ba44d0cf9954e1abd3 (python.org)
 DATA = ["tools/item_registry.json", "tools/enchant_ids.json", "tools/enchant_pools.json", "tools/enchant_registry.json",
-        "tools/artifact_fields.json", "research/artifact_globals.json", "research/save_key.bin"]
+        "tools/artifact_fields.json", "research/artifact_globals.json"]   # no save key: the launcher reads it from the game
 SETTINGS = ["Launcher.toml", "Endless.toml", "Builtins.toml", "Bonus.toml", "Perks.toml", "Artifacts.toml",
             "ArtifactScaling.toml", "Drops.toml", "Echo.toml", "Formulas.toml", "Prices.toml", "QoL.toml",
             "MobPool.toml", "MobEnchants.toml", "Accelerate.toml", "Arrows.toml", "Stack.toml", "SequelGear.toml",
