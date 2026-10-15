@@ -105,9 +105,3 @@ Lua in the game. `tools/dumpimage.py` and `tools/disasm.py` save and disassemble
 
 The spreadsheets (`Enchantment_Rebalance.xlsx`, `Gear_Rebalance.xlsx` and the two tier lists) and the
 `*_Opinions.md` notes are the community research behind the balance choices.
-
-## ![Not in this repository](docs/headers/not-in-this-repository.svg)
-
-Some files stay out on purpose (see `.gitignore`): character saves and backups, the game's own material (its
-memory image, disassembly, text and extracted data), the game's save key (the launcher reads it from the running
-game), copies of videos, wiki pages and tier-list images by other people, and build output.
