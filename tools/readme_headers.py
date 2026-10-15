@@ -9,15 +9,15 @@ lit pixels. Each heading in README.md shows its SVG with the heading text as the
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "docs" / "headers"
-HEADERS = {   # file name -> (text, pixel size)
-    "sequel-mod": ("SEQUEL MOD", 9),
-    "what-it-does": ("WHAT IT DOES", 4),
-    "playing-it": ("PLAYING IT", 4),
-    "how-it-works": ("HOW IT WORKS", 4),
-    "building-it-yourself": ("BUILDING IT YOURSELF", 4),
-    "settings": ("SETTINGS", 3),
-    "research-tools": ("RESEARCH TOOLS", 3),
-    "not-in-this-repository": ("NOT IN THIS REPOSITORY", 4),
+HEADERS = {   # file name -> [(text, pixel size), ...]: one line, or several stacked in one image
+    "sequel-mod": [("MINECRAFT DUNGEONS:", 4), ("SEQUEL MOD", 9)],
+    "what-it-does": [("WHAT IT DOES", 4)],
+    "playing-it": [("PLAYING IT", 4)],
+    "how-it-works": [("HOW IT WORKS", 4)],
+    "building-it-yourself": [("BUILDING IT YOURSELF", 4)],
+    "settings": [("SETTINGS", 3)],
+    "research-tools": [("RESEARCH TOOLS", 3)],
+    "not-in-this-repository": [("NOT IN THIS REPOSITORY", 4)],
 }
 FONT = {
     "A": "01110 10001 10001 11111 10001 10001 10001", "B": "11110 10001 10001 11110 10001 10001 11110",
@@ -33,7 +33,7 @@ FONT = {
     "U": "10001 10001 10001 10001 10001 10001 01110", "V": "10001 10001 10001 10001 10001 01010 00100",
     "W": "10001 10001 10001 10101 10101 10101 01010", "X": "10001 10001 01010 00100 01010 10001 10001",
     "Y": "10001 10001 10001 01010 00100 00100 00100", "Z": "11111 00001 00010 00100 01000 10000 11111",
-    " ": "00000 00000 00000 00000 00000 00000 00000",
+    " ": "00000 00000 00000 00000 00000 00000 00000", ":": "00000 00100 00100 00000 00100 00100 00000",
 }
 STYLE = (".t{fill:#1c7c45}.s{fill:#0d3f23}"
          "@media (prefers-color-scheme:dark){.t{fill:#4cc17f}.s{fill:#06140b}}")
@@ -56,20 +56,27 @@ def runs(text):
     return out
 
 
-def svg(text, px):
-    w, h = (len(text) * 6 - 1 + 1) * px, 8 * px
-    lit = runs(text)
-    rects = lambda cls, dx: "".join(  # noqa: E731
-        f'<rect class="{cls}" x="{(x + dx) * px}" y="{(y + dx) * px}" width="{n * px}" height="{px}"/>' for x, y, n in lit)
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-            f'shape-rendering="crispEdges" role="img" aria-label="{text.title()}"><style>{STYLE}</style>'
-            f'{rects("s", 1)}{rects("t", 0)}</svg>\n')
+def svg(lines):
+    """One image of the lines, stacked with a gap of two of the largest pixels."""
+    gap = 2 * max(px for _, px in lines)
+    shadow, text, width, top = [], [], 0, 0
+    for line, px in lines:
+        for x, y, n in runs(line):
+            for out, d in ((shadow, 1), (text, 0)):
+                out.append(f'<rect class="{"s" if d else "t"}" x="{(x + d) * px}" y="{top + (y + d) * px}" '
+                           f'width="{n * px}" height="{px}"/>')
+        width, top = max(width, len(line) * 6 * px), top + 8 * px + gap
+    height = top - gap
+    label = " ".join(line for line, _ in lines).title()
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
+            f'shape-rendering="crispEdges" role="img" aria-label="{label}"><style>{STYLE}</style>'
+            + "".join(shadow) + "".join(text) + "</svg>\n")
 
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    for name, (text, px) in HEADERS.items():
-        (OUT / f"{name}.svg").write_text(svg(text, px), encoding="utf-8")
+    for name, lines in HEADERS.items():
+        (OUT / f"{name}.svg").write_text(svg(lines), encoding="utf-8")
     print(f"wrote {len(HEADERS)} headers to {OUT}")
 
 
