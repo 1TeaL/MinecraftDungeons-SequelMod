@@ -21,6 +21,10 @@ What each number means (research/ctor_members.py, 2026-10-05):
     Punch            pushback strength          3 / 4 / 5
     RapidFire        attack speed multiplier    1.10 / 1.15 / 1.20
     HealthSynergy    heal per artifact use      0.03 / 0.04 / 0.05 of max health
+    Cowardice        damage multiplier          1.2 / 1.3 / 1.4 (at full health)
+    Frenzied         attack speed multiplier    1.1 / 1.2 / 1.3 (below its health threshold)
+The description's {0} is this same number, so a value set here also shows on the item card (2026-10-15: Cowardice
+and Frenzied moved here from a hidden extra in the pak, whose description could only say "{0} +20%").
 """
 import struct
 import sys
@@ -45,6 +49,8 @@ KNOWN = {
     "Punch": ([0x32D5018], 0x32F1A40, (3.0, 4.0, 5.0)),
     "RapidFire": ([0x32D8EC0], 0x32F1B60, (1.10, 1.15, 1.20)),
     "HealthSynergy": ([0x32C0EE0], 0x32C86E0, (0.03, 0.04, 0.05)),
+    "Cowardice": ([0x32B5358], 0x32C81D0, (1.2, 1.3, 1.4)),       # damage multiplier at full health: tier*0.1+1.1
+    "Frenzied": ([0x32BE9A8], 0x32C85C0, (1.1, 1.2, 1.3)),        # attack speed multiplier when low: tier*0.1+1.0
 }
 # float f(void *self, const int *tier): table[clamp(*tier, 1, 3) - 1]; the table follows the code
 ROUTINE = bytes.fromhex(

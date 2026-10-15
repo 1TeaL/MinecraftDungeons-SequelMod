@@ -185,7 +185,7 @@
 "BP_CooldownShot.CooldownDecreasePerLevelSeconds" = 0.5  # default 0.5
 
 [Enchantments.Cowardice]  # Cowardice (Armor)
-"BP_CowardiceGameplayEffect.ExtraDamageBonus" = 0.2  # default 0.0
+"BP_CowardiceGameplayEffect.ExtraDamageBonus" = 0.0  # default 0.0
 
 [Enchantments.CriticalHit]  # Critical Hit (Melee)
 "BP_CriticalHit.DamageMultiplier" = 5.0  # default 3.0
@@ -295,7 +295,7 @@
 
 [Enchantments.Frenzied]  # Frenzied (Armor)
 "BP_Frenzied.TriggerThreshold" = 0.5  # default 0.5
-"BP_FrenziedGameplayEffect.ExtraAttackSpeedBonus" = 0.3  # default 0.0
+"BP_FrenziedGameplayEffect.ExtraAttackSpeedBonus" = 0.0  # default 0.0
 
 [Enchantments.FuseShot]  # Fuse Shot (Ranged)
 "BP_FuseShot.BaseDamageExplosionDamageFactor" = 2.0  # default 1.0

@@ -67,7 +67,6 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Beast Surge | Effect Duration | 10 | 20 |
 | Burning | Burn Base Damage | 5 | 15 |
 | Burning | Radius | 300 | 400 |
-| Cowardice | Extra Damage Bonus (Cowardice Gameplay Effect) | 0 | 0.2 |
 | Dipping Poison | Arrows given 1 | 6 | 10 |
 | Dipping Poison | Arrows given 2 | 8 | 15 |
 | Dipping Poison | Arrows given 3 | 12 | 20 |
@@ -81,7 +80,6 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Fire Trail | Damage Duration (Fire Block Player) | 4 | 6 |
 | Fire Trail | Fire Block Duration | 4 | 6 |
 | Fire Trail | Total Life Span (Fire Block Player) | 6 | 8 |
-| Frenzied | Extra Attack Speed Bonus (Frenzied Gameplay Effect) | 0 | 0.3 |
 | Life Boost | Surge Per Level | 0.11 | 0.2 |
 | Lightning Focus | Damage Increase Per Level | 0.25 | 0.5 |
 | Luck Of The Sea | Luck level 1 | 0.1 | 0.25 |
@@ -118,6 +116,8 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Punch | 3 / 4 / 5 | 8 / 12 / 16 |
 | Enigma Resonator | 0.15 / 0.2 / 0.25 | 0.3 / 0.4 / 0.5 |
 | Rapid Fire | 1.1 / 1.15 / 1.2 | 1.2 / 1.35 / 1.5 |
+| Cowardice | 1.2 / 1.3 / 1.4 | 1.4 / 1.5 / 1.6 |
+| Frenzied | 1.1 / 1.2 / 1.3 | 1.4 / 1.5 / 1.6 |
 | Echo (seconds between repeats) | 5 / 4 / 3 | 2.1 / 1.1 / 0.1 |
 
 Accelerate: its attack speed tops out at +150% (base game +100%).
@@ -719,8 +719,6 @@ The descriptions of 33 enchantments whose copies don't add up end with "Copies s
 | Enchantment/Backstabber_effect | {0}% Damage Bonus | +50% Damage Bonus per level |
 | Enchantment/Explorer_desc | For every one hundred blocks explored on the map, you regain a small amount of health. | For every ten blocks explored on the map, you regain a small amount of health. |
 | Enchantment/FuseShot_desc | Every few shots has a timed charge that explodes {0} after impact, dealing {1} damage to nearby mobs. | Every few shots has a timed charge that explodes almost instantly after impact, dealing {1} damage to nearby mobs. |
-| Enchantment/Cowardice_effect | {0} increased ranged and melee damage | {0} +20% increased ranged and melee damage |
-| Enchantment/Frenzied_effect | {0} attack speed | {0} +30% attack speed |
 | Mission/endless_struggle_mob_health | {0}x mob health | Mobs have more health |
 | Mission/endless_struggle_mob_damage | {0}x mob damage | Mobs deal more damage |
 | ArmorProperties/HealingAura_description | {0} healing boost | 50% healing boost |
