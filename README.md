@@ -1,7 +1,7 @@
 # ![Minecraft Dungeons: Sequel Mod](docs/headers/sequel-mod.svg)
 
-A rebalance mod for **Minecraft Dungeons** that makes more builds worth playing, plus **Endless Apocalypse**:
-Apocalypse Plus all the way to A+100, with rewards past the gear cap.
+A rebalance mod for **Minecraft Dungeons** that makes more builds worth playing, also adding **Endless Apocalypse**:
+Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 
 **[Download the latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest)** ·
 **[Every change, base game vs mod](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)**
