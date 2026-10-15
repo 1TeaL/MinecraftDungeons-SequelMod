@@ -1,4 +1,4 @@
-# Minecraft Dungeons: Sequel Mod
+# ![Minecraft Dungeons: Sequel Mod](docs/headers/sequel-mod.svg)
 
 A rebalance mod for **Minecraft Dungeons** that makes more builds worth playing, plus **Endless Apocalypse**:
 Apocalypse Plus all the way to A+100, with rewards past the gear cap.
@@ -6,7 +6,7 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap.
 **[Download the latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest)** ·
 **[Every change, base game vs mod](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)**
 
-## What it does
+## ![What it does](docs/headers/what-it-does.svg)
 
 - **Endless Apocalypse.** A+26 to A+100. Gear power climbs to the game's cap (315) by A+38. Past that, levels
   unlock bonus built-in enchantments, extra armor perks, a final enchantment at A+100 and an endless
@@ -23,7 +23,7 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap.
 The full list, with every number, is on the [changes page](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)
 and in [CHANGES.md](CHANGES.md).
 
-## Playing it
+## ![Playing it](docs/headers/playing-it.svg)
 
 You need the **Steam version** of Minecraft Dungeons on **Windows**. Nothing else: the release brings its own Python.
 
@@ -38,7 +38,7 @@ To uninstall, delete `Mods\SequelMod` and `Dungeons\Content\Paks\~mods\SequelMod
 To start it from Steam's Play button instead, set Minecraft Dungeons → Properties → General → Launch Options to
 `"<game folder>\Mods\SequelMod\steam_launch.bat" %command%`.
 
-## How it works
+## ![How it works](docs/headers/how-it-works.svg)
 
 The mod has two halves.
 
@@ -55,7 +55,7 @@ why it needs Windows for now (on the Steam Deck the pak works, the launcher does
 
 Every decision, with its reasons and what was tested, is logged in [decisions.md](decisions.md).
 
-## Building it yourself
+## ![Building it yourself](docs/headers/building-it-yourself.svg)
 
 You'll need Python 3.11+, the game's files extracted to `Mods/Dungeons BMS/BMS output`, and the
 Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
@@ -79,7 +79,7 @@ Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
 | `python tools/change_sheet.py` | Rebuild `CHANGES.md` from the settings |
 | `python tools/package.py` | Make the release zip in `dist/` |
 
-### Settings
+### ![Settings](docs/headers/settings.svg)
 
 | File | What it sets |
 |---|---|
@@ -96,7 +96,7 @@ Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
 | `Launcher.toml` | Turn each part of the launcher on or off |
 | `StackNotes.toml` | Which enchantments stack when an item carries several copies (tested in game) |
 
-### Research tools
+### ![Research tools](docs/headers/research-tools.svg)
 
 `research/` holds the scripts used to find where things live in the game's memory, with notes per gear type.
 UE4SS was used to dump classes and default values: the Steam exe is packed, so stock UE4SS crashes it. A
@@ -106,7 +106,7 @@ Lua in the game. `tools/dumpimage.py` and `tools/disasm.py` save and disassemble
 The spreadsheets (`Enchantment_Rebalance.xlsx`, `Gear_Rebalance.xlsx` and the two tier lists) and the
 `*_Opinions.md` notes are the community research behind the balance choices.
 
-## Not in this repository
+## ![Not in this repository](docs/headers/not-in-this-repository.svg)
 
 Some files stay out on purpose (see `.gitignore`): character saves and backups, the game's own material (its
 memory image, disassembly, text and extracted data), the game's save key (the launcher reads it from the running
