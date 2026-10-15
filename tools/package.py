@@ -21,6 +21,11 @@ GAME = ROOT.parents[1]
 VERSION = "1.0"
 PAK = "SequelMod_P.pak"
 PYTHON = ROOT / "vendor" / "python-3.12.10-embed-amd64.zip"   # md5 fe8ef205f2e9c3ba44d0cf9954e1abd3 (python.org)
+# Parts of that Python the launcher never loads (secure connections, databases, XML, sound, async...): left out to
+# keep the zip small (under 10 MB). hashlib falls back to its built-in SHA-256 without _hashlib / libcrypto.
+UNUSED = {"libcrypto-3.dll", "libssl-3.dll", "_ssl.pyd", "_hashlib.pyd", "sqlite3.dll", "_sqlite3.pyd", "pyexpat.pyd",
+          "_elementtree.pyd", "_msi.pyd", "winsound.pyd", "_asyncio.pyd", "_overlapped.pyd", "_wmi.pyd",
+          "_multiprocessing.pyd", "_zoneinfo.pyd", "_socket.pyd", "select.pyd", "pythonw.exe"}
 DATA = ["tools/item_registry.json", "tools/enchant_ids.json", "tools/enchant_pools.json", "tools/enchant_registry.json",
         "tools/artifact_fields.json", "research/artifact_globals.json"]   # no save key: the launcher reads it from the game
 SETTINGS = ["Launcher.toml", "Endless.toml", "Builtins.toml", "Bonus.toml", "Perks.toml", "Artifacts.toml",
@@ -78,7 +83,8 @@ def main():
         if PYTHON.exists():
             with zipfile.ZipFile(PYTHON) as py:
                 for info in py.infolist():
-                    z.writestr(prefix + "python/" + info.filename, py.read(info))
+                    if info.filename not in UNUSED:
+                        z.writestr(prefix + "python/" + info.filename, py.read(info))
         else:
             print("warning: no portable Python in vendor/ - players will need Python 3.11+ installed")
         z.write(ROOT / "Play Sequel Mod.bat", "Play Sequel Mod.bat")   # in the game folder itself, for easy access
