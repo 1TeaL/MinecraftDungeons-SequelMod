@@ -1,103 +1,113 @@
 # Sequel Mod
 
-A Minecraft Dungeons rebalance mod driven by one config file.
+A rebalance mod for **Minecraft Dungeons** that makes more builds worth playing, plus **Endless Apocalypse**:
+Apocalypse Plus all the way to A+100, with rewards past the gear cap.
 
-## Use it
+**[Download the latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest)** ·
+**[Every change, base game vs mod](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)**
 
-1. Edit `SequelMod.toml` - change any number. The comment on each line is the game default.
-   In-game text (descriptions, tooltips) can be changed in `SequelText.toml`.
-2. Close the game, then run:
+## What it does
+
+- **Endless Apocalypse.** A+26 to A+100. Gear power climbs to the game's cap (315) by A+38. Past that, levels
+  unlock bonus built-in enchantments, extra armor perks, a final enchantment at A+100 and an endless
+  Sharpness / Power / Protection ladder after it. Mobs keep getting tougher; loot, XP and gold keep improving.
+  A+1 to A+25 are unchanged.
+- **Rebalanced gear.** Weak and middling weapons, bows, enchantments, artifacts and armor perks are brought up to
+  the strong ones. The top tier is left alone, and every unique beats its base item.
+- **Seasonal uniques are back.** Event items drop in missions and show up at merchants, each with a build of its own.
+- **Fairer mobs.** Enchanted mobs no longer roll Deflect or Levitation Shot.
+- **Less grind in camp.** Blacksmith upgrades take one mission, merchants stock gear at your power level,
+  and there's no slowdown after a roll.
+- **Clear stacking.** Enchantments whose copies don't add up say so in their description.
+
+The full list, with every number, is on the [changes page](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)
+and in [CHANGES.md](CHANGES.md).
+
+## Playing it
+
+You need the **Steam version** of Minecraft Dungeons on **Windows**. Nothing else: the release brings its own Python.
+
+1. Download `SequelMod-1.0.zip` from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
+2. In Steam, right-click Minecraft Dungeons → **Manage** → **Browse local files**.
+3. Extract the zip into that folder. You get `Mods\SequelMod` and `Play Sequel Mod.bat` next to the game.
+4. Start the game with **`Play Sequel Mod.bat`** and keep its window open while you play.
+
+Your saves are backed up at every start (`Mods\SequelMod\save_backups`). In multiplayer, everyone needs the mod.
+To uninstall, delete `Mods\SequelMod` and `Dungeons\Content\Paks\~mods\SequelMod_P.pak`.
+
+To start it from Steam's Play button instead, set Minecraft Dungeons → Properties → General → Launch Options to
+`"<game folder>\Mods\SequelMod\steam_launch.bat" %command%`.
+
+## How it works
+
+The mod has two halves.
+
+**The pak** (`SequelMod_P.pak`) replaces parts of the game's own data files: weapon stats, enchantment values,
+artifact and armor perk values, descriptions, the card bars, and how the Apocalypse levels past A+25 scale.
+The game loads it by itself from `~mods`, so it works anywhere the game runs.
+
+**The launcher** (`tools/play.py`) handles what isn't in any data file. It runs next to the game and changes
+values in the game's memory: the A+ level count, unique items' built-in enchantments, bonus enchantments that
+follow the gear you own, merchant stock, Blacksmith upgrades and a few values the game calculates in code.
+It only ever changes data, never the game's code; where it needs more room it reserves new memory and points
+the game at it. It uses only Python's standard library, calling the Windows API through `ctypes`, which is
+why it needs Windows for now (on the Steam Deck the pak works, the launcher doesn't yet).
+
+Every decision, with its reasons and what was tested, is logged in [decisions.md](decisions.md).
+
+## Building it yourself
+
+You'll need Python 3.11+, the game's files extracted to `Mods/Dungeons BMS/BMS output`, and the
+Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
+
+1. Change what you like in the settings. `SequelMod.toml` holds every value from the game's files, each line with
+   the game's default as a comment; the other `.toml` files cover the rest (table below).
+2. Build the pak:
 
    ```
    python tools/sequel.py build
    ```
 
-   This writes `Dungeons/Content/Paks/~mods/SequelMod_P.pak` - the whole mod, nothing else.
-3. Start the game from Steam as usual.
-
-To share the mod, send `SequelMod_P.pak`; players put it in `Dungeons\Content\Paks\~mods`.
-To go back to vanilla, delete it.
-
-### Endless Apocalypse (A+ up to 100)
-
-Double-click `Play Endless Apocalypse.bat` (or `python tools/play.py --endless`). It backs up your saves,
-starts the game and, once it has finished starting (~40 s), raises Apocalypse+ to 100. Past A+25 power
-climbs slowly to the game's cap (315) at A+100, mobs keep getting tougher, and loot quality, XP and merchant
-prices keep improving. No game code is modified. A+1-25 stay as they were; a normal Steam launch has the usual 25 levels. Settings are in
-`Endless.toml`. Details: `EndlessApocalypse.md`.
-
-To make Steam's Play button do this, set Minecraft Dungeons > Properties > General > Launch Options to:
-
-```
-"G:\SteamLibrary\steamapps\common\MinecraftDungeons\Mods\SequelMod\steam_launch.bat" %command%
-```
-
-Clear the Launch Options to go back to normal launches.
-
-Some stats already have a value in the game's files and are simply changed. Others only exist as
-class defaults in the game's code (found with UE4SS); for those, build adds the setting to the
-enchantment's file. Either way the result is the same `.pak`, and in-game tooltips follow the values.
-
-### Developer tools (not needed to play)
-
-UE4SS is installed (patched; see below) for research only: dumping classes and default values
-(`data/native_defaults.tsv` came from it) and checking what the game loaded. Load it into a running
-game with `python tools/inject_ue4ss.py`. The Steam exe is packed by a protector, so stock UE4SS
-crashes it: `ue4ss/UE4SS.dll` has a one-byte patch (original kept as `UE4SS.dll.orig`), and loading
-at startup still crashes ~20 s in, so `dwmapi.dll` is disabled and UE4SS is loaded late.
-
-With UE4SS loaded, `python tools/probe.py "<lua>"` runs Lua in the game through the SequelProbe mod
-(helpers: `out`, `rec(level)` = recommended power, `conf(level)` = A+ configuration).
-`tools/dumpimage.py` saves the unpacked exe to `research/`, and `tools/disasm.py` then disassembles it
-offline.
-
-Other commands:
+   It goes straight into `Dungeons/Content/Paks/~mods`. If the game is running, it waits in `staged/` and the
+   launcher installs it at the next start.
+3. Start the game with `Play Sequel Mod.bat`.
 
 | Command | What it does |
 |---|---|
-| `python tools/sequel.py diff` | List every stat you've changed from default |
-| `python tools/sequel.py scan` | Re-read the game files and refresh `SequelMod.toml` (keeps your changes) |
+| `python tools/sequel.py diff` | List every value changed from the game's default |
+| `python tools/sequel.py scan` | Re-read the game files and refresh `SequelMod.toml`, keeping your changes (run after a game update) |
+| `python tools/change_sheet.py` | Rebuild `CHANGES.md` from the settings |
+| `python tools/package.py` | Make the release zip in `dist/` |
 
-Run `scan` again after a game update, after re-extracting the game files.
+### Settings
 
-## What's in the config
-
-- `[Difficulty.EndlessStruggle]` - Apocalypse+ scaling: mob health, damage, speed, healing, stun,
-  knockback, enchanted-mob chance/power, loot quality, XP, shop prices... Each stat goes from
-  `MinValue` at level `IntroducedAt` to `MaxValue` at the top level. `IntroducedAt = 999` means off.
-- `[Enchantments.*]` - every enchantment value stored in the game files.
-
-Values that are **not** in the config are computed inside the game's code (e.g. Critical Hit's
-chance). Those would need a code patch - see the list in `decisions.md`.
-
-## Files
-
-| File | Purpose |
+| File | What it sets |
 |---|---|
-| `SequelMod.toml` | The config you edit |
-| `SequelText.toml` | English text overrides (tooltips/descriptions) |
-| `Endless.toml` | Endless Apocalypse: power and A+ stats past A+25 |
-| `Play Endless Apocalypse.bat` | Launcher for Endless Apocalypse |
-| `steam_launch.bat` | Same, for Steam's Launch Options (`%command%`) |
-| `Builtins.toml` | Unique items' built-in enchantments (tier or swap), applied by the launcher |
-| `SequelGear.toml` | Weapon stats (damage, swing time, reach, knockback, fire rate...) |
-| `tools/builtins_patch.py` | Applies Builtins.toml to the running game (`--show` lists all built-ins) |
-| `tools/play.py` | Launcher (save backup, pak install, start, built-ins, level cap) |
-| `tools/endless_patch.py` | Endless Apocalypse level cap and unlock (memory, data only) |
-| `tools/endless.py` | Builds the A+ curves (power and stats past A+25) into the pak |
-| `save_backups/` | Save backups made by the launcher (last 10) |
-| `tools/locres.py` | Reads/patches the game's text file (Game.locres) |
-| `tools/sequel.py` | Scanner + builder |
-| `tools/uasset.py` | Reads/writes Unreal 4.22 cooked assets |
-| `tools/fields.json` | Where each stat lives in the game files (generated by `scan`) |
-| `Enchantment_Rebalance.xlsx` | Every enchantment: description, values, what's editable |
-| `Enchantment_Tier_List.xlsx` | Simple sheet for friends' opinions |
-| `Video_Opinions.md` | Community tier opinions, summarized |
-| `Gear_Rebalance.xlsx` | Every weapon, armor and artifact: what it does, stats from the game files, what's editable |
-| `Gear_Tier_List.xlsx` | Simple gear sheet for friends' opinions |
-| `Gear_Opinions.md` | Community gear opinions (4 videos + written tier lists), summarized |
-| `tools/build_gear_sheets.py` | Builds the two gear sheets (inputs: `parse_gear_wiki.py`, `gear_stats.py`, `artifact_values.py`) |
-| `decisions.md` | What we've decided so far |
+| `SequelMod.toml` | Every value stored in the game's files: enchantments, perks, A+ scaling |
+| `SequelGear.toml` | Weapon and bow stats: damage, swing time, reach, fire rate, ammo |
+| `SequelText.toml` | In-game text: descriptions and tooltips |
+| `Endless.toml` | Endless Apocalypse: power and mob scaling past A+25, trials, unlocks |
+| `Builtins.toml` | Unique items' built-in enchantments |
+| `Bonus.toml` | Rewards past the gear cap: bonus enchantments, armor perks, the A+100 ladder, gilding, merchants, Blacksmith |
+| `Perks.toml`, `Artifacts.toml`, `ArtifactScaling.toml` | Armor perks, artifact cooldowns, artifacts above the cap |
+| `Formulas.toml`, `Echo.toml`, `Accelerate.toml` | Enchantment values the game calculates in code |
+| `Drops.toml`, `MobPool.toml`, `MobEnchants.toml` | Seasonal drops, what enchanted mobs can roll |
+| `Prices.toml`, `QoL.toml`, `Player.toml` | Merchant prices, Blacksmith, movement |
+| `Launcher.toml` | Turn each part of the launcher on or off |
+| `StackNotes.toml` | Which enchantments stack when an item carries several copies (tested in game) |
 
-Needs: Python 3.11+, the extracted game files in `Mods/Dungeons BMS/BMS output`, and the
-Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
+### Research tools
+
+`research/` holds the scripts used to find where things live in the game's memory, with notes per gear type.
+UE4SS was used to dump classes and default values: the Steam exe is packed, so stock UE4SS crashes it. A
+one-byte patched `UE4SS.dll`, loaded late with `python tools/inject_ue4ss.py`, works; `tools/probe.py` then runs
+Lua in the game. `tools/dumpimage.py` and `tools/disasm.py` save and disassemble the unpacked exe offline.
+
+The spreadsheets (`Enchantment_Rebalance.xlsx`, `Gear_Rebalance.xlsx` and the two tier lists) and the
+`*_Opinions.md` notes are the community research behind the balance choices.
+
+## Not in this repository
+
+Some files stay out on purpose (see `.gitignore`): character saves and backups, the game's own material (its
+memory image, disassembly, text and extracted data), the game's save key (the launcher reads it from the running
+game), copies of videos, wiki pages and tier-list images by other people, and build output.
