@@ -120,8 +120,6 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Frenzied | 1.1 / 1.2 / 1.3 | 1.4 / 1.5 / 1.6 |
 | Echo (seconds between repeats) | 5 / 4 / 3 | 2.1 / 1.1 / 0.1 |
 
-Accelerate: its attack speed tops out at +150% (base game +100%).
-
 ### Several copies of one enchantment on an item
 
 A built-in copy plus a chosen one, or the same pick in more than one slot. Tried in game; anything not listed is untried.
@@ -129,7 +127,7 @@ A built-in copy plus a chosen one, or the same pick in more than one slot. Tried
 | Result | Enchantments |
 |---|---|
 | Adds up | Ambush, Anima Conduit, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cool Down, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Aspect, Fire Focus, Fire Trail, Fuse Shot, Illager's Bane, Infinity, Leeching, Lightning Focus, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Sharpness, Shock Web, Shockwave, Smiting, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thorns, Thundering, Unchanting, Wild Rage |
-| Adds up in part | Rampaging (the boost lasts longer in total); Dynamo (stacks build faster, the cap of 20 stays); Multishot (the chance goes up); Ricochet (the chance goes up; an arrow still bounces twice at most); Radiance (extra copies heal at about half strength); Growing (only partly: a second tier 3 adds, mixed tiers don't seem to); Accelerate (every copy adds its speed per shot, so the limit is reached sooner; the limit itself stays) |
+| Adds up in part | Rampaging (the boost lasts longer in total); Dynamo (stacks build faster, the cap of 20 stays); Multishot (the chance goes up); Ricochet (the chance goes up; an arrow still bounces twice at most); Radiance (extra copies heal at about half strength); Growing (only partly: a second tier 3 adds, mixed tiers don't seem to); Accelerate (every copy adds its speed per shot, so the stacks fill sooner) |
 | No gain | Poison Cloud (procs several times, no extra damage); Exploding (procs several times, no extra damage); Echo (shows several procs, one extra hit); Punch; Artifact Synergy; Tempo Theft; Void Strike; Gravity; Piercing (counts every few arrows, so copies change nothing); Pain Cycle (worse: the stacks build faster and overshoot the fifth hit); Weakening; Rapid Fire; Overcharge; Chilling (the aura's slow is the same); Potion Barrier (still the same duration); Swiftfooted; Speed Synergy (several procs, same speed); Health Synergy; Guarding Strike (same duration, same damage reduction); Freezing (procs again, the slow gets no stronger); Final Shout; Cowardice; Rush (a buff); Frenzied (a buff); Soul Speed (a buff) |
 
 ## 2. Weapons

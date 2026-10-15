@@ -14,7 +14,7 @@ MultiShot = "the chance goes up"
 Ricochet = "the chance goes up; an arrow still bounces twice at most"
 RadianceMelee = "extra copies heal at about half strength"
 Growing = "only partly: a second tier 3 adds, mixed tiers don't seem to"
-Accelerating = "every copy adds its speed per shot, so the limit is reached sooner; the limit itself stays"
+Accelerating = "every copy adds its speed per shot, so the stacks fill sooner"
 
 [none]
 PoisonedMelee = "procs several times, no extra damage"

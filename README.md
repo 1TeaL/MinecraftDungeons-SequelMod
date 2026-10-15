@@ -90,7 +90,7 @@ Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
 | `Builtins.toml` | Unique items' built-in enchantments |
 | `Bonus.toml` | Rewards past the gear cap: bonus enchantments, armor perks, the A+100 ladder, gilding, merchants, Blacksmith |
 | `Perks.toml`, `Artifacts.toml`, `ArtifactScaling.toml` | Armor perks, artifact cooldowns, artifacts above the cap |
-| `Formulas.toml`, `Echo.toml`, `Accelerate.toml` | Enchantment values the game calculates in code |
+| `Formulas.toml`, `Echo.toml` | Enchantment values the game calculates in code |
 | `Drops.toml`, `MobPool.toml`, `MobEnchants.toml` | Seasonal drops, what enchanted mobs can roll |
 | `Prices.toml`, `QoL.toml`, `Player.toml` | Merchant prices, Blacksmith, movement |
 | `Launcher.toml` | Turn each part of the launcher on or off |
