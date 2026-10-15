@@ -1,4 +1,4 @@
-# Sequel Mod
+# Minecraft Dungeons: Sequel Mod
 
 A rebalance mod for **Minecraft Dungeons** that makes more builds worth playing, plus **Endless Apocalypse**:
 Apocalypse Plus all the way to A+100, with rewards past the gear cap.
