@@ -51,7 +51,7 @@ values in the game's memory: the A+ level count, unique items' built-in enchantm
 follow the gear you own, merchant stock, Blacksmith upgrades and a few values the game calculates in code.
 It only ever changes data, never the game's code; where it needs more room it reserves new memory and points
 the game at it. It uses only Python's standard library, calling the Windows API through `ctypes`, which is
-why it needs Windows for now (on the Steam Deck the pak works, the launcher doesn't yet).
+why it needs Windows for now (I believe on steam deck it shouldn't work but untested).
 
 Every decision, with its reasons and what was tested, is logged in [decisions.md](decisions.md).
 
