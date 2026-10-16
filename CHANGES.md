@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-15 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-10-16 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -427,9 +427,8 @@ Above power 315 artifacts keep gaining: damage up to x5 and healing up to x2.5 a
 | Mob Max Health Multiplier | 1.5 at A+38; 7.5 at A+100 |
 | Mob Damage Multiplier | 1.5 at A+38; 4.5 at A+100 |
 | Player Receive Healing Multiplier | 0.7 at A+38; 1 at A+100 |
-| Mob Stun Duration Multiplier | 0.3 at A+38; 0.6 at A+100 |
 | Mob Pushback Multiplier | 0.3 at A+38; 0.6 at A+100 |
-| Mob Max Endurance Multiplier | 10 at A+38; 5 at A+100 |
+| Mob Speed Multiplier | 1.85 at A+38; 2 at A+100 |
 | Loot Quality Boost | rising to 18 at A+99 |
 | Enchanted Mob Chance Multiplier | keeps rising at its A+1-25 pace |
 | Enchanted Mob Power Multiplier | keeps rising at its A+1-25 pace |

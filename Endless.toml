@@ -173,9 +173,11 @@ MobDamageMultiplier = [[38, 1.5], [100, 4.5]]     # x3 by A+100 (was x2.5). User
 # Handed back to the player past the cap (at their A+25 values up to A+38, never harsher than that):
 PlayerReceiveHealingMultiplier = [[38, 0.7], [100, 1.0]]   # healing received: 70% -> 100% (user, 2026-10-13: healing in
                                                            # time is part of the skill of surviving the higher damage)
-MobStunDurationMultiplier = [[38, 0.3], [100, 0.6]]        # stuns on mobs last 30% -> 60% as long
+# Stuns and stagger stay at their A+25 values (30% stun duration, 10x stagger resistance) all the way (user, 2026-10-16).
 MobPushbackMultiplier = [[38, 0.3], [100, 0.6]]            # knockback on mobs 30% -> 60%
-MobMaxEnduranceMultiplier = [[38, 10.0], [100, 5.0]]       # stagger resistance 10x -> 5x
+# Mob speed: the game's own 1.85x at A+25, held to A+38, then up to 2x by A+100 (user, 2026-10-16 - the one row of
+# these four allowed past its A+25 value).
+MobSpeedMultiplier = [[38, 1.85], [100, 2.0]]
 LootQualityBoost = 18.0            # 4.1 at A+25: more uniques / gilded
 EnchantedMobChanceMultiplier = "grow"
 EnchantedMobPowerMultiplier = "grow"
