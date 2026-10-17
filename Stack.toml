@@ -1,13 +1,25 @@
 # Enchantments the game may roll in more than one slot of an item (tools/stack_patch.py, applied by the launcher) -
 # data only. Copies of an enchantment all fire, so a second or third pick of the same one is a real gain.
 # The game's own list is short: Sharpness, Smiting, Looting, Prospector, Chains, Fire Aspect, Leeching, Rampaging,
-# Radiance (melee), Cool Down, Thorns.
+# Radiance (melee), Cool Down, Thorns, Knockback.
 #   stackable = "all"                      every enchantment that goes on gear
 #   stackable = ["Swirling", "Echo"]       just these (names: tools/enchant_registry.json)
 #   except                                 names left as the game has them when stackable = "all"
 #
-# Off (user, 2026-10-05): rolls stay as the base game designed them. Built-in and bonus copies add to the
-# player's own pick anyway, so nothing is wasted.
+# On again (user, 2026-10-17): every enchantment whose copies were tested to add up in full (StackNotes.toml `full`)
+# may roll in several slots - Reckless included (its copies multiply; user: "let Reckless roll"). Stacking one
+# enchantment costs the slots the rest of the build would have used. Enchantments that only partly stack, or not at
+# all, stay one per item as the game has them.
 
-stackable = []
+stackable = [
+    # melee
+    "CriticalHit", "Thundering", "Shockwave", "Swirling", "Committed", "BaneOfIllagers", "Unchanting", "Backstabber",
+    "BusyBee", "EnigmaResonatorMelee", "SoulSiphon", "AnimaConduitMelee", "PotionThirstMelee",
+    # ranged
+    "BonusShot", "ChainReaction", "FuseShot", "Infinity", "Supercharge", "WildRage", "RadianceRanged", "ShockWeb",
+    "CooldownShot",
+    # armor
+    "Protection", "Snowing", "FireTrail", "Burning", "Electrified", "FireFocus", "LightningFocus", "PoisonFocus",
+    "SoulFocus", "Reckless",
+]
 except = []

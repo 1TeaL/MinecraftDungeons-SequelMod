@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-16 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-10-17 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -129,6 +129,8 @@ A built-in copy plus a chosen one, or the same pick in more than one slot. Tried
 | Adds up | Ambush, Anima Conduit, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cool Down, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Aspect, Fire Focus, Fire Trail, Fuse Shot, Illager's Bane, Infinity, Leeching, Lightning Focus, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Sharpness, Shock Web, Shockwave, Smiting, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thorns, Thundering, Unchanting, Wild Rage |
 | Adds up in part | Rampaging (the boost lasts longer in total); Dynamo (stacks build faster, the cap of 20 stays); Multishot (the chance goes up); Ricochet (the chance goes up; an arrow still bounces twice at most); Radiance (extra copies heal at about half strength); Growing (only partly: a second tier 3 adds, mixed tiers don't seem to); Accelerate (every copy adds its speed per shot, so the stacks fill sooner) |
 | No gain | Poison Cloud (procs several times, no extra damage); Exploding (procs several times, no extra damage); Echo (shows several procs, one extra hit); Punch; Artifact Synergy; Tempo Theft; Void Strike; Gravity; Piercing (counts every few arrows, so copies change nothing); Pain Cycle (worse: the stacks build faster and overshoot the fifth hit); Weakening; Rapid Fire; Overcharge; Chilling (the aura's slow is the same); Potion Barrier (still the same duration); Swiftfooted; Speed Synergy (several procs, same speed); Health Synergy; Guarding Strike (same duration, same damage reduction); Freezing (procs again, the slow gets no stronger); Final Shout; Cowardice; Rush (a buff); Frenzied (a buff); Soul Speed (a buff) |
+
+These can also roll in more than one slot of the same item (base game: only Sharpness, Smiting, Fire Aspect, Leeching, Rampaging, Radiance, Chains, Looting, Prospector, Cool Down, Thorns and Knockback): Ambush, Anima Conduit, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Focus, Fire Trail, Fuse Shot, Illager's Bane, Infinity, Lightning Focus, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Shock Web, Shockwave, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thundering, Unchanting, Wild Rage.
 
 ## 2. Weapons
 

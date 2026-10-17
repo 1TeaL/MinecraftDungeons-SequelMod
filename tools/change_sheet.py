@@ -235,6 +235,11 @@ def build():
                 none.append(f"{ench(n)} ({t})" if t else ench(n))
         rows += [("No gain", "; ".join(none))]
         L += table(["Result", "Enchantments"], rows)
+    rolls = toml("Stack.toml").get("stackable", [])
+    if isinstance(rolls, list) and rolls:
+        L += ["These can also roll in more than one slot of the same item (base game: only Sharpness, Smiting, Fire Aspect, "
+              "Leeching, Rampaging, Radiance, Chains, Looting, Prospector, Cool Down, Thorns and Knockback): "
+              + ", ".join(sorted({ench(n) for n in rolls})) + ".", ""]
 
     # 2 weapons
     gear = gear_rows()
