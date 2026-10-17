@@ -93,7 +93,7 @@ def builtins(h, base, item):
     if not head:
         return None, None
     data, count, cap = struct.unpack("<QII", head)
-    if not (0 <= count <= 8 and count <= cap <= 64):
+    if not (0 <= count <= 16 and count <= cap <= 64):   # 16: the A+100 ladder (bonus_watch.MAX_ENTRIES)
         return None, None
     entries = read(h, data, STRIDE * count) if count else b""
     if entries is None:

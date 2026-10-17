@@ -236,3 +236,10 @@ add = { Exploding = 1 }                   # with hit damage (100 against the Ham
 
 ["RangedWeapons/BatCrossbow"]             # Shrieking Crossbow: a sidegrade to the Veiled Crossbow - Shadow Shot plus
 ShadowBarbRanged = { to = "TempoTheft", level = 2 }   # Tempo Theft where the Veiled has Shadow Barb; same stats (user, 2026-10-13)
+
+# ---- TEST, 2026-10-17 (user): do enchantments work on gear they normally can't roll on? Take out after the test.
+["MeleeWeapons/Spear"]                 # plain Spear (equipped): three armor enchantments with something to see
+add = { PotionFortification = 3, Snowing = 3, Burning = 3 }   # Potion Barrier buff, snowballs, fire aura
+
+["Armor/ScaleMail"]                    # plain Scale Mail (equipped): a melee enchantment on armor
+add = { RadianceMelee = 3 }            # healing circles on melee hits

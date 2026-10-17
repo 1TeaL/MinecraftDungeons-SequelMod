@@ -35,7 +35,7 @@ ALIASES = {"FireAspect": "Fire Aspect", "CriticalHit": "Critical Hit", "EnigmaRe
            "LevitationShot": "Levitation Shot", "Levitation": "Levitation Shot", "Poisoned": "Poison Cloud"}
 # In place for a test only: setting -> the value the mod is meant to have (None = the game's own, i.e. no change).
 TESTS = {}
-TEST_BUILTINS = set()
+TEST_BUILTINS = {("MeleeWeapons/Spear", "PotionFortification"), ("MeleeWeapons/Spear", "Snowing"), ("MeleeWeapons/Spear", "Burning"), ("Armor/ScaleMail", "RadianceMelee")}
 GEAR_FIELDS = {"Damage": "Damage", "AttackAnimationTimeDurationSeconds": "Swing time (s)", "AttackRange": "Reach",
                "ConeAngleDegrees": "Swing angle", "DamageSplashMultiplier": "Splash damage", "pushbackStrength": "Knockback",
                "StunMultiplier": "Stun", "CooldownSeconds": "Cooldown (s)", "AttackRateSeconds": "Time between shots (s)",
