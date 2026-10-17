@@ -57,6 +57,15 @@ why it needs Windows for now (I believe on steam deck it shouldn't work but unte
 
 Every decision, with its reasons and what was tested, is logged in [decisions.md](decisions.md).
 
+## ![How it was made](docs/headers/how-it-was-made.svg)
+
+Most Dungeons mods stop at the pak: unpack the game's files, change the numbers Mojang left in them, repack.
+This mod also reads the asset files with its own reader to find every tunable value, and adds settings that only
+exist in the game's code (dumped with UE4SS) into the assets so the pak can change them too. For the rest, it reads
+the running game: where item and enchantment definitions, built-in enchantments, quests, shop stock and the
+Apocalypse level count live in memory, and, from a disassembled copy of the game's program, how code-calculated
+values like an enchantment's per-tier numbers are worked out. The launcher then changes only that data.
+
 ## ![Building it yourself](docs/headers/building-it-yourself.svg)
 
 You'll need Python 3.11+, the game's files extracted to `Mods/Dungeons BMS/BMS output`, and the

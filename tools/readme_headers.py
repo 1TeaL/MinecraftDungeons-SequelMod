@@ -14,6 +14,7 @@ HEADERS = {   # file name -> [(text, pixel size), ...]: one line, or several sta
     "what-it-does": [("WHAT IT DOES", 4)],
     "playing-it": [("PLAYING IT", 4)],
     "how-it-works": [("HOW IT WORKS", 4)],
+    "how-it-was-made": [("HOW IT WAS MADE", 4)],
     "building-it-yourself": [("BUILDING IT YOURSELF", 4)],
     "settings": [("SETTINGS", 3)],
     "research-tools": [("RESEARCH TOOLS", 3)],
