@@ -18,7 +18,9 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 - **Fairer mobs.** Enchanted mobs no longer roll Deflect or Levitation Shot.
 - **Less grind in camp.** Blacksmith upgrades take one mission, merchants stock gear at your power level,
   and there's no slowdown after a roll.
-- **Clear stacking.** Enchantments whose copies don't add up say so in their description.
+- **Stacking builds.** 32 enchantments whose copies add up in full (Critical Hit, Swirling, Infinity, Protection,
+  the Focuses and more) can roll in more than one slot of an item. The ones whose copies don't add up say so in
+  their description.
 
 The full list, with every number, is on the [changes page](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)
 and in [CHANGES.md](CHANGES.md).
@@ -27,7 +29,7 @@ and in [CHANGES.md](CHANGES.md).
 
 You need the **Steam version** of Minecraft Dungeons on **Windows**. Nothing else: the release brings its own Python.
 
-1. Download `SequelMod-1.0.zip` from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
+1. Download the `SequelMod` zip from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
 2. In Steam, right-click Minecraft Dungeons → **Manage** → **Browse local files**.
 3. Extract the zip into that folder. You get `Mods\SequelMod` and `Play Sequel Mod.bat` next to the game.
 4. Start the game with **`Play Sequel Mod.bat`** and keep its window open while you play.

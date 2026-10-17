@@ -18,7 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "tools"
 GAME = ROOT.parents[1]
-VERSION = "1.0"
+VERSION = "1.1"
+LABEL = f"Beta {VERSION}"     # what the release is called (GitHub: "Sequel Mod Beta 1.1", tag v1.1-beta)
 PAK = "SequelMod_P.pak"
 PYTHON = ROOT / "vendor" / "python-3.12.10-embed-amd64.zip"   # md5 fe8ef205f2e9c3ba44d0cf9954e1abd3 (python.org)
 # Parts of that Python the launcher never loads (secure connections, databases, XML, sound, async...): left out to
@@ -32,7 +33,7 @@ SETTINGS = ["Launcher.toml", "Endless.toml", "Builtins.toml", "Bonus.toml", "Per
             "ArtifactScaling.toml", "Drops.toml", "Echo.toml", "Formulas.toml", "Prices.toml", "QoL.toml",
             "MobPool.toml", "MobEnchants.toml", "Accelerate.toml", "Arrows.toml", "Stack.toml", "SequelGear.toml",
             "Play Endless Apocalypse.bat", "steam_launch.bat", "CHANGES.md"]
-INSTALL = f"""Sequel Mod {VERSION} for Minecraft Dungeons (Steam version)
+INSTALL = f"""Sequel Mod {LABEL} for Minecraft Dungeons (Steam version)
 
 Needs
 - Minecraft Dungeons from Steam, updated. (The Microsoft Store / Xbox app version won't work: the launcher
@@ -89,7 +90,7 @@ def main():
             print("warning: no portable Python in vendor/ - players will need Python 3.11+ installed")
         z.write(ROOT / "Play Sequel Mod.bat", "Play Sequel Mod.bat")   # in the game folder itself, for easy access
         z.writestr(prefix + "INSTALL.txt", INSTALL)
-        z.writestr(prefix + "VERSION.txt", f"{VERSION} ({date.today().isoformat()})\n")
+        z.writestr(prefix + "VERSION.txt", f"{LABEL} ({date.today().isoformat()})\n")
         count = len(z.namelist())
     print(f"wrote {out} ({count} files, {out.stat().st_size // 1024} KB; pak from {pak.parent.name})")
 

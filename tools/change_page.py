@@ -196,7 +196,7 @@ footer { grid-column: 1 / -1; color: var(--muted); font-size: 13px; border-top: 
       <h1>Sequel Mod</h1>
       <p class="tagline">A rebalance for Minecraft Dungeons that makes more builds worth playing, and Endless Apocalypse:
         Apocalypse Plus all the way to A+100, with rewards past the gear cap.</p>
-      <p class="meta">Version __VERSION__ &middot; __DATE__ &middot; Steam version on Windows</p>
+      <p class="meta">__LABEL__ &middot; __DATE__ &middot; Steam version on Windows</p>
     </div>
     <div class="get">
       <a class="dl" href="__RELEASES__" target="_blank" rel="noopener">Download the mod &middot; __SIZE__</a>
@@ -361,7 +361,7 @@ def build():
     import package
     zipped = ROOT / "dist" / f"SequelMod-{package.VERSION}.zip"
     size = f"{zipped.stat().st_size / 1e6:.0f} MB" if zipped.exists() else "zip"
-    page = (PAGE.replace("__NAV__", nav).replace("__BODY__", body).replace("__VERSION__", package.VERSION)
+    page = (PAGE.replace("__NAV__", nav).replace("__BODY__", body).replace("__VERSION__", package.VERSION).replace("__LABEL__", package.LABEL)
             .replace("__DATE__", date.today().strftime("%d %B %Y").lstrip("0")).replace("__SIZE__", size).replace("__RELEASES__", RELEASES))
     out.write_text(page, encoding="utf-8")
     print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
