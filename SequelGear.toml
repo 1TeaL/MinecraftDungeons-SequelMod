@@ -37,7 +37,7 @@
 "BP_AxeInstance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.5  # default 0.5
 "BP_AxeInstance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 35.0  # default 25.0
 "BP_AxeInstance.ConfiguredAttackVariants[0].AttackRange" = 350.0  # default 350.0
-"BP_AxeInstance.ConfiguredAttackVariants[0].Damage" = 85.0  # default 65.0
+"BP_AxeInstance.ConfiguredAttackVariants[0].Damage" = 98.0  # default 65.0
 "BP_AxeInstance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.5  # default 0.5
 "BP_AxeInstance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_AxeInstance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
@@ -45,7 +45,7 @@
 "BP_AxeInstance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.5  # default 0.5
 "BP_AxeInstance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 35.0  # default 25.0
 "BP_AxeInstance.ConfiguredAttackVariants[1].AttackRange" = 350.0  # default 350.0
-"BP_AxeInstance.ConfiguredAttackVariants[1].Damage" = 85.0  # default 65.0
+"BP_AxeInstance.ConfiguredAttackVariants[1].Damage" = 98.0  # default 65.0
 "BP_AxeInstance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.5  # default 0.5
 "BP_AxeInstance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_AxeInstance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0
@@ -53,7 +53,7 @@
 "BP_AxeInstance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.8  # default 0.8
 "BP_AxeInstance.ConfiguredAttackVariants[2].ConeAngleDegrees" = 180.0  # default 180.0
 "BP_AxeInstance.ConfiguredAttackVariants[2].AttackRange" = 275.0  # default 275.0
-"BP_AxeInstance.ConfiguredAttackVariants[2].Damage" = 130.0  # default 100.0
+"BP_AxeInstance.ConfiguredAttackVariants[2].Damage" = 150.0  # default 100.0
 "BP_AxeInstance.ConfiguredAttackVariants[2].DamageSplashMultiplier" = 0.75  # default 0.75
 "BP_AxeInstance.ConfiguredAttackVariants[2].StunMultiplier" = 1.0  # default 1.0
 "BP_AxeInstance.ConfiguredAttackVariants[2].CooldownSeconds" = 0.0  # default 0.0
@@ -1324,7 +1324,7 @@
 "BP_Hammer_Unique2Instance.ConfiguredAttackVariants[0].pushback.pushbackStrength" = 2.0  # default 2.0
 "BP_Hammer_Unique2Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.7  # default 0.7
 "BP_Hammer_Unique2Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 180.0  # default 180.0
-"BP_Hammer_Unique2Instance.ConfiguredAttackVariants[0].AttackRange" = 260.0  # default 200.0
+"BP_Hammer_Unique2Instance.ConfiguredAttackVariants[0].AttackRange" = 299.0  # default 200.0
 "BP_Hammer_Unique2Instance.ConfiguredAttackVariants[0].Damage" = 120.0  # default 100.0
 "BP_Hammer_Unique2Instance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 1.0  # default 1.0
 "BP_Hammer_Unique2Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
@@ -2039,7 +2039,7 @@
 "BP_SkeletonHammerInstance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.7  # default 0.7
 "BP_SkeletonHammerInstance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 180.0  # default 180.0
 "BP_SkeletonHammerInstance.ConfiguredAttackVariants[0].AttackRange" = 260.0  # default 200.0
-"BP_SkeletonHammerInstance.ConfiguredAttackVariants[0].Damage" = 100.0  # default 100.0
+"BP_SkeletonHammerInstance.ConfiguredAttackVariants[0].Damage" = 115.0  # default 100.0
 "BP_SkeletonHammerInstance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 1.0  # default 1.0
 "BP_SkeletonHammerInstance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_SkeletonHammerInstance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.2  # default 0.2
@@ -2049,7 +2049,7 @@
 "BP_SoulKnifeInstance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.85  # default 0.85
 "BP_SoulKnifeInstance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 7.0  # default 7.0
 "BP_SoulKnifeInstance.ConfiguredAttackVariants[0].AttackRange" = 750.0  # default 750.0
-"BP_SoulKnifeInstance.ConfiguredAttackVariants[0].Damage" = 140.0  # default 140.0
+"BP_SoulKnifeInstance.ConfiguredAttackVariants[0].Damage" = 161.0  # default 140.0
 "BP_SoulKnifeInstance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 1.0  # default 1.0
 "BP_SoulKnifeInstance.ConfiguredAttackVariants[0].StunMultiplier" = 0.9  # default 0.9
 "BP_SoulKnifeInstance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.04  # default 0.04
@@ -2113,35 +2113,35 @@
 [Melee.SoulScythe_Unique1]  # Jailor's Scythe (Soul Scythe variant)
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].pushback.pushbackStrength" = 0.0  # default 0.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.48  # default 0.48
-"BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 55.0  # default 55.0
+"BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 80.0  # default 55.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].AttackRange" = 450.0  # default 450.0
-"BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].Damage" = 80.0  # default 80.0
+"BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].Damage" = 72.0  # default 80.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.85  # default 0.85
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].pushback.pushbackStrength" = 0.0  # default 0.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.56  # default 0.56
-"BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 55.0  # default 55.0
+"BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 80.0  # default 55.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].AttackRange" = 450.0  # default 450.0
-"BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].Damage" = 80.0  # default 80.0
+"BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].Damage" = 72.0  # default 80.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.85  # default 0.85
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_SoulScythe_Unique1Instance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0
 
 [Melee.SoulScythe_Unique2]  # Frost Scythe (Soul Scythe variant)
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].pushback.pushbackStrength" = 0.0  # default 0.0
-"BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.48  # default 0.48
+"BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.552  # default 0.48
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 55.0  # default 55.0
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].AttackRange" = 450.0  # default 450.0
-"BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].Damage" = 80.0  # default 80.0
+"BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].Damage" = 104.0  # default 80.0
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.85  # default 0.85
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].pushback.pushbackStrength" = 0.0  # default 0.0
-"BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.56  # default 0.56
+"BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.644  # default 0.56
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 55.0  # default 55.0
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].AttackRange" = 450.0  # default 450.0
-"BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].Damage" = 80.0  # default 80.0
+"BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].Damage" = 104.0  # default 80.0
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.85  # default 0.85
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_SoulScythe_Unique2Instance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0

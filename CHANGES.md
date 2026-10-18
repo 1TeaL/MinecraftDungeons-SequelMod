@@ -141,9 +141,10 @@ Several numbers = the hits of the combo in order.
 | Weapon | Setting | Base game | Mod |
 |---|---|---|---|
 | Axe | Swing angle | 25/25/180 | 35/35/180 |
-| Axe | Damage | 65/65/100 | 85/85/130 |
+| Axe | Damage | 65/65/100 | 98/98/150 |
 | Battlestaff of Terror | Swing time (s) | 0.4/0.35/0.55/0.7/0.5/0.5/0.3/0.3/0.4/1 | 0.35/0.35/0.5/0.65/0.45/0.45/0.25/0.3/0.35/1 |
 | Bonehead Hammer | Reach | 200 | 260 |
+| Bonehead Hammer | Damage | 100 | 115 |
 | Broadsword | Swing time (s) | 0.7/0.5/0.8 | 0.56/0.4/0.64 |
 | Broadsword | Damage | 90/110/160 | 76/94/136 |
 | Cackling Broom | Swing angle | 25/25/80 | 45/45/120 |
@@ -164,6 +165,8 @@ Several numbers = the hits of the combo in order.
 | Firebrand | Swing time (s) | 0.5/0.5/0.8 | 0.7/0.7/1 |
 | Firebrand | Swing angle | 25/25/180 | 35/35/180 |
 | Firebrand | Damage | 65/65/100 | 147/147/215 |
+| Frost Scythe | Swing time (s) | 0.48/0.56 | 0.552/0.644 |
+| Frost Scythe | Damage | 80/80 | 104/104 |
 | Frost Slayer | Swing time (s) | 0.7/0.5/0.8 | 0.84/0.6/0.96 |
 | Frost Slayer | Damage | 90/110/160 | 108/132/192 |
 | Gauntlets | Swing time (s) | 0.125/0.125/0.125/0.125/0.2/0.2/0.7 | 0.125/0.125/0.125/0.125/0.17/0.17/0.7 |
@@ -178,7 +181,7 @@ Several numbers = the hits of the combo in order.
 | Great Axeblade | Damage | 90/110/160 | 117/143/208 |
 | Great Hammer | Reach | 200 | 260 |
 | Great Hammer | Damage | 100 | 115 |
-| Hammer of Gravity | Reach | 200 | 260 |
+| Hammer of Gravity | Reach | 200 | 299 |
 | Hammer of Gravity | Damage | 100 | 120 |
 | Hawkbrand | Swing time (s) | 0.4/0.4/0.242 | 0.34/0.34/0.206 |
 | Hawkbrand | Reach | 300/300/750 | 350/350/750 |
@@ -186,6 +189,8 @@ Several numbers = the hits of the combo in order.
 | Highland Axe | Swing time (s) | 0.5/0.5/0.8 | 0.42/0.42/0.65 |
 | Highland Axe | Swing angle | 25/25/180 | 35/35/180 |
 | Highland Axe | Damage | 65/65/100 | 85/85/130 |
+| Jailor's Scythe | Swing angle | 55/55 | 80/80 |
+| Jailor's Scythe | Damage | 80/80 | 72/72 |
 | Master's Katana | Swing time (s) | 0.48/0.6/0.6 | 0.48/0.48/0.6 |
 | Maulers | Swing time (s) | 0.15/0.15/0.15/0.125/0.2/0.2/0.7 | 0.11/0.11/0.11/0.11/0.17/0.17/0.55 |
 | Maulers | Swing angle | 15/30/30/15/30/30/40 | 30/30/30/30/30/30/40 |
@@ -205,6 +210,7 @@ Several numbers = the hits of the combo in order.
 | Soul Fists | Swing time (s) | 0.15/0.15/0.15/0.125/0.2/0.2/0.7 | 0.125/0.125/0.125/0.125/0.17/0.17/0.7 |
 | Soul Fists | Swing angle | 15/30/30/15/30/30/40 | 30/30/30/30/30/30/40 |
 | Soul Fists | Damage | 25/25/25/25/25/35/45 | 30/30/30/30/30/55/80 |
+| Soul Knife | Damage | 140 | 161 |
 | Sparkler | Swing time (s) | 0.4/0.4 | 0.5/0.5 |
 | Sparkler | Damage | 50/50 | 94/94 |
 | Spine-Chill Spear | Swing time (s) | 0.375/0.375/0.5 | 0.7/0.7/1 |

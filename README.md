@@ -59,7 +59,7 @@ offline and online play and progress that doesn't carry over. Enchanting exactly
 cap that limits how many builds you can have, and no difficulty levels in the endgame, there's just a lot of issues and you can tell they doing the thing where the DLC is where the content of the game will be..
 
 So I wanted to update the first game instead and make it feel like a sequel. The main goal was more build variety;
-the other was more content, so there's more of the game to play.
+the other was more content, so there's more of the game to play. Part of the fun of build crafting is finding crazy, overpowered builds, so the mod lifts weak gear and enchantments up rather than cutting the strong ones down.
 
 - **Build variety:** the low-tier weapons and enchantments are buffed so more of them are worth using.
 - **More to play:** more Apocalypse levels to keep the grind going.
