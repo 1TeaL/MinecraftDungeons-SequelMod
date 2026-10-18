@@ -355,9 +355,9 @@ def build():
     L += ["## 7. Mobs", ""]
     ancient = {"Committed", "Cowardice", "Echo", "FuseShot", "Huge", "Leeching", "Rampaging", "Sharpness", "Shockwave",
                "Swirling", "Thundering"}   # ancient mobs only in the base game (MobPool.toml)
-    table = pool.get("pool", {})
-    removed = [n for n, on in table.items() if on is False and n not in ancient] + pool.get("remove", [])
-    added = [n for n, on in table.items() if on is True and n in ancient] + pool.get("add", [])
+    rolls = pool.get("pool", {})
+    removed = [n for n, on in rolls.items() if on is False and n not in ancient] + pool.get("remove", [])
+    added = [n for n, on in rolls.items() if on is True and n in ancient] + pool.get("add", [])
     if removed:
         L += ["- Enchanted mobs no longer roll: " + ", ".join(ench(n) for n in removed) + "."]
     if added:
