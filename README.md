@@ -8,19 +8,30 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 
 ## ![What it does](docs/headers/what-it-does.svg)
 
-- **Endless Apocalypse.** A+26 to A+100. Gear power climbs to the game's cap (315) by A+38. Past that, levels
-  unlock bonus built-in enchantments, extra armor perks, a final enchantment at A+100 and an endless
-  Sharpness / Power / Protection ladder after it. Mobs keep getting tougher; loot, XP and gold keep improving.
-  A+1 to A+25 are unchanged.
+- **Endless Apocalypse.** Apocalypse Plus goes past 25, all the way to A+100; A+1 to A+25 are unchanged. Higher
+  levels open a few at a time as you beat different boss missions on your top level, with trial levels along the
+  way that push one thing hard (more mobs, more enchanted mobs, tankier or harder-hitting ones).
+- **Rewards past the gear cap.** Gear power reaches the game's cap (315) at A+38, and from there it keeps rising to
+  365 at A+100. Instead of raw stats, the higher power adds **bonus built-in enchantments**: extra enchantments on
+  the item card that cost no enchantment points, growing a tier at a time. Armor gets extra perks, artifacts keep
+  getting stronger (up to 5x damage), and from A+26 a drop can come gilded with a free enchantment.
+- **A+100 never stops.** A+100 drops come in a little above your power level, so your gear keeps climbing, and every
+  5 power past 365 adds another tier of Sharpness, Power or Protection under the other enchantments.
+- **Tougher mobs to match.** From A+38 to A+100 mobs get up to 5x the health, 3x the damage and a little faster;
+  your healing, which Apocalypse cuts, comes back to full.
 - **Rebalanced gear.** Weak and middling weapons, bows, enchantments, artifacts and armor perks are brought up to
-  the strong ones. The top tier is left alone, and every unique beats its base item.
-- **Seasonal uniques are back.** Event items drop in missions and show up at merchants, each with a build of its own.
-- **Fairer mobs.** Enchanted mobs no longer roll Deflect or Levitation Shot.
-- **Less grind in camp.** Blacksmith upgrades take one mission, merchants stock gear at your power level,
-  and there's no slowdown after a roll.
-- **Stacking builds.** 32 enchantments whose copies add up in full (Critical Hit, Swirling, Infinity, Protection,
-  the Focuses and more) can roll in more than one slot of an item. The ones whose copies don't add up say so in
+  the strong ones; the top tier is left alone. Bonus Shot's second arrow deals 75% instead of 24%, Echo repeats
+  every 0.1 s at tier III instead of 3 s, Cowardice and Frenzied give up to +60%.
+- **Uniques with more identity.** Many uniques got new or stronger built-in enchantments - the Whispering Spear's
+  Echo is tier III, the Bonehead Hammer pulls mobs in *and* explodes them - and every unique beats its base item.
+- **Seasonal uniques outside the Tower.** Event items, normally only from the Tower, drop in missions and show up at
+  merchants, each with built-in enchantments for a build of its own.
+- **Stacking builds.** 32 enchantments that add up when an item has them more than once (Critical Hit, Swirling,
+  Infinity, Protection, the Focuses and more) can roll in more than one slot. The ones that don't add up say so in
   their description.
+- **Fairer mobs.** Enchanted mobs no longer roll Deflect or Levitation Shot.
+- **Less grind in camp.** Blacksmith upgrades take one mission, Enchantsmith rerolls cost a tenth, gilded gear at
+  the Piglin merchant costs half, merchants stock gear at your power level, and there's no slowdown after a roll.
 
 The full list, with every number, is on the [changes page](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)
 and in [CHANGES.md](CHANGES.md).
