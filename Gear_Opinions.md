@@ -101,6 +101,20 @@ Bows are judged mostly as roll-meta holders. Crossbows are judged on their own.
 | Azure Seeker, The Slicer | Worst | "Does nothing late game" |
 | Slayer Crossbow | Worst | Ricochet on a weapon that barely fires |
 
+### Second ranged list (a Reddit comment the user pasted, 2026-10-18; "Ranged weapon tier list", r/MinecraftDungeons)
+
+Top three groups only, in my own words:
+- **Meta:** Harp Crossbow (best non-rolling crossbow, spreads effects), Winter's Touch (damage and rolling builds),
+  Imploding Crossbow, Bubble Burster (rolling, decent bubble damage), The Pink Scoundrel (rolling + Wild Rage I).
+- **Nearly meta:** Elite Power Bow and Sabrewing (outclassed by Winter's Touch), Mechanical Shortbow (versatile),
+  Firebolt Thrower (Imploding slightly better), Echo of the Valley and Burst Gale Bow (best for gravity combos;
+  rolling only helps melee), Soul Hunter Crossbow (best soul gathering), Lightning Harp Crossbow (a bit below Harp),
+  The Green Menace (Poison Cloud I weak; Pink and Bubble Burster better for rolling).
+- **Still fantastic:** Nautical Crossbow, Bow of Lost Souls, Nocturnal Bow, Veiled Crossbow, Voidcaller, Auto
+  Crossbow, Purple Storm.
+Against the table above: mostly the same top; this list rates Echo of the Valley, Burst Gale, Lightning Harp,
+Nautical, Veiled, Voidcaller and Auto Crossbow higher, and doesn't mention Love Spell Bow or Twin Bow.
+
 ## Armor
 
 Armor properties are hard-coded in the game (code patch needed to change them).
