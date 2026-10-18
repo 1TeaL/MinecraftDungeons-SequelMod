@@ -56,8 +56,12 @@ def definition(h, base, name):
 def apply(h, base):
     plan = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
     changed = []
-    for key, value, word in (("remove", 0, "no longer rolled by mobs"), ("add", 1, "can now be rolled by mobs")):
-        for name in plan.get(key, []):
+    # [pool] name = true / false (every mob enchantment listed; 2026-10-18), or the older remove / add lists
+    pool = plan.get("pool", {})
+    lists = [("remove", [n for n, on in pool.items() if on is False] + plan.get("remove", [])),
+             ("add", [n for n, on in pool.items() if on is True] + plan.get("add", []))]
+    for (key, names), (value, word) in zip(lists, ((0, "no longer rolled by mobs"), (1, "can now be rolled by mobs"))):
+        for name in names:
             at, body = definition(h, base, name)
             if not at:
                 print(f"  ! {name}: not found in the game - skipped")

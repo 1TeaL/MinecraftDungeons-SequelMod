@@ -1,12 +1,62 @@
 # Which enchantments enchanted mobs can roll - applied by the launcher when the game starts
 # (tools/mobpool_patch.py). Data only; the player's own enchantments are not affected, and a boss that carries an
 # enchantment by design keeps it.   python tools/mobpool_patch.py --show   lists what mobs can get right now.
-# Names: tools/enchant_ids.json (the game's internal names; LevitationShot = Levitation Shot).
+#
+# Every enchantment the game lets mobs roll is listed with true (rolled) or false (never rolled), so each one can be
+# switched on its own (user, 2026-10-18: a setting for every mob enchantment). Set one of the "ancient mobs only"
+# ones to true to let ordinary enchanted mobs roll it too - untested, but the game gives these to ancient mobs, so
+# they work on a mob. Which mobs can roll what is still the game's own rule: melee, ranged or any mob.
+# Names are the game's internal ones (tools/enchant_ids.json). The list follows the wiki; `--show` with the game
+# running prints the real pool.
 
-# Taken out of the pool (user, 2026-10-11: Deflect and Levitation Shot gone from mobs; Thorns only weakened - that
-# is "Thorns PercentDamageReturnedMob" in SequelMod.toml).
-remove = ["Deflecting", "LevitationShot"]
+[pool]
+# any mob
+Burning = true
+Chilling = true
+Deflecting = false          # Deflect - out (user, 2026-10-11)
+DoubleDamage = true
+Electrified = true
+FastAttack = true
+FireAspect = true
+FireTrail = true
+Freezing = true
+Frenzied = true
+GravityPulse = true
+Altruistic = true           # Heals Allies
+PoisonedMelee = true        # Poison Cloud
+Protection = true
+Quick = true
+RadianceMelee = true        # Radiance
+Regeneration = true
+Flee = true                 # Rush
+Thorns = true               # weakened on mobs: "Thorns PercentDamageReturnedMob" in SequelMod.toml
+Weakening = true
 
-# Put into the pool: enchantments mobs don't normally roll. Untested - the game gives some of these to ancient mobs
-# only (Leeching, Sharpness, Cowardice, FuseShot), which suggests they work on a mob.
-add = []
+# ranged mobs
+Accelerating = true         # Accelerate
+BonusShot = true
+ChainReaction = true
+CriticalHit = true
+Gravity = true
+Growing = true
+LevitationShot = false      # out (user, 2026-10-11)
+MultiShot = true
+Power = true
+RadianceRanged = true       # Radiance Shot
+RapidFire = true
+Ricochet = true
+TempoTheft = true
+VoidTouchedRanged = true    # Void Strike
+
+# ancient mobs only in the base game - false keeps it that way
+Committed = false
+Cowardice = false
+Echo = false
+FuseShot = false
+Huge = false
+Leeching = false
+Rampaging = false
+Sharpness = false
+Shockwave = false
+Swirling = false
+Thundering = false
