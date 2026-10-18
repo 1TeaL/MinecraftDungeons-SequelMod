@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-18 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-10-19 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -143,33 +143,45 @@ Several numbers = the hits of the combo in order.
 | Axe | Swing angle | 25/25/180 | 35/35/180 |
 | Axe | Damage | 65/65/100 | 85/85/130 |
 | Battlestaff of Terror | Swing time (s) | 0.4/0.35/0.55/0.7/0.5/0.5/0.3/0.3/0.4/1 | 0.35/0.35/0.5/0.65/0.45/0.45/0.25/0.3/0.35/1 |
+| Bee Stinger | Damage | 13/13/13/13/13/13/13/13/13/13/13/13/13/70 | 16/16/16/16/16/16/16/16/16/16/16/16/16/88 |
 | Bonehead Hammer | Reach | 200 | 260 |
+| Broadsword | Swing time (s) | 0.7/0.5/0.8 | 0.56/0.4/0.64 |
+| Broadsword | Damage | 90/110/160 | 76/94/136 |
 | Cackling Broom | Swing angle | 25/25/80 | 45/45/120 |
 | Cackling Broom | Damage | 75/75/110 | 68/68/99 |
 | Chill Gale knife | Knockback | 1/1/1.2 | 0.2/0.2/1.2 |
+| Chill Gale knife | Swing time (s) | 0.251/0.3/0.5 | 0.213/0.255/0.425 |
 | Chill Gale knife | Reach | 300/300/400 | 340/340/400 |
-| Chill Gale knife | Damage | 48/48/78 | 52/52/85 |
+| Chill Gale knife | Damage | 48/48/78 | 57/57/93 |
 | Coral Blade | Reach | 350/280/320 | 380/380/380 |
 | Coral Blade | Damage | 19/20/45 | 33/33/75 |
 | Dancer's Sword | Damage | 50/50 | 75/75 |
+| Diamond Sword | Swing time (s) | 0.4/0.4/0.242 | 0.46/0.46/0.278 |
 | Diamond Sword | Reach | 300/300/750 | 350/350/750 |
-| Diamond Sword | Damage | 50/50/80 | 58/58/95 |
-| Eternal knife | Damage | 140 | 155 |
+| Diamond Sword | Damage | 50/50/80 | 75/75/124 |
+| Eternal knife | Swing time (s) | 0.85 | 0.722 |
+| Eternal knife | Damage | 140 | 132 |
 | Fangs of Frost | Damage | 35/35/35/35/35/35 | 41/41/41/41/41/41 |
 | Firebrand | Swing time (s) | 0.5/0.5/0.8 | 0.7/0.7/1 |
 | Firebrand | Swing angle | 25/25/180 | 35/35/180 |
 | Firebrand | Damage | 65/65/100 | 147/147/215 |
+| Flail | Reach | 300/300/250 | 360/360/300 |
+| Freezing Foil | Damage | 14/14/14/14/14/14/14/14/12/13/13/12/13/70 | 18/18/18/18/18/18/18/18/15/16/16/15/16/88 |
 | Frost Slayer | Swing time (s) | 0.7/0.5/0.8 | 0.84/0.6/0.96 |
 | Frost Slayer | Damage | 90/110/160 | 108/132/192 |
 | Gauntlets | Swing time (s) | 0.125/0.125/0.125/0.125/0.2/0.2/0.7 | 0.125/0.125/0.125/0.125/0.17/0.17/0.7 |
 | Gauntlets | Swing angle | 15/30/30/15/30/30/40 | 30/30/30/30/30/30/40 |
 | Gauntlets | Damage | 25/25/25/25/25/35/45 | 30/30/30/30/30/45/60 |
+| Great Axeblade | Swing time (s) | 0.7/0.5/0.8 | 0.84/0.6/0.96 |
+| Great Axeblade | Reach | 450/600/300 | 495/660/330 |
+| Great Axeblade | Damage | 90/110/160 | 117/143/208 |
 | Great Hammer | Reach | 200 | 260 |
 | Great Hammer | Damage | 100 | 115 |
 | Hammer of Gravity | Reach | 200 | 260 |
 | Hammer of Gravity | Damage | 100 | 120 |
+| Hawkbrand | Swing time (s) | 0.4/0.4/0.242 | 0.34/0.34/0.206 |
 | Hawkbrand | Reach | 300/300/750 | 350/350/750 |
-| Hawkbrand | Damage | 50/50/80 | 60/60/100 |
+| Hawkbrand | Damage | 50/50/80 | 57/57/95 |
 | Highland Axe | Swing time (s) | 0.5/0.5/0.8 | 0.42/0.42/0.65 |
 | Highland Axe | Swing angle | 25/25/180 | 35/35/180 |
 | Highland Axe | Damage | 65/65/100 | 85/85/130 |
@@ -178,8 +190,11 @@ Several numbers = the hits of the combo in order.
 | Maulers | Swing angle | 15/30/30/15/30/30/40 | 30/30/30/30/30/30/40 |
 | Maulers | Damage | 25/25/25/25/25/35/45 | 30/30/30/30/30/45/60 |
 | Nightmare's Bite | Damage | 30/30/30/30/60/70 | 36/36/36/36/70/82 |
+| Rapier | Damage | 13/13/13/13/13/13/13/13/13/13/13/13/13/70 | 16/16/16/16/16/16/16/16/16/16/16/16/16/88 |
 | Resolute Tempest knife | Knockback | 1/1/1.2 | 0.2/0.2/1.2 |
+| Resolute Tempest knife | Swing time (s) | 0.251/0.3/0.5 | 0.289/0.345/0.575 |
 | Resolute Tempest knife | Reach | 300/300/400 | 340/340/400 |
+| Resolute Tempest knife | Damage | 48/48/78 | 72/72/117 |
 | Sheer Daggers | Damage | 35/35/35/35/35/35 | 40/40/40/40/40/40 |
 | Sickles | Damage | 30/30/30/30/60/70 | 33/33/33/33/65/75 |
 | Sinister Sword | Swing time (s) | 0.4/0.4/0.242 | 0.32/0.32/0.194 |
@@ -199,10 +214,13 @@ Several numbers = the hits of the combo in order.
 | Stormlander | Swing time (s) | 0.7 | 0.9 |
 | Stormlander | Reach | 200 | 260 |
 | Stormlander | Damage | 100 | 162 |
+| Swift Striker | Swing time (s) | 0.27/0.27/0.54 | 0.23/0.23/0.459 |
+| Swift Striker | Damage | 60/60/90 | 57/57/86 |
 | Sword | Reach | 300/300/750 | 350/350/750 |
 | Sword | Damage | 50/50/80 | 55/55/90 |
 | Tempest knife | Knockback | 1/1/1.2 | 0.2/0.2/1.2 |
 | Tempest knife | Reach | 300/300/400 | 340/340/400 |
+| Tempest knife | Damage | 48/48/78 | 55/55/90 |
 | The Last Laugh | Damage | 30/30/30/30/60/70 | 38/38/38/38/75/88 |
 | The Starless Night | Swing time (s) | 0.77/1.32 | 0.7/1.2 |
 | Venom glaive | Swing time (s) | 0.5/0.6/1 | 0.7/0.8/1.2 |

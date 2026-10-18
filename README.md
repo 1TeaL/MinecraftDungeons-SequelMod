@@ -117,6 +117,8 @@ values like an enchantment's per-tier numbers are worked out. The launcher then 
 
 ## ![Building it yourself](docs/headers/building-it-yourself.svg)
 
+The balance in this mod is my own take on the game - what felt weak, what felt right. If you see it differently, every number is yours to change: weapon stats, enchantments, armor perks, artifacts, mob scaling, rewards and the camp are all plain settings files with the game's own value next to each line.
+
 You'll need Python 3.11+, the game's files extracted to `Mods/Dungeons BMS/BMS output`, and the
 Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
 
