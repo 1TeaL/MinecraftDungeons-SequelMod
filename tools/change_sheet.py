@@ -130,7 +130,7 @@ def gear_rows():
         if m:
             section = (m.group(1), item(m.group(2)) if m.group(2).lower().replace("_steel", "") in ITEM_NAMES else m.group(3).strip())
             continue
-        m = re.match(r'"BP_\w+?Instance\.(.+?)" = ([\d.]+)\s+# default ([\d.]+)', line)
+        m = re.match(r'"B[Pp]_\w+?Instance\.(.+?)" = ([\d.]+)\s+# default ([\d.]+)', line)
         if m and section:
             field = m.group(1).split(".")[-1]
             variant = re.search(r"\[(\d+)\]", m.group(1))

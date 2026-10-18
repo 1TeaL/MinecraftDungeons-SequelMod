@@ -252,6 +252,9 @@ Several numbers = the hits of the combo in order.
 | Rapid Crossbow | Damage factor | 0.45 | 0.562 |
 | Scatter Crossbow | Time between shots (s) | 0.6 | 0.48 |
 | Shadow Crossbow | Time between shots (s) | 0.6 | 0.48 |
+| Shivering Bow | Time between shots (s) | 0.42 | 0.302 |
+| Shivering Bow | Charge time (s) | 0.35 | 0.28 |
+| Shivering Bow | Charged shot damage | 2.5 | 2.48 |
 | Shortbow | Damage factor | 0.75 | 0.938 |
 | Shrieking Crossbow | Time between shots (s) | 0.7 | 0.5 |
 | Snow Bow | Time between shots (s) | 0.42 | 0.378 |
