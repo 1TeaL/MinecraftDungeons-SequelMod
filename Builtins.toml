@@ -138,10 +138,6 @@ Sharpness = 3
 ["MeleeWeapons/Claymore_Unique3"]         # Great Axeblade
 DynamoMelee = 3
 
-["MeleeWeapons/VoidTouchedBlades_Unique1"] # The Beginning and The End
-VoidTouchedMelee = 3
-Leeching = 3
-
 ["MeleeWeapons/Sickles_Unique2"]          # The Last Laugh
 Prospector = 3
 add = { CriticalHit = 2 }
@@ -219,9 +215,6 @@ FireTrail = { to = "Electrified", level = 2 }
 add = { Electrified = 2, MultiDodge = 2 }
 
 # ---- B-tier pass, 2026-10-08: only the B items the mod had not touched yet ----
-["MeleeWeapons/Battlestaff_Unique1"]      # Growing Staff
-Committed = 3
-
 ["MeleeWeapons/Spear_Unique1"]            # Whispering Spear: its Echo at tier 3 (0.1 s gap; tier 1 = 2.1 s)
 Echo = 3
 
@@ -236,3 +229,6 @@ add = { Exploding = 1 }                   # with hit damage (100 against the Ham
 
 ["RangedWeapons/BatCrossbow"]             # Shrieking Crossbow: a sidegrade to the Veiled Crossbow - Shadow Shot plus
 ShadowBarbRanged = { to = "TempoTheft", level = 2 }   # Tempo Theft where the Veiled has Shadow Barb; same stats (user, 2026-10-13)
+
+# Growing Staff (SS) and The Beginning and The End (S) keep the game's tier I built-ins: they reach tier III above
+# power 316 like every built-in (user, 2026-10-19).
