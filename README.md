@@ -36,6 +36,32 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 The full list, with every number, is on the [changes page](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)
 and in [CHANGES.md](CHANGES.md).
 
+## ![Why it was made](docs/headers/why-it-was-made.svg)
+
+I loved Minecraft Dungeons with my friends. When Minecraft Dungeons 2 was announced I was hyped: an open world,
+new items, new gear systems. But as release went on it got frustrating. The quality-of-life changes the first game
+picked up over the years, like storage, were gone again. Playing with friends is tedious with the split between
+offline and online play and progress that doesn't carry over. Enchanting exactly what you want sounds good, but with
+only one slot and the new random effects it's still a chore. Then there are the arbitrary currency caps, the level
+cap that limits how many builds you can have, and no difficulty levels in the endgame - the list goes on.
+
+So I wanted to update the first game instead and make it feel like a sequel. The main goal was more build variety;
+the other was more content, so there's more of the game to play.
+
+- **Build variety:** the low-tier weapons and enchantments are buffed so more of them are worth using.
+- **More to play:** more Apocalypse levels to keep the grind going.
+- **Growing past the cap:** as the Tower glitch showed, gear power naturally caps out around 316. So past that point
+  the mod adds extra enchantments to weapons and extra perks to armor, so gear keeps getting stronger and there are
+  new ways to build. The enchantments build on each weapon's or armor's playstyle: what's core to the item stays,
+  and more interesting enchantments get slotted in beside it. Each item type has a set list of these bonus
+  enchantments, and they gain a tier every few power levels, up to Apocalypse 100. Artifacts scale with gear power
+  too, so they stay relevant.
+- **Mobs past the cap:** mobs stop scaling past that point as well, so their stats are raised by the mod from there.
+  Letting them scale the game's own way all the way to A+100 would have made the numbers insane (around a million
+  times the health and damage) - more than the game is likely to handle, and more than any build could fight.
+- **New items without new items:** the seasonal uniques are reworked from their base uniques, with different stats
+  and different enchantments, which adds new items to the pool without making new ones from scratch.
+
 ## ![Playing it](docs/headers/playing-it.svg)
 
 You need the **Steam version** of Minecraft Dungeons on **Windows**. Nothing else: the release brings its own Python.

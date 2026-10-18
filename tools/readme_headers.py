@@ -11,6 +11,7 @@ from pathlib import Path
 OUT = Path(__file__).resolve().parent.parent / "docs" / "headers"
 HEADERS = {   # file name -> [(text, pixel size), ...]: one line, or several stacked in one image
     "sequel-mod": [("MINECRAFT DUNGEONS:", 4), ("SEQUEL MOD", 9)],
+    "why-it-was-made": [("WHY IT WAS MADE", 4)],
     "what-it-does": [("WHAT IT DOES", 4)],
     "playing-it": [("PLAYING IT", 4)],
     "how-it-works": [("HOW IT WORKS", 4)],
