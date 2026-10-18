@@ -2555,9 +2555,9 @@
 
 [Ranged.BubbleBow]  # Bubble Bow
 "BP_BubbleBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
-"BP_BubbleBowInstance.AttackDefintion.AttackRateSeconds" = 0.378  # default 0.42
-"BP_BubbleBowInstance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
-"BP_BubbleBowInstance.AttackDefintion.ChargeDamageMultiplier" = 3.125  # default 2.5
+"BP_BubbleBowInstance.AttackDefintion.AttackRateSeconds" = 0.34  # default 0.42
+"BP_BubbleBowInstance.AttackDefintion.ChargeTimeSecond" = 0.28  # default 0.35
+"BP_BubbleBowInstance.AttackDefintion.ChargeDamageMultiplier" = 2.7  # default 2.5
 "BP_BubbleBowInstance.ProjectileStackCount" = 60  # default 60
 
 [Ranged.BubbleBow_Spooky2]  # Gloopy Bow (Bubble Bow variant)
@@ -2834,9 +2834,9 @@
 
 [Ranged.SlowBow]  # Snow Bow
 "BP_SlowBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
-"BP_SlowBowInstance.AttackDefintion.AttackRateSeconds" = 0.378  # default 0.42
-"BP_SlowBowInstance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
-"BP_SlowBowInstance.AttackDefintion.ChargeDamageMultiplier" = 3.125  # default 2.5
+"BP_SlowBowInstance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_SlowBowInstance.AttackDefintion.ChargeTimeSecond" = 0.42  # default 0.35
+"BP_SlowBowInstance.AttackDefintion.ChargeDamageMultiplier" = 3.6  # default 2.5
 "BP_SlowBowInstance.ProjectileStackCount" = 60  # default 60
 
 [Ranged.SlowBow_Spooky2]  # Webbed Bow (Snow Bow variant)
@@ -2855,23 +2855,23 @@
 
 [Ranged.SoulBow]  # Soul Bow
 "BP_SoulBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
-"BP_SoulBowInstance.AttackDefintion.AttackRateSeconds" = 0.378  # default 0.42
-"BP_SoulBowInstance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
-"BP_SoulBowInstance.AttackDefintion.ChargeDamageMultiplier" = 3.125  # default 2.5
+"BP_SoulBowInstance.AttackDefintion.AttackRateSeconds" = 0.32  # default 0.42
+"BP_SoulBowInstance.AttackDefintion.ChargeTimeSecond" = 0.3  # default 0.35
+"BP_SoulBowInstance.AttackDefintion.ChargeDamageMultiplier" = 2.7  # default 2.5
 "BP_SoulBowInstance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.SoulBow_Unique1]  # Nocturnal Bow (Soul Bow variant)
 "Bp_SoulBow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
-"Bp_SoulBow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
-"Bp_SoulBow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
-"Bp_SoulBow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"Bp_SoulBow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.378  # default 0.42
+"Bp_SoulBow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.351  # default 0.35
+"Bp_SoulBow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 3.125  # default 2.5
 "Bp_SoulBow_Unique1Instance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.SoulBow_Unique2]  # Bow of Lost Souls (Soul Bow variant)
 "BP_SoulBow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
-"BP_SoulBow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
-"BP_SoulBow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
-"BP_SoulBow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"BP_SoulBow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.378  # default 0.42
+"BP_SoulBow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.351  # default 0.35
+"BP_SoulBow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 3.125  # default 2.5
 "BP_SoulBow_Unique2Instance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.SoulBow_Winter1]  # Shivering Bow (Soul Bow variant)
@@ -2933,9 +2933,9 @@
 
 [Ranged.TwistingVineBow]  # Twisting Vine Bow
 "BP_TwistingVineBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
-"BP_TwistingVineBowInstance.AttackDefintion.AttackRateSeconds" = 0.378  # default 0.42
-"BP_TwistingVineBowInstance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
-"BP_TwistingVineBowInstance.AttackDefintion.ChargeDamageMultiplier" = 3.125  # default 2.5
+"BP_TwistingVineBowInstance.AttackDefintion.AttackRateSeconds" = 0.45  # default 0.42
+"BP_TwistingVineBowInstance.AttackDefintion.ChargeTimeSecond" = 0.5  # default 0.35
+"BP_TwistingVineBowInstance.AttackDefintion.ChargeDamageMultiplier" = 4.5  # default 2.5
 "BP_TwistingVineBowInstance.ProjectileStackCount" = 30  # default 15
 
 [Ranged.TwistingVineBow_Unique1]  # Weeping Vine Bow (Twisting Vine Bow variant)

@@ -51,6 +51,18 @@ def sections(lines):
     return out
 
 
+def big_change(head, row):
+    """True for a row whose value at least doubles, at least halves, or becomes certain (a chance of 1)."""
+    try:
+        old, new = row[head.index("Base game")], row[head.index("Mod")]
+        a, b = float(old.split("/")[0].strip().rstrip("%")), float(new.split("/")[0].strip().rstrip("%"))
+    except (ValueError, IndexError):
+        return False
+    if "chance" in " ".join(row).lower() and b == 1 and a < 1:
+        return True
+    return a > 0 and b > 0 and (b / a >= 2 or b / a <= 0.5)
+
+
 def render(secs):
     e = html.escape
     nav, body = [], []
@@ -84,7 +96,9 @@ def render(secs):
                             cls.append("new")
                         tds.append(f'<td{" class=" + chr(34) + " ".join(cls) + chr(34) if cls else ""}>{e(c)}</td>')
                     last = r[0]
-                    trs.append("<tr>" + "".join(tds) + "</tr>")
+                    big = change and big_change(head, r)
+                    trs.append(('<tr class="big" title="Big change: doubled, halved or made certain">' if big else "<tr>")
+                               + "".join(tds) + "</tr>")
                 part.append(f'<div class="scroll"><table class="{"change" if change else "plain"}"><thead><tr>{cells}</tr></thead>'
                             f'<tbody>{"".join(trs)}</tbody></table></div>')
         part.append("</section>")
@@ -99,7 +113,7 @@ PAGE = """<title>Sequel Mod</title>
    down the left (a strip across the top on a phone) and the tables on the right. */
 :root {
   --bg: #f1f4ef; --panel: #ffffff; --ink: #1b241e; --muted: #5c6a61; --line: #d3dad3;
-  --accent: #1c7c45; --accent-ink: #ffffff; --new: #0f6a38; --hit: #fff3c2;
+  --accent: #1c7c45; --accent-ink: #ffffff; --new: #0f6a38; --hit: #fff3c2; --big: #dcefe2;
   --display: "Pixelify Sans", "Trebuchet MS", sans-serif;
   --body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
   --mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
@@ -107,12 +121,12 @@ PAGE = """<title>Sequel Mod</title>
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #141916; --panel: #1c231f; --ink: #e5ebe6; --muted: #98a69d; --line: #2e3832;
-    --accent: #4cc17f; --accent-ink: #0c1a11; --new: #7fe0a8; --hit: #4a431c; color-scheme: dark;
+    --accent: #4cc17f; --accent-ink: #0c1a11; --new: #7fe0a8; --hit: #4a431c; --big: #1d3b29; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #141916; --panel: #1c231f; --ink: #e5ebe6; --muted: #98a69d; --line: #2e3832;
-  --accent: #4cc17f; --accent-ink: #0c1a11; --new: #7fe0a8; --hit: #4a431c; color-scheme: dark;
+  --accent: #4cc17f; --accent-ink: #0c1a11; --new: #7fe0a8; --hit: #4a431c; --big: #1d3b29; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); padding-inline: 16px; padding-block: 20px 60px; }
@@ -173,6 +187,10 @@ table.change { min-width: 540px; }
 table.change td:first-child { white-space: nowrap; }
 table.change td.new { color: var(--new); font-weight: 500; }
 tr.hit td { background: var(--hit); }
+tr.big td.new { background: var(--big); font-weight: 600; }
+tr.big td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.legend { font-size: 13px; color: var(--muted); }
+.legend span { background: var(--big); color: var(--new); font-weight: 600; padding: 0 5px; border-radius: 2px; }
 tr.hit td.same { color: var(--ink); }
 .empty { color: var(--muted); }
 textarea.fallback { width: 100%; height: 160px; font: 12px/1.4 var(--mono); margin-top: 8px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); }
@@ -239,6 +257,7 @@ footer { grid-column: 1 / -1; color: var(--muted); font-size: 13px; border-top: 
     <div>
       <h2>Every change</h2>
       <p class="sub">Everything the mod changes, with the base game's value next to each one.</p>
+      <p class="legend">Rows marked <span>like this</span> are big changes: the value doubled, halved or became certain.</p>
     </div>
     <div class="tools">
       <input type="search" id="filter" placeholder="Find a weapon, enchantment…" aria-label="Filter the tables">

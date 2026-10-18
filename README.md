@@ -33,6 +33,22 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 - **Less grind in camp.** Blacksmith upgrades take one mission, Enchantsmith rerolls cost a tenth, gilded gear at
   the Piglin merchant costs half, merchants stock gear at your power level, and there's no slowdown after a roll.
 
+**The biggest enchantment changes** (tier III unless noted):
+
+| Enchantment | Base game | Mod |
+|---|---|---|
+| Rampaging, Thundering, Radiance, Radiance Shot | trigger 10-50% of the time | **always trigger** (Radiance heals less per proc, Thundering's bolt is smaller) |
+| Critical Hit | x3 damage | **x5** |
+| Bonus Shot | second arrow 24% damage | **75%** |
+| Echo | repeats every 3 s | **every 0.1 s** |
+| Thorns | returns part of the damage you take | **5x as much** (mobs' Thorns weakened instead) |
+| Burning, Fire Trail | 5 / 20 damage | **3x** |
+| Stunning | +5% chance per tier | **+15%** |
+| Fire, Lightning and Poison Focus | +25% per tier | **+50%** |
+| Fuse Shot | explodes after 1 s | **almost at once, 2x damage, 1.5x radius** |
+| Cowardice, Frenzied | +40% / +30% | **+60%** |
+| Explorer | heals every 100 blocks explored | **every 10** |
+
 The full list, with every number, is on the [changes page](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)
 and in [CHANGES.md](CHANGES.md).
 

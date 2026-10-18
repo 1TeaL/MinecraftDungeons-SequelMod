@@ -218,8 +218,12 @@ Several numbers = the hits of the combo in order.
 |---|---|---|---|
 | Bow | Time between shots (s) | 0.42 | 0.378 |
 | Bow | Charged shot damage | 2.5 | 3.125 |
-| Bubble Bow | Time between shots (s) | 0.42 | 0.378 |
-| Bubble Bow | Charged shot damage | 2.5 | 3.125 |
+| Bow of Lost Souls | Time between shots (s) | 0.42 | 0.378 |
+| Bow of Lost Souls | Charge time (s) | 0.35 | 0.351 |
+| Bow of Lost Souls | Charged shot damage | 2.5 | 3.125 |
+| Bubble Bow | Time between shots (s) | 0.42 | 0.34 |
+| Bubble Bow | Charge time (s) | 0.35 | 0.28 |
+| Bubble Bow | Charged shot damage | 2.5 | 2.7 |
 | Bubble Burster | Time between shots (s) | 0.42 | 0.378 |
 | Bubble Burster | Charged shot damage | 2.5 | 3.125 |
 | Burst Crossbow | Projectiles per shot | 3 | 4 |
@@ -247,6 +251,9 @@ Several numbers = the hits of the combo in order.
 | Longbow | Arrows per bundle | 40 | 50 |
 | Nautical Crossbow | Time between shots (s) | 0.42 | 0.324 |
 | Nautical Crossbow | Charged shot damage | 2.5 | 3.125 |
+| Nocturnal Bow | Time between shots (s) | 0.42 | 0.378 |
+| Nocturnal Bow | Charge time (s) | 0.35 | 0.351 |
+| Nocturnal Bow | Charged shot damage | 2.5 | 3.125 |
 | Phantom Bow | Charge time (s) | 0.35 | 0.455 |
 | Phantom Bow | Damage factor | 2 | 3.25 |
 | Phantom Bow | Arrows per bundle | 20 | 24 |
@@ -260,18 +267,20 @@ Several numbers = the hits of the combo in order.
 | Shivering Bow | Charged shot damage | 2.5 | 2.48 |
 | Shortbow | Damage factor | 0.75 | 0.938 |
 | Shrieking Crossbow | Time between shots (s) | 0.7 | 0.5 |
-| Snow Bow | Time between shots (s) | 0.42 | 0.378 |
-| Snow Bow | Charged shot damage | 2.5 | 3.125 |
-| Soul Bow | Time between shots (s) | 0.42 | 0.378 |
-| Soul Bow | Charged shot damage | 2.5 | 3.125 |
+| Snow Bow | Charge time (s) | 0.35 | 0.42 |
+| Snow Bow | Charged shot damage | 2.5 | 3.6 |
+| Soul Bow | Time between shots (s) | 0.42 | 0.32 |
+| Soul Bow | Charge time (s) | 0.35 | 0.3 |
+| Soul Bow | Charged shot damage | 2.5 | 2.7 |
 | Soul Crossbow | Damage factor | 1.2 | 1.5 |
 | Soul Hunter Crossbow | Projectiles per shot | 3 | 4 |
 | Sugar Rush | Time between shots (s) | 0.42 | 0.483 |
 | Sugar Rush | Damage factor | 0.72 | 0.99 |
 | Trickbow | Damage factor | 0.72 | 0.9 |
 | Twin Bow | Projectiles per shot | 1 | 2 |
-| Twisting Vine Bow | Time between shots (s) | 0.42 | 0.378 |
-| Twisting Vine Bow | Charged shot damage | 2.5 | 3.125 |
+| Twisting Vine Bow | Time between shots (s) | 0.42 | 0.45 |
+| Twisting Vine Bow | Charge time (s) | 0.35 | 0.5 |
+| Twisting Vine Bow | Charged shot damage | 2.5 | 4.5 |
 | Twisting Vine Bow | Arrows per bundle | 15 | 30 |
 | Veiled Crossbow | Time between shots (s) | 0.7 | 0.56 |
 | Void Bow | Time between shots (s) | 0.5 | 0.45 |
