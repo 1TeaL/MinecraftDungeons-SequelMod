@@ -73,6 +73,7 @@ the other was more content, so there's more of the game to play.
   times the health and damage) - more than the game is likely to handle, and more than any build could fight.
 - **New items without new items:** the seasonal uniques are reworked from their base uniques, with different stats
   and different enchantments, which adds new items to the pool without making new ones from scratch.
+- **Full customisability:** don't like any of my changes? want to tweak things on your own? that's completely fine. I've tried to expose as much as possible under the settings so that anyone can build the mod themselves. The mod will always be open source and free.
 
 ## ![Playing it](docs/headers/playing-it.svg)
 
