@@ -148,7 +148,7 @@ Several numbers = the hits of the combo in order.
 | Broadsword | Swing time (s) | 0.7/0.5/0.8 | 0.56/0.4/0.64 |
 | Broadsword | Damage | 90/110/160 | 76/94/136 |
 | Cackling Broom | Swing angle | 25/25/80 | 45/45/120 |
-| Cackling Broom | Damage | 75/75/110 | 68/68/99 |
+| Cackling Broom | Damage | 75/75/110 | 102/102/148 |
 | Chill Gale knife | Knockback | 1/1/1.2 | 0.2/0.2/1.2 |
 | Chill Gale knife | Swing time (s) | 0.251/0.3/0.5 | 0.213/0.255/0.425 |
 | Chill Gale knife | Reach | 300/300/400 | 340/340/400 |
@@ -172,6 +172,10 @@ Several numbers = the hits of the combo in order.
 | Gauntlets | Swing time (s) | 0.125/0.125/0.125/0.125/0.2/0.2/0.7 | 0.125/0.125/0.125/0.125/0.17/0.17/0.7 |
 | Gauntlets | Swing angle | 15/30/30/15/30/30/40 | 30/30/30/30/30/30/40 |
 | Gauntlets | Damage | 25/25/25/25/25/35/45 | 30/30/30/30/30/45/60 |
+| Glaive | Swing angle | 25/25/80 | 60/60/80 |
+| Glaive | Damage | 75/75/110 | 105/105/154 |
+| Grave Bane | Swing angle | 25/25/80 | 60/60/80 |
+| Grave Bane | Damage | 75/75/110 | 105/105/154 |
 | Great Axeblade | Swing time (s) | 0.7/0.5/0.8 | 0.84/0.6/0.96 |
 | Great Axeblade | Reach | 450/600/300 | 495/660/330 |
 | Great Axeblade | Damage | 90/110/160 | 117/143/208 |
@@ -224,7 +228,8 @@ Several numbers = the hits of the combo in order.
 | The Last Laugh | Damage | 30/30/30/30/60/70 | 38/38/38/38/75/88 |
 | The Starless Night | Swing time (s) | 0.77/1.32 | 0.7/1.2 |
 | Venom glaive | Swing time (s) | 0.5/0.6/1 | 0.7/0.8/1.2 |
-| Venom glaive | Damage | 75/75/110 | 105/110/150 |
+| Venom glaive | Swing angle | 25/25/80 | 60/60/80 |
+| Venom glaive | Damage | 75/75/110 | 147/154/210 |
 | Vine Whip | Damage | 100 | 110 |
 | Vine Whip | Splash damage | 0.1 | 0.2 |
 | Whip | Damage | 100 | 110 |
