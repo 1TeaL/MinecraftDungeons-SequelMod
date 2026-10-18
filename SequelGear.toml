@@ -328,7 +328,7 @@
 
 [Melee.Battlestaff_Unique2]  # Battlestaff of Terror (Battlestaff variant)
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[0].pushback.pushbackStrength" = 0.05  # default 0.05
-"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.4  # default 0.4
+"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.35  # default 0.4
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 25.0  # default 25.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[0].AttackRange" = 375.0  # default 375.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[0].Damage" = 65.0  # default 65.0
@@ -344,7 +344,7 @@
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[2].pushback.pushbackStrength" = 0.05  # default 0.05
-"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.55  # default 0.55
+"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.5  # default 0.55
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[2].ConeAngleDegrees" = 70.0  # default 70.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[2].AttackRange" = 350.0  # default 350.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[2].Damage" = 90.0  # default 90.0
@@ -352,7 +352,7 @@
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[2].StunMultiplier" = 1.0  # default 1.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[2].CooldownSeconds" = 0.0  # default 0.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[3].pushback.pushbackStrength" = 4.0  # default 4.0
-"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[3].AttackAnimationTimeDurationSeconds" = 0.7  # default 0.7
+"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[3].AttackAnimationTimeDurationSeconds" = 0.65  # default 0.7
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[3].ConeAngleDegrees" = 180.0  # default 180.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[3].AttackRange" = 200.0  # default 200.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[3].Damage" = 100.0  # default 100.0
@@ -360,7 +360,7 @@
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[3].StunMultiplier" = 1.0  # default 1.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[3].CooldownSeconds" = 0.0  # default 0.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[4].pushback.pushbackStrength" = 1.0  # default 1.0
-"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[4].AttackAnimationTimeDurationSeconds" = 0.5  # default 0.5
+"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[4].AttackAnimationTimeDurationSeconds" = 0.45  # default 0.5
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[4].ConeAngleDegrees" = 16.0  # default 16.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[4].AttackRange" = 750.0  # default 750.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[4].Damage" = 80.0  # default 80.0
@@ -368,7 +368,7 @@
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[4].StunMultiplier" = 1.0  # default 1.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[4].CooldownSeconds" = 0.0  # default 0.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[5].pushback.pushbackStrength" = 1.0  # default 1.0
-"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[5].AttackAnimationTimeDurationSeconds" = 0.5  # default 0.5
+"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[5].AttackAnimationTimeDurationSeconds" = 0.45  # default 0.5
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[5].ConeAngleDegrees" = 16.0  # default 16.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[5].AttackRange" = 750.0  # default 750.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[5].Damage" = 80.0  # default 80.0
@@ -376,7 +376,7 @@
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[5].StunMultiplier" = 1.0  # default 1.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[5].CooldownSeconds" = 0.0  # default 0.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[6].pushback.pushbackStrength" = 0.05  # default 0.05
-"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[6].AttackAnimationTimeDurationSeconds" = 0.3  # default 0.3
+"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[6].AttackAnimationTimeDurationSeconds" = 0.25  # default 0.3
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[6].ConeAngleDegrees" = 25.0  # default 25.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[6].AttackRange" = 300.0  # default 300.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[6].Damage" = 65.0  # default 65.0
@@ -392,7 +392,7 @@
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[7].StunMultiplier" = 1.0  # default 1.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[7].CooldownSeconds" = 0.0  # default 0.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[8].pushback.pushbackStrength" = 0.05  # default 0.05
-"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[8].AttackAnimationTimeDurationSeconds" = 0.4  # default 0.4
+"BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[8].AttackAnimationTimeDurationSeconds" = 0.35  # default 0.4
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[8].ConeAngleDegrees" = 180.0  # default 180.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[8].AttackRange" = 320.0  # default 320.0
 "BP_Battlestaff_Unique2Instance.ConfiguredAttackVariants[8].Damage" = 65.0  # default 65.0
@@ -1366,7 +1366,7 @@
 "BP_Katana_Unique1Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_Katana_Unique1Instance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
 "BP_Katana_Unique1Instance.ConfiguredAttackVariants[1].pushback.pushbackStrength" = 0.0  # default 0.0
-"BP_Katana_Unique1Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.6  # default 0.6
+"BP_Katana_Unique1Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.48  # default 0.6
 "BP_Katana_Unique1Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 50.0  # default 50.0
 "BP_Katana_Unique1Instance.ConfiguredAttackVariants[1].AttackRange" = 390.0  # default 390.0
 "BP_Katana_Unique1Instance.ConfiguredAttackVariants[1].Damage" = 85.0  # default 85.0
@@ -1506,7 +1506,7 @@
 
 [Melee.ObsidianClaymore_Unique1]  # The Starless Night (Obsidian Claymore variant)
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[0].pushback.pushbackStrength" = 0.8  # default 0.8
-"BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.77  # default 0.77
+"BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.7  # default 0.77
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 70.0  # default 70.0
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[0].AttackRange" = 450.0  # default 450.0
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[0].Damage" = 150.0  # default 150.0
@@ -1514,7 +1514,7 @@
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.15  # default 0.15
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[1].pushback.pushbackStrength" = 4.0  # default 4.0
-"BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 1.32  # default 1.32
+"BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 1.2  # default 1.32
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 180.0  # default 180.0
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[1].AttackRange" = 375.0  # default 375.0
 "BP_ObsidianClaymore_Unique1Instance.ConfiguredAttackVariants[1].Damage" = 285.0  # default 285.0

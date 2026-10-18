@@ -142,6 +142,7 @@ Several numbers = the hits of the combo in order.
 |---|---|---|---|
 | Axe | Swing angle | 25/25/180 | 35/35/180 |
 | Axe | Damage | 65/65/100 | 85/85/130 |
+| Battlestaff of Terror | Swing time (s) | 0.4/0.35/0.55/0.7/0.5/0.5/0.3/0.3/0.4/1 | 0.35/0.35/0.5/0.65/0.45/0.45/0.25/0.3/0.35/1 |
 | Bonehead Hammer | Reach | 200 | 260 |
 | Cackling Broom | Swing angle | 25/25/80 | 45/45/120 |
 | Cackling Broom | Damage | 75/75/110 | 68/68/99 |
@@ -172,6 +173,7 @@ Several numbers = the hits of the combo in order.
 | Highland Axe | Swing time (s) | 0.5/0.5/0.8 | 0.42/0.42/0.65 |
 | Highland Axe | Swing angle | 25/25/180 | 35/35/180 |
 | Highland Axe | Damage | 65/65/100 | 85/85/130 |
+| Master's Katana | Swing time (s) | 0.48/0.6/0.6 | 0.48/0.48/0.6 |
 | Maulers | Swing time (s) | 0.15/0.15/0.15/0.125/0.2/0.2/0.7 | 0.11/0.11/0.11/0.11/0.17/0.17/0.55 |
 | Maulers | Swing angle | 15/30/30/15/30/30/40 | 30/30/30/30/30/30/40 |
 | Maulers | Damage | 25/25/25/25/25/35/45 | 30/30/30/30/30/45/60 |
@@ -202,6 +204,7 @@ Several numbers = the hits of the combo in order.
 | Tempest knife | Knockback | 1/1/1.2 | 0.2/0.2/1.2 |
 | Tempest knife | Reach | 300/300/400 | 340/340/400 |
 | The Last Laugh | Damage | 30/30/30/30/60/70 | 38/38/38/38/75/88 |
+| The Starless Night | Swing time (s) | 0.77/1.32 | 0.7/1.2 |
 | Venom glaive | Swing time (s) | 0.5/0.6/1 | 0.7/0.8/1.2 |
 | Venom glaive | Damage | 75/75/110 | 105/110/150 |
 | Vine Whip | Damage | 100 | 110 |
