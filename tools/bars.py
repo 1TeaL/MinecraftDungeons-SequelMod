@@ -20,7 +20,7 @@ from uasset import Package
 
 ASSET = "Dungeons/Content/Packaging/ItemInstanceDataLookup.uasset"
 LOW, HIGH = 1.0, 14.0
-LINE = re.compile(r'"BP_\w+?Instance\.(.+?)" = ([\d.]+)\s+# default ([\d.]+)')
+LINE = re.compile(r'"B[Pp]_\w+?Instance\.(.+?)" = ([\d.]+)\s+# default ([\d.]+)')
 ALIASES = {"sword_steel": "sword", "pickaxe_steel": "pickaxe", "pickaxe_unique1_steel": "pickaxe_unique1",
            "pickaxe_unique2_steel": "pickaxe_unique2"}
 

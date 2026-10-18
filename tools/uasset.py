@@ -374,16 +374,25 @@ def name_hashes(s):
 PROP_TYPES = {"float": "FloatProperty", "int": "IntProperty", "bool": "BoolProperty"}
 
 
-def add_properties(pkg, export_name, props):
+def add_properties(pkg, export_name, props, into_struct=None):
     """Return (new_uasset, new_uexp) with tagged properties appended to an export.
 
     props: list of (name, type, value), type in float/int/bool. The properties must exist on the
     export's class (here: inherited from its native parent) - the game ignores unknown names.
+    into_struct: the name of a struct property of the export that the properties go into instead (its members are
+    tagged properties too, ending in None; the struct's size grows with them) - e.g. a bow's AttackDefintion,
+    when the bow's file stores only some of its members and inherits the rest.
     """
     exp_i = next(i for i, e in enumerate(pkg.exports) if e["name"] == export_name)
     exp = pkg.exports[exp_i]
-    pkg.export_props(exp)
+    top = pkg.export_props(exp)
     insert_abs = pkg.last_none
+    struct_size_pos = None
+    if into_struct:
+        st = next(x for x in top if x["name"] == into_struct and x["type"] == "StructProperty")
+        insert_abs = st["pos_end"] - 8                       # the struct's own None
+        struct_size_pos = st["tag_start"] + 16               # tag: name (8), type (8), size (4)
+        assert struct.unpack_from("<i", pkg.data, struct_size_pos)[0] == st["size"]
     head, body = bytearray(pkg.head), bytearray(pkg.body)
     assert len(head) == struct.unpack_from("<i", head, pkg.fields["TotalHeaderSize"][0])[0]
     assert exp["offset"] <= insert_abs < exp["offset"] + exp["size"]
@@ -422,6 +431,9 @@ def add_properties(pkg, export_name, props):
     de = len(tags)
     rel = insert_abs - len(head)
     body[rel:rel] = tags
+    if struct_size_pos is not None:
+        srel = struct_size_pos - len(head)
+        struct.pack_into("<i", body, srel, struct.unpack_from("<i", body, srel)[0] + de)
 
     # 3. Header: summary offsets past the name map, counts, export table
     for key, (pos, fmt) in pkg.fields.items():

@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-17 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-10-18 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -244,6 +244,9 @@ Several numbers = the hits of the combo in order.
 | Longbow | Arrows per bundle | 40 | 50 |
 | Nautical Crossbow | Time between shots (s) | 0.42 | 0.324 |
 | Nautical Crossbow | Charged shot damage | 2.5 | 3.125 |
+| Phantom Bow | Charge time (s) | 0.35 | 0.455 |
+| Phantom Bow | Damage factor | 2 | 3.25 |
+| Phantom Bow | Arrows per bundle | 20 | 24 |
 | Power Bow | Damage factor | 2 | 2.5 |
 | Power Bow | Arrows per bundle | 20 | 30 |
 | Rapid Crossbow | Damage factor | 0.45 | 0.562 |
@@ -257,6 +260,8 @@ Several numbers = the hits of the combo in order.
 | Soul Bow | Charged shot damage | 2.5 | 3.125 |
 | Soul Crossbow | Damage factor | 1.2 | 1.5 |
 | Soul Hunter Crossbow | Projectiles per shot | 3 | 4 |
+| Sugar Rush | Time between shots (s) | 0.42 | 0.483 |
+| Sugar Rush | Damage factor | 0.72 | 0.99 |
 | Trickbow | Damage factor | 0.72 | 0.9 |
 | Twin Bow | Projectiles per shot | 1 | 2 |
 | Twisting Vine Bow | Time between shots (s) | 0.42 | 0.378 |
@@ -265,6 +270,9 @@ Several numbers = the hits of the combo in order.
 | Veiled Crossbow | Time between shots (s) | 0.7 | 0.56 |
 | Void Bow | Time between shots (s) | 0.5 | 0.45 |
 | Void Bow | Charged shot damage | 1.6 | 2 |
+| Webbed Bow | Charge time (s) | 0.35 | 0.28 |
+| Webbed Bow | Charged shot damage | 2.5 | 2.656 |
+| Webbed Bow | Arrows per bundle | 60 | 75 |
 | Wind Bow | Time between shots (s) | 0.42 | 0.378 |
 | Wind Bow | Charged shot damage | 2.75 | 3.438 |
 | Winter's Touch | Time between shots (s) | 0.42 | 0.378 |

@@ -250,6 +250,30 @@ def gear_files():
     return out
 
 
+# Ranged stats a bow may not store in its own file: a unique often keeps only its arrow count and inherits the rest
+# from its base bow (and with it the mod's changes to that bow). Listed as settings anyway, with the inherited game
+# value as the default; a changed one is added to the bow's file at build time (into its AttackDefintion struct, or
+# at the top for the bundle size), after which that bow no longer inherits it (user, 2026-10-18: seasonal bows with
+# stats of their own).
+INHERITED = {"AttackDefintion.AttackRateSeconds": ("float", "attack_rate"),
+             "AttackDefintion.ChargeTimeSecond": ("float", "charge_time"),
+             "AttackDefintion.ChargeDamageMultiplier": ("float", "charge_mult"),
+             "AttackDefintion.ProjectileDamageFactor": ("float", "damage_factor"),
+             "ProjectileStackCount": ("int", "ammo")}
+
+
+def inherited_stats(item, have):
+    """[(path, type, inherited game value)] of INHERITED stats a ranged weapon's file doesn't store."""
+    stats = {k.lower(): v for k, v in json.loads((ROOT / "tools" / "gear_stats.json").read_text()).items() if v}
+    resolved = stats.get(item.lower()) or {}
+    out = []
+    for path, (t, field) in INHERITED.items():
+        v = resolved.get(field)
+        if path not in have and v is not None:
+            out.append((path, t, int(v) if t == "int" else round(float(v), 6)))
+    return out
+
+
 def scan():
     files = sorted(p for p in EXTRACT.rglob("*.uasset")
                    if "/components/enchantments/" in p.as_posix().lower()
@@ -299,6 +323,13 @@ def scan():
             index[f"{section}/{key}"] = {"file": seen[game_path], "game_path": game_path,
                                          "type": t, "default": v, "pos": pos - head}
             sec["keys"].append((key, t, v, False))
+        if f in gear and section.startswith("Ranged."):
+            for path, t, v in inherited_stats(section.split(".", 1)[1], {x[0] for x in fields}):
+                key = f"{f.stem}.{path}"
+                index[f"{section}/{key}"] = {"add": True, "file": seen[game_path], "game_path": game_path,
+                                             "export": None, "struct": path.split(".")[0] if "." in path else None,
+                                             "prop": path.split(".")[-1], "type": t, "default": v}
+                sec["keys"].append((key, t, v, True))
         for prop, t, v in runtime:
             key = f"{f.stem}.{prop}"
             # Not stored in the file yet: build adds it to the blueprint's defaults.
@@ -367,7 +398,8 @@ GEAR_HEADER = [
     "#   pushback.pushbackStrength (knockback).",
     "# Ranged: AttackRateSeconds (time between shots), ChargeTimeSecond, ChargeDamageMultiplier,",
     "#   ProjectileDamageFactor, NumberOfProjectiles (arrows per shot), ProjectileStackCount (arrow stack).",
-    "# Unique variants only list what they change from their base weapon; the rest comes from the base.",
+    "# Ranged uniques also list the stats they inherit from their base weapon: left at the default, the unique follows its base",
+    "# (including the mod's changes to it); a changed value is written into the unique itself.",
     "",
 ]
 
@@ -531,14 +563,15 @@ def build(out_pak=None):
             if meta.get("effect"):
                 effect_values.setdefault(meta["effect"], {})[meta["prop"]] = value
             elif meta.get("add"):
-                added.append((meta["export"], meta["prop"], meta["type"], value))
+                added.append((meta.get("export"), meta.get("struct"), meta["prop"], meta["type"], value))
             else:
                 patch(uexp, meta, value)
             print(f"  {key}: {fmt(meta['type'], meta['default'])} -> {fmt(meta['type'], value)}")
         head = src.read_bytes()
-        for export in sorted({a[0] for a in added}):
-            props = [(n, t, v) for e, n, t, v in added if e == export]
-            head, uexp = add_properties(Package(src, head=head, body=bytes(uexp)), export, props)
+        for export, into in sorted({(a[0], a[1]) for a in added}, key=str):
+            props = [(n, t, v) for e, st, n, t, v in added if (e, st) == (export, into)]
+            pkg = Package(src, head=head, body=bytes(uexp))
+            head, uexp = add_properties(pkg, export or pkg.cdo()["name"], props, into_struct=into)
         expected_mods = None
         for rel_effect, values in effect_values.items():
             _, _, keys, build_mods = next(e for e in EFFECTS if e[1] == rel_effect)

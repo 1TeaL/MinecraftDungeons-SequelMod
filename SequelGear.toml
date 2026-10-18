@@ -9,7 +9,8 @@
 #   pushback.pushbackStrength (knockback).
 # Ranged: AttackRateSeconds (time between shots), ChargeTimeSecond, ChargeDamageMultiplier,
 #   ProjectileDamageFactor, NumberOfProjectiles (arrows per shot), ProjectileStackCount (arrow stack).
-# Unique variants only list what they change from their base weapon; the rest comes from the base.
+# Ranged uniques also list the stats they inherit from their base weapon: left at the default, the unique follows its base
+# (including the mod's changes to it); a changed value is written into the unique itself.
 
 [Melee.Anchor]  # Anchor
 "BP_AnchorInstance.ConfiguredAttackVariants[0].pushback.pushbackStrength" = 5.0  # default 5.0
@@ -2533,12 +2534,24 @@
 
 [Ranged.Bow_Spooky1]  # Haunted Bow (Bow variant)
 "BP_Bow_Spooky1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 2  # default 1
+"BP_Bow_Spooky1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_Bow_Spooky1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_Bow_Spooky1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"BP_Bow_Spooky1Instance.ProjectileStackCount" = 60  # default 60
 
 [Ranged.Bow_Unique1]  # Bonebow (Bow variant)
 "BP_Bow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Bow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_Bow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_Bow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"BP_Bow_Unique1Instance.ProjectileStackCount" = 60  # default 60
 
 [Ranged.Bow_Unique2]  # Twin Bow (Bow variant)
 "BP_Bow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 2  # default 1
+"BP_Bow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_Bow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_Bow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"BP_Bow_Unique2Instance.ProjectileStackCount" = 60  # default 60
 
 [Ranged.BubbleBow]  # Bubble Bow
 "BP_BubbleBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2567,9 +2580,11 @@
 
 [Ranged.BurstCrossbow_Unique1]  # Soul Hunter Crossbow (Burst Crossbow variant)
 "BP_BurstCrossbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 4  # default 3
+"BP_BurstCrossbow_Unique1Instance.ProjectileStackCount" = 40  # default 40
 
 [Ranged.BurstCrossbow_Unique2]  # Corrupted Crossbow (Burst Crossbow variant)
 "BP_BurstCrossbow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 4  # default 3
+"BP_BurstCrossbow_Unique2Instance.ProjectileStackCount" = 40  # default 40
 
 [Ranged.CogCrossbow]  # Cog Crossbow
 "BP_CogCrossbowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2584,9 +2599,15 @@
 
 [Ranged.Crossbow_Unique1]  # The Slicer (Crossbow variant)
 "BP_Crossbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Crossbow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.6  # default 0.6
+"BP_Crossbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 1.5  # default 1.5
+"BP_Crossbow_Unique1Instance.ProjectileStackCount" = 40  # default 40
 
 [Ranged.Crossbow_Unique2]  # Azure Seeker (Crossbow variant)
 "BP_Crossbow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Crossbow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.6  # default 0.6
+"BP_Crossbow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 1.5  # default 1.5
+"BP_Crossbow_Unique2Instance.ProjectileStackCount" = 40  # default 40
 
 [Ranged.DualCrossbows]  # Dual Crossbows
 "BP_DualCrossbowsInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 2  # default 2
@@ -2596,9 +2617,15 @@
 
 [Ranged.DualCrossbows_Unique1]  # Spellbound Crossbows (Dual Crossbows variant)
 "BP_DualCrossbows_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 2  # default 2
+"BP_DualCrossbows_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.7  # default 0.7
+"BP_DualCrossbows_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 1.05  # default 1.05
+"BP_DualCrossbows_Unique1Instance.ProjectileStackCount" = 35  # default 35
 
 [Ranged.DualCrossbows_Unique2]  # Baby Crossbows (Dual Crossbows variant)
 "BP_DualCrossbows_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 2  # default 2
+"BP_DualCrossbows_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.7  # default 0.7
+"BP_DualCrossbows_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 1.05  # default 1.05
+"BP_DualCrossbows_Unique2Instance.ProjectileStackCount" = 35  # default 35
 
 [Ranged.ExplodingCrossbow]  # Exploding Crossbow
 "BP_ExplodingCrossbowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2607,9 +2634,13 @@
 
 [Ranged.ExplodingCrossbow_Unique1]  # Imploding Crossbow (Exploding Crossbow variant)
 "BP_ExplodingCrossbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_ExplodingCrossbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
+"BP_ExplodingCrossbow_Unique1Instance.ProjectileStackCount" = 15  # default 15
 
 [Ranged.ExplodingCrossbow_Unique2]  # Firebolt Thrower (Exploding Crossbow variant)
 "BP_ExplodingCrossbow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_ExplodingCrossbow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
+"BP_ExplodingCrossbow_Unique2Instance.ProjectileStackCount" = 15  # default 15
 
 [Ranged.HarpoonCrossbow]  # Harpoon Crossbow
 "BP_HarpoonCrossbowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2630,9 +2661,13 @@
 
 [Ranged.HeavyCrossbow_Unique1]  # Doom Crossbow (Heavy Crossbow variant)
 "BP_HeavyCrossbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_HeavyCrossbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 2.7  # default 2.7
+"BP_HeavyCrossbow_Unique1Instance.ProjectileStackCount" = 15  # default 15
 
 [Ranged.HeavyCrossbow_Unique2]  # Slayer Crossbow (Heavy Crossbow variant)
 "BP_HeavyCrossbow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_HeavyCrossbow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 2.7  # default 2.7
+"BP_HeavyCrossbow_Unique2Instance.ProjectileStackCount" = 15  # default 15
 
 [Ranged.HuntingBow]  # Hunting Bow
 "BP_HuntingBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2644,12 +2679,27 @@
 
 [Ranged.HuntingBow_Unique1]  # Hunter's Promise (Hunting Bow variant)
 "BP_Huntingbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Huntingbow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_Huntingbow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_Huntingbow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.42  # default 2.42
+"BP_Huntingbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
+"BP_Huntingbow_Unique1Instance.ProjectileStackCount" = 60  # default 60
 
 [Ranged.HuntingBow_Unique2]  # Master's Bow (Hunting Bow variant)
 "BP_HuntingBow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_HuntingBow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_HuntingBow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_HuntingBow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.42  # default 2.42
+"BP_HuntingBow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
+"BP_HuntingBow_Unique2Instance.ProjectileStackCount" = 60  # default 60
 
 [Ranged.HuntingBow_Unique3]  # Ancient Bow (Hunting Bow variant)
 "BP_HuntingBow_Unique3Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_HuntingBow_Unique3Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_HuntingBow_Unique3Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_HuntingBow_Unique3Instance.AttackDefintion.ChargeDamageMultiplier" = 2.42  # default 2.42
+"BP_HuntingBow_Unique3Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
+"BP_HuntingBow_Unique3Instance.ProjectileStackCount" = 60  # default 60
 
 [Ranged.LongBow]  # LongBow
 "BP_LongbowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2661,9 +2711,19 @@
 
 [Ranged.LongBow_Unique1]  # LongBow_Unique1 (LongBow variant)
 "BP_Longbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Longbow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_Longbow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_Longbow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 3.0  # default 3.0
+"BP_Longbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
+"BP_Longbow_Unique1Instance.ProjectileStackCount" = 40  # default 40
 
 [Ranged.LongBow_Unique2]  # LongBow_Unique2 (LongBow variant)
 "BP_Longbow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Longbow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_Longbow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_Longbow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 3.0  # default 3.0
+"BP_Longbow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
+"BP_Longbow_Unique2Instance.ProjectileStackCount" = 40  # default 40
 
 [Ranged.PowerBow]  # Power Bow
 "BP_PowerBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2675,12 +2735,27 @@
 
 [Ranged.PowerBow_Spooky2]  # Phantom Bow (Power Bow variant)
 "BP_PowerBow_Spooky2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_PowerBow_Spooky2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_PowerBow_Spooky2Instance.AttackDefintion.ChargeTimeSecond" = 0.455  # default 0.35
+"BP_PowerBow_Spooky2Instance.AttackDefintion.ChargeDamageMultiplier" = 3.0  # default 3.0
+"BP_PowerBow_Spooky2Instance.AttackDefintion.ProjectileDamageFactor" = 3.25  # default 2.0
+"BP_PowerBow_Spooky2Instance.ProjectileStackCount" = 24  # default 20
 
 [Ranged.PowerBow_Unique1]  # Elite Power Bow (Power Bow variant)
 "BP_PowerBow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_PowerBow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_PowerBow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_PowerBow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 3.0  # default 3.0
+"BP_PowerBow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 2.0  # default 2.0
+"BP_PowerBow_Unique1Instance.ProjectileStackCount" = 20  # default 20
 
 [Ranged.PowerBow_Unique2]  # Sabrewing (Power Bow variant)
 "BP_PowerBow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_PowerBow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_PowerBow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_PowerBow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 3.0  # default 3.0
+"BP_PowerBow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 2.0  # default 2.0
+"BP_PowerBow_Unique2Instance.ProjectileStackCount" = 20  # default 20
 
 [Ranged.RapidCrossbow]  # Rapid Crossbow
 "BP_RapidCrossbowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2690,9 +2765,15 @@
 
 [Ranged.RapidCrossbow_Unique1]  # Butterfly Crossbow (Rapid Crossbow variant)
 "BP_RapidCrossbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_RapidCrossbow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.19  # default 0.19
+"BP_RapidCrossbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 0.45  # default 0.45
+"BP_RapidCrossbow_Unique1Instance.ProjectileStackCount" = 100  # default 100
 
 [Ranged.RapidCrossbow_Unique2]  # Auto Crossbow (Rapid Crossbow variant)
 "BP_RapidCrossbow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_RapidCrossbow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.19  # default 0.19
+"BP_RapidCrossbow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 0.45  # default 0.45
+"BP_RapidCrossbow_Unique2Instance.ProjectileStackCount" = 100  # default 100
 
 [Ranged.ScatterCrossbow]  # Scatter Crossbow
 "BP_ScatterCrossbowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 3  # default 3
@@ -2701,9 +2782,13 @@
 
 [Ranged.ScatterCrossbow_Unique1]  # Harp Crossbow (Scatter Crossbow variant)
 "BP_ScatterCrossbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 5  # default 5
+"BP_ScatterCrossbow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.6  # default 0.6
+"BP_ScatterCrossbow_Unique1Instance.ProjectileStackCount" = 40  # default 40
 
 [Ranged.ScatterCrossbow_Unique2]  # Lightning Harp Crossbow (Scatter Crossbow variant)
 "BP_ScatterCrossbow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 3  # default 3
+"BP_ScatterCrossbow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.6  # default 0.6
+"BP_ScatterCrossbow_Unique2Instance.ProjectileStackCount" = 40  # default 40
 
 [Ranged.ShadowCrossbow]  # Shadow Crossbow
 "BP_ShadowCrossbowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2725,12 +2810,27 @@
 
 [Ranged.ShortBow_Unique1]  # ShortBow_Unique1 (ShortBow variant)
 "BP_Shortbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Shortbow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.21  # default 0.21
+"BP_Shortbow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.125  # default 0.125
+"BP_Shortbow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 1.65  # default 1.65
+"BP_Shortbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 0.75  # default 0.75
+"BP_Shortbow_Unique1Instance.ProjectileStackCount" = 120  # default 120
 
 [Ranged.ShortBow_Unique2]  # ShortBow_Unique2 (ShortBow variant)
 "BP_ShortBow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_ShortBow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.21  # default 0.21
+"BP_ShortBow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.125  # default 0.125
+"BP_ShortBow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 1.65  # default 1.65
+"BP_ShortBow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 0.75  # default 0.75
+"BP_ShortBow_Unique2Instance.ProjectileStackCount" = 120  # default 120
 
 [Ranged.ShortBow_Unique3]  # ShortBow_Unique3 (ShortBow variant)
 "BP_Shortbow_Unique3Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Shortbow_Unique3Instance.AttackDefintion.AttackRateSeconds" = 0.21  # default 0.21
+"BP_Shortbow_Unique3Instance.AttackDefintion.ChargeTimeSecond" = 0.125  # default 0.125
+"BP_Shortbow_Unique3Instance.AttackDefintion.ChargeDamageMultiplier" = 1.65  # default 1.65
+"BP_Shortbow_Unique3Instance.AttackDefintion.ProjectileDamageFactor" = 0.75  # default 0.75
+"BP_Shortbow_Unique3Instance.ProjectileStackCount" = 120  # default 120
 
 [Ranged.SlowBow]  # Snow Bow
 "BP_SlowBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2741,6 +2841,10 @@
 
 [Ranged.SlowBow_Spooky2]  # Webbed Bow (Snow Bow variant)
 "BP_SlowBow_Spooky2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_SlowBow_Spooky2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_SlowBow_Spooky2Instance.AttackDefintion.ChargeTimeSecond" = 0.28  # default 0.35
+"BP_SlowBow_Spooky2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.656  # default 2.5
+"BP_SlowBow_Spooky2Instance.ProjectileStackCount" = 75  # default 60
 
 [Ranged.Slowbow_Unique1]  # Slowbow_Unique1 (Slowbow variant)
 "BP_SlowBow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2758,12 +2862,24 @@
 
 [Ranged.SoulBow_Unique1]  # Nocturnal Bow (Soul Bow variant)
 "Bp_SoulBow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"Bp_SoulBow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"Bp_SoulBow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"Bp_SoulBow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"Bp_SoulBow_Unique1Instance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.SoulBow_Unique2]  # Bow of Lost Souls (Soul Bow variant)
 "BP_SoulBow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_SoulBow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_SoulBow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_SoulBow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"BP_SoulBow_Unique2Instance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.SoulBow_Winter1]  # Shivering Bow (Soul Bow variant)
 "Bp_SoulBow_Winter1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"Bp_SoulBow_Winter1Instance.AttackDefintion.AttackRateSeconds" = 0.302  # default 0.42
+"Bp_SoulBow_Winter1Instance.AttackDefintion.ChargeTimeSecond" = 0.28  # default 0.35
+"Bp_SoulBow_Winter1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.48  # default 2.5
+"Bp_SoulBow_Winter1Instance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.SoulCrossbow]  # Soul Crossbow
 "BP_SoulCrossbowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2773,9 +2889,15 @@
 
 [Ranged.SoulCrossbow_Unique1]  # Feral Soul Crossbow (Soul Crossbow variant)
 "BP_SoulCrossbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_SoulCrossbow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.6  # default 0.6
+"BP_SoulCrossbow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"BP_SoulCrossbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
 
 [Ranged.SoulCrossbow_Unique2]  # Voidcaller (Soul Crossbow variant)
 "BP_SoulCrossbow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_SoulCrossbow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.6  # default 0.6
+"BP_SoulCrossbow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"BP_SoulCrossbow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 1.2  # default 1.2
 
 [Ranged.TrickBow]  # TrickBow
 "BP_TrickBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2787,12 +2909,27 @@
 
 [Ranged.TrickBow_Unique1]  # TrickBow_Unique1 (TrickBow variant)
 "BP_Trickbow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Trickbow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_Trickbow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_Trickbow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.0  # default 2.0
+"BP_Trickbow_Unique1Instance.AttackDefintion.ProjectileDamageFactor" = 0.72  # default 0.72
+"BP_Trickbow_Unique1Instance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.TrickBow_Unique2]  # TrickBow_Unique2 (TrickBow variant)
 "BP_TrickBow_Unique2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_TrickBow_Unique2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_TrickBow_Unique2Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_TrickBow_Unique2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.0  # default 2.0
+"BP_TrickBow_Unique2Instance.AttackDefintion.ProjectileDamageFactor" = 0.72  # default 0.72
+"BP_TrickBow_Unique2Instance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.TrickBow_Year1]  # TrickBow_Year1 (TrickBow variant)
 "BP_Trickbow_Year1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_Trickbow_Year1Instance.AttackDefintion.AttackRateSeconds" = 0.483  # default 0.42
+"BP_Trickbow_Year1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_Trickbow_Year1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.0  # default 2.0
+"BP_Trickbow_Year1Instance.AttackDefintion.ProjectileDamageFactor" = 0.99  # default 0.72
+"BP_Trickbow_Year1Instance.ProjectileStackCount" = 50  # default 50
 
 [Ranged.TwistingVineBow]  # Twisting Vine Bow
 "BP_TwistingVineBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
@@ -2803,6 +2940,10 @@
 
 [Ranged.TwistingVineBow_Unique1]  # Weeping Vine Bow (Twisting Vine Bow variant)
 "BP_TwistingVineBow_Unique1Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
+"BP_TwistingVineBow_Unique1Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_TwistingVineBow_Unique1Instance.AttackDefintion.ChargeTimeSecond" = 0.35  # default 0.35
+"BP_TwistingVineBow_Unique1Instance.AttackDefintion.ChargeDamageMultiplier" = 2.5  # default 2.5
+"BP_TwistingVineBow_Unique1Instance.ProjectileStackCount" = 15  # default 15
 
 [Ranged.VoidBow]  # Void Bow
 "BP_VoidBowInstance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
