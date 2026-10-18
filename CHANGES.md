@@ -143,7 +143,6 @@ Several numbers = the hits of the combo in order.
 | Axe | Swing angle | 25/25/180 | 35/35/180 |
 | Axe | Damage | 65/65/100 | 85/85/130 |
 | Battlestaff of Terror | Swing time (s) | 0.4/0.35/0.55/0.7/0.5/0.5/0.3/0.3/0.4/1 | 0.35/0.35/0.5/0.65/0.45/0.45/0.25/0.3/0.35/1 |
-| Bee Stinger | Damage | 13/13/13/13/13/13/13/13/13/13/13/13/13/70 | 16/16/16/16/16/16/16/16/16/16/16/16/16/88 |
 | Bonehead Hammer | Reach | 200 | 260 |
 | Broadsword | Swing time (s) | 0.7/0.5/0.8 | 0.56/0.4/0.64 |
 | Broadsword | Damage | 90/110/160 | 76/94/136 |
@@ -165,8 +164,6 @@ Several numbers = the hits of the combo in order.
 | Firebrand | Swing time (s) | 0.5/0.5/0.8 | 0.7/0.7/1 |
 | Firebrand | Swing angle | 25/25/180 | 35/35/180 |
 | Firebrand | Damage | 65/65/100 | 147/147/215 |
-| Flail | Reach | 300/300/250 | 360/360/300 |
-| Freezing Foil | Damage | 14/14/14/14/14/14/14/14/12/13/13/12/13/70 | 18/18/18/18/18/18/18/18/15/16/16/15/16/88 |
 | Frost Slayer | Swing time (s) | 0.7/0.5/0.8 | 0.84/0.6/0.96 |
 | Frost Slayer | Damage | 90/110/160 | 108/132/192 |
 | Gauntlets | Swing time (s) | 0.125/0.125/0.125/0.125/0.2/0.2/0.7 | 0.125/0.125/0.125/0.125/0.17/0.17/0.7 |
@@ -194,7 +191,6 @@ Several numbers = the hits of the combo in order.
 | Maulers | Swing angle | 15/30/30/15/30/30/40 | 30/30/30/30/30/30/40 |
 | Maulers | Damage | 25/25/25/25/25/35/45 | 30/30/30/30/30/45/60 |
 | Nightmare's Bite | Damage | 30/30/30/30/60/70 | 36/36/36/36/70/82 |
-| Rapier | Damage | 13/13/13/13/13/13/13/13/13/13/13/13/13/70 | 16/16/16/16/16/16/16/16/16/16/16/16/16/88 |
 | Resolute Tempest knife | Knockback | 1/1/1.2 | 0.2/0.2/1.2 |
 | Resolute Tempest knife | Swing time (s) | 0.251/0.3/0.5 | 0.289/0.345/0.575 |
 | Resolute Tempest knife | Reach | 300/300/400 | 340/340/400 |
@@ -218,8 +214,6 @@ Several numbers = the hits of the combo in order.
 | Stormlander | Swing time (s) | 0.7 | 0.9 |
 | Stormlander | Reach | 200 | 260 |
 | Stormlander | Damage | 100 | 162 |
-| Swift Striker | Swing time (s) | 0.27/0.27/0.54 | 0.23/0.23/0.459 |
-| Swift Striker | Damage | 60/60/90 | 57/57/86 |
 | Sword | Reach | 300/300/750 | 350/350/750 |
 | Sword | Damage | 50/50/80 | 55/55/90 |
 | Tempest knife | Knockback | 1/1/1.2 | 0.2/0.2/1.2 |

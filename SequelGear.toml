@@ -138,26 +138,26 @@
 
 [Melee.Backstabber_Unique1]  # Swift Striker (Backstabber variant)
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].pushback.pushbackStrength" = 1.0  # default 1.0
-"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.23  # default 0.27
+"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.27  # default 0.27
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 30.0  # default 30.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].AttackRange" = 300.0  # default 300.0
-"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].Damage" = 57.0  # default 60.0
+"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].Damage" = 60.0  # default 60.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.5  # default 0.5
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].pushback.pushbackStrength" = 1.0  # default 1.0
-"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.23  # default 0.27
+"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.27  # default 0.27
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 30.0  # default 30.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].AttackRange" = 300.0  # default 300.0
-"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].Damage" = 57.0  # default 60.0
+"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].Damage" = 60.0  # default 60.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.5  # default 0.5
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].pushback.pushbackStrength" = 1.0  # default 1.0
-"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.459  # default 0.54
+"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.54  # default 0.54
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].ConeAngleDegrees" = 30.0  # default 30.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].AttackRange" = 300.0  # default 300.0
-"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].Damage" = 86.0  # default 90.0
+"BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].Damage" = 90.0  # default 90.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].DamageSplashMultiplier" = 1.0  # default 1.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].StunMultiplier" = 1.0  # default 1.0
 "BP_Backstabber_Unique1Instance.ConfiguredAttackVariants[2].CooldownSeconds" = 0.0  # default 0.0
@@ -1464,7 +1464,7 @@
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[0].pushback.pushbackStrength" = 0.2  # default 0.2
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.44  # default 0.44
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 30.0  # default 30.0
-"BP_Mace_Unique2Instance.ConfiguredAttackVariants[0].AttackRange" = 360.0  # default 300.0
+"BP_Mace_Unique2Instance.ConfiguredAttackVariants[0].AttackRange" = 300.0  # default 300.0
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[0].Damage" = 81.0  # default 81.0
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.5  # default 0.5
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
@@ -1472,7 +1472,7 @@
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[1].pushback.pushbackStrength" = 0.2  # default 0.2
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.44  # default 0.44
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 30.0  # default 30.0
-"BP_Mace_Unique2Instance.ConfiguredAttackVariants[1].AttackRange" = 360.0  # default 300.0
+"BP_Mace_Unique2Instance.ConfiguredAttackVariants[1].AttackRange" = 300.0  # default 300.0
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[1].Damage" = 81.0  # default 81.0
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.5  # default 0.5
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
@@ -1480,7 +1480,7 @@
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[2].pushback.pushbackStrength" = 1.5  # default 1.5
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.77  # default 0.77
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[2].ConeAngleDegrees" = 180.0  # default 180.0
-"BP_Mace_Unique2Instance.ConfiguredAttackVariants[2].AttackRange" = 300.0  # default 250.0
+"BP_Mace_Unique2Instance.ConfiguredAttackVariants[2].AttackRange" = 250.0  # default 250.0
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[2].Damage" = 175.0  # default 175.0
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[2].DamageSplashMultiplier" = 1.0  # default 1.0
 "BP_Mace_Unique2Instance.ConfiguredAttackVariants[2].StunMultiplier" = 1.0  # default 1.0
@@ -1547,7 +1547,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_RapierInstance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[0].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[0].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[0].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
@@ -1555,7 +1555,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_RapierInstance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[1].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[1].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[1].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0
@@ -1563,7 +1563,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_RapierInstance.ConfiguredAttackVariants[2].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[2].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[2].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[2].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[2].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[2].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[2].CooldownSeconds" = 0.0  # default 0.0
@@ -1571,7 +1571,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[3].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_RapierInstance.ConfiguredAttackVariants[3].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[3].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[3].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[3].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[3].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[3].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[3].CooldownSeconds" = 0.0  # default 0.0
@@ -1579,7 +1579,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[4].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_RapierInstance.ConfiguredAttackVariants[4].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[4].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[4].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[4].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[4].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[4].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[4].CooldownSeconds" = 0.0  # default 0.0
@@ -1587,7 +1587,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[5].AttackAnimationTimeDurationSeconds" = 0.11  # default 0.11
 "BP_RapierInstance.ConfiguredAttackVariants[5].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[5].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[5].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[5].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[5].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[5].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[5].CooldownSeconds" = 0.0  # default 0.0
@@ -1595,7 +1595,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[6].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_RapierInstance.ConfiguredAttackVariants[6].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[6].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[6].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[6].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[6].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[6].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[6].CooldownSeconds" = 0.0  # default 0.0
@@ -1603,7 +1603,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[7].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_RapierInstance.ConfiguredAttackVariants[7].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[7].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[7].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[7].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[7].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[7].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[7].CooldownSeconds" = 0.0  # default 0.0
@@ -1611,7 +1611,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[8].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_RapierInstance.ConfiguredAttackVariants[8].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[8].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[8].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[8].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[8].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[8].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[8].CooldownSeconds" = 0.0  # default 0.0
@@ -1619,7 +1619,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[9].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_RapierInstance.ConfiguredAttackVariants[9].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[9].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[9].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[9].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[9].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[9].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[9].CooldownSeconds" = 0.0  # default 0.0
@@ -1627,7 +1627,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[10].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_RapierInstance.ConfiguredAttackVariants[10].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[10].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[10].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[10].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[10].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[10].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[10].CooldownSeconds" = 0.0  # default 0.0
@@ -1635,7 +1635,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[11].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_RapierInstance.ConfiguredAttackVariants[11].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[11].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[11].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[11].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[11].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[11].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[11].CooldownSeconds" = 0.0  # default 0.0
@@ -1643,7 +1643,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[12].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_RapierInstance.ConfiguredAttackVariants[12].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[12].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[12].Damage" = 16.0  # default 13.0
+"BP_RapierInstance.ConfiguredAttackVariants[12].Damage" = 13.0  # default 13.0
 "BP_RapierInstance.ConfiguredAttackVariants[12].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[12].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[12].CooldownSeconds" = 0.0  # default 0.0
@@ -1651,7 +1651,7 @@
 "BP_RapierInstance.ConfiguredAttackVariants[13].AttackAnimationTimeDurationSeconds" = 1.1  # default 1.1
 "BP_RapierInstance.ConfiguredAttackVariants[13].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_RapierInstance.ConfiguredAttackVariants[13].AttackRange" = 800.0  # default 800.0
-"BP_RapierInstance.ConfiguredAttackVariants[13].Damage" = 88.0  # default 70.0
+"BP_RapierInstance.ConfiguredAttackVariants[13].Damage" = 70.0  # default 70.0
 "BP_RapierInstance.ConfiguredAttackVariants[13].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_RapierInstance.ConfiguredAttackVariants[13].StunMultiplier" = 1.0  # default 1.0
 "BP_RapierInstance.ConfiguredAttackVariants[13].CooldownSeconds" = 0.0  # default 0.0
@@ -1661,7 +1661,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[0].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[0].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[0].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
@@ -1669,7 +1669,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[1].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[1].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[1].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0
@@ -1677,7 +1677,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[2].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[2].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[2].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[2].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[2].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[2].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[2].CooldownSeconds" = 0.0  # default 0.0
@@ -1685,7 +1685,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[3].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[3].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[3].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[3].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[3].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[3].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[3].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[3].CooldownSeconds" = 0.0  # default 0.0
@@ -1693,7 +1693,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[4].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[4].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[4].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[4].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[4].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[4].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[4].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[4].CooldownSeconds" = 0.0  # default 0.0
@@ -1701,7 +1701,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[5].AttackAnimationTimeDurationSeconds" = 0.11  # default 0.11
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[5].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[5].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[5].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[5].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[5].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[5].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[5].CooldownSeconds" = 0.0  # default 0.0
@@ -1709,7 +1709,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[6].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[6].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[6].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[6].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[6].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[6].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[6].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[6].CooldownSeconds" = 0.0  # default 0.0
@@ -1717,7 +1717,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[7].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[7].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[7].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[7].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[7].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[7].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[7].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[7].CooldownSeconds" = 0.0  # default 0.0
@@ -1725,7 +1725,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[8].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[8].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[8].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[8].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[8].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[8].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[8].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[8].CooldownSeconds" = 0.0  # default 0.0
@@ -1733,7 +1733,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[9].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[9].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[9].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[9].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[9].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[9].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[9].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[9].CooldownSeconds" = 0.0  # default 0.0
@@ -1741,7 +1741,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[10].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[10].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[10].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[10].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[10].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[10].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[10].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[10].CooldownSeconds" = 0.0  # default 0.0
@@ -1749,7 +1749,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[11].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[11].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[11].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[11].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[11].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[11].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[11].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[11].CooldownSeconds" = 0.0  # default 0.0
@@ -1757,7 +1757,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[12].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[12].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[12].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[12].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[12].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[12].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[12].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[12].CooldownSeconds" = 0.0  # default 0.0
@@ -1765,7 +1765,7 @@
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[13].AttackAnimationTimeDurationSeconds" = 1.1  # default 1.1
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[13].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[13].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[13].Damage" = 88.0  # default 70.0
+"BP_Rapier_Unique1Instance.ConfiguredAttackVariants[13].Damage" = 70.0  # default 70.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[13].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[13].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique1Instance.ConfiguredAttackVariants[13].CooldownSeconds" = 0.0  # default 0.0
@@ -1775,7 +1775,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[0].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[0].Damage" = 18.0  # default 14.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[0].Damage" = 14.0  # default 14.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
@@ -1783,7 +1783,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[1].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[1].Damage" = 18.0  # default 14.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[1].Damage" = 14.0  # default 14.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0
@@ -1791,7 +1791,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[2].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[2].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[2].Damage" = 18.0  # default 14.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[2].Damage" = 14.0  # default 14.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[2].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[2].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[2].CooldownSeconds" = 0.0  # default 0.0
@@ -1799,7 +1799,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[3].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[3].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[3].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[3].Damage" = 18.0  # default 14.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[3].Damage" = 14.0  # default 14.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[3].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[3].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[3].CooldownSeconds" = 0.0  # default 0.0
@@ -1807,7 +1807,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[4].AttackAnimationTimeDurationSeconds" = 0.14  # default 0.14
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[4].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[4].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[4].Damage" = 18.0  # default 14.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[4].Damage" = 14.0  # default 14.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[4].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[4].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[4].CooldownSeconds" = 0.0  # default 0.0
@@ -1815,7 +1815,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[5].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[5].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[5].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[5].Damage" = 18.0  # default 14.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[5].Damage" = 14.0  # default 14.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[5].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[5].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[5].CooldownSeconds" = 0.0  # default 0.0
@@ -1823,7 +1823,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[6].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[6].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[6].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[6].Damage" = 18.0  # default 14.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[6].Damage" = 14.0  # default 14.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[6].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[6].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[6].CooldownSeconds" = 0.0  # default 0.0
@@ -1831,7 +1831,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[7].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[7].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[7].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[7].Damage" = 18.0  # default 14.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[7].Damage" = 14.0  # default 14.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[7].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[7].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[7].CooldownSeconds" = 0.0  # default 0.0
@@ -1839,7 +1839,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[8].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[8].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[8].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[8].Damage" = 15.0  # default 12.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[8].Damage" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[8].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[8].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[8].CooldownSeconds" = 0.0  # default 0.0
@@ -1847,7 +1847,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[9].AttackAnimationTimeDurationSeconds" = 0.12  # default 0.12
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[9].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[9].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[9].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[9].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[9].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[9].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[9].CooldownSeconds" = 0.0  # default 0.0
@@ -1855,7 +1855,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[10].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[10].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[10].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[10].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[10].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[10].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[10].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[10].CooldownSeconds" = 0.0  # default 0.0
@@ -1863,7 +1863,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[11].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[11].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[11].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[11].Damage" = 15.0  # default 12.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[11].Damage" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[11].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[11].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[11].CooldownSeconds" = 0.0  # default 0.0
@@ -1871,7 +1871,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[12].AttackAnimationTimeDurationSeconds" = 0.1  # default 0.1
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[12].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[12].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[12].Damage" = 16.0  # default 13.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[12].Damage" = 13.0  # default 13.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[12].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[12].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[12].CooldownSeconds" = 0.0  # default 0.0
@@ -1879,7 +1879,7 @@
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[13].AttackAnimationTimeDurationSeconds" = 1.1  # default 1.1
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[13].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[13].AttackRange" = 800.0  # default 800.0
-"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[13].Damage" = 88.0  # default 70.0
+"BP_Rapier_Unique2Instance.ConfiguredAttackVariants[13].Damage" = 70.0  # default 70.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[13].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[13].StunMultiplier" = 1.0  # default 1.0
 "BP_Rapier_Unique2Instance.ConfiguredAttackVariants[13].CooldownSeconds" = 0.0  # default 0.0
