@@ -109,6 +109,8 @@ Every decision, with its reasons and what was tested, is logged in [decisions.md
 
 ## ![How it was made](docs/headers/how-it-was-made.svg)
 
+I designed the Sequel Mod and made all the balance decisions; I built it with the help of Claude, an AI assistant. Claude did the technical work I couldn't do myself: reading the game's packed files, working out where the game keeps its values while it runs, and writing the tools that change them. I tested everything in game and decided what stayed - every decision, with its reasons, is in [decisions.md](decisions.md).
+
 Most Dungeons mods stop at the pak: unpack the game's files, change the numbers Mojang left in them, repack.
 This mod also reads the asset files with its own reader to find every tunable value, and adds settings that only
 exist in the game's code (dumped with UE4SS) into the assets so the pak can change them too. For the rest, it reads
