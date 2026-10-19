@@ -18,8 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "tools"
 GAME = ROOT.parents[1]
-VERSION = "1.2"
-LABEL = f"Beta {VERSION}"     # what the release is called (GitHub release "Sequel Mod v<version>-beta", tag v<version>-beta)
+VERSION = "1.0"
+LABEL = f"v{VERSION}"     # what the release is called (GitHub: "Sequel Mod v<version>", tag v<version>; 1.0 = the starting point, 2026-10-19)
 PAK = "SequelMod_P.pak"
 PYTHON = ROOT / "vendor" / "python-3.12.10-embed-amd64.zip"   # md5 fe8ef205f2e9c3ba44d0cf9954e1abd3 (python.org)
 # Parts of that Python the launcher never loads (secure connections, databases, XML, sound, async...): left out to

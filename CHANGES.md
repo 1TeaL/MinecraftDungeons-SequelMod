@@ -239,6 +239,7 @@ Several numbers = the hits of the combo in order.
 
 | Weapon | Setting | Base game | Mod |
 |---|---|---|---|
+| Bonebow | Charged shot damage | 2.5 | 3.75 |
 | Bow | Time between shots (s) | 0.42 | 0.378 |
 | Bow | Charged shot damage | 2.5 | 3.125 |
 | Bow of Lost Souls | Time between shots (s) | 0.42 | 0.378 |
@@ -256,8 +257,8 @@ Several numbers = the hits of the combo in order.
 | Call of the Void | Charged shot damage | 1.6 | 2 |
 | Cog Crossbow | Damage factor | 2.4 | 3 |
 | Corrupted Crossbow | Projectiles per shot | 3 | 4 |
-| Crossbow | Damage factor | 1.5 | 2.25 |
-| Dual Crossbows | Damage factor | 1.05 | 1.312 |
+| Crossbow | Damage factor | 1.5 | 2.925 |
+| Dual Crossbows | Damage factor | 1.05 | 1.575 |
 | Echo of the Valley | Time between shots (s) | 0.42 | 0.378 |
 | Echo of the Valley | Charged shot damage | 2.75 | 3.438 |
 | Exploding Crossbow | Damage factor | 1.2 | 1.5 |
@@ -267,10 +268,12 @@ Several numbers = the hits of the combo in order.
 | Harpoon Crossbow | Time between shots (s) | 0.42 | 0.324 |
 | Harpoon Crossbow | Charged shot damage | 2.5 | 3.125 |
 | Haunted Bow | Projectiles per shot | 1 | 2 |
-| Heavy Crossbow | Damage factor | 2.7 | 3.375 |
-| Heavy Crossbow | Arrows per bundle | 15 | 25 |
-| Hunting Bow | Damage factor | 1.2 | 1.5 |
-| Longbow | Damage factor | 1.2 | 1.5 |
+| Heavy Crossbow | Damage factor | 2.7 | 4.388 |
+| Heavy Crossbow | Arrows per bundle | 15 | 35 |
+| Hunting Bow | Charge time (s) | 0.35 | 0.3 |
+| Hunting Bow | Damage factor | 1.2 | 2 |
+| Longbow | Charge time (s) | 0.35 | 0.3 |
+| Longbow | Damage factor | 1.2 | 2 |
 | Longbow | Arrows per bundle | 40 | 50 |
 | Nautical Crossbow | Time between shots (s) | 0.42 | 0.324 |
 | Nautical Crossbow | Charged shot damage | 2.5 | 3.125 |
@@ -290,6 +293,7 @@ Several numbers = the hits of the combo in order.
 | Shivering Bow | Charged shot damage | 2.5 | 2.48 |
 | Shortbow | Damage factor | 0.75 | 0.938 |
 | Shrieking Crossbow | Time between shots (s) | 0.7 | 0.5 |
+| Slayer Crossbow | Time between shots (s) | 1 | 0.6 |
 | Snow Bow | Charge time (s) | 0.35 | 0.42 |
 | Snow Bow | Charged shot damage | 2.5 | 3.6 |
 | Soul Bow | Time between shots (s) | 0.42 | 0.32 |
@@ -299,6 +303,8 @@ Several numbers = the hits of the combo in order.
 | Soul Hunter Crossbow | Projectiles per shot | 3 | 4 |
 | Sugar Rush | Time between shots (s) | 0.42 | 0.483 |
 | Sugar Rush | Damage factor | 0.72 | 0.99 |
+| The Slicer | Time between shots (s) | 0.6 | 0.66 |
+| The Slicer | Damage factor | 1.5 | 3.51 |
 | Trickbow | Damage factor | 0.72 | 0.9 |
 | Twin Bow | Projectiles per shot | 1 | 2 |
 | Twisting Vine Bow | Time between shots (s) | 0.42 | 0.45 |

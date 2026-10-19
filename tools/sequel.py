@@ -269,6 +269,9 @@ def inherited_stats(item, have):
     out = []
     for path, (t, field) in INHERITED.items():
         v = resolved.get(field)
+        if v is None and field == "attack_rate" and resolved:
+            v = 1.0   # stored nowhere (Heavy, Burst, Exploding Crossbows): the attack definition's own default, 1 s
+                      # (the game's attack components default to 1.0 too) - an inference, confirmed by a fast test bow
         if path not in have and v is not None:
             out.append((path, t, int(v) if t == "int" else round(float(v), 6)))
     return out
