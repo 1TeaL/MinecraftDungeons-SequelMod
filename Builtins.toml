@@ -235,3 +235,9 @@ ShadowBarbRanged = { to = "TempoTheft", level = 2 }   # Tempo Theft where the Ve
 
 ["Armor/EndRobes_Unique1"]             # Unstable Robes: its Void Blast (the explosion on a teleport roll) at tier III
 VoidBlast = 3                          # and 4x the damage (SequelMod.toml BP_VoidBlast.blastDamage 40 -> 160)
+
+["Armor/GhostArmor_Unique1"]           # Ghost Kindler (stat guide C): Fire Trail at tier III (2026-10-19)
+FireTrail = 3
+
+["Armor/EmeraldArmor_Unique1"]         # Opulent Armor (stat guide B): Lucky Explorer at tier III (2026-10-19)
+EmeraldDivination = 3
