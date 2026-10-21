@@ -43,3 +43,6 @@ add = ["LifeStealAura"]
 
 ["Armor/ClimbingGear_Unique1"]         # Rugged Climbing Gear: resists everything -> also shrugs off hits
 add = ["MissChance"]
+
+["Armor/EndRobes_Unique1"]             # Unstable Robes: the teleport roll gets the i-frames of the other roll armors
+add = ["DodgeInvulnerability"]         # (user, 2026-10-19; stat guide D: "teleport gives no invincibility")

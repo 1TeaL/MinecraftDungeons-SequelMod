@@ -232,3 +232,6 @@ ShadowBarbRanged = { to = "TempoTheft", level = 2 }   # Tempo Theft where the Ve
 
 # Growing Staff (SS) and The Beginning and The End (S) keep the game's tier I built-ins: they reach tier III above
 # power 316 like every built-in (user, 2026-10-19).
+
+["Armor/EndRobes_Unique1"]             # Unstable Robes: its Void Blast (the explosion on a teleport roll) at tier III
+VoidBlast = 3                          # and 4x the damage (SequelMod.toml BP_VoidBlast.blastDamage 40 -> 160)

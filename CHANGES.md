@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-19 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-10-21 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -106,6 +106,7 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Enchantment | Setting | Base game | Mod |
 |---|---|---|---|
 | Poison Cloud | Area Of Effect (Poison Cloud) | 250 | 400 |
+| Void Blast | Blast Damage | 40 | 160 |
 
 ### Values per tier (I / II / III)
 
@@ -357,7 +358,6 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 | Fortune spear | Melee | Looting 1 | Looting 3, Committed 2 |
 | Frost Slayer | Melee | Sharpness 1 | Freezing 2, Guarding Strike 2 |
 | Great Axeblade | Melee | Dynamo 1 | Dynamo 3 |
-| Growing Staff | Melee | Committed 1 | Committed 3 |
 | Highland Axe | Melee | Stunning 1 | Stunning 3 |
 | Maulers | Melee | Rampaging 1 | Rampaging 2 |
 | Nightmare's Bite | Melee | Poison Cloud 1 | Poison Cloud 3 |
@@ -370,7 +370,6 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 | Sponge Striker | Melee | Sponge Strike 1 | Pain Cycle 3 |
 | Stormlander | Melee | Thundering 1 | Thundering 3 |
 | Swift Striker | Melee | Echo 1 | Echo 3 |
-| The Beginning and The End | Melee | Void Strike 1, Leeching 1 | Void Strike 3, Leeching 3 |
 | The Last Laugh | Melee | Prospector 1 | Prospector 3, Critical Hit 2 |
 | Whispering Spear | Melee | Echo 1 | Echo 3 |
 | Ancient Bow | Ranged | Dynamo 1 | Dynamo 2 |

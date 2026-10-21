@@ -759,7 +759,7 @@
 "BP_TumbleBee.MaxNumMobs" = 3  # default 3
 
 [Enchantments.VoidBlast]  # VoidBlast (unique item, mob or shared effect)
-"BP_VoidBlast.blastDamage" = 40.0  # default 40.0
+"BP_VoidBlast.blastDamage" = 160.0  # default 40.0
 "BP_VoidBlast.blastRange" = 500.0  # default 500.0
 "BP_VoidBlast.slowDuration" = 2.0  # default 2.0
 "BP_VoidBlast.slowMultiplier" = 0.2  # default 0.2
