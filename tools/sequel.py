@@ -214,6 +214,7 @@ EXTRA_ASSETS = {
     "Components/ArmorProperties/MoveSpeedAura/BP_MoveSpeedAura.uasset": "PerkMoveSpeedAura",
     "Dungeons/Content/Components/ArmorProperties/HealingAura/BP_HealingAura.uasset": "PerkHealingAura",
     "Dungeons/Content/Components/ArmorProperties/HealingAura/BP_HealingAuraGameplayEffect.uasset": "PerkHealingAuraGameplayEffect",
+    "Dungeons/Content/Content_DLC6/Actors/Items/VoidArrow/BP_VoidArrow.uasset": "VoidQuiver",   # its splash (2026-10-19)
 }
 # Projectile plumbing that isn't worth exposing.
 RUNTIME_SKIP_EXTRA = {"enableDebugVisuals", "bShouldHitTerrain", "ignoreFriendlyFire", "TimeThreshold",

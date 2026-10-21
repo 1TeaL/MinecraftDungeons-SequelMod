@@ -107,6 +107,8 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 |---|---|---|---|
 | Poison Cloud | Area Of Effect (Poison Cloud) | 250 | 400 |
 | Void Blast | Blast Damage | 40 | 160 |
+| Void Quiver | Effect To Random Targets Action 2:Search Radius (Void Arrow) | 400 | 600 |
+| Void Quiver | Effect To Random Targets Action 3:Search Radius (Void Arrow) | 400 | 600 |
 
 ### Values per tier (I / II / III)
 

@@ -764,6 +764,27 @@
 "BP_VoidBlast.slowDuration" = 2.0  # default 2.0
 "BP_VoidBlast.slowMultiplier" = 0.2  # default 0.2
 
+[Enchantments.VoidQuiver]  # VoidQuiver (unique item, mob or shared effect)
+"BP_VoidArrow.damage" = 50.0  # default 50.0
+"BP_VoidArrow.EffectToRandomTargetsAction_2:Period" = -1.0  # default -1.0
+"BP_VoidArrow.EffectToRandomTargetsAction_2:SearchRadius" = 600.0  # default 400.0
+"BP_VoidArrow.EffectToRandomTargetsAction_2:MaxTargets" = 15.0  # default 15.0
+"BP_VoidArrow.EffectToRandomTargetsAction_2:UsePowerSource" = false  # default false
+"BP_VoidArrow.EffectToRandomTargetsAction_2:PowerLevel" = 3.0  # default 3.0
+"BP_VoidArrow.EffectToRandomTargetsAction_3:Period" = -1.0  # default -1.0
+"BP_VoidArrow.EffectToRandomTargetsAction_3:SearchRadius" = 600.0  # default 400.0
+"BP_VoidArrow.EffectToRandomTargetsAction_3:MaxTargets" = 15.0  # default 15.0
+"BP_VoidArrow.EffectToRandomTargetsAction_3:UsePowerSource" = false  # default false
+"BP_VoidArrow.EffectToRandomTargetsAction_3:PowerLevel" = 3.0  # default 3.0
+"BP_VoidArrow.bShouldSpawnArrowProp" = true  # default true
+"BP_VoidArrow.IsHoming" = true  # default true
+"BP_VoidArrow.CollisionPhysicsForce" = 1500.0  # default 1500.0
+"BP_VoidArrow.DestroyOnHit" = true  # default true
+"BP_VoidArrow.AffectTargetOnce" = true  # default true
+"BP_VoidArrow.VelocityFactor" = 1.0  # default 1.0
+"BP_VoidArrow.StunMultiplier" = 1.0  # default 1.0
+"BP_VoidArrow.DamageFactor" = 1.0  # default 1.0
+
 [Enchantments.VoidTouchedMelee]  # Void Strike (Melee)
 "BP_VoidTouchedMelee.bAlwaysTrigger" = true  # default true
 

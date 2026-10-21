@@ -17,6 +17,8 @@ cooldown = 15              # 30
 cooldown = 15              # 30
 
 # --- mediocre ---
+[VoidQuiver]                # its value is the Void Touched mark it splashes (user, 2026-10-19); splash size in SequelMod.toml
+cooldown = 15              # 25
 [SoulHealer]
 souls = 20                 # 50
 [SatchelOfNourishment]     # Satchel of Snacks
