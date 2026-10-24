@@ -160,6 +160,7 @@ Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
 | `Prices.toml`, `QoL.toml`, `Player.toml` | Merchant prices, Blacksmith, movement |
 | `Launcher.toml` | Turn each part of the launcher on or off |
 | `StackNotes.toml` | Which enchantments stack when an item carries several copies (tested in game) |
+| `NAMES.md` | The legend: every internal enchantment and item name next to its in-game name |
 
 ### ![Research tools](docs/headers/research-tools.svg)
 

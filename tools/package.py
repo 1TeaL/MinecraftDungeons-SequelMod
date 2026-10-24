@@ -32,7 +32,7 @@ DATA = ["tools/item_registry.json", "tools/enchant_ids.json", "tools/enchant_poo
 SETTINGS = ["Launcher.toml", "Endless.toml", "Builtins.toml", "Bonus.toml", "Perks.toml", "Artifacts.toml",
             "ArtifactScaling.toml", "Drops.toml", "Echo.toml", "Formulas.toml", "Prices.toml", "QoL.toml",
             "MobPool.toml", "MobEnchants.toml", "Accelerate.toml", "Arrows.toml", "Stack.toml", "SequelGear.toml",
-            "Play Endless Apocalypse.bat", "steam_launch.bat", "CHANGES.md"]
+            "Play Endless Apocalypse.bat", "steam_launch.bat", "CHANGES.md", "NAMES.md"]
 INSTALL = f"""Sequel Mod {LABEL} for Minecraft Dungeons (Steam version)
 
 Needs
