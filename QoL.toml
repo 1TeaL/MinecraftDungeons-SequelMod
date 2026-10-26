@@ -5,12 +5,12 @@
 [blacksmith]
 missions = 1
 
-# Start in Apocalypse (user, 2026-10-27: skip the Default and Adventure grind, get into the fun fast). A character
-# that hasn't unlocked Apocalypse gets it unlocked; one whose gear is below kit_power also gets the kit below (plain
-# gear with fresh enchantment options, about Apocalypse I's power - Apocalypse VII is ~105). Done by the launcher while
-# the game is closed: a character made in this session is ready the next time you start through the launcher.
-# Set apocalypse = false to play the campaign from Default as normal.
+# Skip the early campaign (user, 2026-10-27: get into the fun fast). start = "apocalypse" unlocks Apocalypse,
+# "adventure" unlocks Adventure (skips only Default), "off" plays from Default as normal. A character that hasn't
+# reached that difficulty gets it unlocked, and - if its gear is weaker - a starter kit at that difficulty's opening
+# power (Apocalypse I is about 70, VII about 105; Adventure I's 30 is an estimate). Plain gear with fresh enchantment
+# options. Done by the launcher while the game is closed: a character made in this session is ready the next start.
 [start]
-apocalypse = true
-kit_power = 70
+start = "apocalypse"
+kit_power = { apocalypse = 70, adventure = 30 }
 kit = ["Sword", "Bow", "ScaleMail", "FireworksArrowItem", "IronHideAmulet", "DeathCapMushroom"]

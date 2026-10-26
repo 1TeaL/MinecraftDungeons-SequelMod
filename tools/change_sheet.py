@@ -394,10 +394,13 @@ def build():
     L += [f"- {labels.get(k, k)}: {num(old)} -> {num(new)}." for k, old, new in player.changes(sequel.EXTRACT, ROOT / "Player.toml")]
     L += [f"- {shops.get(k, k)}: prices x{num(v)}." for k, v in prices.items()]
     st = qol.get("start", {})
-    if st.get("apocalypse"):
-        L += [f"- Start in Apocalypse: a character that hasn't unlocked it gets Apocalypse unlocked, and a starter kit at power "
-              f"{num(st.get('kit_power', 70))} ({', '.join(item(k) for k in st.get('kit', []))}) "
-              "if its gear is weaker (base game: Default and Adventure first)."]
+    start = st.get("start", "apocalypse" if st.get("apocalypse") else "off")
+    if start in ("apocalypse", "adventure"):
+        kp = st.get("kit_power", 70)
+        kp = kp.get(start, 70) if isinstance(kp, dict) else kp
+        L += [f"- Start in {start.title()}: a character that hasn't reached it gets {start.title()} unlocked, and a starter kit at power "
+              f"{num(kp)} ({', '.join(item(k) for k in st.get('kit', []))}) if its gear is weaker (base game: "
+              + ("Default and Adventure first)." if start == "apocalypse" else "Default first).")]
     if qol.get("blacksmith", {}).get("missions") is not None:
         n = qol["blacksmith"]["missions"]
         L += [f"- Blacksmith: an upgrade takes {n} mission{'s' if n != 1 else ''} (base game: 3)."]

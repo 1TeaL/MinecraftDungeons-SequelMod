@@ -763,7 +763,7 @@ These event items drop in missions like the other uniques of their family (base 
 - Speed kept right after a roll: 0.8 -> 1.
 - Enchantsmith (gold): prices x0.1.
 - Piglin merchant (gold): prices x0.5.
-- Start in Apocalypse: a character that hasn't unlocked it gets Apocalypse unlocked, and a starter kit at power 70 (Sword, Bow, Scale Mail, Fireworks Arrow, Iron Hide Amulet, Death Cap Mushroom) if its gear is weaker (base game: Default and Adventure first).
+- Start in Apocalypse: a character that hasn't reached it gets Apocalypse unlocked, and a starter kit at power 70 (Sword, Bow, Scale Mail, Fireworks Arrow, Iron Hide Amulet, Death Cap Mushroom) if its gear is weaker (base game: Default and Adventure first).
 - Blacksmith: an upgrade takes 1 mission (base game: 3).
 - Blacksmith: an upgraded weapon or armor comes back at least at your power level (the game's own result stops near A+25 power).
 

@@ -23,7 +23,7 @@ CONFIG = ROOT / "QoL.toml"
 POOLS = json.loads((ROOT / "tools" / "enchant_pools.json").read_text())
 ARMOR_PERKS = json.loads((ROOT / "research" / "armor_props_raw.json").read_text())
 SAVES = Path.home() / "Saved Games" / "Mojang Studios" / "Dungeons"
-APOCALYPSE = "Difficulty_3"
+DIFFICULTY = {"adventure": "Difficulty_2", "apocalypse": "Difficulty_3"}
 GEAR = {"Sword": "melee", "Bow": "ranged", "ScaleMail": "armor"}   # anything else in the kit is an artifact
 
 
@@ -43,9 +43,12 @@ def options(kind, rng):
 
 def apply(quiet=False):
     cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")).get("start", {}) if CONFIG.exists() else {}
-    if not cfg.get("apocalypse"):
+    start = cfg.get("start", "apocalypse" if cfg.get("apocalypse") else "off")
+    if start not in DIFFICULTY:
         return
-    power = float(cfg.get("kit_power", 70))
+    target = DIFFICULTY[start]
+    kp = cfg.get("kit_power", 70)
+    power = float(kp.get(start, 70) if isinstance(kp, dict) else kp)
     kit = cfg.get("kit", [])
     names = perk_names()
     for f in SAVES.glob("*/Characters/*.dat"):
@@ -54,9 +57,9 @@ def apply(quiet=False):
         except Exception:  # noqa: BLE001 - no key yet, or not a character save
             continue
         diff = data.setdefault("difficulties", {})
-        if diff.get("unlocked", "Difficulty_1") >= APOCALYPSE:
+        if diff.get("unlocked", "Difficulty_1") >= target:
             continue
-        diff.update({"unlocked": APOCALYPSE, "selected": APOCALYPSE, "announced": APOCALYPSE})
+        diff.update({"unlocked": target, "selected": target, "announced": target})
         added = 0
         if data.get("totalGearPower", 0) < power:
             rng = random.Random(f.stem)
@@ -73,7 +76,7 @@ def apply(quiet=False):
         f.write_bytes(savefile.encrypt(json.dumps(data, indent=1)))
         json.loads(savefile.decrypt(f.read_bytes()))   # read back
         if not quiet:
-            print(f"Start in Apocalypse: {data.get('name', f.stem)} - Apocalypse unlocked"
+            print(f"Start in {start.title()}: {data.get('name', f.stem)} - {start.title()} unlocked"
                   + (f", starter kit ({added} items at power {power:g})" if added else ""))
 
 
