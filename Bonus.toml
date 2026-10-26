@@ -151,8 +151,9 @@ SlowBow_Spooky2 = ["Supercharge", "Infinity", "MultiShot", "Ricochet", "ChainRea
 BubbleBow_Spooky2 = ["MultiShot", "Infinity", "Ricochet", "FuseShot", "ChainReaction"]
 
 [armor]
-# Default for every armor: the defensive three everyone runs anyway.
-all = ["Protection", "Celerity", "Thorns", "Snowing"]   # Protection, Cool Down, Thorns (Snowball is the spare)
+# Default for every armor: the defensive three everyone runs anyway. Thorns only stays on the tank armors (retaliation is
+# their style); everywhere else it became Potion Barrier (user, 2026-10-27 - a doubled pick is acceptable).
+all = ["Protection", "Celerity", "PotionFortification", "HealthSynergy"]   # Protection, Cool Down, Potion Barrier (Health Synergy is the spare) - user, 2026-10-27
 # Armors with a strong identity keep building on it instead (user, 2026-10-05: pet armors are for pet builds,
 # so they get pet bonuses too).
 WolfArmor = ["BeastBoss", "BeastSurge", "BeastBurst", "Protection"]             # Wolf Armor, Fox Armor, Black Wolf Armor
@@ -161,10 +162,10 @@ BeenestArmor = ["TumbleBee", "BeastBoss", "BeastBurst", "Protection"]           
 BeeNestArmor = ["TumbleBee", "BeastBoss", "BeastBurst", "Protection"]           # Beenest Armor (the base item's id is spelled differently)
 SoulRobe = ["SoulFocus", "BagOfSouls", "Protection", "Celerity"]             # Soul Robe, Souldancer: soul artifacts
 GrimArmor = ["SoulFocus", "BagOfSouls", "Protection", "Celerity"]             # Grim Armor, Wither Armor
-DarkArmor = ["BagOfSouls", "Protection", "Celerity", "Thorns"]   # Dark Armor, Titan's Shroud
+DarkArmor = ["BagOfSouls", "Protection", "Celerity", "PotionFortification"]   # Dark Armor, Titan's Shroud
 EvocationRobe = ["Celerity", "FireFocus", "Burning", "Protection"]         # Evocation Robe, Ember Robe, Verdant Robe
 BattleRobe = ["Celerity", "LightningFocus", "Electrified", "Protection"]      # Battle Robe, Splendid Robe
-SnowArmor = ["Snowing", "Protection", "Thorns", "Celerity"]                 # Snow Armor, Frost Armor
+SnowArmor = ["Snowing", "Protection", "PotionFortification", "Celerity"]                 # Snow Armor, Frost Armor
 EmeraldArmor = ["EmeraldDivination", "DeathBarter", "LuckOfTheSea", "Protection"]   # Emerald Gear, Opulent Armor, Gilded Glory
 ArchersStrappings = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]  # Hunter's Armor, Archer's Armor
 CowardsArmor = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]       # Guard's Armor
@@ -174,28 +175,28 @@ CowardsArmor_Unique1 = ["Acrobat", "MultiDodge", "Swiftfooted", "Protection"]   
 FullPlateArmor = ["Thorns", "Protection", "Celerity", "Burning"]          # heavy tanks: punish what hits them
 ReinforcedMail = ["Protection", "Thorns", "Celerity", "Snowing"]          # potion tanks
 ChampionsArmor = ["Protection", "FoodReserves", "Thorns", "Celerity"]
-ShulkerArmor = ["Thorns", "Deflecting", "Protection", "Celerity"]
+ShulkerArmor = ["PotionFortification", "Deflecting", "Protection", "Celerity"]
 TurtleArmor = ["Protection", "Thorns", "Celerity", "Snowing"]      # healer tank
 MercenaryArmor = ["Protection", "FireTrail", "Thorns", "Celerity"]       # brawlers: damage while healthy
-ScaleMail = ["Protection", "Celerity", "Electrified", "Thorns"]
+ScaleMail = ["Protection", "Celerity", "Electrified", "PotionFortification"]
 AssassinArmor = ["Acrobat", "Protection", "Electrified", "Celerity"]                  # assassins and roll armors: avoid the hit
 OcelotArmor = ["Acrobat", "Electrified", "Protection", "Celerity"]
 SquidArmor = ["Acrobat", "MultiDodge", "Electrified", "Protection"]
 GhostArmor = ["Acrobat", "FireTrail", "MultiDodge", "Protection"]
 SproutArmor = ["Acrobat", "PoisonFocus", "MultiDodge", "Protection"]
-EndRobes = ["Celerity", "SoulFocus", "Protection", "Thorns"]                     # casters: artifacts as the defence
-PiglinArmor = ["Celerity", "FireTrail", "Protection", "Thorns"]
-NatureArmor = ["FoodReserves", "Celerity", "Protection", "Thorns"]
-ClimbingGear = ["Celerity", "Protection", "Snowing", "Thorns"]
-BardsGarb = ["Celerity", "SurpriseGift", "Protection", "Thorns"]
+EndRobes = ["Celerity", "SoulFocus", "Protection", "PotionFortification"]                     # casters: artifacts as the defence
+PiglinArmor = ["Celerity", "FireTrail", "Protection", "PotionFortification"]
+NatureArmor = ["FoodReserves", "Celerity", "Protection", "PotionFortification"]
+ClimbingGear = ["Celerity", "Protection", "Snowing", "PotionFortification"]
+BardsGarb = ["Celerity", "SurpriseGift", "Protection", "PotionFortification"]
 PhantomArmor = ["BurstBowstring", "Recycler", "Celerity", "Protection"]
 # Seasonal armors (own identities, Builtins.toml)
 MercenaryArmor_Spooky1 = ["Protection", "Celerity", "Deflecting", "Burning"]
 MercenaryArmor_Spooky2 = ["Acrobat", "DeathBarter", "Electrified", "Protection"]
 WolfArmor_Winter1 = ["RollCharge", "Recycler", "BurstBowstring", "Protection"]   # the ranged pet armor (2026-10-26)
-SpelunkersArmor_Year1 = ["Celerity", "Protection", "Thorns", "Snowing"]
+SpelunkersArmor_Year1 = ["Celerity", "Protection", "PotionFortification", "Snowing"]
 FullPlateArmor_Spooky2 = ["Thorns", "Protection", "Celerity", "Electrified"]
-GrimArmor_Spooky2 = ["Celerity", "Protection", "Thorns", "Snowing"]
+GrimArmor_Spooky2 = ["Celerity", "Protection", "PotionFortification", "Snowing"]
 GhostArmor_Spooky2 = ["Acrobat", "LightningFocus", "Protection", "Celerity"]
 
 # Extra perks for armor above the cap. Unlike the enchantments these go on the single armor (the game saves them with

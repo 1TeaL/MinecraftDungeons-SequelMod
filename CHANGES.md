@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-26 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-10-27 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -643,18 +643,18 @@ Different boss missions to clear on the level in the first column.
 
 | Item or family | In this order |
 |---|---|
-| Any other | Protection, Cool Down, Thorns, Snowball |
+| Any other | Protection, Cool Down, Potion Barrier, Health Synergy |
 | Arctic Fox Armor | Roll Charge, Recycler, Burst Bowstring, Protection |
 | Battle Robe | Cool Down, Lightning Focus, Electrified, Protection |
 | Beenest Armor | Tumble Bee, Beast Boss, Beast Burst, Protection |
 | Cauldron Armor | Thorns, Protection, Cool Down, Electrified |
 | Champions Armor | Protection, Food Reserves, Thorns, Cool Down |
-| Climbing Gear | Cool Down, Protection, Snowball, Thorns |
+| Climbing Gear | Cool Down, Protection, Snowball, Potion Barrier |
 | Cloaked Skull | Acrobat, Lightning Focus, Protection, Cool Down |
 | Curious Armor | Acrobat, Multi-Roll, Swiftfooted, Protection |
-| Dark Armor | Bag Of Souls, Protection, Cool Down, Thorns |
+| Dark Armor | Bag Of Souls, Protection, Cool Down, Potion Barrier |
 | Emerald Gear | Lucky Explorer, Death Barter, Luck Of The Sea, Protection |
-| Entertainer's Garb | Cool Down, Surprise Gift, Protection, Thorns |
+| Entertainer's Garb | Cool Down, Surprise Gift, Protection, Potion Barrier |
 | Evocation Robe | Cool Down, Fire Focus, Burning, Protection |
 | Ghostly Armor | Acrobat, Fire Trail, Multi-Roll, Protection |
 | Grim Armor | Soul Focus, Bag Of Souls, Protection, Cool Down |
@@ -665,20 +665,20 @@ Different boss missions to clear on the level in the first column.
 | Mercenary Armor | Protection, Fire Trail, Thorns, Cool Down |
 | Ocelot Armor | Acrobat, Electrified, Protection, Cool Down |
 | Phantom Armor | Burst Bowstring, Recycler, Cool Down, Protection |
-| Piglin Armor | Cool Down, Fire Trail, Protection, Thorns |
+| Piglin Armor | Cool Down, Fire Trail, Protection, Potion Barrier |
 | Plate Armor | Thorns, Protection, Cool Down, Burning |
 | Reinforced Mail | Protection, Thorns, Cool Down, Snowball |
-| Root Rot Armor | Food Reserves, Cool Down, Protection, Thorns |
-| Scale Mail | Protection, Cool Down, Electrified, Thorns |
-| Shulker Armor | Thorns, Deflect, Protection, Cool Down |
-| Snow Armor | Snowball, Protection, Thorns, Cool Down |
+| Root Rot Armor | Food Reserves, Cool Down, Protection, Potion Barrier |
+| Scale Mail | Protection, Cool Down, Electrified, Potion Barrier |
+| Shulker Armor | Potion Barrier, Deflect, Protection, Cool Down |
+| Snow Armor | Snowball, Protection, Potion Barrier, Cool Down |
 | Soul Robe | Soul Focus, Bag Of Souls, Protection, Cool Down |
 | Spelunker Armor | Beast Boss, Beast Surge, Cool Down, Protection |
 | Sprout Armor | Acrobat, Poison Focus, Multi-Roll, Protection |
 | Squid Armor | Acrobat, Multi-Roll, Electrified, Protection |
-| Sweet Tooth | Cool Down, Protection, Thorns, Snowball |
-| Teleportation Robes | Cool Down, Soul Focus, Protection, Thorns |
-| The Spooky Gourdian | Cool Down, Protection, Thorns, Snowball |
+| Sweet Tooth | Cool Down, Protection, Potion Barrier, Snowball |
+| Teleportation Robes | Cool Down, Soul Focus, Protection, Potion Barrier |
+| The Spooky Gourdian | Cool Down, Protection, Potion Barrier, Snowball |
 | Thief Armor | Acrobat, Protection, Electrified, Cool Down |
 | Turtle Armor | Protection, Thorns, Cool Down, Snowball |
 | Wolf Armor | Beast Boss, Beast Surge, Beast Burst, Protection |
