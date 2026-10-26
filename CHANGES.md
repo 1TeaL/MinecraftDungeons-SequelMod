@@ -217,7 +217,7 @@ Several numbers = the hits of the combo in order.
 | Sparkler | Swing time (s) | 0.4/0.4 | 0.5/0.5 |
 | Sparkler | Damage | 50/50 | 94/94 |
 | Spine-Chill Spear | Swing time (s) | 0.375/0.375/0.5 | 0.7/0.7/1 |
-| Spine-Chill Spear | Damage | 60/60/100 | 110/110/160 |
+| Spine-Chill Spear | Damage | 60/60/100 | 121/121/176 |
 | Sponge Striker | Reach | 300/350/350 | 380/380/380 |
 | Sponge Striker | Damage | 19/20/45 | 33/33/80 |
 | Stormlander | Swing time (s) | 0.7 | 0.9 |
@@ -284,7 +284,7 @@ Several numbers = the hits of the combo in order.
 | Nocturnal Bow | Charge time (s) | 0.35 | 0.351 |
 | Nocturnal Bow | Charged shot damage | 2.5 | 3.125 |
 | Phantom Bow | Charge time (s) | 0.35 | 0.455 |
-| Phantom Bow | Damage factor | 2 | 3.25 |
+| Phantom Bow | Damage factor | 2 | 3 |
 | Phantom Bow | Arrows per bundle | 20 | 24 |
 | Power Bow | Damage factor | 2 | 2.5 |
 | Power Bow | Arrows per bundle | 20 | 30 |
@@ -317,8 +317,9 @@ Several numbers = the hits of the combo in order.
 | Veiled Crossbow | Time between shots (s) | 0.7 | 0.56 |
 | Void Bow | Time between shots (s) | 0.5 | 0.45 |
 | Void Bow | Charged shot damage | 1.6 | 2 |
+| Webbed Bow | Time between shots (s) | 0.42 | 0.378 |
 | Webbed Bow | Charge time (s) | 0.35 | 0.28 |
-| Webbed Bow | Charged shot damage | 2.5 | 2.656 |
+| Webbed Bow | Charged shot damage | 2.5 | 2.8 |
 | Webbed Bow | Arrows per bundle | 60 | 75 |
 | Wind Bow | Time between shots (s) | 0.42 | 0.378 |
 | Wind Bow | Charged shot damage | 2.75 | 3.438 |

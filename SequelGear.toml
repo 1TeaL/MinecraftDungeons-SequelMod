@@ -2177,7 +2177,7 @@
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[0].AttackAnimationTimeDurationSeconds" = 0.7  # default 0.375
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[0].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[0].AttackRange" = 800.0  # default 800.0
-"BP_Spear_Spooky2Instance.ConfiguredAttackVariants[0].Damage" = 110.0  # default 60.0
+"BP_Spear_Spooky2Instance.ConfiguredAttackVariants[0].Damage" = 121.0  # default 60.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[0].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[0].StunMultiplier" = 1.0  # default 1.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[0].CooldownSeconds" = 0.0  # default 0.0
@@ -2185,7 +2185,7 @@
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[1].AttackAnimationTimeDurationSeconds" = 0.7  # default 0.375
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[1].ConeAngleDegrees" = 12.0  # default 12.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[1].AttackRange" = 1000.0  # default 1000.0
-"BP_Spear_Spooky2Instance.ConfiguredAttackVariants[1].Damage" = 110.0  # default 60.0
+"BP_Spear_Spooky2Instance.ConfiguredAttackVariants[1].Damage" = 121.0  # default 60.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[1].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[1].StunMultiplier" = 1.0  # default 1.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[1].CooldownSeconds" = 0.0  # default 0.0
@@ -2193,7 +2193,7 @@
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[2].AttackAnimationTimeDurationSeconds" = 1.0  # default 0.5
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[2].ConeAngleDegrees" = 10.0  # default 10.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[2].AttackRange" = 1250.0  # default 1250.0
-"BP_Spear_Spooky2Instance.ConfiguredAttackVariants[2].Damage" = 160.0  # default 100.0
+"BP_Spear_Spooky2Instance.ConfiguredAttackVariants[2].Damage" = 176.0  # default 100.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[2].DamageSplashMultiplier" = 0.9  # default 0.9
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[2].StunMultiplier" = 1.0  # default 1.0
 "BP_Spear_Spooky2Instance.ConfiguredAttackVariants[2].CooldownSeconds" = 0.5  # default 0.5
@@ -2747,7 +2747,7 @@
 "BP_PowerBow_Spooky2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
 "BP_PowerBow_Spooky2Instance.AttackDefintion.ChargeTimeSecond" = 0.455  # default 0.35
 "BP_PowerBow_Spooky2Instance.AttackDefintion.ChargeDamageMultiplier" = 3.0  # default 3.0
-"BP_PowerBow_Spooky2Instance.AttackDefintion.ProjectileDamageFactor" = 3.25  # default 2.0
+"BP_PowerBow_Spooky2Instance.AttackDefintion.ProjectileDamageFactor" = 3.0  # default 2.0
 "BP_PowerBow_Spooky2Instance.ProjectileStackCount" = 24  # default 20
 
 [Ranged.PowerBow_Unique1]  # Elite Power Bow (Power Bow variant)
@@ -2850,9 +2850,9 @@
 
 [Ranged.SlowBow_Spooky2]  # Webbed Bow (Snow Bow variant)
 "BP_SlowBow_Spooky2Instance.AttackDefintion.ProjectileDefinition[0].NumberOfProjectiles" = 1  # default 1
-"BP_SlowBow_Spooky2Instance.AttackDefintion.AttackRateSeconds" = 0.42  # default 0.42
+"BP_SlowBow_Spooky2Instance.AttackDefintion.AttackRateSeconds" = 0.378  # default 0.42
 "BP_SlowBow_Spooky2Instance.AttackDefintion.ChargeTimeSecond" = 0.28  # default 0.35
-"BP_SlowBow_Spooky2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.656  # default 2.5
+"BP_SlowBow_Spooky2Instance.AttackDefintion.ChargeDamageMultiplier" = 2.8  # default 2.5
 "BP_SlowBow_Spooky2Instance.ProjectileStackCount" = 75  # default 60
 
 [Ranged.Slowbow_Unique1]  # Slowbow_Unique1 (Slowbow variant)
