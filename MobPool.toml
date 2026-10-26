@@ -48,15 +48,16 @@ Ricochet = true
 TempoTheft = true
 VoidTouchedRanged = true    # Void Strike
 
-# ancient mobs only in the base game - false keeps it that way
-Committed = false
-Cowardice = false
+# ancient mobs only in the base game - all on since 2026-10-27 (user: variety from enchantments is fine,
+# plain extra health and damage on every mob is not); false keeps one ancient-only
+Committed = true
+Cowardice = true
 Echo = true
 FuseShot = true
-Huge = false
+Huge = true
 Leeching = true
 Rampaging = true
-Sharpness = false
+Sharpness = true
 Shockwave = true
 Swirling = true
 Thundering = true

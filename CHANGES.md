@@ -725,7 +725,7 @@ Different boss missions to clear on the level in the first column.
 ## 7. Mobs
 
 - Enchanted mobs no longer roll: Deflect, Levitation Shot.
-- Enchanted mobs can now also roll: Echo, Fuse Shot, Leeching, Rampaging, Shockwave, Swirling, Thundering.
+- Enchanted mobs can now also roll: Committed, Cowardice, Echo, Fuse Shot, Huge, Leeching, Rampaging, Sharpness, Shockwave, Swirling, Thundering.
 - Deflect is switched off on every mob that carries it (ancient mobs and the Tower Guard included). The player's Deflect is unchanged.
 - Levitation Shot from mobs does nothing.
 - Thorns on mobs: damage returned 0.1 -> 0.03.
