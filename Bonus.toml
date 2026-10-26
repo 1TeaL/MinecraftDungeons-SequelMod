@@ -70,7 +70,7 @@ Rapier = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
 Sickles = ["Thundering", "CriticalHit", "Stunning", "Committed", "Leeching"]
 SkeletonHammer = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
 SoulKnife = ["SoulSiphon", "AnimaConduitMelee", "EnigmaResonatorMelee", "Committed", "CriticalHit"]
-SoulScythe = ["SoulSiphon", "AnimaConduitMelee", "Chains", "EnigmaResonatorMelee", "Committed"]
+SoulScythe = ["SoulSiphon", "EnigmaResonatorMelee", "Chains", "Committed", "CriticalHit"]   # no Anima Conduit: the Skull Scythe's own (2026-10-26)
 Spear = ["Sharpness", "Swirling", "Committed", "CriticalHit", "Shockwave"]
 Sword = ["Sharpness", "CriticalHit", "Swirling", "Committed", "Shockwave"]
 Sword_Steel = ["Sharpness", "CriticalHit", "Swirling", "Committed", "Shockwave"]
@@ -109,7 +109,7 @@ Gauntlets_Unique1 = ["SoulSiphon", "AnimaConduitMelee", "CriticalHit", "Committe
 Sword_Spooky1 = ["Rampaging", "CriticalHit", "Sharpness", "Committed", "Swirling"]
 Claymore_Winter1 = ["Sharpness", "Committed", "CriticalHit", "Stunning", "Smiting"]   # no Shockwave: Guarding Strike needs its own kills (user, 2026-10-14)
 Cutlass_Year1 = ["Thundering", "CriticalHit", "Committed", "Chains", "Leeching"]
-SoulScythe_Spooky2 = ["AnimaConduitMelee", "Committed", "Chains", "CriticalHit", "Sharpness"]
+SoulScythe_Spooky2 = ["Swirling", "Sharpness", "Committed", "CriticalHit", "Thundering"]   # quick sweeps, not the soul scythes' bonuses
 Glaive_Spooky2 = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
 Spear_spooky2 = ["Committed", "CriticalHit", "Sharpness", "Swirling", "Shockwave"]
 
@@ -145,7 +145,7 @@ BurstCrossbow_Unique1 = ["SoulSiphon", "AnimaConduitRanged", "Infinity", "Power"
 # Seasonal items (own identities, Builtins.toml)
 Bow_Spooky1 = ["ChainReaction", "MultiShot", "Infinity", "Power", "BonusShot"]
 SoulBow_Winter1 = ["EnigmaResonatorRanged", "MultiShot", "Infinity", "Ricochet", "BonusShot"]
-Trickbow_Year1 = ["Infinity", "ChainReaction", "MultiShot", "Ricochet", "BonusShot"]
+Trickbow_Year1 = ["Power", "Supercharge", "BonusShot", "Infinity", "FuseShot"]   # ramping power, not the Trickbows' bounce set (2026-10-26)
 PowerBow_Spooky2 = ["Power", "Infinity", "Unchanting", "BonusShot", "MultiShot"]
 SlowBow_Spooky2 = ["Supercharge", "Infinity", "MultiShot", "Ricochet", "ChainReaction"]
 BubbleBow_Spooky2 = ["MultiShot", "Infinity", "Ricochet", "FuseShot", "ChainReaction"]
@@ -191,7 +191,7 @@ PhantomArmor = ["BurstBowstring", "Recycler", "Celerity", "Protection"]
 # Seasonal armors (own identities, Builtins.toml)
 MercenaryArmor_Spooky1 = ["Protection", "Celerity", "Deflecting", "Burning"]
 MercenaryArmor_Spooky2 = ["Acrobat", "DeathBarter", "Electrified", "Protection"]
-WolfArmor_Winter1 = ["BeastBoss", "TumbleBee", "Celerity", "Protection"]
+WolfArmor_Winter1 = ["RollCharge", "Recycler", "BurstBowstring", "Protection"]   # the ranged pet armor (2026-10-26)
 SpelunkersArmor_Year1 = ["Celerity", "Protection", "Thorns", "Snowing"]
 FullPlateArmor_Spooky2 = ["Thorns", "Protection", "Celerity", "Electrified"]
 GrimArmor_Spooky2 = ["Celerity", "Protection", "Thorns", "Snowing"]

@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-21 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-10-26 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -585,10 +585,10 @@ Different boss missions to clear on the level in the first column.
 | Rapier | Rampaging, Leeching, Critical Hit, Committed, Thundering |
 | Sickles | Thundering, Critical Hit, Stunning, Committed, Leeching |
 | Sinister Sword | Rampaging, Critical Hit, Sharpness, Committed, Swirling |
-| Skull Scythe | Anima Conduit, Committed, Chains, Critical Hit, Sharpness |
+| Skull Scythe | Swirling, Sharpness, Committed, Critical Hit, Thundering |
 | Soul Fists | Soul Siphon, Anima Conduit, Critical Hit, Committed, Leeching |
 | Soul Knife | Soul Siphon, Anima Conduit, Enigma Resonator, Committed, Critical Hit |
-| Soul Scythe | Soul Siphon, Anima Conduit, Chains, Enigma Resonator, Committed |
+| Soul Scythe | Soul Siphon, Enigma Resonator, Chains, Committed, Critical Hit |
 | Sparkler | Thundering, Critical Hit, Committed, Chains, Leeching |
 | Spear | Sharpness, Swirling, Committed, Critical Hit, Shockwave |
 | Spine-Chill Spear | Committed, Critical Hit, Sharpness, Swirling, Shockwave |
@@ -632,7 +632,7 @@ Different boss missions to clear on the level in the first column.
 | Soul Crossbow | Soul Siphon, Anima Conduit, Enigma Resonator, Multishot, Infinity |
 | Soul Hunter Crossbow | Soul Siphon, Anima Conduit, Infinity, Power, Bonus Shot |
 | Spider Crossbow | Chain Reaction, Multishot, Ricochet, Infinity, Bonus Shot |
-| Sugar Rush | Infinity, Chain Reaction, Multishot, Ricochet, Bonus Shot |
+| Sugar Rush | Power, Supercharge, Bonus Shot, Infinity, Fuse Shot |
 | Trickbow | Chain Reaction, Multishot, Ricochet, Infinity, Bonus Shot |
 | Twisting Vine Bow | Infinity, Multishot, Chain Reaction, Ricochet, Bonus Shot |
 | Void Bow | Fuse Shot, Ricochet, Multishot, Chain Reaction, Infinity |
@@ -644,7 +644,7 @@ Different boss missions to clear on the level in the first column.
 | Item or family | In this order |
 |---|---|
 | Any other | Protection, Cool Down, Thorns, Snowball |
-| Arctic Fox Armor | Beast Boss, Tumble Bee, Cool Down, Protection |
+| Arctic Fox Armor | Roll Charge, Recycler, Burst Bowstring, Protection |
 | Battle Robe | Cool Down, Lightning Focus, Electrified, Protection |
 | Beenest Armor | Tumble Bee, Beast Boss, Beast Burst, Protection |
 | Cauldron Armor | Thorns, Protection, Cool Down, Electrified |

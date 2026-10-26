@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aplus_patch import open_game  # noqa: E402
-from builtins_patch import REGISTRY, write  # noqa: E402
+from builtins_patch import alloc, REGISTRY, write  # noqa: E402
 from memprobe import read  # noqa: E402
 
 CONFIG = Path(__file__).resolve().parent.parent / "Perks.toml"
@@ -53,12 +53,30 @@ def apply(h, base):
     plan = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
     for item, spec in plan.items():
         add = spec.get("add", [])
-        bad = [p for p in add if p not in PERKS]
+        replace = spec.get("set")
+        bad = [p for p in add + (replace or []) if p not in PERKS]
         got = perks(h, base, item) if item in REGISTRY else None
         if bad or got is None:
             print(f"  ! {item}: " + (f"unknown perk {bad}" if bad else "no perk list found") + " - skipped")
             continue
         data, current, cap, head = got
+        if replace is not None:
+            # `set`: the armor's whole list, in this order (a perk it already had keeps its own flag byte)
+            if [i for i, _ in current] == [PERKS[p] for p in replace]:
+                print(f"  {item}: perks already {', '.join(replace)}")
+                continue
+            flags = dict(current)
+            entries = b"".join(bytes([PERKS[p], flags.get(PERKS[p], 2)]) for p in replace)
+            if len(replace) > cap:                    # more than the game's list has room for: a new list
+                data = alloc(h, 16)
+                if not data:
+                    print(f"  ! {item}: no memory - skipped")
+                    continue
+                cap = 8
+            write(h, data, entries)
+            write(h, head, struct.pack("<QII", data, len(replace), cap))
+            print(f"  {item}: perks now {', '.join(replace)}")
+            continue
         new = [PERKS[p] for p in add if PERKS[p] not in [i for i, _ in current]]
         if not new:
             print(f"  {item}: already has {', '.join(add)}")

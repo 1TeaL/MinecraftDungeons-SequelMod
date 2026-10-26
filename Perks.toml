@@ -4,6 +4,7 @@
 # SuperbDamageAbsorption = 35% damage reduction, MissChance = 30% negate hits, AllyDamageBoost = weapon damage aura,
 # AreaHeal = potions heal allies, ItemDamageBoost = +50% artifact damage). `python tools/perks_patch.py --show` lists every armor's perks.
 # Rule: keep each armor's own idea and make it better at it.
+# `add` puts perks next to the armor's own; `set` replaces its whole list (seasonal armors with perks of their own).
 
 ["Armor/NatureArmor_Unique1"]          # Black Spot Armor: the potion armor -> potions come back faster
 add = ["PotionCooldownDecrease"]
@@ -14,8 +15,8 @@ add = ["MoveSpeedAura"]
 ["Armor/SpelunkersArmor_Unique1"]      # Cave Crawler: artifact damage -> artifacts ready more often, and 35% damage reduction
 add = ["ItemCooldownDecrease", "SuperbDamageAbsorption"]   # (stat guide BL; 35% DR added 2026-10-19)
 
-["Armor/SpelunkersArmor_Year1"]        # Sweet Tooth: the consumables armor -> potions come back faster, and 35% damage reduction
-add = ["PotionCooldownDecrease", "SuperbDamageAbsorption"]   # (stat guide BL; 35% DR added 2026-10-19)
+["Armor/SpelunkersArmor_Year1"]        # Sweet Tooth: the team potion armor - its own perks, not Cave Crawler's (2026-10-26)
+set = ["PotionCooldownDecrease", "AreaHeal", "HealingAura", "SuperbDamageAbsorption"]
 
 ["Armor/TurtleArmor_Unique1"]          # Nimble Turtle Armor: tanky healer -> also heals by fighting
 add = ["LifeStealAura"]
@@ -32,8 +33,8 @@ add = ["ItemCooldownDecrease"]
 ["Armor/WolfArmor_Unique1"]            # Fox Armor: team tank -> actually tanky
 add = ["SuperbDamageAbsorption"]
 
-["Armor/WolfArmor_Winter1"]            # Arctic Fox Armor: pack leader, as tanky as the Fox
-add = ["SuperbDamageAbsorption"]
+["Armor/WolfArmor_Winter1"]            # Arctic Fox Armor: the ranged pet armor - its own perks, not the Fox's (2026-10-26)
+set = ["RangedDamageBoost", "IncreasedArrowBundleSize", "SuperbDamageAbsorption"]
 
 ["Armor/PhantomArmor_Unique1"]         # Frost Bite: souls and ranged -> more arrows to shoot
 add = ["IncreasedArrowBundleSize"]
@@ -49,3 +50,6 @@ add = ["DodgeInvulnerability"]         # (user, 2026-10-19; stat guide D: "telep
 
 ["Armor/SoulRobe_Unique1"]             # Souldancer Robe: a soul armor that can stand next to Wither (stat guide A)
 add = ["SuperbDamageAbsorption"]       # 35% damage reduction (2026-10-19)
+
+["Armor/GhostArmor_Spooky2"]           # Cloaked Skull: the lightning roller - ghost roll, ranged damage, negate (2026-10-26)
+set = ["DodgeGhostForm", "RangedDamageBoost", "MissChance"]

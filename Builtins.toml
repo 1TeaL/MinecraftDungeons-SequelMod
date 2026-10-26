@@ -153,9 +153,9 @@ add = { Power = 2 }
 # tier 2 where the playstyle needs both - the same six enchantment points either way. Above the gear cap every
 # built-in climbs to tier 3 like any other. Two were set by the user item by item: the Bonehead Hammer (two at
 # tier 1, less hit damage) and the Shrieking Crossbow (Tempo Theft 2 beside Shadow Shot 1).
-["MeleeWeapons/Sword_Spooky1"]            # Sinister Sword: sustain sword
+["MeleeWeapons/Sword_Spooky1"]            # Sinister Sword: hunter of enchanted mobs (2026-10-26: no other melee has Unchanting)
 CriticalHit = { to = "Leeching", level = 2 }
-add = { Leeching = 2, RadianceMelee = 2 }
+add = { Leeching = 2, Unchanting = 2 }
 
 ["MeleeWeapons/Claymore_Winter1"]         # Frost Slayer: frontline tank - slow the pack, every kill makes you tougher
 Sharpness = { to = "Freezing", level = 2 }
@@ -165,25 +165,25 @@ add = { Freezing = 2, GuardingStrike = 2 }         # (was Freezing 3 + Shared Pa
 Rampaging = { to = "DamageSynergy", level = 3 }    # (was Thundering 3 + Critical Hit 2, too close to Stormlander)
 add = { DamageSynergy = 3 }
 
-["MeleeWeapons/SoulScythe_Spooky2"]       # Skull Scythe: soul crit
-Freezing = { to = "EnigmaResonatorMelee", level = 2 }
-add = { EnigmaResonatorMelee = 2, SoulSiphon = 2 }
+["MeleeWeapons/SoulScythe_Spooky2"]       # Skull Scythe: the soul melee that heals you (2026-10-26: no other melee has Anima Conduit)
+Freezing = { to = "AnimaConduitMelee", level = 2 }
+add = { AnimaConduitMelee = 2, SoulSiphon = 2 }
 
 ["MeleeWeapons/Glaive_Spooky2"]           # Cackling Broom: pull and sweep
 Smiting = { to = "Swirling", level = 2 }
 add = { Swirling = 2, GravityMelee = 2 }
 
-["MeleeWeapons/Spear_spooky2"]            # Spine-Chill Spear: mark and execute
-Echo = { to = "VoidTouchedMelee", level = 3 }
-add = { VoidTouchedMelee = 3 }
+["MeleeWeapons/Spear_spooky2"]            # Spine-Chill Spear: stealth spear - strike unseen, then mark (2026-10-26)
+Echo = { to = "Backstabber", level = 2 }   # Backstabber = Ambush
+add = { Backstabber = 2, VoidTouchedMelee = 2 }
 
 ["RangedWeapons/SoulBow_Winter1"]         # Shivering Bow: heals through souls
 TempoTheft = { to = "AnimaConduitRanged", level = 2 }
 add = { AnimaConduitRanged = 2, SoulSiphon = 2 }
 
-["RangedWeapons/Trickbow_Year1"]          # Sugar Rush: ramping fire rate
-WildRage = { to = "Accelerating", level = 3 }
-add = { Accelerating = 3 }
+["RangedWeapons/Trickbow_Year1"]          # Sugar Rush: ramping speed and power (2026-10-26: no other bow has Overcharge)
+WildRage = { to = "MultiCharge", level = 2 }   # MultiCharge = Overcharge
+add = { MultiCharge = 2, Accelerating = 2 }
 
 ["RangedWeapons/SlowBow_Spooky2"]         # Webbed Bow: trap bow
 add = { ShockWeb = 2, Gravity = 2 }
@@ -198,8 +198,8 @@ add = { Thorns = 2, GravityPulse = 2 }
 ["Armor/MercenaryArmor_Spooky2"]          # Hungriest Horror: low-health berserker
 add = { Reckless = 2, Frenzied = 2 }
 
-["Armor/WolfArmor_Winter1"]               # Arctic Fox Armor: pack leader
-add = { BeastBurst = 2, BeastSurge = 2 }
+["Armor/WolfArmor_Winter1"]               # Arctic Fox Armor: the ranged pet armor - bows and a pet surge (2026-10-26)
+add = { BowsBoon = 2, BeastSurge = 2 }
 
 ["Armor/SpelunkersArmor_Year1"]           # Sweet Tooth: consumables
 add = { SurpriseGift = 2, FoodReserves = 2 }
@@ -210,9 +210,9 @@ add = { Burning = 2, FireFocus = 2 }
 ["Armor/GrimArmor_Spooky2"]               # The Spooky Gourdian: last stand
 add = { FinalShout = 2, DeathBarter = 2 }
 
-["Armor/GhostArmor_Spooky2"]              # Cloaked Skull: roll zapper
+["Armor/GhostArmor_Spooky2"]              # Cloaked Skull: the lightning roller (2026-10-26; perks in Perks.toml)
 FireTrail = { to = "Electrified", level = 2 }
-add = { Electrified = 2, MultiDodge = 2 }
+add = { Electrified = 2, LightningFocus = 2 }
 
 # ---- B-tier pass, 2026-10-08: only the B items the mod had not touched yet ----
 ["MeleeWeapons/Spear_Unique1"]            # Whispering Spear: its Echo at tier 3 (0.1 s gap; tier 1 = 2.1 s)
