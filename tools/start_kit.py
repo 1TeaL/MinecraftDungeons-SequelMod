@@ -32,6 +32,12 @@ def perk_names():
     return perks_patch.NAMES
 
 
+def xp_for(level):
+    """Total XP at the start of a character level: 100 x (level - 1) x (3 x level - 1) - the game's formula (Minecraft
+    Wiki, Dungeons:Experience; matches the saves: 12.5 million XP ~ level 205). One enchantment point per level."""
+    return 100 * (level - 1) * (3 * level - 1)
+
+
 def options(kind, rng):
     """Three slots of three different enchantment options, from what can roll on that kind of gear."""
     pool = [e for e in POOLS[kind] if e not in POOLS.get("soul", [])]
@@ -50,6 +56,8 @@ def apply(quiet=False):
     kp = cfg.get("kit_power", 70)
     power = float(kp.get(start, 70) if isinstance(kp, dict) else kp)
     kit = cfg.get("kit", [])
+    lv = cfg.get("start_level", 1)
+    level = int(lv.get(start, 1) if isinstance(lv, dict) else lv)
     names = perk_names()
     for f in SAVES.glob("*/Characters/*.dat"):
         try:
@@ -73,11 +81,15 @@ def apply(quiet=False):
                         new["armorproperties"] = [{"id": names[i], "rarity": "Common"} for i, _ in ARMOR_PERKS.get("Armor/" + item, [])]
                 data.setdefault("items", []).append(new)
                 added += 1
+        raised = level > 1 and data.get("xp", 0) < xp_for(level)
+        if raised:
+            data["xp"] = xp_for(level)
         f.write_bytes(savefile.encrypt(json.dumps(data, indent=1)))
         json.loads(savefile.decrypt(f.read_bytes()))   # read back
         if not quiet:
             print(f"Start in {start.title()}: {data.get('name', f.stem)} - {start.title()} unlocked"
-                  + (f", starter kit ({added} items at power {power:g})" if added else ""))
+                  + (f", starter kit ({added} items at power {power:g})" if added else "")
+                  + (f", level {level}" if raised else ""))
 
 
 if __name__ == "__main__":

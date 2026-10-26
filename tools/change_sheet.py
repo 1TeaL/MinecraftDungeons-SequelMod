@@ -399,7 +399,10 @@ def build():
         kp = st.get("kit_power", 70)
         kp = kp.get(start, 70) if isinstance(kp, dict) else kp
         L += [f"- Start in {start.title()}: a character that hasn't reached it gets {start.title()} unlocked, and a starter kit at power "
-              f"{num(kp)} ({', '.join(item(k) for k in st.get('kit', []))}) if its gear is weaker (base game: "
+              f"{num(kp)} ({', '.join(item(k) for k in st.get('kit', []))}) if its gear is weaker"
+              + (lambda lv: f", and starts at level {lv} ({lv - 1} enchantment points) if lower" if lv > 1 else "")(
+                  int((st.get('start_level', {}) or {}).get(start, 1) if isinstance(st.get('start_level'), dict) else st.get('start_level', 1)))
+              + " (base game: "
               + ("Default and Adventure first)." if start == "apocalypse" else "Default first).")]
     if qol.get("blacksmith", {}).get("missions") is not None:
         n = qol["blacksmith"]["missions"]

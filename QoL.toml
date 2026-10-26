@@ -13,4 +13,6 @@ missions = 1
 [start]
 start = "apocalypse"
 kit_power = { apocalypse = 70, adventure = 30 }
+start_level = { apocalypse = 30, adventure = 15 }   # the character level it starts at (XP added if lower) - one
+                                                    # enchantment point per level, so the kit can be enchanted
 kit = ["Sword", "Bow", "ScaleMail", "FireworksArrowItem", "IronHideAmulet", "DeathCapMushroom"]
