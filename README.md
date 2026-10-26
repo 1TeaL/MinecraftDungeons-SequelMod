@@ -8,6 +8,8 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 
 ## ![What it does](docs/headers/what-it-does.svg)
 
+- **Straight into Apocalypse.** New characters can skip the Default and Adventure campaigns: Apocalypse is unlocked
+  and a starter kit of gear at Apocalypse power waits in the inventory (one setting to turn it off).
 - **Endless Apocalypse.** Apocalypse Plus goes past 25, all the way to A+100; A+1 to A+25 are unchanged. Higher
   levels open a few at a time as you beat different boss missions on your top level, with trial levels along the
   way that push one thing hard (more mobs, more enchanted mobs, tankier or harder-hitting ones).

@@ -20,6 +20,9 @@ step = 4
 total = 4        # every item ends with this many enchantments beyond its family's plain item, bonuses included:
                  # a unique with one of its own gets three bonuses, one with two gets two (never fewer than one)
 final = 365       # A+100 gear: weapons and bows get a fourth bonus enchantment (user, 2026-10-06)
+early = [110, 215]   # a taste in the A+ levels (user, 2026-10-27): a unique's own built-ins reach tier II at power 110
+                     # (about A+1) and tier III at 215 (about A+20); bonuses still start past the cap, and A+100 gear
+                     # ends the same (everything tier III)
 
 # The A+100 extra (power `final`) of every item in a section, before its list is looked at - unless the item has it
 # already, then the list's next name as before. Unchanting adds damage against enchanted mobs, which are everywhere
@@ -253,6 +256,8 @@ BardsGarb = ["AllyDamageBoost", "SuperbDamageAbsorption", "MoveSpeedAura", "Miss
 # The bonus enchantments themselves start at the gear cap (316), as before.
 [gilded]
 from_power = 257
+early_from = 110       # from about A+1 a smaller chance (user, 2026-10-27)
+early_chance = 0.08
 pool = "any"      # "any": any enchantment that can roll on that kind of gear, like the game's own gilded items
                   # "list": only the names of the item's bonus list above
 chance = 0.2

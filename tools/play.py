@@ -44,6 +44,7 @@ import mob_enchants  # noqa: E402
 import mobpool_patch  # noqa: E402
 import qol_patch  # noqa: E402
 import stack_patch  # noqa: E402
+import start_kit  # noqa: E402
 
 STEAM_APP_ID = 1672970
 # The game folder: the first folder above this one with Dungeons/Content/Paks in it - normally two up
@@ -172,6 +173,10 @@ if __name__ == "__main__":
     h, base = aplus_patch.open_game()
     if not h:
         backup_saves()
+        try:
+            start_kit.apply()            # QoL.toml [start]: Apocalypse unlocked, starter kit (save edit, game closed)
+        except Exception as e:  # noqa: BLE001 - never stop the launcher
+            print(f"Start in Apocalypse NOT applied: {e}")
         # A crash reporter left open from an earlier crash makes Steam think the game is still running.
         subprocess.run(["taskkill", "/IM", "CrashReportClient.exe", "/F"], capture_output=True)
         if run:
@@ -311,3 +316,9 @@ if __name__ == "__main__":
             trouble("the object list", e)
         passes += 1
         time.sleep(0.2 if watchers else 5)
+    # The game closed: characters made this session get Apocalypse and the kit now, ready for the next start.
+    time.sleep(10)                       # let the game finish writing its saves
+    try:
+        start_kit.apply()
+    except Exception as e:  # noqa: BLE001
+        print(f"Start in Apocalypse NOT applied: {e}")

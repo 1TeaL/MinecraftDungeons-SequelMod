@@ -245,7 +245,8 @@ class Watch:
 
     def wanted(self, name, power):
         """The built-in list this item type should have with its best copy at `power`."""
-        steps = sum(power >= lv for lv in self.early) + max(0, (power - self.cap) // self.step)
+        past_cap = max(0, (power - self.cap) // self.step)
+        steps = sum(power >= lv for lv in self.early) + past_cap   # the early steps only ever raise own built-ins
         if self.final and power >= self.final:
             steps = 99       # A+100 gear is complete: every built-in and all three bonuses at tier 3 (user, 2026-10-13;
                              # 14 uniques with two to four tier-1 built-ins would otherwise stop a few tiers short)
@@ -255,6 +256,8 @@ class Watch:
             out[i] = (type_id, level + up)
             steps -= up
         have = {t for t, _ in out}
+        if steps < 99:
+            steps = min(steps, past_cap)       # bonuses only from the cap on, whatever the early steps did
         given, used, slots = 0, set(), self.bonus_slots(name)
         names = self.bonus_list(name)
         # A name ending in "!" asks for a second copy of an enchantment the item has built in (copies all fire).
@@ -436,9 +439,11 @@ class Watch:
         Only new items: anything found in the character saves when the launcher started is skipped."""
         cfg = self.cfg.get("gilded", {})
         chance, start = float(cfg.get("chance", 0)), cfg.get("from_power", 10**6)
+        early_from, early_chance = cfg.get("early_from", start), float(cfg.get("early_chance", chance))
         tiers = cfg.get("tier_chances", [0.5, 0.35, 0.15])
         for o, name, shown in self.held:
-            if chance <= 0 or shown < start or self.old_items is None:
+            this_chance = chance if shown >= start else early_chance if shown >= early_from else 0.0
+            if this_chance <= 0 or self.old_items is None:
                 continue
             if (name.split("/")[1].lower(), self.raw_power[o]) in self.old_items:
                 continue                                 # the player had it before this session: not a new drop
@@ -450,7 +455,7 @@ class Watch:
             if not names or raw != bytes(4):
                 continue
             roll = hashlib.sha256(name.encode() + self.raw_power[o]).digest()
-            if roll[0] / 256 >= chance:
+            if roll[0] / 256 >= this_chance:
                 continue
             enchant = names[roll[1] % len(names)]
             pick, tier = roll[2] / 256, 1

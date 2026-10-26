@@ -337,8 +337,14 @@ def build():
     ap = bonus.get("armor_perks", {})
     if ap:
         L += [f"- Armor: one more perk at power {', '.join(str(x) for x in ap.get('levels', []))} - the first perks of its list below that it doesn't have yet."]
+    early = th.get("early", [])
+    if early:
+        L += [f"- A taste earlier: a unique's own built-in enchantments rise one tier at power {' and '.join(str(x) for x in early)} "
+              "(about A+1 and A+20); bonus enchantments still start past the cap."]
     g = bonus.get("gilded", {})
     if g:
+        if g.get("early_from"):
+            L += [f"- New drops of power {g['early_from']} to {g.get('from_power')} have a {num(g.get('early_chance', 0) * 100)}% chance to be gilded."]
         L += [f"- New drops of power {g.get('from_power')} or more have a {num(g.get('chance', 0) * 100)}% chance to be gilded "
               f"(tier I / II / III: {' / '.join(num(c * 100) + '%' for c in g.get('tier_chances', []))})."]
     if bonus.get("merchants", {}).get("follow_power"):
@@ -387,6 +393,11 @@ def build():
     labels = {"speed_after_roll": "Speed kept right after a roll", "walk_speed": "Walking speed"}
     L += [f"- {labels.get(k, k)}: {num(old)} -> {num(new)}." for k, old, new in player.changes(sequel.EXTRACT, ROOT / "Player.toml")]
     L += [f"- {shops.get(k, k)}: prices x{num(v)}." for k, v in prices.items()]
+    st = qol.get("start", {})
+    if st.get("apocalypse"):
+        L += [f"- Start in Apocalypse: a character that hasn't unlocked it gets Apocalypse unlocked, and a starter kit at power "
+              f"{num(st.get('kit_power', 70))} ({', '.join(item(k) for k in st.get('kit', []))}) "
+              "if its gear is weaker (base game: Default and Adventure first)."]
     if qol.get("blacksmith", {}).get("missions") is not None:
         n = qol["blacksmith"]["missions"]
         L += [f"- Blacksmith: an upgrade takes {n} mission{'s' if n != 1 else ''} (base game: 3)."]

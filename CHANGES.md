@@ -487,7 +487,7 @@ Above power 315 artifacts keep gaining: damage up to x5 and healing up to x2.5 a
 | Loot Quality Boost | rising to 18 at A+99 |
 | Enchanted Mob Chance Multiplier | keeps rising at its A+1-25 pace |
 | Enchanted Mob Power Multiplier | keeps rising at its A+1-25 pace |
-| XP Multiplier | from A+26, rising to 5 at A+99 |
+| XP Multiplier | rising to 5 at A+99 |
 | Mob Count Multiplier | from A+30, rising to 1.4 at A+99 |
 | Mob Resurrection Chance | from A+40, rising to 0.1 at A+99 |
 
@@ -546,6 +546,8 @@ Different boss missions to clear on the level in the first column.
 - Enchantments the item already has are skipped, unless the list says second copy; the last entry of a list is a spare for that.
 - Past power 365: every 5 power adds one tier of Sharpness (melee), Power (ranged), Protection (armor) as new lines under the other enchantments (I, II, III, then another line). Drops at power 365 or more come in 1-3 above your power level, so the number keeps climbing.
 - Armor: one more perk at power 330, 345, 360 - the first perks of its list below that it doesn't have yet.
+- A taste earlier: a unique's own built-in enchantments rise one tier at power 110 and 215 (about A+1 and A+20); bonus enchantments still start past the cap.
+- New drops of power 110 to 257 have a 8% chance to be gilded.
 - New drops of power 257 or more have a 20% chance to be gilded (tier I / II / III: 50% / 35% / 15%).
 - Merchant stock follows your gear power above the base game's ceiling.
 
@@ -723,6 +725,7 @@ Different boss missions to clear on the level in the first column.
 ## 7. Mobs
 
 - Enchanted mobs no longer roll: Deflect, Levitation Shot.
+- Enchanted mobs can now also roll: Echo, Fuse Shot, Leeching, Rampaging, Shockwave, Swirling, Thundering.
 - Deflect is switched off on every mob that carries it (ancient mobs and the Tower Guard included). The player's Deflect is unchanged.
 - Levitation Shot from mobs does nothing.
 - Thorns on mobs: damage returned 0.1 -> 0.03.
@@ -760,6 +763,7 @@ These event items drop in missions like the other uniques of their family (base 
 - Speed kept right after a roll: 0.8 -> 1.
 - Enchantsmith (gold): prices x0.1.
 - Piglin merchant (gold): prices x0.5.
+- Start in Apocalypse: a character that hasn't unlocked it gets Apocalypse unlocked, and a starter kit at power 70 (Sword, Bow, Scale Mail, Fireworks Arrow, Iron Hide Amulet, Death Cap Mushroom) if its gear is weaker (base game: Default and Adventure first).
 - Blacksmith: an upgrade takes 1 mission (base game: 3).
 - Blacksmith: an upgraded weapon or armor comes back at least at your power level (the game's own result stops near A+25 power).
 

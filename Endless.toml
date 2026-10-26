@@ -181,7 +181,7 @@ MobSpeedMultiplier = [[38, 1.85], [100, 2.0]]
 LootQualityBoost = 18.0            # 4.1 at A+25: more uniques / gilded
 EnchantedMobChanceMultiplier = "grow"
 EnchantedMobPowerMultiplier = "grow"
-XPMultiplier = { from = 26, to = 5.0 }
+XPMultiplier = 5.0                 # x2 at A+25 now (A+1-25 rewards, user 2026-10-27), x5 by A+99
 MobCountMultiplier = { from = 30, to = 1.4 }
 MobResurrectionChance = { from = 40, to = 0.1 }
 
@@ -192,6 +192,6 @@ MobDamageMultiplier = 6.75
 LootQualityBoost = 18.0            # 4.1 at A+25: more uniques / gilded
 EnchantedMobChanceMultiplier = "grow"
 EnchantedMobPowerMultiplier = "grow"
-XPMultiplier = { from = 26, to = 5.0 }
+XPMultiplier = 5.0                 # x2 at A+25 now (A+1-25 rewards, user 2026-10-27), x5 by A+99
 MobCountMultiplier = { from = 30, to = 1.5 }
 MobResurrectionChance = { from = 40, to = 0.1 }

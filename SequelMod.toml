@@ -10,13 +10,13 @@
 
 [Difficulty.EndlessStruggle]  # Apocalypse+ (Endless Struggle) scaling. Each stat goes from MinValue at level IntroducedAt to MaxValue at the top level. IntroducedAt 999 = off.
 "EndlessStruggle.XPMultiplier.MinValue" = 1.0  # default 1.0
-"EndlessStruggle.XPMultiplier.MaxValue" = 1.0  # default 1.0
-"EndlessStruggle.XPMultiplier.IntroducedAt" = 999  # default 999
+"EndlessStruggle.XPMultiplier.MaxValue" = 2.0  # default 1.0
+"EndlessStruggle.XPMultiplier.IntroducedAt" = 1  # default 999
 "EndlessStruggle.LootPowerMultiplier.MinValue" = 1.0  # default 1.0
 "EndlessStruggle.LootPowerMultiplier.MaxValue" = 1.046  # default 1.0
 "EndlessStruggle.LootPowerMultiplier.IntroducedAt" = 1  # default 999
 "EndlessStruggle.LootQualityBoost.MinValue" = 1.0  # default 1.0
-"EndlessStruggle.LootQualityBoost.MaxValue" = 4.1  # default 4.1
+"EndlessStruggle.LootQualityBoost.MaxValue" = 6.0  # default 4.1
 "EndlessStruggle.LootQualityBoost.IntroducedAt" = 1  # default 1
 "EndlessStruggle.ShopPriceMultiplier.MinValue" = 1.0  # default 1.0
 "EndlessStruggle.ShopPriceMultiplier.MaxValue" = 1.0  # default 1.0

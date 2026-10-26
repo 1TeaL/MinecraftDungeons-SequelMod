@@ -4,3 +4,13 @@
 # The Blacksmith's description in game still says 3; that text can't be changed.
 [blacksmith]
 missions = 1
+
+# Start in Apocalypse (user, 2026-10-27: skip the Default and Adventure grind, get into the fun fast). A character
+# that hasn't unlocked Apocalypse gets it unlocked; one whose gear is below kit_power also gets the kit below (plain
+# gear with fresh enchantment options, about Apocalypse I's power - Apocalypse VII is ~105). Done by the launcher while
+# the game is closed: a character made in this session is ready the next time you start through the launcher.
+# Set apocalypse = false to play the campaign from Default as normal.
+[start]
+apocalypse = true
+kit_power = 70
+kit = ["Sword", "Bow", "ScaleMail", "FireworksArrowItem", "IronHideAmulet", "DeathCapMushroom"]
