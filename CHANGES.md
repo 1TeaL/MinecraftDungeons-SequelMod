@@ -651,6 +651,7 @@ Different boss missions to clear on the level in the first column.
 | Champions Armor | Protection, Food Reserves, Thorns, Cool Down |
 | Climbing Gear | Cool Down, Protection, Snowball, Thorns |
 | Cloaked Skull | Acrobat, Lightning Focus, Protection, Cool Down |
+| Curious Armor | Acrobat, Multi-Roll, Swiftfooted, Protection |
 | Dark Armor | Bag Of Souls, Protection, Cool Down, Thorns |
 | Emerald Gear | Lucky Explorer, Death Barter, Luck Of The Sea, Protection |
 | Entertainer's Garb | Cool Down, Surprise Gift, Protection, Thorns |

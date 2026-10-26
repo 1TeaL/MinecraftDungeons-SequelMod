@@ -167,7 +167,8 @@ BattleRobe = ["Celerity", "LightningFocus", "Electrified", "Protection"]      # 
 SnowArmor = ["Snowing", "Protection", "Thorns", "Celerity"]                 # Snow Armor, Frost Armor
 EmeraldArmor = ["EmeraldDivination", "DeathBarter", "LuckOfTheSea", "Protection"]   # Emerald Gear, Opulent Armor, Gilded Glory
 ArchersStrappings = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]  # Hunter's Armor, Archer's Armor
-CowardsArmor = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]       # Guard's Armor, Curious Armor
+CowardsArmor = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]       # Guard's Armor
+CowardsArmor_Unique1 = ["Acrobat", "MultiDodge", "Swiftfooted", "Protection"]   # Curious Armor: the blink armor (2026-10-26)
 
 # Defensive packages by archetype (2026-10-08): not every armor ends on Potion Barrier + Protection + Cool Down.
 FullPlateArmor = ["Thorns", "Protection", "Celerity", "Burning"]          # heavy tanks: punish what hits them

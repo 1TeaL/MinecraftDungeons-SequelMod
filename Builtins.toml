@@ -241,3 +241,7 @@ FireTrail = 3
 
 ["Armor/EmeraldArmor_Unique1"]         # Opulent Armor (stat guide B): Lucky Explorer at tier III (2026-10-19)
 EmeraldDivination = 3
+
+["Armor/SproutArmor_Unique1"]           # Living Vines Armor: the poison armor - roll, root, poison (2026-10-26)
+Acrobat = 2
+add = { PoisonFocus = 2 }

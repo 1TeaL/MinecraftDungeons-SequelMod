@@ -9,11 +9,11 @@
 ["Armor/NatureArmor_Unique1"]          # Black Spot Armor: the potion armor -> potions come back faster
 add = ["PotionCooldownDecrease"]
 
-["Armor/WolfArmor_Unique2"]            # Black Wolf Armor: the pack armor -> a second aura for the group
-add = ["MoveSpeedAura"]
+["Armor/WolfArmor_Unique2"]            # Black Wolf Armor: the summoner - bat, bees, weapon aura, 35% DR (2026-10-26; was beaten by Fox)
+set = ["PetBat", "Beekeeper", "AllyDamageBoost", "SuperbDamageAbsorption"]
 
-["Armor/SpelunkersArmor_Unique1"]      # Cave Crawler: artifact damage -> artifacts ready more often, and 35% damage reduction
-add = ["ItemCooldownDecrease", "SuperbDamageAbsorption"]   # (stat guide BL; 35% DR added 2026-10-19)
+["Armor/SpelunkersArmor_Unique1"]      # Cave Crawler: the artifact armor with its bat - no weapon aura (2026-10-26, stat guide BL)
+set = ["ItemDamageBoost", "ItemCooldownDecrease", "PetBat", "SuperbDamageAbsorption"]
 
 ["Armor/SpelunkersArmor_Year1"]        # Sweet Tooth: the team potion armor - its own perks, not Cave Crawler's (2026-10-26)
 set = ["PotionCooldownDecrease", "AreaHeal", "HealingAura", "SuperbDamageAbsorption"]
@@ -36,8 +36,8 @@ add = ["SuperbDamageAbsorption"]
 ["Armor/WolfArmor_Winter1"]            # Arctic Fox Armor: the ranged pet armor - its own perks, not the Fox's (2026-10-26)
 set = ["RangedDamageBoost", "IncreasedArrowBundleSize", "SuperbDamageAbsorption"]
 
-["Armor/PhantomArmor_Unique1"]         # Frost Bite: souls and ranged -> more arrows to shoot
-add = ["IncreasedArrowBundleSize"]
+["Armor/PhantomArmor_Unique1"]         # Frost Bite: a clean ranged armor - no +50% souls (2026-10-26, stat guide C)
+set = ["RangedDamageBoost", "IncreasedArrowBundleSize", "MissChance"]
 
 ["Armor/MercenaryArmor_Spooky1"]       # Hungry Horror: retaliation tank -> heals while it fights
 add = ["LifeStealAura"]
@@ -53,3 +53,6 @@ add = ["SuperbDamageAbsorption"]       # 35% damage reduction (2026-10-19)
 
 ["Armor/GhostArmor_Spooky2"]           # Cloaked Skull: the lightning roller - ghost roll, ranged damage, negate (2026-10-26)
 set = ["DodgeGhostForm", "RangedDamageBoost", "MissChance"]
+
+["Armor/CowardsArmor_Unique1"]         # Curious Armor: the blink armor - teleport when hit, negate, fast rolls (2026-10-26;
+set = ["TeleportChance", "MissChance", "DodgeSpeedIncrease", "ItemCooldownDecrease"]   # was beaten by its own Guard's Armor)
