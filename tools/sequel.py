@@ -25,6 +25,7 @@ from locres import Locres  # noqa: E402
 from effects import EFFECTS, EXTRA_PROPS, modifiers_node  # noqa: E402
 from uasset import Package, add_properties, set_export_properties  # noqa: E402
 from memprobe import pid_of  # noqa: E402
+import settings  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent          # Mods/SequelMod
 GAME = ROOT.parent.parent                              # MinecraftDungeons
@@ -32,10 +33,10 @@ EXTRACT = GAME / "Mods" / "Dungeons BMS" / "BMS output"
 U4PAK = GAME / "Mods" / "Dungeons-Mod-Kit-master" / "Tools" / "py" / "u4pak.py"
 OUT_PAK = GAME / "Dungeons" / "Content" / "Paks" / "~mods" / "SequelMod_P.pak"
 STAGED_PAK = ROOT / "staged" / OUT_PAK.name   # built here while the game is running
-CONFIG = ROOT / "SequelMod.toml"
-TEXT_CONFIG = ROOT / "SequelText.toml"
-GEAR_CONFIG = ROOT / "SequelGear.toml"
-ENDLESS_CONFIG = ROOT / "Endless.toml"
+CONFIG = settings.path("SequelMod.toml")
+TEXT_CONFIG = settings.path("SequelText.toml")
+GEAR_CONFIG = settings.path("SequelGear.toml")
+ENDLESS_CONFIG = settings.path("Endless.toml")
 LOCRES = "Dungeons/Content/Localization/Game/{lang}/Game.locres"
 INDEX = ROOT / "tools" / "fields.json"
 BUILD = ROOT / "build"
@@ -530,6 +531,8 @@ def build_text(changes_):
 def build(out_pak=None):
     staged = out_pak is None and pid_of() is not None   # the game keeps its .pak open while it runs
     out_pak = Path(out_pak) if out_pak else STAGED_PAK if staged else OUT_PAK
+    for problem in settings.problems("Build.toml"):   # a typo in Build.toml: say so, keep going
+        print(problem)
     todo, errors = changes()
     texts, text_errors = text_changes()
     errors += text_errors
@@ -614,7 +617,7 @@ def build(out_pak=None):
 
     endless_files = endless.build(BUILD, EXTRACT, ENDLESS_CONFIG) if ENDLESS_CONFIG.exists() else []
     bars.build(BUILD, EXTRACT, GEAR_CONFIG)
-    player.build(BUILD, EXTRACT, ROOT / "Player.toml")
+    player.build(BUILD, EXTRACT, settings.path("Player.toml"))
     build_text(texts)
     out_pak.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run([sys.executable, str(U4PAK), "pack", str(out_pak), "Dungeons"], cwd=BUILD, check=True)

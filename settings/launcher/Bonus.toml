@@ -255,12 +255,9 @@ BardsGarb = ["AllyDamageBoost", "SuperbDamageAbsorption", "MoveSpeedAura", "Miss
 # change. An item whose power changes (Blacksmith upgrade) counts as new.
 # The bonus enchantments themselves start at the gear cap (316), as before.
 [gilded]
-from_power = 257
-early_from = 110       # from about A+1 a smaller chance (user, 2026-10-27)
-early_chance = 0.08
+# chance, from_power, early_chance, early_from: in Settings.toml, section GEAR
 pool = "any"      # "any": any enchantment that can roll on that kind of gear, like the game's own gilded items
                   # "list": only the names of the item's bonus list above
-chance = 0.2
 tier_chances = [0.5, 0.35, 0.15]
 
 # Merchant stock (user, 2026-10-07: 'whatever formula they had before but just scale beyond base game'): the game
@@ -277,4 +274,4 @@ game_ceiling = 254
 # the missions won, and its difficulties end at A+25. With this on, a collected upgrade below your power level (the
 # save's gear power, as for the merchants) is raised to it, once, after the game next saves. Never lowered.
 [blacksmith]
-match_power = true
+# match_power: in Settings.toml, section GEAR

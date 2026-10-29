@@ -1,9 +1,10 @@
-"""Start in Apocalypse with a starter kit (QoL.toml [start]) - a save edit, made by the launcher while the game is closed.
+"""Start in Apocalypse with a starter kit (Settings.toml [start]) - a save edit, made by the launcher while the game is closed.
 
     python tools/start_kit.py            # apply to every character now (the game must be closed)
 
-A character that hasn't unlocked Apocalypse yet gets it unlocked (and selected), so the Default and Adventure
-campaigns can be skipped; a character whose gear is below the kit's power also gets the kit: plain gear at about
+Only new characters are changed (user, 2026-10-28): ones still below the starting level (below level 10 if the
+starting level is 1), so a character already played for a while is left as it is. A new character that hasn't
+unlocked Apocalypse yet gets it unlocked (and selected), so the Default and Adventure campaigns can be skipped; a character whose gear is below the kit's power also gets the kit: plain gear at about
 Apocalypse I's power (~70; Apocalypse VII is ~105). Each kit item offers three random enchantment options per slot,
 like a fresh drop. A character is changed once: afterwards it has Apocalypse unlocked. The launcher does this
 before it starts the game and again after the game closes, so a character made in this session is ready next time.
@@ -17,9 +18,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import savefile  # noqa: E402
+import settings  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "QoL.toml"
+CONFIG = settings.path("QoL.toml")
 POOLS = json.loads((ROOT / "tools" / "enchant_pools.json").read_text())
 ARMOR_PERKS = json.loads((ROOT / "research" / "armor_props_raw.json").read_text())
 SAVES = Path.home() / "Saved Games" / "Mojang Studios" / "Dungeons"
@@ -48,7 +50,7 @@ def options(kind, rng):
 
 
 def apply(quiet=False):
-    cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")).get("start", {}) if CONFIG.exists() else {}
+    cfg = settings.load(CONFIG).get("start", {})
     start = cfg.get("start", "apocalypse" if cfg.get("apocalypse") else "off")
     if start not in DIFFICULTY:
         return
@@ -64,9 +66,11 @@ def apply(quiet=False):
             data = json.loads(savefile.decrypt(f.read_bytes()))
         except Exception:  # noqa: BLE001 - no key yet, or not a character save
             continue
-        diff = data.setdefault("difficulties", {})
-        if diff.get("unlocked", "Difficulty_1") >= target:
+        diff = data.get("difficulties")
+        if not isinstance(diff, dict):   # an empty slot, never played (no difficulties yet): left for when it is
             continue
+        if diff.get("unlocked", "Difficulty_1") >= target or data.get("xp", 0) >= xp_for(level if level > 1 else 10):
+            continue                     # there already, or not a new character
         diff.update({"unlocked": target, "selected": target, "announced": target})
         added = 0
         if data.get("totalGearPower", 0) < power:
@@ -87,7 +91,7 @@ def apply(quiet=False):
         f.write_bytes(savefile.encrypt(json.dumps(data, indent=1)))
         json.loads(savefile.decrypt(f.read_bytes()))   # read back
         if not quiet:
-            print(f"Start in {start.title()}: {data.get('name', f.stem)} - {start.title()} unlocked"
+            print(f"Start in {start.title()}: {data.get('name') or 'character ' + f.stem[:8]} - {start.title()} unlocked"
                   + (f", starter kit ({added} items at power {power:g})" if added else "")
                   + (f", level {level}" if raised else ""))
 

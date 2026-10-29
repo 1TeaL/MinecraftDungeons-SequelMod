@@ -1,4 +1,4 @@
-"""The player's movement settings (Player.toml), built into the pak by `sequel.py build`.
+"""The player's movement settings (Build.toml [player]), built into the pak by `sequel.py build`.
 
 The player character blueprint (Dungeons/Content/Actors/Characters/Player/BP_PlayerCharacter) keeps a few movement
 numbers in its movement component (CharMoveComp): how much speed is left right after a roll
@@ -8,7 +8,7 @@ The other two post-roll settings (braking and turning: DodgeEndSlowBrakingFactor
 and the length of the post-roll moment (PostDodgeDuration) are not stored in the blueprint and stay as they are.
 """
 import struct
-import tomllib
+import settings
 from pathlib import Path
 
 from uasset import Package
@@ -19,9 +19,9 @@ SETTINGS = {"speed_after_roll": ("DodgeEndSlowSpeedFactor", 0.1, 2.0), "walk_spe
 
 
 def build(build_root, extract_root, config):
-    """Write the blueprint with Player.toml's numbers under build_root. Returns the files written."""
+    """Write the blueprint with Build.toml's movement numbers under build_root. Returns the files written."""
     src = Path(extract_root) / ASSET
-    cfg = tomllib.loads(Path(config).read_text(encoding="utf-8")) if Path(config).exists() else {}
+    cfg = settings.load(config)
     if not src.exists() or not cfg:
         return []
     pkg = Package(src)
@@ -30,13 +30,13 @@ def build(build_root, extract_root, config):
     data, notes = bytearray(pkg.data), []
     for key, value in cfg.items():
         if key not in SETTINGS:
-            raise SystemExit(f"Player.toml: unknown setting {key!r} (known: {', '.join(SETTINGS)})")
+            raise SystemExit(f"Build.toml [player]: unknown setting {key!r} (known: {', '.join(SETTINGS)})")
         name, low, high = SETTINGS[key]
         p = props.get(name)
         if not p or p["type"] != "FloatProperty":
-            raise SystemExit(f"Player.toml {key}: the game's blueprint doesn't hold {name} - nothing built")
+            raise SystemExit(f"Build.toml [player] {key}: the game's blueprint doesn't hold {name} - nothing built")
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not low <= value <= high:
-            raise SystemExit(f"Player.toml {key}: expected a number from {low:g} to {high:g}, got {value!r}")
+            raise SystemExit(f"Build.toml [player] {key}: expected a number from {low:g} to {high:g}, got {value!r}")
         if abs(p["value"] - value) > 1e-6:
             struct.pack_into("<f", data, p["pos"], float(value))
             notes.append(f"{name}: {p['value']:g} -> {value:g}")
@@ -50,7 +50,7 @@ def build(build_root, extract_root, config):
     again = {p["name"]: p["value"] for p in check.export_props(next(e for e in check.exports if e["name"] == COMPONENT))}
     for key, value in cfg.items():
         if abs(again[SETTINGS[key][0]] - value) > 1e-4:
-            raise SystemExit(f"Player.toml {key}: wrote {value!r}, read back {again[SETTINGS[key][0]]!r}")
+            raise SystemExit(f"Build.toml [player] {key}: wrote {value!r}, read back {again[SETTINGS[key][0]]!r}")
     for note in notes:
         print(f"  player {note}")
     return [dest]
@@ -59,7 +59,7 @@ def build(build_root, extract_root, config):
 def changes(extract_root, config):
     """[(setting, game value, mod value)] for the change sheet."""
     src = Path(extract_root) / ASSET
-    cfg = tomllib.loads(Path(config).read_text(encoding="utf-8")) if Path(config).exists() else {}
+    cfg = settings.load(config)
     if not src.exists() or not cfg:
         return []
     pkg = Package(src)

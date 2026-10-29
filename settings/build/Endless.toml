@@ -1,0 +1,133 @@
+# Endless Apocalypse: what the Apocalypse+ table does past A+25.
+#
+# Only matters when the launcher raises the cap (python tools/play.py --endless). A+1-25 are never
+# changed by this file, and a normal Steam launch (25 levels) plays exactly as if it wasn't here.
+# Everything here is built into the pak; the launcher only raises the level cap.
+#
+# Per stat (row of [Difficulty.EndlessStruggle] in SequelMod.toml), one of:
+#   "freeze"                 keep the A+25 value - the game's own behaviour, and the default
+#   "grow"                   keep changing at the same per-level rate as A+1-25
+#   <number>                 straight line from the A+25 value to this value at A+99
+#   { from = 30, to = 1.5 }  a stat that's off up to A+25: starts at A+<from>, reaches <to> at A+99
+#                            (add until = 85 to reach <to> at A+85 and stay there)
+#   [[85, 2.25], [100, 1.5]] straight lines from the A+25 value through these [level, value] points
+#                            (multipliers start from 1.0, chances from 0)
+#
+# Build with: python tools/sequel.py build
+
+# Gear and mob power past A+25. The game stops both gear and mobs getting stronger at one fixed point, gear power
+# 315 (stored value; the game shows it as 316). Design (2026-10-05):
+#   A+26 .. cap_level   gear climbs from 254 to that cap, mobs keep pace.
+#   after cap_level     the power number only counts up to top_power at A+100. Gear is no stronger for it, but
+#                       the launcher gives gear above the cap bonus built-in enchantments step by step
+#                       (Bonus.toml), and the mob health/damage values (Build.toml) rise to match.
+# mode: "slow" (this design), "natural" (the game's own pace until the cap, flat after), "off".
+[power]
+mode = "slow"
+cap_level = 38
+top_power = 365
+
+# A+100, the finale: values of its own for that one level. Any stat of the A+ table can be listed.
+# Mob modifiers are left alone here (user, 2026-10-05): the finale is simply the top of the climb, with better rewards.
+[finale]
+# Its XP and loot quality: set in Build.toml, section REWARDS.
+
+# Trials: `levels` levels ending at `level` (a whole unlock block: 56-58, 65-67, 74-76, 83-85, 92-94; user,
+# 2026-10-12: with gear capped at A+38 there is room for trials to last longer) where a stat jumps to a multiple of
+# its A+100 value, and is back on its curve at the next level. Each previews one piece of the finale, slightly above it (user, 2026-10-06: A+100 is everything at once,
+# so a single stat can go a bit higher). Any row that changes past A+25 can be listed: <row> = <times the A+100 value>.
+# Trials pay better too: loot quality at half the finale's, XP at 0.7 of it.
+# Each sits on the top level of an unlock block (58, 67, 76, 85, 94: every third block from A+50, see Unlock.toml tops), the level whose
+# boss missions open the next block, so a trial can't be skipped and a block never changes character halfway.
+[[trial]]
+level = 58
+levels = 3
+name = 'The Horde'
+MobCountMultiplier = 1.15
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+[[trial]]
+level = 67
+levels = 3
+name = 'The Enchanted'
+EnchantedMobChanceMultiplier = 1.15
+EnchantedMobPowerMultiplier = 1.15
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+[[trial]]
+level = 76
+levels = 3
+name = 'The Undying'
+MobResurrectionChance = 2.0
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+[[trial]]
+level = 85
+levels = 3
+name = 'The Titans'      # the damage check: can the build still kill
+MobMaxHealthMultiplier = 1.25
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+[[trial]]
+level = 94
+levels = 3
+name = 'The Berserkers'      # the survival check, last stop before the A+95-100 run
+MobDamageMultiplier = 1.3
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+# The final run (user, 2026-10-12): A+95-99 go through the five trials once more, one level each, before A+100
+# puts everything together.
+[[trial]]
+level = 95
+name = 'The Horde'
+MobCountMultiplier = 1.15
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+[[trial]]
+level = 96
+name = 'The Enchanted'
+EnchantedMobChanceMultiplier = 1.15
+EnchantedMobPowerMultiplier = 1.15
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+[[trial]]
+level = 97
+name = 'The Undying'
+MobResurrectionChance = 2.0
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+[[trial]]
+level = 98
+name = 'The Titans'
+MobMaxHealthMultiplier = 1.25
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+[[trial]]
+level = 99
+name = 'The Berserkers'
+MobDamageMultiplier = 1.3
+LootQualityBoost = 0.5
+XPMultiplier = 0.7
+
+# Regular mobs drop gold past A+25 only. The chance climbs in a straight line between the two values.
+# OFF for now: the way it edited the mission map crashed the game when starting a mission.
+[gold]
+enabled = false
+chance_at_26 = 0.02
+chance_at_99 = 0.08
+min_amount = 1
+max_amount = 3
+
+# How mobs, healing and rewards change from A+26 to A+99 (mob health, damage, speed, knockback, count, revives,
+# healing received, XP, loot quality): set in Build.toml in the mod's main folder, which fills in this section.
+# Rows listed here directly are used too, for any A+ row Build.toml doesn't name.
+[natural]

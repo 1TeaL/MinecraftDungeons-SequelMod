@@ -22,7 +22,7 @@ level (milestone levels count for more, so power jumps there). Nothing in the ga
 The last level (LAST) is a finale with its own values ([finale] in Endless.toml).
 """
 import struct
-import tomllib
+import settings
 
 from uasset import Package, add_imports, clone_curve, curve_keys, set_export_properties
 
@@ -56,7 +56,7 @@ def t_at(level, introduced):
 
 def load(config_path):
     """(profile name, {row: spec}) or exits with a message."""
-    cfg = tomllib.loads(config_path.read_text(encoding="utf-8"))
+    cfg = settings.load(config_path)
     profile = cfg.get("profile", "natural")
     if not isinstance(cfg.get(profile), dict):
         raise SystemExit(f"{config_path.name}: no [{profile}] section for profile = \"{profile}\"")
@@ -65,12 +65,12 @@ def load(config_path):
 
 def gold_settings(config_path):
     """[gold] from Endless.toml, with defaults (also read by the launcher's code patch)."""
-    cfg = tomllib.loads(config_path.read_text(encoding="utf-8")) if config_path.exists() else {}
+    cfg = settings.load(config_path)
     return {**GOLD_DEFAULTS, **cfg.get("gold", {})}
 
 
 def power_settings(config_path):
-    cfg = tomllib.loads(config_path.read_text(encoding="utf-8")) if config_path.exists() else {}
+    cfg = settings.load(config_path)
     p = {**POWER_DEFAULTS, **cfg.get("power", {})}
     if p["mode"] not in POWER_MODES:
         raise SystemExit(f"{config_path.name}: [power] mode must be one of {', '.join(POWER_MODES)}")
@@ -91,7 +91,7 @@ def power_settings(config_path):
 
 
 def finale_settings(config_path):
-    cfg = tomllib.loads(config_path.read_text(encoding="utf-8")) if config_path.exists() else {}
+    cfg = settings.load(config_path)
     return cfg.get("finale", {})
 
 
@@ -299,7 +299,7 @@ def value_at(level, mn, mx, intro, keys):
 
 
 def trial_settings(config_path):
-    cfg = tomllib.loads(config_path.read_text(encoding="utf-8")) if config_path.exists() else {}
+    cfg = settings.load(config_path)
     return cfg.get("trial", [])
 
 

@@ -32,8 +32,9 @@ import perks_patch as pp  # noqa: E402
 from aplus_patch import open_game, pid_of  # noqa: E402
 from live_objects import Scanner  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
-CONFIG = Path(__file__).resolve().parent.parent / "Bonus.toml"
+CONFIG = settings.path("Bonus.toml")
 ITEM_VTABLE = 0x346FCF8
 ITEM_TYPE, ITEM_POWER, ITEM_PERKS = 0x34, 0x3C, 0x50
 BASE_ITEM = 0x228             # an item definition's plain item (tools/drops_patch.py)
@@ -144,7 +145,7 @@ class Watch:
         self.own_scanner = scanner is None      # the launcher shares one scanner between its watchers
         self.scanner = scanner or Scanner(h, base)
         self.item_vt = self.scanner.register(ITEM_VTABLE) if base else 0
-        self.cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+        self.cfg = settings.load(CONFIG)
         self.cap, self.step = self.cfg["thresholds"]["cap"], self.cfg["thresholds"]["step"]
         self.final = self.cfg["thresholds"].get("final", 0)
         self.early = self.cfg["thresholds"].get("early", [])   # power levels below the cap that give a step too

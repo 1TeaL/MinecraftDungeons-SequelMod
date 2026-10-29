@@ -1,0 +1,77 @@
+#####################################################################################################################
+#                                                                                                                   #
+#                                       SEQUEL MOD  -  BUILD SETTINGS                                               #
+#                                                                                                                   #
+#####################################################################################################################
+#
+# THESE NEED A REBUILD. They are built into the mod's pak file, so a change here does nothing until you run
+#       python tools/sequel.py build
+# and start the game with "Play Sequel Mod.bat". This needs the full source from GitHub and the game's files
+# extracted (README, "Building it yourself"); the release zip can't rebuild. Settings that need no rebuild are in
+# Settings.toml.
+#
+#   true / false are written in lower case; text goes in "quotes". Each value lives only here: to undo a change,
+#   set the value shown as "game" in its comment rather than deleting the line. A misspelled setting is shown when
+#   building and ignored.
+#
+# HOW THE A+ VALUES ARE WRITTEN (A+1 to A+25 are never changed; these say what happens from A+26 on)
+#   "freeze"                  stay at the A+25 value (the game's own behaviour)
+#   "grow"                    keep changing at the same per-level pace as A+1-25
+#   5.0                       a straight line from the A+25 value to this value at A+99
+#   [[38, 1.5], [100, 7.5]]   straight lines through these [A+ level, value] points: here held at 1.5 to A+38
+#                             (where gear stops getting stronger), then up to 7.5 at A+100
+#   { from = 30, to = 1.4 }   off up to A+25: starts at A+30, reaches 1.4 at A+99
+#
+# SECTIONS (search for the name in capitals)
+#   1. MOBS ............ mob health, damage, speed, knockback, numbers, revives
+#   2. PLAYER .......... healing received, movement
+#   3. REWARDS ......... XP and loot quality
+#   4. MORE SETTINGS ... the detailed build files
+
+
+#####################################################################################################################
+#  1. MOBS  -  from A+26 to A+100. Gear stops getting stronger at A+38; past it, bonus enchantments make up the gap.
+#####################################################################################################################
+[mobs]
+health = [[38, 1.5], [100, 7.5]]          # mob health: x1.5 (the A+25 value) held to A+38, x5 of that by A+100
+damage = [[38, 1.5], [100, 4.5]]          # mob damage: x3 by A+100 - "you do more damage but you take more"
+speed = [[38, 1.85], [100, 2.0]]          # mob speed: the game's 1.85x held to A+38, 2x by A+100
+knockback = [[38, 0.3], [100, 0.6]]       # knockback on mobs: 30% -> 60% (handed back to the player past the cap)
+count = { from = 30, to = 1.4 }           # more mobs: from A+30, 1.4x by A+99
+revive_chance = { from = 40, to = 0.1 }   # chance a mob comes back: from A+40, 10% by A+99
+enchanted_chance = "grow"                 # how often mobs are enchanted
+enchanted_power = "grow"                  # how strong their enchantments are
+# Stuns and stagger stay at their A+25 values all the way (30% stun duration, 10x stagger resistance).
+
+
+#####################################################################################################################
+#  2. PLAYER
+#####################################################################################################################
+[player]
+healing_received = [[38, 0.7], [100, 1.0]]   # healing you get: the A+25 70% held to A+38, back to 100% by A+100
+speed_after_roll = 1.0    # share of your speed kept right after a roll. game: 0.8. 1.0 = no slowdown after rolling
+# walk_speed = 700        # walking speed. game: 700 (remove the # to set it)
+
+
+#####################################################################################################################
+#  3. REWARDS
+#####################################################################################################################
+[rewards]
+xp = 5.0                    # XP multiplier: x2 at A+25, x5 by A+99
+loot_quality = 18.0         # more uniques and gilded drops: 4.1 at A+25, 18 by A+99
+finale_xp = 10.0            # A+100 only
+finale_loot_quality = 100.0 # A+100 only
+
+
+#####################################################################################################################
+#  4. MORE SETTINGS  -  the detailed build files (settings/build/). Also need a rebuild.
+#####################################################################################################################
+#
+#   SequelGear.toml ...... every weapon and bow: damage, swing speed, reach, fire rate, ammo
+#   SequelMod.toml ....... every value in the game's files: enchantments, armor perks, artifacts, A+1-25
+#   SequelText.toml ...... in-game descriptions
+#   Endless.toml ......... gear power past A+25 (keep in step with Bonus.toml and ArtifactScaling.toml),
+#                          the trial levels, the finale, gold drops
+#   StackNotes.toml ...... the "stacks" notes in enchantment descriptions
+#
+#   python tools/sequel.py diff   lists every value that differs from the game's own.

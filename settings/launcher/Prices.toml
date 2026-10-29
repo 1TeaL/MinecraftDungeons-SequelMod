@@ -5,5 +5,5 @@
 # Merchants: enchantmentmerchant (Enchantsmith), piglinmerchant, shopkeeper (Village Merchant), luxurymerchant,
 # mysterymerchant, blacksmith, giftwrapper. The first two take gold, the rest emeralds.
 
-enchantmentmerchant = 0.1    # rerolls at a tenth: base 20 -> 2 (user, 2026-10-07: 'like 10 gold')
-piglinmerchant = 0.5         # gilded gear for gold at half: base 12 -> 6, restock 5 -> 2
+# enchantmentmerchant (rerolls, base 20 gold) and piglinmerchant (gilded gear, base 12 gold, restock 5): in
+# Settings.toml, section PRICES. The other merchants can be listed here.

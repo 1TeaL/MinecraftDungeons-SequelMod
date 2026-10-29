@@ -23,9 +23,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from memprobe import read  # noqa: E402
 from mempatch import k32  # noqa: E402
+import settings  # noqa: E402
 
 TOOLS = Path(__file__).resolve().parent
-CONFIG = TOOLS.parent / "Builtins.toml"
+CONFIG = settings.path("Builtins.toml")
 REGISTRY = json.loads((TOOLS / "item_registry.json").read_text())
 IDS = json.loads((TOOLS / "enchant_ids.json").read_text())
 NAMES = {v: k for k, v in IDS.items()}
@@ -106,7 +107,7 @@ def write(h, addr, data):
 
 
 def apply(h, base, config=CONFIG):
-    plan = tomllib.loads(config.read_text(encoding="utf-8")) if config.exists() else {}
+    plan = settings.load(config)
     changed = 0
     for item, changes in plan.items():
         if item not in REGISTRY:

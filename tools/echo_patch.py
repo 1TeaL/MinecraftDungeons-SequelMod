@@ -22,8 +22,9 @@ from aplus_patch import open_game, pid_of  # noqa: E402
 from builtins_patch import write  # noqa: E402
 from live_objects import Scanner  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
-CONFIG = Path(__file__).resolve().parent.parent / "Echo.toml"
+CONFIG = settings.path("Echo.toml")
 VTABLE, BASE_GAP = 0x32B9548, 0x1F8
 VANILLA = (5.0, 0.2, 2.0)        # +0x1F8, +0x1FC, +0x200 as the game sets them
 MIN_TIER3_GAP = 0.05             # a timer of 0 s never fires: Echo would stop working
@@ -35,7 +36,7 @@ class EchoWatch:
         self.own_scanner = scanner is None
         self.scanner = scanner or Scanner(h, base)
         self.vt = self.scanner.register(VTABLE)
-        cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+        cfg = settings.load(CONFIG)
         gap3 = max(MIN_TIER3_GAP, float(cfg.get("tier3_gap", VANILLA[0] - 2)))
         self.value = gap3 + 2      # tier 1 = value, tier 2 = value - 1, tier 3 = value - 2
         self.changed = 0

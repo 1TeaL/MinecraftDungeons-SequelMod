@@ -30,9 +30,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aplus_patch import open_game  # noqa: E402
 from builtins_patch import write  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "MobPool.toml"
+CONFIG = settings.path("MobPool.toml")
 IDS = json.loads((ROOT / "tools" / "enchant_ids.json").read_text())
 GEAR, TYPE_ID, MOBS, OFF = 0x00, 0x03, 0xD3, 0xD5
 TABLE = 0x44EF680     # global: pointer to the definitions by type id (8 bytes each)
@@ -54,7 +55,7 @@ def definition(h, base, name):
 
 
 def apply(h, base):
-    plan = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+    plan = settings.load(CONFIG)
     changed = []
     # [pool] name = true / false (every mob enchantment listed; 2026-10-18), or the older remove / add lists
     pool = plan.get("pool", {})

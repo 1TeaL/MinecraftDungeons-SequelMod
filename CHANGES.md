@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-27 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-10-29 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -334,22 +334,26 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 
 | Item | Type | Base game | Mod |
 |---|---|---|---|
-| Arctic Fox Armor | Armor | - | Beast Burst 2, Beast Surge 2 |
+| Arctic Fox Armor | Armor | - | Bows Boon 2, Beast Surge 2 |
 | Black Spot Armor | Armor | Food Reserves 1 | Food Reserves 3 |
 | Black Wolf Armor | Armor | Acrobat 1 | Acrobat 3 |
 | Cauldron Armor | Armor | - | Burning 2, Fire Focus 2 |
-| Cloaked Skull | Armor | Fire Trail 1 | Electrified 2, Multi-Roll 2 |
+| Cloaked Skull | Armor | Fire Trail 1 | Electrified 2, Lightning Focus 2 |
 | Ember Robe | Armor | Burning 1 | Burning 3 |
 | Frost Armor | Armor | Chilling 2 | Chilling 3 |
 | Frost Bite | Armor | Snowball 1 | Snowball 3 |
+| Ghost Kindler | Armor | Fire Trail 1 | Fire Trail 3 |
 | Gilded Glory | Armor | Lucky Explorer 1, Death Barter 1 | Lucky Explorer 3, Death Barter 3 |
 | Goat Gear | Armor | Multi-Roll 1 | Multi-Roll 2 |
 | Golden Piglin Armor | Armor | Surprise Gift 1 | Surprise Gift 3 |
 | Hungriest Horror | Armor | - | Reckless 2, Frenzied 2 |
 | Hungry Horror | Armor | - | Thorns 2, Gravity Pulse 2 |
+| Living Vines Armor | Armor | Acrobat 1 | Acrobat 2, Poison Focus 2 |
 | Nimble Turtle Armor | Armor | Rush 1 | Rush 3 |
+| Opulent Armor | Armor | Lucky Explorer 1 | Lucky Explorer 3 |
 | Sweet Tooth | Armor | - | Surprise Gift 2, Food Reserves 2 |
 | The Spooky Gourdian | Armor | - | Final Shout 2, Death Barter 2 |
+| Unstable Robes | Armor | Void Blast 1 | Void Blast 3 |
 | Bonehead Hammer | Melee | - | Exploding 1 |
 | Broadsword | Melee | Sharpness 1 | Sharpness 3 |
 | Cackling Broom | Melee | Smiting 1 | Swirling 2, Gravity 2 |
@@ -365,11 +369,11 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 | Maulers | Melee | Rampaging 1 | Rampaging 2 |
 | Nightmare's Bite | Melee | Poison Cloud 1 | Poison Cloud 3 |
 | Sheer Daggers | Melee | Swirling 1 | Swirling 3 |
-| Sinister Sword | Melee | Critical Hit 1 | Leeching 2, Radiance 2 |
-| Skull Scythe | Melee | Freezing 1 | Enigma Resonator 2, Soul Siphon 2 |
+| Sinister Sword | Melee | Critical Hit 1 | Leeching 2, Unchanting 2 |
+| Skull Scythe | Melee | Freezing 1 | Anima Conduit 2, Soul Siphon 2 |
 | Soul Fists | Melee | Enigma Resonator 1 | Enigma Resonator 2 |
 | Sparkler | Melee | Rampaging 1 | Artifact Synergy 3 |
-| Spine-Chill Spear | Melee | Echo 1 | Void Strike 3 |
+| Spine-Chill Spear | Melee | Echo 1 | Ambush 2, Void Strike 2 |
 | Sponge Striker | Melee | Sponge Strike 1 | Pain Cycle 3 |
 | Stormlander | Melee | Thundering 1 | Thundering 3 |
 | Swift Striker | Melee | Echo 1 | Echo 3 |
@@ -395,7 +399,7 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 | Shivering Bow | Ranged | Tempo Theft 1 | Anima Conduit 2, Soul Siphon 2 |
 | Shrieking Crossbow | Ranged | Shadow Barb 1 | Tempo Theft 2 |
 | Slayer Crossbow | Ranged | Ricochet 1 | Ricochet 3 |
-| Sugar Rush | Ranged | Wild Rage 1 | Accelerate 3 |
+| Sugar Rush | Ranged | Wild Rage 1 | Overcharge 2, Accelerate 2 |
 | The Slicer | Ranged | Piercing 1 | Piercing 3 |
 | Twin Bow | Ranged | Bonus Shot 1 | Bonus Shot 3 |
 | Webbed Bow | Ranged | - | Shock Web 2, Gravity 2 |
@@ -405,18 +409,15 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 | Armor | Added perk |
 |---|---|
 | Archer's Armor | Item Cooldown Decrease |
-| Arctic Fox Armor | Superb Damage Absorption |
 | Black Spot Armor | Potion Cooldown Decrease |
-| Black Wolf Armor | Move Speed Aura |
-| Cave Crawler | Item Cooldown Decrease |
 | Fox Armor | Superb Damage Absorption |
-| Frost Bite | Increased Arrow-Bundle Size |
 | Golden Piglin Armor | Item Cooldown Decrease |
 | Guard's Armor | Ranged Damage Boost |
 | Hungry Horror | Life Steal Aura |
 | Nimble Turtle Armor | Life Steal Aura |
 | Rugged Climbing Gear | Miss Chance |
-| Sweet Tooth | Potion Cooldown Decrease |
+| Souldancer Robe | Superb Damage Absorption |
+| Unstable Robes | Dodge Invulnerability |
 
 ## 5. Artifacts
 
@@ -455,6 +456,7 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 | Totem of Regeneration | Duration | 10 | 15 |
 | Totem of Shielding | Cooldown | 20 | 12 |
 | Updraft Tome | Cooldown | 10 | 8 |
+| Void Quiver | Cooldown | 25 | 15 |
 | Wonderful Wheat | Cooldown | 30 | 15 |
 | Wonderful Wheat | Deal Damage Multiplier | 1 | 1.75 |
 | Wonderful Wheat | Increased Max Health Multiplier | 3 | 4.5 |
@@ -482,17 +484,17 @@ Above power 315 artifacts keep gaining: damage up to x5 and healing up to x2.5 a
 |---|---|
 | Mob Max Health Multiplier | 1.5 at A+38; 7.5 at A+100 |
 | Mob Damage Multiplier | 1.5 at A+38; 4.5 at A+100 |
-| Player Receive Healing Multiplier | 0.7 at A+38; 1 at A+100 |
-| Mob Pushback Multiplier | 0.3 at A+38; 0.6 at A+100 |
 | Mob Speed Multiplier | 1.85 at A+38; 2 at A+100 |
-| Loot Quality Boost | rising to 18 at A+99 |
-| Enchanted Mob Chance Multiplier | keeps rising at its A+1-25 pace |
-| Enchanted Mob Power Multiplier | keeps rising at its A+1-25 pace |
-| XP Multiplier | rising to 5 at A+99 |
+| Mob Pushback Multiplier | 0.3 at A+38; 0.6 at A+100 |
 | Mob Count Multiplier | from A+30, rising to 1.4 at A+99 |
 | Mob Resurrection Chance | from A+40, rising to 0.1 at A+99 |
+| Enchanted Mob Chance Multiplier | keeps rising at its A+1-25 pace |
+| Enchanted Mob Power Multiplier | keeps rising at its A+1-25 pace |
+| Player Receive Healing Multiplier | 0.7 at A+38; 1 at A+100 |
+| XP Multiplier | rising to 5 at A+99 |
+| Loot Quality Boost | rising to 18 at A+99 |
 
-A+100 itself: Loot Quality Boost 100, XP Multiplier 10.
+A+100 itself: XP Multiplier 10, Loot Quality Boost 100.
 
 ### Trials
 
@@ -764,7 +766,7 @@ These event items drop in missions like the other uniques of their family (base 
 - Speed kept right after a roll: 0.8 -> 1.
 - Enchantsmith (gold): prices x0.1.
 - Piglin merchant (gold): prices x0.5.
-- Start in Apocalypse: a character that hasn't reached it gets Apocalypse unlocked, and a starter kit at power 70 (Sword, Bow, Scale Mail, Fireworks Arrow, Iron Hide Amulet, Death Cap Mushroom) if its gear is weaker, and starts at level 30 (29 enchantment points) if lower (base game: Default and Adventure first).
+- Head Start in Apocalypse: a new character (below the starting level) gets Apocalypse unlocked, and a starter kit at power 70 (Sword, Bow, Scale Mail, Fireworks Arrow, Iron Hide Amulet, Death Cap Mushroom) if its gear is weaker, and starts at level 60 (59 enchantment points) (base game: Default and Adventure first). On by default; set start = "off" in Settings.toml section HEAD START to play from the start.
 - Blacksmith: an upgrade takes 1 mission (base game: 3).
 - Blacksmith: an upgraded weapon or armor comes back at least at your power level (the game's own result stops near A+25 power).
 

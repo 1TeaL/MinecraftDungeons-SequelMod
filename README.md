@@ -8,8 +8,11 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 
 ## ![What it does](docs/headers/what-it-does.svg)
 
-- **Straight into Apocalypse.** New characters can skip the Default and Adventure campaigns: Apocalypse is unlocked
-  and a starter kit of gear at Apocalypse power waits in the inventory (one setting to turn it off).
+- **Head Start (optional).** A new character can skip the Default and Adventure difficulties: Apocalypse is
+  unlocked, the character starts at level 60, and a starter kit of gear at Apocalypse power waits in the inventory.
+  Only the difficulty is skipped - the map, the missions, the camp's merchants and every unique are still yours to
+  unlock and grind out, now with Apocalypse loot from the first mission. On by default; in `Settings.toml`
+  (section HEAD START) `"off"` plays from the start as normal, `"adventure"` starts at Adventure and level 30.
 - **Endless Apocalypse.** Apocalypse Plus goes past 25, all the way to A+100; A+1 to A+25 are unchanged. Higher
   levels open a few at a time as you beat different boss missions on your top level, with trial levels along the
   way that push one thing hard (more mobs, more enchanted mobs, tankier or harder-hitting ones).
@@ -89,6 +92,11 @@ You need the **Steam version** of Minecraft Dungeons on **Windows**. Nothing els
 Your saves are backed up at every start (`Mods\SequelMod\save_backups`). In multiplayer, everyone needs the mod.
 To uninstall, delete `Mods\SequelMod` and `Dungeons\Content\Paks\~mods\SequelMod_P.pak`.
 
+**Settings:** `Mods\SequelMod\Settings.toml` has the options most players want in one file: starting in
+Apocalypse and at what level, Blacksmith missions, gilded drop chances, reroll prices, which mob enchantments
+are on, and a switch for each part of the mod. Edit it with Notepad, save, and start through `Play Sequel Mod.bat`;
+no rebuild needed. The detailed files behind it are in `settings\launcher`.
+
 To start it from Steam's Play button instead, set Minecraft Dungeons → Properties → General → Launch Options to
 `"<game folder>\Mods\SequelMod\steam_launch.bat" %command%`.
 
@@ -127,8 +135,9 @@ The balance in this mod is my own take on the game - what felt weak, what felt r
 You'll need Python 3.11+, the game's files extracted to `Mods/Dungeons BMS/BMS output`, and the
 Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
 
-1. Change what you like in the settings. `SequelMod.toml` holds every value from the game's files, each line with
-   the game's default as a comment; the other `.toml` files cover the rest (table below).
+1. Change what you like. `Build.toml` has the big dials (mob health, damage and speed per A+ level, healing, XP,
+   loot, movement); `settings/build/SequelMod.toml` holds every value from the game's files, each line with the
+   game's default as a comment; the other files cover the rest (table below).
 2. Build the pak:
 
    ```
@@ -142,7 +151,7 @@ Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
 | Command | What it does |
 |---|---|
 | `python tools/sequel.py diff` | List every value changed from the game's default |
-| `python tools/sequel.py scan` | Re-read the game files and refresh `SequelMod.toml`, keeping your changes (run after a game update) |
+| `python tools/sequel.py scan` | Re-read the game files and refresh `settings/build/SequelMod.toml`, keeping your changes (run after a game update) |
 | `python tools/change_sheet.py` | Rebuild `CHANGES.md` from the settings |
 | `python tools/package.py` | Make the release zip in `dist/` |
 
@@ -150,18 +159,24 @@ Dungeons Mod Kit in `Mods/Dungeons-Mod-Kit-master` (for `u4pak.py`).
 
 | File | What it sets |
 |---|---|
-| `SequelMod.toml` | Every value stored in the game's files: enchantments, perks, A+ scaling |
-| `SequelGear.toml` | Weapon and bow stats: damage, swing time, reach, fire rate, ammo |
-| `SequelText.toml` | In-game text: descriptions and tooltips |
-| `Endless.toml` | Endless Apocalypse: power and mob scaling past A+25, trials, unlocks |
-| `Builtins.toml` | Unique items' built-in enchantments |
-| `Bonus.toml` | Rewards past the gear cap: bonus enchantments, armor perks, the A+100 ladder, gilding, merchants, Blacksmith |
-| `Perks.toml`, `Artifacts.toml`, `ArtifactScaling.toml` | Armor perks, artifact cooldowns, artifacts above the cap |
-| `Formulas.toml`, `Echo.toml` | Enchantment values the game calculates in code |
-| `Drops.toml`, `MobPool.toml`, `MobEnchants.toml` | Seasonal drops, what enchanted mobs can roll |
-| `Prices.toml`, `QoL.toml`, `Player.toml` | Merchant prices, Blacksmith, movement |
-| `Launcher.toml` | Turn each part of the launcher on or off |
-| `StackNotes.toml` | Which enchantments stack when an item carries several copies (tested in game) |
+Two central files sit in the mod's main folder; the detailed files are in `settings/`. Each setting lives in
+one place only.
+
+| File | What it sets | After a change |
+|---|---|---|
+| `Settings.toml` | The player settings: a switch for each part, starting difficulty and kit, Blacksmith, gilded chances, prices, mob enchantments, A+ unlocks | Restart through the launcher |
+| `Build.toml` | The big dials: mob health, damage and speed per A+ level, healing, XP, loot, movement | Rebuild |
+| `settings/launcher/Builtins.toml` | Unique items' built-in enchantments | Restart |
+| `settings/launcher/Bonus.toml` | Rewards past the gear cap: bonus enchantments, armor perks, the A+100 ladder, merchant stock | Restart |
+| `settings/launcher/Perks.toml`, `Artifacts.toml`, `ArtifactScaling.toml` | Armor perks, artifact cooldowns, artifacts above the cap | Restart |
+| `settings/launcher/Formulas.toml`, `Echo.toml`, `Stack.toml` | Enchantment values the game calculates in code, which enchantments stack | Restart |
+| `settings/launcher/Drops.toml`, `MobPool.toml`, `MobEnchants.toml` | Seasonal drops, what enchanted mobs can roll | Restart |
+| `settings/launcher/Prices.toml`, `Unlock.toml` | The other merchants' prices, boss missions per A+ step | Restart |
+| `settings/build/SequelMod.toml` | Every value stored in the game's files: enchantments, perks, artifacts, A+1-25 | Rebuild |
+| `settings/build/SequelGear.toml` | Weapon and bow stats: damage, swing time, reach, fire rate, ammo | Rebuild |
+| `settings/build/SequelText.toml` | In-game text: descriptions and tooltips | Rebuild |
+| `settings/build/Endless.toml` | Gear power past A+25, trial levels, the finale | Rebuild |
+| `settings/build/StackNotes.toml` | Which enchantments stack when an item carries several copies (tested in game) | Rebuild |
 | `NAMES.md` | The legend: every internal enchantment and item name next to its in-game name |
 
 ### ![Research tools](docs/headers/research-tools.svg)

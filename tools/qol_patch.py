@@ -1,4 +1,4 @@
-"""Quality-of-life changes to the running game (QoL.toml). Data only: no game code is changed.
+"""Quality-of-life changes to the running game (Settings.toml). Data only: no game code is changed.
 
     python tools/qol_patch.py
 
@@ -16,8 +16,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aplus_patch import open_game  # noqa: E402
 from endless_patch import find_pointers, poke  # noqa: E402
 from memprobe import main_module, read  # noqa: E402
+import settings  # noqa: E402
 
-CONFIG = Path(__file__).resolve().parent.parent / "QoL.toml"
+CONFIG = settings.path("QoL.toml")
 QUEST_CLASS = 0x4548B40       # global: the quest class (set once the class is registered)
 CLASS, OWNER, MISSIONS = 0x10, 0x28, 0x30
 VANILLA_MISSIONS = 3
@@ -25,7 +26,7 @@ VANILLA_MISSIONS = 3
 
 def blacksmith(h, base, missions):
     if not (isinstance(missions, int) and 0 <= missions <= VANILLA_MISSIONS):
-        sys.exit("QoL.toml [blacksmith]: missions must be 0-3")
+        sys.exit("Settings.toml [gear] blacksmith_missions must be 0-3")
     size = main_module(h)[1]
     cls = struct.unpack("<Q", read(h, base + QUEST_CLASS, 8) or bytes(8))[0]
     if not cls:
@@ -57,7 +58,7 @@ class Blacksmith:
     VTABLE = 0x3445DE0
 
     def __init__(self, h, base, scanner):
-        cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+        cfg = settings.load(CONFIG)
         self.missions = cfg.get("blacksmith", {}).get("missions")
         self.h, self.scanner, self.changed = h, scanner, 0
         self.on = isinstance(self.missions, int) and 0 <= self.missions < VANILLA_MISSIONS and bool(base)
@@ -77,7 +78,7 @@ class Blacksmith:
 
 
 def apply(h, base):
-    cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+    cfg = settings.load(CONFIG)
     missions = cfg.get("blacksmith", {}).get("missions")
     if missions is not None:
         blacksmith(h, base, missions)

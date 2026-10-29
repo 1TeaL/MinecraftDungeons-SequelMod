@@ -1,0 +1,32 @@
+# How the A+ levels past 25 unlock - read by the launcher when the game starts (tools/endless_patch.py).
+# No rebuild needed: change, save, restart through "Play Sequel Mod.bat". What each level does (mob health,
+# damage, rewards) is built into the pak: settings/build/Endless.toml and Build.toml.
+#
+#   staged = true    like A+1-25: beat `bosses` different boss missions on your top unlocked level to open
+#                    the next `levels_per_step` levels; `finale_bosses` on A+99 open A+100. The game's list
+#                    has room for 24 more steps, so with 3 per step the steps from A+79 on open 4 levels.
+#   staged = false   everything up to A+100 opens together with A+25
+[unlock]
+# staged: in Settings.toml, section ENDLESS
+levels_per_step = 3
+# The blocks, as the top level each step opens (user, 2026-10-10). The game's own list has room for 24 steps, and
+# this uses exactly 24, so no longer list has to be swapped in:
+#   A+26-49   five big blocks (5, 5, 5, 5, 4 levels) - the gear climb goes quickly
+#   A+50-94   always 3 levels, every third block ending on a trial level, 9 levels apart
+#   A+95-100  the final run in four steps: 95-96, 97-98, 99, 100
+tops = [30, 35, 40, 45, 49,  52, 55, 58,  61, 64, 67,  70, 73, 76,  79, 82, 85,  88, 91, 94,  96, 98, 99, 100]
+bosses = 3
+# Key levels (user, 2026-10-10): as in the base game, where A+22-25 took 7 bosses, the gates that matter ask for
+# more - the level before the breaking point and the five trial levels. Each must be a block's top level.
+key_levels = [58, 67, 76, 85, 94, 96, 98]   # the trial levels, and every step of the final run (user)
+key_bosses = 7         # the most an ordinary or trial step asks for, as in the base game
+major_levels = [25]       # the big breakpoint into Endless (A+26). (A+40 / A+49 asked for 10 too until 2026-10-13: nothing
+                          # visibly changes there, so it read as an arbitrary wall - user)
+major_bosses = 10      # of the 14 boss missions there are with all DLC (user, 2026-10-10: 9 or 10 for these)
+finale_bosses = 10     # A+99 -> A+100, the third big breakpoint
+ramp = true            # the steps between key levels ask for ramp_from, then one more each step up to key_bosses, and
+ramp_from = 3          # start over at ramp_from after reaching it or after a key level (user: a 3 to 7 range).
+# Counts of their own: the step before each trial block asks for 5, so a trial cycle reads 3 - 5 - 7 instead of
+# 3 - 4 - 7 (user, 2026-10-13). "<level cleared>" = <boss missions>
+level_bosses = { "55" = 5, "64" = 5, "73" = 5, "82" = 5, "91" = 5 }
+                       # ramp = false: `bosses` on every such step.

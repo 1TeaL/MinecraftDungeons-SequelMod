@@ -24,8 +24,9 @@ from builtins_patch import write  # noqa: E402
 from endless_patch import find_pointers  # noqa: E402
 from live_objects import OBJECTS  # noqa: E402
 from memprobe import main_module, read  # noqa: E402
+import settings  # noqa: E402
 
-CONFIG = Path(__file__).resolve().parent.parent / "Accelerate.toml"
+CONFIG = settings.path("Accelerate.toml")
 ENTRY, FUNC, VANILLA = 0xE9EDD0, 0xC0, 2.0
 # The entry as the game has it, up to its call; ours continues with: mov eax, <float>; movd xmm0, eax; then the
 # game's own ending (movss [rbx], xmm0; add rsp, 0x20; pop rbx; ret).
@@ -48,7 +49,7 @@ def listed(h, base, o):
 
 
 def apply(h, base):
-    cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+    cfg = settings.load(CONFIG)
     limit = cfg.get("speed_limit")
     if limit is None:
         return

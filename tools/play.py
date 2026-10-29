@@ -45,6 +45,7 @@ import mobpool_patch  # noqa: E402
 import qol_patch  # noqa: E402
 import stack_patch  # noqa: E402
 import start_kit  # noqa: E402
+import settings  # noqa: E402
 
 STEAM_APP_ID = 1672970
 # The game folder: the first folder above this one with Dungeons/Content/Paks in it - normally two up
@@ -54,7 +55,7 @@ MODS_DIR = GAME / "Dungeons" / "Content" / "Paks" / "~mods" if GAME else None
 PAK = "SequelMod_P.pak"
 SAVES = Path.home() / "Saved Games" / "Mojang Studios" / "Dungeons"
 BACKUPS = HERE.parent / "save_backups"
-SWITCHES = HERE.parent / "Launcher.toml"
+SWITCHES = settings.path("Launcher.toml")
 KEEP_BACKUPS = 10
 SETTLE = 15  # seconds after start before the launcher looks (user, 2026-10-06; was 40)
 SETTLE_MAX = 90  # ...and the longest it waits for the game's data to be there
@@ -169,12 +170,14 @@ if __name__ == "__main__":
     # Options ("...steam_launch.bat" %command%), so the Play button runs the launcher.
     run = sys.argv[sys.argv.index("--run") + 1:] if "--run" in sys.argv else None
     endless = "--endless" in sys.argv[:sys.argv.index("--run")] if run is not None else "--endless" in sys.argv
+    for problem in settings.problems():   # a typo in Settings.toml: say so, keep going
+        print(problem)
     install_pak()
     h, base = aplus_patch.open_game()
     if not h:
         backup_saves()
         try:
-            start_kit.apply()            # QoL.toml [start]: Apocalypse unlocked, starter kit (save edit, game closed)
+            start_kit.apply()            # Settings.toml [start]: Apocalypse unlocked, starter kit (save edit, game closed)
         except Exception as e:  # noqa: BLE001 - never stop the launcher
             print(f"Start in Apocalypse NOT applied: {e}")
         # A crash reporter left open from an earlier crash makes Steam think the game is still running.
@@ -184,7 +187,7 @@ if __name__ == "__main__":
         else:
             os.startfile(f"steam://rungameid/{STEAM_APP_ID}")
         print("Starting Minecraft Dungeons...")
-    switches = tomllib.loads(SWITCHES.read_text(encoding="utf-8")) if SWITCHES.exists() else {}
+    switches = settings.load(SWITCHES)
     endless_on = endless and switches.get("endless", True)
     endless_done = []
 
@@ -206,7 +209,7 @@ if __name__ == "__main__":
         if switches.get("builtins", True):
             builtins_patch.apply(h, base)
         else:
-            print("Built-in enchantments: off (Launcher.toml)")
+            print("Built-in enchantments: off (Settings.toml)")
     except (SystemExit, Exception) as e:  # noqa: B014 - never let a failed part stop the launcher
         print(f"Built-in enchantments NOT applied: {e}")
     try:
@@ -246,7 +249,7 @@ if __name__ == "__main__":
             if not endless_done:
                 print("Endless Apocalypse is on for this session (A+ up to 100 in the mission select).")
         elif endless:
-            print("Endless Apocalypse: off (Launcher.toml)")
+            print("Endless Apocalypse: off (Settings.toml)")
     except (SystemExit, Exception) as e:  # noqa: B014 - never let a failed part stop the launcher
         print(f"Endless Apocalypse NOT applied: {e}")
     try:

@@ -28,8 +28,9 @@ from aplus_patch import open_game, pid_of  # noqa: E402
 from builtins_patch import write  # noqa: E402
 from live_objects import Scanner  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
-CONFIG = Path(__file__).resolve().parent.parent / "Prices.toml"
+CONFIG = settings.path("Prices.toml")
 PRICING, DEFINITION = 0x34C39C8, 0x334BC28
 OWNER, BASE_PRICE, RESTOCK = 0x28, 0x30, 0x38
 VANILLA = {"enchantmentmerchant": (20, 0), "piglinmerchant": (12, 5), "shopkeeper": (100, 50),
@@ -41,7 +42,7 @@ class Prices:
         self.h, self.base = h, base
         self.own_scanner = scanner is None
         self.scanner = scanner or Scanner(h, base)
-        cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+        cfg = settings.load(CONFIG)
         self.plan = {}
         for name, factor in cfg.items():
             if name in VANILLA and isinstance(factor, (int, float)) and not isinstance(factor, bool) and 0 < factor <= 10:

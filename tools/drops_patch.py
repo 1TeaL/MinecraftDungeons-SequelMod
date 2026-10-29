@@ -26,9 +26,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aplus_patch import open_game  # noqa: E402
 from builtins_patch import alloc, write  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "Drops.toml"
+CONFIG = settings.path("Drops.toml")
 REGISTRY = json.loads((ROOT / "tools" / "item_registry.json").read_text())
 MAP, FLAG, ELEMENT = 0xB0, 0x100, 0x50
 GRACE = 60            # seconds the game gets to make an item's level list itself once its family's are made
@@ -129,7 +130,7 @@ def apply(h, base, quiet=False, state=None):
     seconds and its own still not - is it given the levels of its donors (new memory).
     state: the launcher's {item: when its family's lists were first seen made} and the set of items already
     reported; a one-off run (None) doesn't wait."""
-    plan = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+    plan = settings.load(CONFIG)
     since, told = state if state is not None else ({}, set())
     changed = waiting = 0
     for item, donors in plan.items():

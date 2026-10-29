@@ -28,11 +28,14 @@ UNUSED = {"libcrypto-3.dll", "libssl-3.dll", "_ssl.pyd", "_hashlib.pyd", "sqlite
           "_elementtree.pyd", "_msi.pyd", "winsound.pyd", "_asyncio.pyd", "_overlapped.pyd", "_wmi.pyd",
           "_multiprocessing.pyd", "_zoneinfo.pyd", "_socket.pyd", "select.pyd", "pythonw.exe"}
 DATA = ["tools/item_registry.json", "tools/enchant_ids.json", "tools/enchant_pools.json", "tools/enchant_registry.json",
-        "tools/artifact_fields.json", "research/artifact_globals.json"]   # no save key: the launcher reads it from the game
-SETTINGS = ["Launcher.toml", "Endless.toml", "Builtins.toml", "Bonus.toml", "Perks.toml", "Artifacts.toml",
-            "ArtifactScaling.toml", "Drops.toml", "Echo.toml", "Formulas.toml", "Prices.toml", "QoL.toml",
-            "MobPool.toml", "MobEnchants.toml", "Accelerate.toml", "Arrows.toml", "Stack.toml", "SequelGear.toml",
-            "Play Endless Apocalypse.bat", "steam_launch.bat", "CHANGES.md", "NAMES.md"]
+        "tools/artifact_fields.json", "research/artifact_globals.json",
+        "research/armor_props_raw.json"]   # no save key: the launcher reads it from the game
+# The launcher's settings, and the two build files it reads too (gold drops in Endless.toml, bundle sizes in
+# SequelGear.toml). Build.toml and the other build files are left out: the zip can't rebuild the pak.
+SETTINGS = (["Settings.toml"]
+            + sorted(f"settings/launcher/{p.name}" for p in (ROOT / "settings" / "launcher").glob("*.toml"))
+            + ["settings/build/Endless.toml", "settings/build/SequelGear.toml",
+               "Play Endless Apocalypse.bat", "steam_launch.bat", "CHANGES.md", "NAMES.md"])
 INSTALL = f"""Sequel Mod {LABEL} for Minecraft Dungeons (Steam version)
 
 Needs
@@ -48,6 +51,9 @@ Install
    The first start copies the mod into the game, backs up your saves, then starts the game.
    Optional: to use Steam's Play button instead, set Minecraft Dungeons > Properties > General > Launch Options to
        "<game folder>\\Mods\\SequelMod\\steam_launch.bat" %command%
+
+Settings: Mods\\SequelMod\\Settings.toml - start difficulty and level, Blacksmith, prices, mob enchantments and
+an on/off switch for each part. Edit it in Notepad, save, start with "Play Sequel Mod.bat" again.
 
 Multiplayer: everyone in the party needs the mod, started this way.
 Every change is listed in CHANGES.md.

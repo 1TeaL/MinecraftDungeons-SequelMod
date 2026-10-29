@@ -24,8 +24,9 @@ from aplus_patch import alloc_near, open_game  # noqa: E402
 from endless import NATURAL_CAP_X, POWER_PER_X, power_settings  # noqa: E402
 from memprobe import read  # noqa: E402
 from mempatch import k32, write  # noqa: E402
+import settings  # noqa: E402
 
-ENDLESS_CONFIG = Path(__file__).resolve().parent.parent / "Endless.toml"
+ENDLESS_CONFIG = settings.path("Endless.toml")
 SITES = [0xB8794F, 0xB9336F, 0xB8D9E0]   # f3 0f 5d 35 <disp32>: minss xmm6, [rip + disp32]
 MINSS = bytes.fromhex("f30f5d35")
 SHARED_3 = 0x3101950                     # the float they all read

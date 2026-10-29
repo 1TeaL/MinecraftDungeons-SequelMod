@@ -36,8 +36,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from endless import gold_settings  # noqa: E402
 from memprobe import main_module, pid_of, read  # noqa: E402
 from mempatch import k32, write  # noqa: E402
+import settings  # noqa: E402
 
-ENDLESS_CONFIG = Path(__file__).resolve().parent.parent / "Endless.toml"
+ENDLESS_CONFIG = settings.path("Endless.toml")
 THREAT_LEVELS = 7
 SOFT_CAP = 25                 # A+ levels up to here keep vanilla power scaling
 LIMIT_LEVEL = 38              # 1 + 38/19 = 3.0: the game's own mob scaling clamp

@@ -30,6 +30,7 @@ tools/wiki_*.json
 # Build output, the downloaded portable Python, logs
 build/
 staged/
+looks_build/
 dist/
 vendor/
 launcher.log

@@ -6,7 +6,7 @@ Everything is read from the mod's own files, so the sheet is rebuilt after any c
   SequelMod.toml / SequelGear.toml / SequelText.toml   through `sequel.py diff` and the `# default` comments
   Builtins.toml, Perks.toml, Artifacts.toml            with the game's own values taken from the launcher's last
                                                        log (launcher.log prints "old -> new" for each)
-  Bonus.toml, Endless.toml, Formulas.toml, Echo.toml, ArtifactScaling.toml, Prices.toml, QoL.toml, Drops.toml,
+  Bonus.toml, Endless.toml, Formulas.toml, Echo.toml, ArtifactScaling.toml, Prices.toml, Settings.toml, Build.toml, Drops.toml,
   MobPool.toml, MobEnchants.toml
 Facts only - no opinions or reasons (those are in decisions.md). Settings that are in place only for a test are
 listed in their own section at the end and left out of the tables.
@@ -25,6 +25,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import endless_patch  # noqa: E402
 import formula_patch  # noqa: E402
 import sequel  # noqa: E402
+import settings  # noqa: E402
 
 LOC = json.loads((ROOT / "tools" / "game_en.json").read_text(encoding="utf-8"))
 ALIASES = {"FireAspect": "Fire Aspect", "CriticalHit": "Critical Hit", "EnigmaResonatorMelee": "Enigma Resonator",
@@ -70,7 +71,7 @@ def noted_names():
     """Item names written as comments in the mod's own lists: ["Armor/EmeraldArmor_Unique2"]  # Gilded Glory"""
     out = {}
     for name in ("Builtins.toml", "Perks.toml", "Drops.toml"):
-        p = ROOT / name
+        p = settings.path(name)
         for line in (p.read_text(encoding="utf-8") if p.exists() else "").splitlines():
             m = re.match(r'\[?"(?:\w+/)?(\w+)"\]?[^#]*#\s*([A-Z][^:(=]*)', line)
             if m:
@@ -104,8 +105,7 @@ def table(head, rows):
 
 
 def toml(name):
-    p = ROOT / name
-    return tomllib.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    return settings.load(settings.path(name))
 
 
 # ---- sources ---------------------------------------------------------------------------------------------------
@@ -125,7 +125,7 @@ def gear_rows():
     """{(kind, display name): {field label: (old values, new values)}} for weapons SequelGear.toml changes."""
     out, section = {}, None
     data = defaultdict(lambda: defaultdict(dict))
-    for line in (ROOT / "SequelGear.toml").read_text(encoding="utf-8").splitlines():
+    for line in (settings.path("SequelGear.toml")).read_text(encoding="utf-8").splitlines():
         m = re.match(r"\[(Melee|Ranged)\.(\w+)\]\s*#\s*(.+?)(?: \((.+?)\))?\s*$", line)
         if m:
             section = (m.group(1), item(m.group(2)) if m.group(2).lower().replace("_steel", "") in ITEM_NAMES else m.group(3).strip())
@@ -309,11 +309,11 @@ def build():
                          if k not in ("level", "levels", "name", "LootQualityBoost", "XPMultiplier"))
         rows.append((f"A+{first}" + (f"-{t['level']}" if first != t["level"] else ""), t.get("name", ""), what))
     L += ["### Trials", ""] + table(["Levels", "Trial", "Raised"], rows)
-    settings = endless_patch.unlock_settings()
-    tops = settings.get("tops") or []
-    if settings.get("staged") and tops:
+    unlock = endless_patch.unlock_settings()
+    tops = unlock.get("tops") or []
+    if unlock.get("staged") and tops:
         needs = [25] + tops[:-1]
-        counts = endless_patch.boss_counts(needs, settings)
+        counts = endless_patch.boss_counts(needs, unlock)
         L += ["### Unlocking", "", "Different boss missions to clear on the level in the first column.", ""]
         L += table(["Clear on", "Boss missions", "Opens"],
                    [(f"A+{n}", c, f"A+{n + 1}" + (f"-{t}" if t != n + 1 else "")) for n, t, c in zip(needs, tops, counts)])
@@ -391,19 +391,23 @@ def build():
     L += ["## 9. Player, merchants and camp", ""]
     import player
     labels = {"speed_after_roll": "Speed kept right after a roll", "walk_speed": "Walking speed"}
-    L += [f"- {labels.get(k, k)}: {num(old)} -> {num(new)}." for k, old, new in player.changes(sequel.EXTRACT, ROOT / "Player.toml")]
+    L += [f"- {labels.get(k, k)}: {num(old)} -> {num(new)}." for k, old, new in player.changes(sequel.EXTRACT, settings.path("Player.toml"))]
     L += [f"- {shops.get(k, k)}: prices x{num(v)}." for k, v in prices.items()]
     st = qol.get("start", {})
     start = st.get("start", "apocalypse" if st.get("apocalypse") else "off")
     if start in ("apocalypse", "adventure"):
         kp = st.get("kit_power", 70)
         kp = kp.get(start, 70) if isinstance(kp, dict) else kp
-        L += [f"- Start in {start.title()}: a character that hasn't reached it gets {start.title()} unlocked, and a starter kit at power "
+        L += [f"- Head Start in {start.title()}: a new character (below the starting level) gets {start.title()} unlocked, and a starter kit at power "
               f"{num(kp)} ({', '.join(item(k) for k in st.get('kit', []))}) if its gear is weaker"
-              + (lambda lv: f", and starts at level {lv} ({lv - 1} enchantment points) if lower" if lv > 1 else "")(
+              + (lambda lv: f", and starts at level {lv} ({lv - 1} enchantment points)" if lv > 1 else "")(
                   int((st.get('start_level', {}) or {}).get(start, 1) if isinstance(st.get('start_level'), dict) else st.get('start_level', 1)))
               + " (base game: "
-              + ("Default and Adventure first)." if start == "apocalypse" else "Default first).")]
+              + ("Default and Adventure first)." if start == "apocalypse" else "Default first).")
+              + " On by default; set start = \"off\" in Settings.toml section HEAD START to play from the start."]
+    else:
+        L += ["- Head Start (off by default): Settings.toml section HEAD START unlocks Apocalypse or Adventure, "
+              "a starting level and a starter kit for new characters (below the starting level)."]
     if qol.get("blacksmith", {}).get("missions") is not None:
         n = qol["blacksmith"]["missions"]
         L += [f"- Blacksmith: an upgrade takes {n} mission{'s' if n != 1 else ''} (base game: 3)."]

@@ -14,11 +14,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import change_sheet as cs  # noqa: E402
+import settings  # noqa: E402
 
 IDS = json.loads((ROOT / "tools" / "enchant_ids.json").read_text())
 POOLS = json.loads((ROOT / "tools" / "enchant_pools.json").read_text())
 REGISTRY = json.loads((ROOT / "tools" / "item_registry.json").read_text())
-STACK = tomllib.loads((ROOT / "StackNotes.toml").read_text(encoding="utf-8"))
+STACK = tomllib.loads((settings.path("StackNotes.toml")).read_text(encoding="utf-8"))
 CATEGORY = {"MeleeWeapons": "Melee", "RangedWeapons": "Ranged", "Armor": "Armor"}
 
 

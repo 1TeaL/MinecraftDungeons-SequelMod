@@ -37,8 +37,9 @@ from aplus_patch import alloc_near, open_game, pid_of  # noqa: E402
 from builtins_patch import write  # noqa: E402
 from live_objects import Scanner  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
-CONFIG = Path(__file__).resolve().parent.parent / "Formulas.toml"
+CONFIG = settings.path("Formulas.toml")
 FUNCTION, TARGET = 0x110, 0x148
 # name -> ([class vtables of the objects], vtable of the game's own target, the game's own values)
 KNOWN = {
@@ -72,7 +73,7 @@ class Formulas:
         self.h, self.base = h, base
         self.own_scanner = scanner is None
         self.scanner = scanner or Scanner(h, base)
-        cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+        cfg = settings.load(CONFIG)
         self.plan, self.ready, self.changed, self.page = {}, {}, {}, 0
         for name, values in cfg.items():
             ok = name in KNOWN and isinstance(values, list) and len(values) == 3 and \

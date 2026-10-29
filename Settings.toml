@@ -1,0 +1,129 @@
+#####################################################################################################################
+#                                                                                                                   #
+#                                          SEQUEL MOD  -  SETTINGS                                                  #
+#                                                                                                                   #
+#####################################################################################################################
+#
+# HOW TO USE
+#   1. Change a value below and save this file (Notepad is fine).
+#   2. Close the game if it's running.
+#   3. Start it again with "Play Sequel Mod.bat".
+#
+#   Everything in this file works this way - no rebuild needed. So do the detailed files in settings/launcher/
+#   (section 7). Weapon stats, enchantment values and how hard the A+ levels get need a REBUILD: see section 8.
+#
+#   true / false are written in lower case; text goes in "quotes". Each value lives only here: to undo a change,
+#   set it back (the game's own value is in the comment where there is one) rather than deleting the line.
+#   A misspelled setting is shown in the launcher window and ignored. Item and enchantment names: NAMES.md.
+#
+# SECTIONS (search for the name in capitals)
+#   1. SWITCHES ........ turn each part of the mod on or off
+#   2. HEAD START ...... skip to Apocalypse or Adventure: start difficulty, level, starter kit
+#   3. GEAR ............ Blacksmith and gilded drops
+#   4. PRICES .......... Enchantsmith and Piglin prices
+#   5. MOBS ............ enchantments enchanted mobs can roll
+#   6. ENDLESS ......... how the A+ levels past 25 open
+#   7. MORE SETTINGS ... the detailed files in settings/launcher/ - no rebuild needed
+#   8. NEEDS A REBUILD . Build.toml and settings/build/: weapon stats, enchantment values, A+ difficulty
+
+
+#####################################################################################################################
+#  1. SWITCHES  -  each part of the mod the launcher turns on. false = off.
+#####################################################################################################################
+[on]
+builtins = true           # uniques' built-in enchantments (Builtins.toml)
+bonus = true              # bonus enchantments for gear past the power cap, and the A+100 ladder (Bonus.toml)
+stacking = true           # some enchantments may roll in more than one slot of an item (Stack.toml)
+formulas = true           # new per-tier values for Cowardice, Frenzied, Enigma, Rapid Fire, ... (Formulas.toml)
+artifact_scaling = true   # artifacts keep growing past the power cap (ArtifactScaling.toml)
+echo = true               # Echo repeats faster (Echo.toml)
+seasonal_drops = true     # seasonal gear drops in missions (Drops.toml)
+prices = true             # merchant prices, section 4 (Prices.toml)
+mob_pool = true           # which enchantments enchanted mobs can roll, section 5 (MobPool.toml)
+mob_enchants = true       # Deflect and Levitation Shot do nothing on mobs (MobEnchants.toml)
+qol = true                # Blacksmith missions, section 3
+endless = true            # Endless Apocalypse: A+ levels up to 100
+arrows = false            # arrows refill while you aren't shooting - not working yet, leave off
+
+
+#####################################################################################################################
+#  2. HEAD START  -  skip the early difficulties. New characters only (below the starting level), while the game
+#     is closed. Only the difficulty is unlocked: the map, missions, merchants and uniques are still earned.
+#####################################################################################################################
+[start]
+start = "apocalypse"      # "off" (play from the start as normal), "apocalypse" or "adventure". New characters only
+level = { apocalypse = 60, adventure = 30 }        # character level it starts at (one number for both is fine too)
+kit_power = { apocalypse = 70, adventure = 30 }    # power of the starter kit
+kit = ["Sword", "Bow", "ScaleMail", "FireworksArrowItem", "IronHideAmulet", "DeathCapMushroom"]   # names: NAMES.md
+
+
+#####################################################################################################################
+#  3. GEAR  -  Blacksmith and gilded drops                                                     (more: Bonus.toml)
+#####################################################################################################################
+[gear]
+blacksmith_missions = 1        # missions an upgrade at the Blacksmith takes (game: 3)
+blacksmith_match_power = true  # the Blacksmith's upgrade can reach your best gear's power, past A+25 too
+gilded_chance = 0.2            # chance a drop comes gilded (one extra enchantment) ...
+gilded_from = 257              # ... from this power (about A+20)
+gilded_early_chance = 0.08     # a smaller chance earlier ...
+gilded_early_from = 110        # ... from this power (about A+1)
+
+
+#####################################################################################################################
+#  4. PRICES  -  x the game's own price: 1 = unchanged                                           (more: Prices.toml)
+#####################################################################################################################
+[prices]
+enchantsmith = 0.1        # rerolls at the Enchantsmith (gold): base 20 -> 2
+piglin = 0.5              # the Piglin's gilded gear (gold): base 12 -> 6
+
+
+#####################################################################################################################
+#  5. MOBS  -  enchantments enchanted mobs can roll. true = can roll.          (the full list: MobPool.toml)
+#####################################################################################################################
+[mobs]
+deflect = false           # Deflect: sends your arrows back (game: true)
+levitation_shot = false   # Levitation Shot: throws you in the air (game: true)
+
+
+#####################################################################################################################
+#  6. ENDLESS  -  the A+ levels past 25                                                          (more: Unlock.toml)
+#####################################################################################################################
+[endless]
+staged = true             # A+ levels open in steps as you beat them; false = all open at once
+
+
+#####################################################################################################################
+#  7. MORE SETTINGS  -  the detailed files in settings/launcher/. NO REBUILD: change, save, restart
+#####################################################################################################################
+#
+#   Builtins.toml ........ unique items' built-in enchantments
+#   Bonus.toml ........... bonus enchantments past the power cap, armor perks, the A+100 ladder, merchant stock
+#   Perks.toml ........... armor perks
+#   Artifacts.toml ....... artifact cooldowns
+#   ArtifactScaling.toml . how far artifacts grow past the power cap
+#   Formulas.toml ........ per-tier values of enchantments the game works out in code
+#   Echo.toml ............ Echo's gap between repeats
+#   Stack.toml ........... which enchantments may roll in several slots
+#   Drops.toml ........... where seasonal gear drops
+#   MobPool.toml ......... every enchantment enchanted mobs can roll
+#   MobEnchants.toml ..... Deflect and Levitation Shot values on mobs
+#   Prices.toml .......... the other merchants' prices
+#   Unlock.toml .......... how many boss missions each A+ step asks for
+#   Accelerate.toml, Arrows.toml, Launcher.toml ... parked: off or not working yet
+
+
+#####################################################################################################################
+#  8. NEEDS A REBUILD  -  Build.toml (main folder) and settings/build/. Editing these does nothing until rebuilt.
+#####################################################################################################################
+#
+#   Build.toml ........... the big dials: mob health, damage and speed per A+ level, healing, XP, loot, movement
+#   SequelGear.toml ...... weapon and bow stats (damage, speed, reach, ammo)
+#   SequelMod.toml ....... enchantment, armor perk and artifact values stored in the game's files
+#   SequelText.toml ...... in-game descriptions
+#   Endless.toml ......... gear power per A+ level, trials, the finale
+#   StackNotes.toml ...... the "stacks" notes in enchantment descriptions
+#
+#   The release zip can't rebuild: it has no build tools, and ships only the build files the launcher reads.
+#   To change these, get the full source from GitHub (https://github.com/1TeaL/MinecraftDungeons-SequelMod) and
+#   follow "Building it yourself" in its README: edit, run  python tools/sequel.py build , then start with
+#   "Play Sequel Mod.bat".

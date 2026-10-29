@@ -17,8 +17,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aplus_patch import open_game  # noqa: E402
 from builtins_patch import alloc, REGISTRY, write  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
-CONFIG = Path(__file__).resolve().parent.parent / "Perks.toml"
+CONFIG = settings.path("Perks.toml")
 ARRAY = 0x1A8
 # The game's own perk names, in id order (EArmorPropertyID in the exe). Saves store perks by these names.
 PERK_NAMES = [
@@ -50,7 +51,7 @@ def perks(h, base, item):
 
 
 def apply(h, base):
-    plan = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+    plan = settings.load(CONFIG)
     for item, spec in plan.items():
         add = spec.get("add", [])
         replace = spec.get("set")

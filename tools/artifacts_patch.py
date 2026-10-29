@@ -18,9 +18,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aplus_patch import open_game  # noqa: E402
 from builtins_patch import write  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "Artifacts.toml"
+CONFIG = settings.path("Artifacts.toml")
 GLOBALS = json.loads((ROOT / "research" / "artifact_globals.json").read_text())
 FIELDS = {"souls": 0x94, "cooldown": 0x98, "duration": 0x9C}
 
@@ -36,7 +37,7 @@ def values(h, base, item):
 
 
 def apply(h, base):
-    plan = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+    plan = settings.load(CONFIG)
     changed = 0
     for item, spec in plan.items():
         definition, cur = values(h, base, item) if item in GLOBALS else (None, None)

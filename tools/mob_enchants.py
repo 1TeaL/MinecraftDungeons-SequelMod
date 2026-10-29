@@ -32,8 +32,9 @@ from builtins_patch import write  # noqa: E402
 from formula_patch import FUNCTION, ROUTINE, TARGET  # noqa: E402
 from live_objects import Scanner  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
-CONFIG = Path(__file__).resolve().parent.parent / "MobEnchants.toml"
+CONFIG = settings.path("MobEnchants.toml")
 OWNER, CLASS, CHAIN, DEPTH = 0xE8, 0x10, 0x30, 0x38
 ALWAYS = 0x1DF                   # bAlwaysTrigger of an enchantment object
 MOB_CLASS = 0x454F5A0            # global: MobCharacter's class object
@@ -49,7 +50,7 @@ class MobEnchants:
         self.h, self.base = h, base
         self.own_scanner = scanner is None
         self.scanner = scanner or Scanner(h, base)
-        cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+        cfg = settings.load(CONFIG)
         chance = cfg.get("Deflecting", {}).get("chance")
         self.chance = [float(c) for c in chance] if isinstance(chance, list) and len(chance) == 3 else None
         self.levitation = {k: float(v) for k, v in cfg.get("Levitation", {}).items() if k in LEVITATION["fields"]}

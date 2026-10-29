@@ -11,8 +11,9 @@ without Melee / Ranged / Shot, then in KEYS below.
 """
 import tomllib
 from pathlib import Path
+import settings
 
-NOTES = Path(__file__).resolve().parent.parent / "StackNotes.toml"
+NOTES = settings.path("StackNotes.toml")
 SENTENCE = {"partly": "Copies stack only partly.", "none": "Copies do not stack."}   # "copies": some descriptions already say "stacking" about the effect itself (Soul Speed)
 KEYS = {"CriticalHit": ["Critical"], "FireAspect": ["Fire"], "Shockwave": ["Shock"], "SoulSiphon": ["Soul"],
         "EnigmaResonatorMelee": ["Enigma"], "EnigmaResonatorRanged": ["EnigmaRanged"],

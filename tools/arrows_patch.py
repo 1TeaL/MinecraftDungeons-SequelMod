@@ -24,9 +24,10 @@ from aplus_patch import open_game, pid_of  # noqa: E402
 from builtins_patch import write  # noqa: E402
 from live_objects import Scanner  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "Arrows.toml"
+CONFIG = settings.path("Arrows.toml")
 SLOT_VTABLE, FLAGS, COUNT = 0x32F7D60, 0x08, 0x1FC
 CLASS_DEFAULT = 0x10          # object flag: the class's default object, not a real slot
 PASS_SECONDS = 3
@@ -34,7 +35,7 @@ PASS_SECONDS = 3
 
 def bundles():
     """{bow id in lower case: bundle size} from SequelGear.toml (a unique without its own number uses its family's)."""
-    gear = tomllib.loads((ROOT / "SequelGear.toml").read_text(encoding="utf-8")).get("Ranged", {})
+    gear = tomllib.loads((settings.path("SequelGear.toml")).read_text(encoding="utf-8")).get("Ranged", {})
     out = {}
     for name, fields in gear.items():
         for key, value in fields.items():
@@ -61,7 +62,7 @@ class Arrows:
         self.h, self.base = h, base
         self.own_scanner = scanner is None
         self.scanner = scanner or Scanner(h, base)
-        cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+        cfg = settings.load(CONFIG)
         self.on = bool(cfg.get("refill", False)) and bool(base)
         self.refill_seconds = max(PASS_SECONDS, float(cfg.get("refill_seconds", 30)))
         self.default = int(cfg.get("default_bundle", 40))

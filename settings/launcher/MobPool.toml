@@ -13,7 +13,7 @@
 # any mob
 Burning = true
 Chilling = true
-Deflecting = false          # Deflect - out (user, 2026-10-11)
+# Deflecting (Deflect): in Settings.toml, section MOBS
 DoubleDamage = true
 Electrified = true
 FastAttack = true
@@ -39,7 +39,7 @@ ChainReaction = true
 CriticalHit = true
 Gravity = true
 Growing = true
-LevitationShot = false      # out (user, 2026-10-11)
+# LevitationShot: in Settings.toml, section MOBS
 MultiShot = true
 Power = true
 RadianceRanged = true       # Radiance Shot

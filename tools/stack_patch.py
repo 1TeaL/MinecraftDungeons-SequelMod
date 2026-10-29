@@ -20,9 +20,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aplus_patch import open_game  # noqa: E402
 from builtins_patch import alloc, write  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "Stack.toml"
+CONFIG = settings.path("Stack.toml")
 REGISTRY = json.loads((ROOT / "tools" / "enchant_registry.json").read_text())
 TAGS, STACKABLE, ROOM = 0x08, 0, 16
 
@@ -50,7 +51,7 @@ def player_enchant(h, base, name):
 
 def apply(h, base, names=None):
     if names is None:
-        cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+        cfg = settings.load(CONFIG)
         names = cfg.get("stackable", [])
         if names == "all":
             names = [n for n in sorted(REGISTRY) if n not in cfg.get("except", []) and player_enchant(h, base, n)]

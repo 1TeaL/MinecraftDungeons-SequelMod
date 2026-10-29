@@ -1,0 +1,5 @@
+# The on/off switch for each part of the launcher is in Settings.toml, section SWITCHES (in the mod's main folder).
+#
+# One switch stays here, on purpose:
+cap = false          # raise the power cap above 315 - CHANGES GAME CODE. Tried 2026-10-04: the game crashes when
+                     # a mission starts. Keep it off.

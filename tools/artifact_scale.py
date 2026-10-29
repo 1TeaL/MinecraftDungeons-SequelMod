@@ -26,9 +26,10 @@ from aplus_patch import open_game, pid_of  # noqa: E402
 from builtins_patch import write  # noqa: E402
 from live_objects import Scanner  # noqa: E402
 from memprobe import read  # noqa: E402
+import settings  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "ArtifactScaling.toml"
+CONFIG = settings.path("ArtifactScaling.toml")
 FIELDS = json.loads((ROOT / "tools" / "artifact_fields.json").read_text())
 CLASS, ITEM_POWER = 0x10, 0x480
 
@@ -38,7 +39,7 @@ class ArtifactScale:
         self.h, self.base = h, base
         self.own_scanner = scanner is None
         self.scanner = scanner or Scanner(h, base)
-        cfg = tomllib.loads(CONFIG.read_text(encoding="utf-8")) if CONFIG.exists() else {}
+        cfg = settings.load(CONFIG)
         self.cap, self.top = cfg.get("cap", 316), cfg.get("top_power", 365)
         self.at_top = {"damage": float(cfg.get("damage_at_top", 1.0)), "heal": float(cfg.get("heal_at_top", 1.0))}
         self.by_vtable = {}        # absolute vtable -> {property: field} (classes sharing a vtable share a layout)

@@ -19,7 +19,7 @@ started. This one only changes data the game keeps on the heap (gone when the ga
    (std::function, 0x40 bytes each: "does this mission count", "is it reached", its description, its
    progress), each holding {level to beat bosses on, number of bosses}; then the level it unlocks
    (+0x100) and a milestone id (+0x148). All steps sit in one list with room for 32.
-   [unlock] in Endless.toml:
+   [unlock] in settings/launcher/Unlock.toml (staged: Settings.toml):
      staged = true   new steps are added after the vanilla eight (copies of the last one with their own
                      numbers): `bosses` different boss missions on the top unlocked level open the next
                      `levels_per_step` levels. The last level is a finale with a step of its own
@@ -28,7 +28,8 @@ started. This one only changes data the game keeps on the heap (gone when the ga
                      `key_levels`: top levels whose step asks for `key_bosses` boss missions instead.
      staged = false  the last vanilla step unlocks everything up to A+`levels` at once.
 
-What each level does past A+25 (power, mob stats, rewards) is in the pak: see endless.py / Endless.toml.
+What each level does past A+25 (power, mob stats, rewards) is in the pak: see endless.py, Build.toml and
+settings/build/Endless.toml.
 """
 import ctypes
 import ctypes.wintypes as wt
@@ -41,8 +42,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from aplus_patch import alloc_near, open_game  # noqa: E402
 from endless import LAST  # noqa: E402
 from memprobe import k32, main_module, read  # noqa: E402
+import settings  # noqa: E402
 
-ENDLESS_CONFIG = Path(__file__).resolve().parent.parent / "Endless.toml"
+UNLOCK_CONFIG = settings.path("Unlock.toml")
 UNLOCK_DEFAULTS = {"staged": True, "levels_per_step": 3, "bosses": 3, "finale_bosses": 3,
                    "key_levels": [], "key_bosses": 7, "ramp": False, "ramp_from": 1,
                    "major_levels": [], "major_bosses": 10, "tops": [], "level_bosses": {}}
@@ -206,7 +208,7 @@ def step_tops(levels, settings, places):
         return plan_steps(levels, settings["levels_per_step"], places)
     if (not all(isinstance(t, int) for t in tops) or tops != sorted(set(tops)) or tops[0] <= VANILLA_LEVELS
             or tops[-1] != levels or len(tops) > places or len(tops) < 2 or tops[-2] != levels - 1):
-        sys.exit(f"Endless.toml [unlock] tops: must be rising levels above {VANILLA_LEVELS}, at most {places} of them, "
+        sys.exit(f"Unlock.toml [unlock] tops: must be rising levels above {VANILLA_LEVELS}, at most {places} of them, "
                  f"ending ..., {levels - 1}, {levels}")
     return tops
 
@@ -224,7 +226,7 @@ def fill_step(template, at, needs_level, bosses, unlocks):
 
 
 def unlock_settings():
-    cfg = tomllib.loads(ENDLESS_CONFIG.read_text(encoding="utf-8")) if ENDLESS_CONFIG.exists() else {}
+    cfg = settings.load(UNLOCK_CONFIG)
     s = {**UNLOCK_DEFAULTS, **cfg.get("unlock", {})}
     if not (isinstance(s["levels_per_step"], int) and 1 <= s["levels_per_step"] <= 74
             and all(isinstance(s[k], int) and 1 <= s[k] <= BOSS_MISSIONS for k in ("bosses", "finale_bosses", "key_bosses", "ramp_from", "major_bosses"))
@@ -232,7 +234,7 @@ def unlock_settings():
             and isinstance(s["key_levels"], list) and all(isinstance(k, int) for k in s["key_levels"])
             and isinstance(s["level_bosses"], dict)
             and all(str(k).isdigit() and isinstance(v, int) and 1 <= v <= BOSS_MISSIONS for k, v in s["level_bosses"].items())):
-        sys.exit("Endless.toml [unlock]: levels_per_step must be 1-74, the boss counts 1-14, key_levels a list of levels")
+        sys.exit("Unlock.toml [unlock]: levels_per_step must be 1-74, the boss counts 1-14, key_levels a list of levels")
     return s
 
 
@@ -344,11 +346,11 @@ def set_unlocks(h, base, levels, settings):
 
 def apply(h, base, levels=LAST):
     assert VANILLA_LEVELS < levels < 128, "keep it to a sensible range"
-    settings = unlock_settings()
+    unlock = unlock_settings()
     size = main_module(h)[1]
     if raise_count(h, base, size, levels):
         print(f"A+ levels raised to {levels} (game code untouched)")
-    set_unlocks(h, base, levels, settings)
+    set_unlocks(h, base, levels, unlock)
 
 
 if __name__ == "__main__":
