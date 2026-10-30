@@ -1,0 +1,1107 @@
+[
+ {
+  "id": "Anchor",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC5/Actors/Equipment/MeleeWeapons/Anchor/BP_Anchor.Default__BP_Anchor_C"
+ },
+ {
+  "id": "Anchor_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC5/Actors/Equipment/MeleeWeapons/Anchor_Unique1/BP_Anchor_Unique1.Default__BP_Anchor_Unique1_C"
+ },
+ {
+  "id": "Axe",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Axe/BP_Axe.Default__BP_Axe_C"
+ },
+ {
+  "id": "Axe_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Axe_Unique1/BP_Axe_Unique1.Default__BP_Axe_Unique1_C"
+ },
+ {
+  "id": "Axe_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Axe_Unique2/BP_Axe_Unique2.Default__BP_Axe_Unique2_C"
+ },
+ {
+  "id": "Backstabber",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/MeleeWeapons/Backstabber/BP_Backstabber.Default__BP_Backstabber_C"
+ },
+ {
+  "id": "Backstabber_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/MeleeWeapons/Backstabber_Unique1/BP_Backstabber_Unique1.Default__BP_Backstabber_Unique1_C"
+ },
+ {
+  "id": "Battlestaff",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Patch1/Actors/Equipment/MeleeWeapons/Battlestaff/BP_Battlestaff.Default__BP_Battlestaff_C"
+ },
+ {
+  "id": "Battlestaff_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Patch1/Actors/Equipment/MeleeWeapons/Battlestaff_Unique1/BP_Battlestaff_Unique1.Default__BP_Battlestaff_Unique1_C"
+ },
+ {
+  "id": "Battlestaff_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Patch1/Actors/Equipment/MeleeWeapons/Battlestaff_Unique2/BP_Battlestaff_Unique2.Default__BP_Battlestaff_Unique2_C"
+ },
+ {
+  "id": "Boneclub",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC4/Actors/Equipment/MeleeWeapons/Boneclub/BP_Boneclub.Default__BP_Boneclub_C"
+ },
+ {
+  "id": "Boneclub_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC4/Actors/Equipment/MeleeWeapons/Boneclub_Unique1/BP_Boneclub_Unique1.Default__BP_Boneclub_Unique1_C"
+ },
+ {
+  "id": "Chainsword",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC4/Actors/Equipment/MeleeWeapons/Chainsword/BP_Chainsword.Default__BP_Chainsword_C"
+ },
+ {
+  "id": "Chainsword_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC4/Actors/Equipment/MeleeWeapons/Chainsword_Unique1/BP_Chainsword_Unique1.Default__BP_Chainsword_Unique1_C"
+ },
+ {
+  "id": "Claymore",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Claymore/BP_Claymore.Default__BP_Claymore_C"
+ },
+ {
+  "id": "Claymore_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Claymore_Unique1/BP_Claymore_Unique1.Default__BP_Claymore_Unique1_C"
+ },
+ {
+  "id": "Claymore_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Claymore_Unique2/BP_Claymore_Unique2.Default__BP_Claymore_Unique2_C"
+ },
+ {
+  "id": "Claymore_Unique3",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Claymore_Unique3/BP_Claymore_Unique3.Default__BP_Claymore_Unique3_C"
+ },
+ {
+  "id": "Claymore_Winter1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/MeleeWeapons/Claymore_Winter1/BP_Claymore_Winter1.Default__BP_Claymore_Winter1_C"
+ },
+ {
+  "id": "CoralBlade",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC5/Actors/Equipment/MeleeWeapons/CoralBlade/BP_CoralBlade.Default__BP_CoralBlade_C"
+ },
+ {
+  "id": "CoralBlade_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC5/Actors/Equipment/MeleeWeapons/CoralBlade_Unique1/BP_CoralBlade_Unique1.Default__BP_CoralBlade_Unique1_C"
+ },
+ {
+  "id": "Cutlass",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Cutlass/BP_Cutlass.Default__BP_Cutlass_C"
+ },
+ {
+  "id": "Cutlass_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Cutlass_Unique1/BP_Cutlass_Unique1.Default__BP_Cutlass_Unique1_C"
+ },
+ {
+  "id": "Cutlass_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Cutlass_Unique2/BP_Cutlass_Unique2.Default__BP_Cutlass_Unique2_C"
+ },
+ {
+  "id": "Cutlass_Year1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Cutlass_Year1/BP_Cutlass_Year1.Default__BP_Cutlass_Year1_C"
+ },
+ {
+  "id": "Daggers",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Daggers/BP_Daggers.Default__BP_Daggers_C"
+ },
+ {
+  "id": "Daggers_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Daggers_Unique1/BP_Daggers_Unique1.Default__BP_Daggers_Unique1_C"
+ },
+ {
+  "id": "Daggers_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Daggers_unique2/BP_Daggers_Unique2.Default__BP_Daggers_Unique2_C"
+ },
+ {
+  "id": "Daggers_Unique3",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Daggers_Unique3/BP_Daggers_Unique3.Default__BP_Daggers_Unique3_C"
+ },
+ {
+  "id": "DoubleAxe",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/DoubleAxe/BP_DoubleAxe.Default__BP_DoubleAxe_C"
+ },
+ {
+  "id": "DoubleAxe_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/DoubleAxe_Unique1/BP_DoubleAxe_Unique1.Default__BP_DoubleAxe_Unique1_C"
+ },
+ {
+  "id": "DoubleAxe_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/DoubleAxe_Unique2/BP_DoubleAxe_Unique2.Default__BP_DoubleAxe_Unique2_C"
+ },
+ {
+  "id": "Gauntlets",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Gauntlets/BP_Gauntlets.Default__BP_Gauntlets_C"
+ },
+ {
+  "id": "Gauntlets_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Gauntlets_Unique1/BP_Gauntlets_Unique1.Default__BP_Gauntlets_Unique1_C"
+ },
+ {
+  "id": "Gauntlets_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Gauntlets_Unique2/BP_Gauntlets_Unique2.Default__BP_Gauntlets_Unique2_C"
+ },
+ {
+  "id": "Gauntlets_Unique3",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Gauntlets_Unique3/BP_Gauntlets_Unique3.Default__BP_Gauntlets_Unique3_C"
+ },
+ {
+  "id": "Glaive",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Glaive/BP_Glaive.Default__BP_Glaive_C"
+ },
+ {
+  "id": "Glaive_Spooky2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Glaive_Spooky2/BP_Glaive_Spooky2.Default__BP_Glaive_Spooky2_C"
+ },
+ {
+  "id": "Glaive_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Glaive_Unique1/BP_Glaive_Unique1.Default__BP_Glaive_Unique1_C"
+ },
+ {
+  "id": "Glaive_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Glaive_Unique2/BP_Glaive_Unique2.Default__BP_Glaive_Unique2_C"
+ },
+ {
+  "id": "Hammer",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Hammer/BP_Hammer.Default__BP_Hammer_C"
+ },
+ {
+  "id": "Hammer_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Hammer_Unique1/BP_Hammer_Unique1.Default__BP_Hammer_Unique1_C"
+ },
+ {
+  "id": "Hammer_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Hammer_Unique2/BP_Hammer_Unique2.Default__BP_Hammer_Unique2_C"
+ },
+ {
+  "id": "Katana",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Katana/BP_Katana.Default__BP_Katana_C"
+ },
+ {
+  "id": "Katana_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Katana_Unique1/BP_Katana_Unique1.Default__BP_Katana_Unique1_C"
+ },
+ {
+  "id": "Katana_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Katana_Unique2/BP_Katana_Unique2.Default__BP_Katana_Unique2_C"
+ },
+ {
+  "id": "Mace",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Mace/BP_Mace.Default__BP_Mace_C"
+ },
+ {
+  "id": "Mace_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Mace_Unique1/BP_Mace_Unique1.Default__BP_Mace_Unique1_C"
+ },
+ {
+  "id": "Mace_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Mace_Unique2/BP_Mace_Unique2.Default__BP_Mace_Unique2_C"
+ },
+ {
+  "id": "ObsidianClaymore",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/MeleeWeapons/ObsidianClaymore/BP_ObsidianClaymore.Default__BP_ObsidianClaymore_C"
+ },
+ {
+  "id": "ObsidianClaymore_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/MeleeWeapons/ObsidianClaymore_Unique1/BP_ObsidianClaymore_Unique1.Default__BP_ObsidianClaymore_Unique1_C"
+ },
+ {
+  "id": "Rapier",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Patch2/Actors/Equipment/MeleeWeapons/Rapier/BP_Rapier.Default__BP_Rapier_C"
+ },
+ {
+  "id": "Rapier_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Patch2/Actors/Equipment/MeleeWeapons/Rapier_Unique1/BP_Rapier_Unique1.Default__BP_Rapier_Unique1_C"
+ },
+ {
+  "id": "Rapier_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Patch2/Actors/Equipment/MeleeWeapons/Rapier_Unique2/BP_Rapier_Unique2.Default__BP_Rapier_Unique2_C"
+ },
+ {
+  "id": "Sickles",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Sickles/BP_Sickles.Default__BP_Sickles_C"
+ },
+ {
+  "id": "Sickles_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Sickles_Unique1/BP_Sickles_Unique1.Default__BP_Sickles_Unique1_C"
+ },
+ {
+  "id": "Sickles_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Sickles_Unique2/BP_Sickles_Unique2.Default__BP_Sickles_Unique2_C"
+ },
+ {
+  "id": "SkeletonHammer",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/SkeletonHammer/BP_SkeletonHammer.Default__BP_SkeletonHammer_C"
+ },
+ {
+  "id": "SoulKnife",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/SoulKnife/BP_SoulKnife.Default__BP_SoulKnife_C"
+ },
+ {
+  "id": "SoulKnife_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/SoulKnife_Unique1/BP_SoulKnife_Unique1.Default__BP_SoulKnife_Unique1_C"
+ },
+ {
+  "id": "SoulKnife_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/SoulKnife_Unique2/BP_SoulKnife_Unique2.Default__BP_SoulKnife_Unique2_C"
+ },
+ {
+  "id": "SoulScythe",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/SoulScythe/BP_SoulScythe.Default__BP_SoulScythe_C"
+ },
+ {
+  "id": "SoulScythe_Spooky2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/SoulScythe_Spooky2/BP_SoulScythe_Spooky2.Default__BP_SoulScythe_Spooky2_C"
+ },
+ {
+  "id": "SoulScythe_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/SoulScythe_Unique1/BP_SoulScythe_Unique1.Default__BP_SoulScythe_Unique1_C"
+ },
+ {
+  "id": "SoulScythe_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/SoulScythe_Unique2/BP_SoulScythe_Unique2.Default__BP_SoulScythe_Unique2_C"
+ },
+ {
+  "id": "Spear",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Spear/BP_Spear.Default__BP_Spear_C"
+ },
+ {
+  "id": "Spear_spooky2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Spear_Spooky2/BP_Spear_Spooky2.Default__BP_Spear_Spooky2_C"
+ },
+ {
+  "id": "Spear_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Spear_Unique1/BP_Spear_Unique1.Default__BP_Spear_Unique1_C"
+ },
+ {
+  "id": "Spear_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Spear_Unique2/BP_Spear_Unique2.Default__BP_Spear_Unique2_C"
+ },
+ {
+  "id": "Sword_Spooky1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/MeleeWeapons/Sword_Spooky1/BP_Sword_Spooky1.Default__BP_Sword_Spooky1_C"
+ },
+ {
+  "id": "Sword_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Sword_Unique1/BP_Sword_Unique1.Default__BP_Sword_Unique1_C"
+ },
+ {
+  "id": "Sword_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Sword_Unique2/BP_Sword_Unique2.Default__BP_Sword_Unique2_C"
+ },
+ {
+  "id": "TempestKnife",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/MeleeWeapons/TempestKnife/BP_TempestKnife.Default__BP_TempestKnife_C"
+ },
+ {
+  "id": "TempestKnife_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/MeleeWeapons/TempestKnife_Unique1/BP_TempestKnife_Unique1.Default__BP_TempestKnife_Unique1_C"
+ },
+ {
+  "id": "TempestKnife_Unique2",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/MeleeWeapons/TempestKnife_Unique2/BP_TempestKnife_Unique2.Default__BP_TempestKnife_Unique2_C"
+ },
+ {
+  "id": "VoidTouchedBlades",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/MeleeWeapons/VoidTouchedBlades/BP_VoidTouchedBlades.Default__BP_VoidTouchedBlades_C"
+ },
+ {
+  "id": "VoidTouchedBlades_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/MeleeWeapons/VoidTouchedBlades_Unique1/BP_VoidTouchedBlades_Unique1.Default__BP_VoidTouchedBlades_Unique1_C"
+ },
+ {
+  "id": "Whip",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Whip/BP_Whip.Default__BP_Whip_C"
+ },
+ {
+  "id": "Whip_Unique1",
+  "kind": "MeleeWeapons",
+  "look": "/Game/Actors/Equipment/MeleeWeapons/Whip_Unique1/BP_Whip_Unique1.Default__BP_Whip_Unique1_C"
+ },
+ {
+  "id": "BatCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/BatCrossbow/BP_BatCrossbow.Default__BP_BatCrossbow_C"
+ },
+ {
+  "id": "Bow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/Bow/BP_Bow.Default__BP_Bow_C"
+ },
+ {
+  "id": "Bow_Spooky1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/RangedWeapons/Bow_Spooky1/BP_Bow_Spooky1.Default__BP_Bow_Spooky1_C"
+ },
+ {
+  "id": "Bow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/Bow_Unique1/BP_Bow_Unique1.Default__BP_Bow_Unique1_C"
+ },
+ {
+  "id": "Bow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/Bow_Unique2/BP_Bow_Unique2.Default__BP_Bow_Unique2_C"
+ },
+ {
+  "id": "BubbleBow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC5/Actors/Equipment/RangedWeapons/BubbleBow/BP_BubbleBow.Default__BP_BubbleBow_C"
+ },
+ {
+  "id": "BubbleBow_Spooky2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/BubbleBow_Spooky2/BP_BubbleBow_Spooky2.Default__BP_BubbleBow_Spooky2_C"
+ },
+ {
+  "id": "BubbleBow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC5/Actors/Equipment/RangedWeapons/BubbleBow_Unique1/BP_BubbleBow_Unique1.Default__BP_BubbleBow_Unique1_C"
+ },
+ {
+  "id": "BurstCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Patch2/Actors/Equipment/RangedWeapons/BurstCrossbow/BP_BurstCrossbow.Default__BP_BurstCrossbow_C"
+ },
+ {
+  "id": "BurstCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Patch2/Actors/Equipment/RangedWeapons/BurstCrossbow_Unique1/BP_BurstCrossbow_Unique1.Default__BP_BurstCrossbow_Unique1_C"
+ },
+ {
+  "id": "BurstCrossbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Patch2/Actors/Equipment/RangedWeapons/BurstCrossbow_Unique2/BP_BurstCrossbow_Unique2.Default__BP_BurstCrossbow_Unique2_C"
+ },
+ {
+  "id": "CogCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC4/Actors/Equipment/RangedWeapons/CogCrossbow/BP_CogCrossbow.Default__BP_CogCrossbow_C"
+ },
+ {
+  "id": "CogCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC4/Actors/Equipment/RangedWeapons/CogCrossbow_Unique1/BP_CogCrossbow_Unique1.Default__BP_CogCrossbow_Unique1_C"
+ },
+ {
+  "id": "Crossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/Crossbow/BP_Crossbow.Default__BP_Crossbow_C"
+ },
+ {
+  "id": "Crossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/Crossbow_Unique1/BP_Crossbow_Unique1.Default__BP_Crossbow_Unique1_C"
+ },
+ {
+  "id": "Crossbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/Crossbow_Unique2/BP_Crossbow_Unique2.Default__BP_Crossbow_Unique2_C"
+ },
+ {
+  "id": "DualCrossbows",
+  "kind": "RangedWeapons",
+  "look": "/Game/Patch1/Actors/Equipment/RangedWeapons/DualCrossbows/BP_DualCrossbows.Default__BP_DualCrossbows_C"
+ },
+ {
+  "id": "DualCrossbows_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Patch1/Actors/Equipment/RangedWeapons/DualCrossbows_Unique1/BP_DualCrossbows_Unique1.Default__BP_DualCrossbows_Unique1_C"
+ },
+ {
+  "id": "DualCrossbows_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Patch1/Actors/Equipment/RangedWeapons/DualCrossbows_Unique2/BP_DualCrossbows_Unique2.Default__BP_DualCrossbows_Unique2_C"
+ },
+ {
+  "id": "ExplodingCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ExplodingCrossbow/BP_ExplodingCrossbow.Default__BP_ExplodingCrossbow_C"
+ },
+ {
+  "id": "ExplodingCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ExplodingCrossbow_Unique1/BP_ExplodingCrossbow_Unique1.Default__BP_ExplodingCrossbow_Unique1_C"
+ },
+ {
+  "id": "ExplodingCrossbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ExplodingCrossbow_Unique2/BP_ExplodingCrossbow_Unique2.Default__BP_ExplodingCrossbow_Unique2_C"
+ },
+ {
+  "id": "HarpoonCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC5/Actors/Equipment/RangedWeapons/HarpoonCrossbow/BP_HarpoonCrossbow.Default__BP_HarpoonCrossbow_C"
+ },
+ {
+  "id": "HarpoonCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC5/Actors/Equipment/RangedWeapons/HarpoonCrossbow_Unique1/BP_HarpoonCrossbow_Unique1.Default__BP_HarpoonCrossbow_Unique1_C"
+ },
+ {
+  "id": "HeavyCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/HeavyCrossbow/BP_HeavyCrossbow.Default__BP_HeavyCrossbow_C"
+ },
+ {
+  "id": "HeavyCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/HeavyCrossbow_Unique1/BP_HeavyCrossbow_Unique1.Default__BP_HeavyCrossbow_Unique1_C"
+ },
+ {
+  "id": "HeavyCrossbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/HeavyCrossbow_Unique2/BP_HeavyCrossbow_Unique2.Default__BP_HeavyCrossbow_Unique2_C"
+ },
+ {
+  "id": "HuntingBow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/HuntingBow/BP_HuntingBow.Default__BP_HuntingBow_C"
+ },
+ {
+  "id": "HuntingBow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/HuntingBow_Unique1/BP_HuntingBow_Unique1.Default__BP_HuntingBow_Unique1_C"
+ },
+ {
+  "id": "HuntingBow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/HuntingBow_Unique2/BP_HuntingBow_Unique2.Default__BP_HuntingBow_Unique2_C"
+ },
+ {
+  "id": "HuntingBow_Unique3",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/HuntingBow_Unique3/BP_HuntingBow_Unique3.Default__BP_HuntingBow_Unique3_C"
+ },
+ {
+  "id": "Longbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/LongBow/BP_Longbow.Default__BP_Longbow_C"
+ },
+ {
+  "id": "Longbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/LongBow_Unique1/BP_Longbow_Unique1.Default__BP_Longbow_Unique1_C"
+ },
+ {
+  "id": "Longbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/LongBow_Unique2/BP_Longbow_Unique2.Default__BP_Longbow_Unique2_C"
+ },
+ {
+  "id": "Powerbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/PowerBow/BP_PowerBow.Default__BP_PowerBow_C"
+ },
+ {
+  "id": "PowerBow_Spooky2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/PowerBow_Spooky2/BP_PowerBow_Spooky2.Default__BP_PowerBow_Spooky2_C"
+ },
+ {
+  "id": "Powerbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/PowerBow_Unique1/BP_PowerBow_Unique1.Default__BP_PowerBow_Unique1_C"
+ },
+ {
+  "id": "Powerbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/PowerBow_Unique2/BP_PowerBow_Unique2.Default__BP_PowerBow_Unique2_C"
+ },
+ {
+  "id": "RapidCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/RapidCrossbow/BP_RapidCrossbow.Default__BP_RapidCrossbow_C"
+ },
+ {
+  "id": "RapidCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/RapidCrossbow_Unique1/BP_RapidCrossbow_Unique1.Default__BP_RapidCrossbow_Unique1_C"
+ },
+ {
+  "id": "RapidCrossbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/RapidCrossbow_Unique2/BP_RapidCrossbow_Unique2.Default__BP_RapidCrossbow_Unique2_C"
+ },
+ {
+  "id": "ScatterCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ScatterCrossbow/BP_ScatterCrossbow.Default__BP_ScatterCrossbow_C"
+ },
+ {
+  "id": "ScatterCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ScatterCrossbow_Unique1/BP_ScatterCrossbow_Unique1.Default__BP_ScatterCrossbow_Unique1_C"
+ },
+ {
+  "id": "ScatterCrossbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ScatterCrossbow_Unique2/BP_ScatterCrossbow_Unique2.Default__BP_ScatterCrossbow_Unique2_C"
+ },
+ {
+  "id": "ShadowCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/RangedWeapons/ShadowCrossbow/BP_ShadowCrossbow.Default__BP_ShadowCrossbow_C"
+ },
+ {
+  "id": "ShadowCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/RangedWeapons/ShadowCrossbow_Unique1/BP_ShadowCrossbow_Unique1.Default__BP_ShadowCrossbow_Unique1_C"
+ },
+ {
+  "id": "Shortbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/Shortbow/BP_Shortbow.Default__BP_Shortbow_C"
+ },
+ {
+  "id": "Shortbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ShortBow_Unique1/BP_ShortBow_Unique1.Default__BP_ShortBow_Unique1_C"
+ },
+ {
+  "id": "Shortbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ShortBow_Unique2/BP_ShortBow_Unique2.Default__BP_ShortBow_Unique2_C"
+ },
+ {
+  "id": "Shortbow_Unique3",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/ShortBow_Unique3/BP_Shortbow_Unique3.Default__BP_Shortbow_Unique3_C"
+ },
+ {
+  "id": "SlowBow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/SlowBow/BP_SlowBow.Default__BP_SlowBow_C"
+ },
+ {
+  "id": "SlowBow_Spooky2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/SlowBow_Spooky2/BP_SlowBow_Spooky2.Default__BP_SlowBow_Spooky2_C"
+ },
+ {
+  "id": "SlowBow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/Slowbow_Unique1/BP_SlowBow_Unique1.Default__BP_SlowBow_Unique1_C"
+ },
+ {
+  "id": "SoulBow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/SoulBow/BP_SoulBow.Default__BP_SoulBow_C"
+ },
+ {
+  "id": "SoulBow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/SoulBow_Unique1/BP_SoulBow_Unique1.Default__BP_SoulBow_Unique1_C"
+ },
+ {
+  "id": "SoulBow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/SoulBow_Unique2/BP_Soulbow_Unique2.Default__BP_SoulBow_Unique2_C"
+ },
+ {
+  "id": "SoulBow_Winter1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/RangedWeapons/SoulBow_Winter1/BP_SoulBow_Winter1.Default__BP_SoulBow_Winter1_C"
+ },
+ {
+  "id": "SoulCrossbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/SoulCrossbow/BP_SoulCrossbow.Default__BP_SoulCrossbow_C"
+ },
+ {
+  "id": "SoulCrossbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/SoulCrossbow_Unique1/BP_SoulCrossbow_Unique1.Default__BP_SoulCrossbow_Unique1_C"
+ },
+ {
+  "id": "SoulCrossbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/SoulCrossbow_Unique2/BP_SoulCrossbow_Unique2.Default__BP_SoulCrossbow_Unique2_C"
+ },
+ {
+  "id": "Trickbow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/TrickBow/BP_TrickBow.Default__BP_TrickBow_C"
+ },
+ {
+  "id": "Trickbow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/TrickBow_Unique1/BP_Trickbow_Unique1.Default__BP_Trickbow_Unique1_C"
+ },
+ {
+  "id": "Trickbow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/TrickBow_Unique2/BP_TrickBow_Unique2.Default__BP_TrickBow_Unique2_C"
+ },
+ {
+  "id": "Trickbow_Year1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Actors/Equipment/RangedWeapons/TrickBow_Year1/BP_TrickBow_Year1.Default__BP_TrickBow_Year1_C"
+ },
+ {
+  "id": "TwistingVineBow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC4/Actors/Equipment/RangedWeapons/TwistingVineBow/BP_TwistingVineBow.Default__BP_TwistingVineBow_C"
+ },
+ {
+  "id": "TwistingVineBow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC4/Actors/Equipment/RangedWeapons/TwistingVineBow_Unique1/BP_TwistingVineBow_Unique1.Default__BP_TwistingVineBow_Unique1_C"
+ },
+ {
+  "id": "VoidBow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/RangedWeapons/VoidBow/BP_VoidBow.Default__BP_VoidBow_C"
+ },
+ {
+  "id": "VoidBow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC6/Actors/Equipment/RangedWeapons/VoidBow_Unique1/BP_VoidBow_Unique.Default__BP_VoidBow_Unique_C"
+ },
+ {
+  "id": "WindBow",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/RangedWeapons/WindBow/BP_WindBow.Default__BP_WindBow_C"
+ },
+ {
+  "id": "WindBow_Unique1",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/RangedWeapons/WindBow_Unique1/BP_WindBow_Unique1.Default__BP_WindBow_Unique1_C"
+ },
+ {
+  "id": "WindBow_Unique2",
+  "kind": "RangedWeapons",
+  "look": "/Game/Content_DLC3/Actors/Equipment/RangedWeapons/WindBow_Unique2/BP_WindBow_Unique2.Default__BP_WindBow_Unique2_C"
+ },
+ {
+  "id": "ArchersStrappings",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/ArchersStrappings/BP_ArchersStrappings.Default__BP_ArchersStrappings_C"
+ },
+ {
+  "id": "ArchersStrappings_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/ArchersStrappings_Unique1/BP_ArchersStrappings_Unique1.Default__BP_ArchersStrappings_Unique1_C"
+ },
+ {
+  "id": "AssassinArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/AssassinArmor/BP_AssassinArmor.Default__BP_AssassinArmor_C"
+ },
+ {
+  "id": "AssassinArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/AssassinArmor_Unique1/BP_AssassinArmor_Unique1.Default__BP_AssassinArmor_Unique1_C"
+ },
+ {
+  "id": "BardsGarb",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC6/Actors/Equipment/Armor/BardsGarb/BP_BardsGarb.Default__BP_BardsGarb_C"
+ },
+ {
+  "id": "BardsGarb_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC6/Actors/Equipment/Armor/BardsGarb_Unique1/BP_BardsGarb_Unique1.Default__BP_BardsGarb_Unique1_C"
+ },
+ {
+  "id": "BattleRobe",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/BattleRobe/BP_BattleRobe.Default__BP_BattleRobe_C"
+ },
+ {
+  "id": "BattleRobe_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/BattleRobe_Unique1/BP_BattleRobe_Unique1.Default__BP_BattleRobe_Unique1_C"
+ },
+ {
+  "id": "BeenestArmor",
+  "kind": "Armor",
+  "look": "/Game/Patch2/Actors/Equipment/Armor/BeenestArmor/BP_BeenestArmor.Default__BP_BeenestArmor_C"
+ },
+ {
+  "id": "BeenestArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Patch2/Actors/Equipment/Armor/BeenestArmor_Unique1/BP_BeenestArmor_Unique1.Default__BP_BeenestArmor_Unique1_C"
+ },
+ {
+  "id": "ChampionsArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/ChampionsArmor/BP_ChampionsArmor.Default__BP_ChampionsArmor_C"
+ },
+ {
+  "id": "ChampionsArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/ChampionsArmor_Unique1/BP_ChampionsArmor_Unique1.Default__BP_ChampionsArmor_Unique1_C"
+ },
+ {
+  "id": "ClimbingGear",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC3/Actors/Equipment/Armor/ClimbingGear/BP_ClimbingGear.Default__BP_ClimbingGear_C"
+ },
+ {
+  "id": "ClimbingGear_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC3/Actors/Equipment/Armor/ClimbingGear_Unique1/BP_ClimbingGear_Unique1.Default__BP_ClimbingGear_Unique1_C"
+ },
+ {
+  "id": "ClimbingGear_Unique2",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC3/Actors/Equipment/Armor/ClimbingGear_Unique2/BP_ClimbingGear_Unique2.Default__BP_ClimbingGear_Unique2_C"
+ },
+ {
+  "id": "CowardsArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/CowardsArmor/BP_CowardsArmor.Default__BP_CowardsArmor_C"
+ },
+ {
+  "id": "DarkArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/DarkArmor/BP_DarkArmor.Default__BP_DarkArmor_C"
+ },
+ {
+  "id": "DarkArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/DarkArmor_Unique1/BP_DarkArmor_Unique1.Default__BP_DarkArmor_Unique1_C"
+ },
+ {
+  "id": "EmeraldArmor",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC3/Actors/Equipment/Armor/EmeraldArmor/BP_EmeraldArmor.Default__BP_EmeraldArmor_C"
+ },
+ {
+  "id": "EmeraldArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC3/Actors/Equipment/Armor/EmeraldArmor_Unique1/BP_EmeraldArmor_Unique1.Default__BP_EmeraldArmor_Unique1_C"
+ },
+ {
+  "id": "EmeraldArmor_Unique2",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC3/Actors/Equipment/Armor/EmeraldArmor_Unique2/BP_EmeraldArmor_Unique2.Default__BP_EmeraldArmor_Unique2_C"
+ },
+ {
+  "id": "EndRobes",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC6/Actors/Equipment/Armor/EndRobes/BP_EndRobes.Default__BP_EndRobes_C"
+ },
+ {
+  "id": "EndRobes_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC6/Actors/Equipment/Armor/EndRobes_Unique1/BP_EndRobes_Unique1.Default__BP_EndRobes_Unique1_C"
+ },
+ {
+  "id": "EvocationRobe",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/EvocationRobe/BP_EvocationRobe.Default__BP_EvocationRobe_C"
+ },
+ {
+  "id": "EvocationRobe_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/EvocationRobe_Unique1/BP_EvocationRobe_Unique1.Default__BP_EvocationRobe_Unique1_C"
+ },
+ {
+  "id": "EvocationRobe_Unique2",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/EvocationRobe_Unique2/BP_EvocationRobe_Unique2.Default__BP_EvocationRobe_Unique2_C"
+ },
+ {
+  "id": "FullPlateArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/FullPlateArmor/BP_FullPlateArmor.Default__BP_FullPlateArmor_C"
+ },
+ {
+  "id": "FullPlateArmor_Spooky2",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/FullPlateArmor_Spooky2/BP_FullPlateArmor_Spooky2.Default__BP_FullPlateArmor_Spooky2_C"
+ },
+ {
+  "id": "FullPlateArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/FullPlateArmor_Unique1/BP_FullPlateArmor_Unique1.Default__BP_FullPlateArmor_Unique1_C"
+ },
+ {
+  "id": "GhostArmor",
+  "kind": "Armor",
+  "look": "/Game/Patch2/Actors/Equipment/Armor/GhostArmor/BP_GhostArmor.Default__BP_GhostArmor_C"
+ },
+ {
+  "id": "GhostArmor_Spooky2",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/GhostArmor_Spooky2/BP_GhostArmor_Spooky2.Default__BP_GhostArmor_Spooky2_C"
+ },
+ {
+  "id": "GhostArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Patch2/Actors/Equipment/Armor/GhostArmor_Unique1/BP_GhostArmor_Unique1.Default__BP_GhostArmor_Unique1_C"
+ },
+ {
+  "id": "GrimArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/GrimArmor/BP_GrimArmor.Default__BP_GrimArmor_C"
+ },
+ {
+  "id": "GrimArmor_Spooky2",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/GrimArmor_Spooky2/BP_GrimArmor_Spooky2.Default__BP_GrimArmor_Spooky2_C"
+ },
+ {
+  "id": "GrimArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/GrimArmor_Unique1/BP_GrimArmor_Unique1.Default__BP_GrimArmor_Unique1_C"
+ },
+ {
+  "id": "MercenaryArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/MercenaryArmor/BP_MercenaryArmor.Default__BP_MercenaryArmor_C"
+ },
+ {
+  "id": "MercenaryArmor_Spooky1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC3/Actors/Equipment/Armor/MercenaryArmor_Spooky1/BP_MercenaryArmor_Spooky1.Default__BP_MercenaryArmor_Spooky1_C"
+ },
+ {
+  "id": "MercenaryArmor_Spooky2",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/MercenaryArmor_Spooky2/BP_MercenaryArmor_Spooky2.Default__BP_MercenaryArmor_Spooky2_C"
+ },
+ {
+  "id": "MercenaryArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/MercenaryArmor_Unique1/BP_MercenaryArmor_Unique1.Default__BP_MercenaryArmor_Unique1_C"
+ },
+ {
+  "id": "MysteryArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/MysteryArmor/BP_MysteryArmor.Default__BP_MysteryArmor_C"
+ },
+ {
+  "id": "NatureArmor",
+  "kind": "Armor",
+  "look": "/Game/Content_Season2/Actors/Equipment/Armor/NatureArmor/BP_NatureArmor.Default__BP_NatureArmor_C"
+ },
+ {
+  "id": "NatureArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_Season2/Actors/Equipment/Armor/NatureArmor_Unique1/BP_NatureArmor_unique1.Default__BP_NatureArmor_Unique1_C"
+ },
+ {
+  "id": "OcelotArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/OcelotArmor/BP_OcelotArmor.Default__BP_OcelotArmor_C"
+ },
+ {
+  "id": "OcelotArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/OcelotArmor_Unique1/BP_OcelotArmor_Unique1.Default__BP_OcelotArmor_Unique1_C"
+ },
+ {
+  "id": "PhantomArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/PhantomArmor/BP_PhantomArmor.Default__BP_PhantomArmor_C"
+ },
+ {
+  "id": "PhantomArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/PhantomArmor_Unique1/BP_PhantomArmor_Unique1.Default__BP_PhantomArmor_Unique1_C"
+ },
+ {
+  "id": "PiglinArmor",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC4/Actors/Equipment/Armor/PiglinArmor/BP_PiglinArmor.Default__BP_PiglinArmor_C"
+ },
+ {
+  "id": "PiglinArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC4/Actors/Equipment/Armor/PiglinArmor_Unique1/BP_PiglinArmor_Unique1.Default__BP_PiglinArmor_Unique1_C"
+ },
+ {
+  "id": "ReinforcedMail",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/ReinforcedMail/BP_ReinforcedMail.Default__BP_ReinforcedMail_C"
+ },
+ {
+  "id": "ReinforcedMail_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/ReinforcedMail_Unique1/BP_ReinforcedMail_Unique1.Default__BP_ReinforcedMail_Unique1_C"
+ },
+ {
+  "id": "ScaleMail",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/ScaleMail/BP_ScaleMail.Default__BP_ScaleMail_C"
+ },
+ {
+  "id": "ScaleMail_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/ScaleMail_Unique1/BP_ScaleMail_Unique1.Default__BP_ScaleMail_Unique1_C"
+ },
+ {
+  "id": "ShulkerArmor",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC6/Actors/Equipment/Armor/ShulkerArmor/BP_ShulkerArmor.Default__BP_ShulkerArmor_C"
+ },
+ {
+  "id": "ShulkerArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC6/Actors/Equipment/Armor/ShulkerArmor_Unique1/BP_ShulkerArmor_Unique1.Default__BP_ShulkerArmor_Unique1_C"
+ },
+ {
+  "id": "SnowArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/SnowArmor/BP_SnowArmor.Default__BP_SnowArmor_C"
+ },
+ {
+  "id": "SnowArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/SnowArmor_Unique1/BP_SnowArmor_Unique1.Default__BP_SnowArmor_Unique1_C"
+ },
+ {
+  "id": "SoulRobe",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/SoulRobe/BP_SoulRobe.Default__BP_SoulRobe_C"
+ },
+ {
+  "id": "SoulRobe_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/SoulRobe_Unique1/BP_SoulRobe_Unique1.Default__BP_SoulRobe_Unique1_C"
+ },
+ {
+  "id": "SpelunkersArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/SpelunkersArmor/BP_SpelunkersArmor.Default__BP_SpelunkersArmor_C"
+ },
+ {
+  "id": "SpelunkersArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/SpelunkersArmor_Unique1/BP_SpelunkersArmor_Unique1.Default__BP_SpelunkersArmor_Unique1_C"
+ },
+ {
+  "id": "SpelunkersArmor_Year1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/SpelunkersArmor_Year1/BP_SpelunkersArmor_Year1.Default__BP_SpelunkersArmor_Year1_C"
+ },
+ {
+  "id": "SproutArmor",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC4/Actors/Equipment/Armor/SproutArmor/BP_SproutArmor.Default__BP_SproutArmor_C"
+ },
+ {
+  "id": "SproutArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC4/Actors/Equipment/Armor/SproutArmor_Unique1/BP_SproutArmor_Unique1.Default__BP_SproutArmor_Unique1_C"
+ },
+ {
+  "id": "SquidArmor",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC5/Actors/Equipment/Armor/SquidArmor/BP_SquidArmor.Default__BP_SquidArmor_C"
+ },
+ {
+  "id": "SquidArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC5/Actors/Equipment/Armor/SquidArmor_Unique1/BP_SquidArmor_Unique1.Default__BP_SquidArmor_Unique1_C"
+ },
+ {
+  "id": "TurtleArmor",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC5/Actors/Equipment/Armor/TurtleArmor/BP_TurtleArmor.Default__BP_TurtleArmor_C"
+ },
+ {
+  "id": "TurtleArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC5/Actors/Equipment/Armor/TurtleArmor_Unique1/BP_TurtleArmor_Unique1.Default__BP_TurtleArmor_Unique1_C"
+ },
+ {
+  "id": "WolfArmor",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/WolfArmor/BP_WolfArmor.Default__BP_WolfArmor_C"
+ },
+ {
+  "id": "WolfArmor_Unique1",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/WolfArmor_Unique1/BP_WolfArmor_Unique1.Default__BP_WolfArmor_Unique1_C"
+ },
+ {
+  "id": "WolfArmor_Unique2",
+  "kind": "Armor",
+  "look": "/Game/Actors/Equipment/Armor/WolfArmor_Unique2/BP_WolfArmor_Unique2.Default__BP_WolfArmor_Unique2_C"
+ },
+ {
+  "id": "WolfArmor_Winter1",
+  "kind": "Armor",
+  "look": "/Game/Content_DLC3/Actors/Equipment/Armor/WolfArmor_Winter1/BP_WolfArmor_Winter1.Default__BP_WolfArmor_Winter1_C"
+ }
+]

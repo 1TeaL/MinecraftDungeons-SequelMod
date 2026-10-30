@@ -36,3 +36,13 @@ vendor/
 launcher.log
 __pycache__/
 *.pyc
+
+# Unreal editor working folders (the project in unreal/ is kept)
+unreal/Intermediate/
+unreal/Saved/
+unreal/DerivedDataCache/
+unreal/Scripts/*_out.txt
+unreal/Binaries/
+unreal/*.sln
+# made by the build scripts in unreal/Scripts (the scripts are the source)
+unreal/Content/
