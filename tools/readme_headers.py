@@ -1,5 +1,5 @@
-"""Draw the README's headers as pixel-art SVGs (docs/headers/), in the change page's look: its green, a hard dark
-shadow one pixel down and right, and the dark-mode green when GitHub shows the page dark.
+"""Draw the README's headers as pixel-art SVGs (docs/headers/): plain blocky letters like the game's own, in the
+change page's green (a lighter green when GitHub shows the page dark), no shadow.
 
     python tools/readme_headers.py
 
@@ -14,6 +14,7 @@ HEADERS = {   # file name -> [(text, pixel size), ...]: one line, or several sta
     "why-it-was-made": [("WHY IT WAS MADE", 4)],
     "what-it-does": [("WHAT IT DOES", 4)],
     "playing-it": [("PLAYING IT", 4)],
+    "mcd-transmog": [("MCD TRANSMOG", 4)],
     "how-it-works": [("HOW IT WORKS", 4)],
     "how-it-was-made": [("HOW IT WAS MADE", 4)],
     "building-it-yourself": [("BUILDING IT YOURSELF", 4)],
@@ -37,8 +38,7 @@ FONT = {
     "Y": "10001 10001 10001 01010 00100 00100 00100", "Z": "11111 00001 00010 00100 01000 10000 11111",
     " ": "00000 00000 00000 00000 00000 00000 00000", ":": "00000 00100 00100 00000 00100 00100 00000",
 }
-STYLE = (".t{fill:#1c7c45}.s{fill:#0d3f23}"
-         "@media (prefers-color-scheme:dark){.t{fill:#4cc17f}.s{fill:#06140b}}")
+STYLE = ".t{fill:#1c7c45}@media (prefers-color-scheme:dark){.t{fill:#4cc17f}}"
 
 
 def runs(text):
@@ -61,18 +61,16 @@ def runs(text):
 def svg(lines):
     """One image of the lines, stacked with a gap of two of the largest pixels."""
     gap = 2 * max(px for _, px in lines)
-    shadow, text, width, top = [], [], 0, 0
+    text, width, top = [], 0, 0
     for line, px in lines:
         for x, y, n in runs(line):
-            for out, d in ((shadow, 1), (text, 0)):
-                out.append(f'<rect class="{"s" if d else "t"}" x="{(x + d) * px}" y="{top + (y + d) * px}" '
-                           f'width="{n * px}" height="{px}"/>')
-        width, top = max(width, len(line) * 6 * px), top + 8 * px + gap
+            text.append(f'<rect class="t" x="{x * px}" y="{top + y * px}" width="{n * px}" height="{px}"/>')
+        width, top = max(width, (len(line) * 6 - 1) * px), top + 7 * px + gap
     height = top - gap
     label = " ".join(line for line, _ in lines).title()
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
             f'shape-rendering="crispEdges" role="img" aria-label="{label}"><style>{STYLE}</style>'
-            + "".join(shadow) + "".join(text) + "</svg>\n")
+            + "".join(text) + "</svg>\n")
 
 
 def main():

@@ -4,7 +4,7 @@ A rebalance mod for **Minecraft Dungeons** that makes more builds worth playing,
 Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 
 **[Download the latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest)** ·
-**[Every change, base game vs mod](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)**
+**[Every change, base game vs mod](CHANGES.md)**
 
 ## ![What it does](docs/headers/what-it-does.svg)
 
@@ -54,8 +54,7 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 | Cowardice, Frenzied | +40% / +30% | **+60%** |
 | Explorer | heals every 100 blocks explored | **every 10** |
 
-The full list, with every number, is on the [changes page](https://claude.ai/artifact/4V6GgHUFDLGujvyUG6YNCz)
-and in [CHANGES.md](CHANGES.md).
+The full list, with every number, is in [CHANGES.md](CHANGES.md).
 
 ## ![Why it was made](docs/headers/why-it-was-made.svg)
 
@@ -84,7 +83,8 @@ the other was more content, so there's more of the game to play. Part of the fun
 
 You need the **Steam version** of Minecraft Dungeons on **Windows**. Nothing else: the release brings its own Python.
 
-1. Download the `SequelMod` zip from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
+1. Download `SequelMod-1.0-with-Transmog.zip` from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
+   Only want the Sequel Mod? Take `SequelMod-1.0.zip`. Only want the transmog? See [MCD Transmog](#mcd-transmog) below.
 2. In Steam, right-click Minecraft Dungeons → **Manage** → **Browse local files**.
 3. Extract the zip into that folder. You get `Mods\SequelMod` and `Play Sequel Mod.bat` next to the game.
 4. Start the game with **`Play Sequel Mod.bat`** and keep its window open while you play.
@@ -99,6 +99,27 @@ no rebuild needed. The detailed files behind it are in `settings\launcher`.
 
 To start it from Steam's Play button instead, set Minecraft Dungeons → Properties → General → Launch Options to
 `"<game folder>\Mods\SequelMod\steam_launch.bat" %command%`.
+
+## ![MCD Transmog](docs/headers/mcd-transmog.svg)
+
+**MCD Transmog** is an optional, separate mod made alongside the Sequel Mod: change how your gear looks without
+changing what it does.
+
+- **One look per slot.** Pick one look for your melee weapon, one for your ranged weapon and one for your armor.
+  Every item in that slot wears it while it's chosen; swings, stats, shots and enchantments stay the item's own.
+- **In-game menu.** Press **Y** in camp or in a mission. The Melee / Ranged / Armor tabs show the items your
+  character has found, with their icons. Click one to wear its look; "Own looks" switches that slot back. Choices
+  are saved across missions and restarts, and the menu key can be changed at the bottom of the menu.
+- **Separate.** It's its own pak file (`MCDTransmog_P.pak`) and needs neither the Sequel Mod nor the launcher; the
+  Sequel Mod doesn't need it either. It comes in `SequelMod-1.0-with-Transmog.zip`, or on its own in
+  `MCD-Transmog-1.0.zip` from the [MCD Transmog release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmog-v1.0)
+  (unpack into the game folder; nothing else to run).
+- **To remove it,** delete `Dungeons\Content\Paks\~mods\MCDTransmog_P.pak` and its readme. Your items go back to
+  their own looks and the Sequel Mod keeps working.
+
+It never touches your character saves: the looks are kept in their own file, `SequelLooks.sav`. Keyboard and mouse
+only for now; tested in single player. It's built from blueprints made by script (`unreal/Scripts/build_transmog.py`,
+packed with `python tools/blueprints.py build_transmog`), which needs the Unreal 4.22 editor - players don't.
 
 ## ![How it works](docs/headers/how-it-works.svg)
 
