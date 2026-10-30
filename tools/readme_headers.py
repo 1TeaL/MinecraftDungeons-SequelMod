@@ -1,16 +1,17 @@
-"""Draw the README's headers as pixel-art SVGs (docs/headers/): plain blocky letters like the game's own, in the
+"""Draw the README's headers as pixel-art SVGs (docs/headers/): chunky blocky letters like the game's own, in the
 change page's green (a lighter green when GitHub shows the page dark), no shadow.
 
     python tools/readme_headers.py
 
-GitHub READMEs can't load web fonts, so the letters are drawn here from a 5x7 pixel font, one rect per run of
-lit pixels. Each heading in README.md shows its SVG with the heading text as the alt text.
+GitHub READMEs can't load web fonts, so the letters are drawn here from a bold 8-pixel-high font (strokes two
+pixels thick), one rect per run of lit pixels. Each heading in README.md shows its SVG with the heading text as
+the alt text.
 """
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "docs" / "headers"
 HEADERS = {   # file name -> [(text, pixel size), ...]: one line, or several stacked in one image
-    "sequel-mod": [("MINECRAFT DUNGEONS:", 4), ("SEQUEL MOD", 9)],
+    "sequel-mod": [("MINECRAFT DUNGEONS:", 4), ("SEQUEL MOD", 8)],
     "why-it-was-made": [("WHY IT WAS MADE", 4)],
     "what-it-does": [("WHAT IT DOES", 4)],
     "playing-it": [("PLAYING IT", 4)],
@@ -22,40 +23,57 @@ HEADERS = {   # file name -> [(text, pixel size), ...]: one line, or several sta
     "research-tools": [("RESEARCH TOOLS", 3)],
     "not-in-this-repository": [("NOT IN THIS REPOSITORY", 4)],
 }
-FONT = {
-    "A": "01110 10001 10001 11111 10001 10001 10001", "B": "11110 10001 10001 11110 10001 10001 11110",
-    "C": "01110 10001 10000 10000 10000 10001 01110", "D": "11110 10001 10001 10001 10001 10001 11110",
-    "E": "11111 10000 10000 11110 10000 10000 11111", "F": "11111 10000 10000 11110 10000 10000 10000",
-    "G": "01110 10001 10000 10111 10001 10001 01111", "H": "10001 10001 10001 11111 10001 10001 10001",
-    "I": "01110 00100 00100 00100 00100 00100 01110", "J": "00111 00010 00010 00010 00010 10010 01100",
-    "K": "10001 10010 10100 11000 10100 10010 10001", "L": "10000 10000 10000 10000 10000 10000 11111",
-    "M": "10001 11011 10101 10101 10001 10001 10001", "N": "10001 10001 11001 10101 10011 10001 10001",
-    "O": "01110 10001 10001 10001 10001 10001 01110", "P": "11110 10001 10001 11110 10000 10000 10000",
-    "Q": "01110 10001 10001 10001 10101 10010 01101", "R": "11110 10001 10001 11110 10100 10010 10001",
-    "S": "01111 10000 10000 01110 00001 00001 11110", "T": "11111 00100 00100 00100 00100 00100 00100",
-    "U": "10001 10001 10001 10001 10001 10001 01110", "V": "10001 10001 10001 10001 10001 01010 00100",
-    "W": "10001 10001 10001 10101 10101 10101 01010", "X": "10001 10001 01010 00100 01010 10001 10001",
-    "Y": "10001 10001 10001 01010 00100 00100 00100", "Z": "11111 00001 00010 00100 01000 10000 11111",
-    " ": "00000 00000 00000 00000 00000 00000 00000", ":": "00000 00100 00100 00000 00100 00100 00000",
+HEIGHT = 8
+FONT = {   # rows top to bottom; a letter is as wide as its rows
+    "A": ".#####. ####### ##...## ##...## ####### ####### ##...## ##...##",
+    "B": "######. ####### ##...## ######. ######. ##...## ####### ######.",
+    "C": ".###### ####### ##..... ##..... ##..... ##..... ####### .######",
+    "D": "######. ####### ##...## ##...## ##...## ##...## ####### ######.",
+    "E": "####### ####### ##..... ######. ######. ##..... ####### #######",
+    "F": "####### ####### ##..... ######. ######. ##..... ##..... ##.....",
+    "G": ".###### ####### ##..... ##.#### ##.#### ##...## ####### .#####.",
+    "H": "##...## ##...## ##...## ####### ####### ##...## ##...## ##...##",
+    "I": "###### ###### ..##.. ..##.. ..##.. ..##.. ###### ######",
+    "J": ".....## .....## .....## .....## .....## ##...## ####### .#####.",
+    "K": "##...## ##..##. ##.##.. ####... ####... ##.##.. ##..##. ##...##",
+    "L": "##..... ##..... ##..... ##..... ##..... ##..... ####### #######",
+    "M": "##...## ###.### ####### ##.#.## ##...## ##...## ##...## ##...##",
+    "N": "##...## ###..## ####.## ##.#### ##..### ##...## ##...## ##...##",
+    "O": ".#####. ####### ##...## ##...## ##...## ##...## ####### .#####.",
+    "P": "######. ####### ##...## ##...## ####### ######. ##..... ##.....",
+    "Q": ".#####. ####### ##...## ##...## ##.#.## ##..##. ####### .###.##",
+    "R": "######. ####### ##...## ##...## ######. #####.. ##..##. ##...##",
+    "S": ".###### ####### ##..... ######. .###### .....## ####### ######.",
+    "T": "###### ###### ..##.. ..##.. ..##.. ..##.. ..##.. ..##..",
+    "U": "##...## ##...## ##...## ##...## ##...## ##...## ####### .#####.",
+    "V": "##...## ##...## ##...## ##...## ##...## .##.##. ..###.. ...#...",
+    "W": "##...## ##...## ##...## ##...## ##.#.## ####### ###.### ##...##",
+    "X": "##...## ##...## .##.##. ..###.. ..###.. .##.##. ##...## ##...##",
+    "Y": "##..## ##..## ##..## .####. ..##.. ..##.. ..##.. ..##..",
+    "Z": "####### ####### ....##. ...##.. ..##... .##.... ####### #######",
+    " ": "... ... ... ... ... ... ... ...",
+    ":": ".. ## ## .. .. ## ## ..",
 }
 STYLE = ".t{fill:#1c7c45}@media (prefers-color-scheme:dark){.t{fill:#4cc17f}}"
 
 
 def runs(text):
-    """[(x, y, length)] of lit pixels, in font pixels."""
-    out = []
-    for i, ch in enumerate(text):
-        for y, row in enumerate(FONT[ch].split()):
+    """([(x, y, length)] of lit pixels, width), in font pixels; one blank column between letters."""
+    out, left = [], 0
+    for ch in text:
+        rows = FONT[ch].split()
+        for y, row in enumerate(rows):
             x = 0
-            while x < 5:
-                if row[x] == "1":
+            while x < len(row):
+                if row[x] == "#":
                     start = x
-                    while x < 5 and row[x] == "1":
+                    while x < len(row) and row[x] == "#":
                         x += 1
-                    out.append((i * 6 + start, y, x - start))
+                    out.append((left + start, y, x - start))
                 else:
                     x += 1
-    return out
+        left += len(rows[0]) + 1
+    return out, left - 1
 
 
 def svg(lines):
@@ -63,9 +81,10 @@ def svg(lines):
     gap = 2 * max(px for _, px in lines)
     text, width, top = [], 0, 0
     for line, px in lines:
-        for x, y, n in runs(line):
+        pixels, line_width = runs(line)
+        for x, y, n in pixels:
             text.append(f'<rect class="t" x="{x * px}" y="{top + y * px}" width="{n * px}" height="{px}"/>')
-        width, top = max(width, (len(line) * 6 - 1) * px), top + 7 * px + gap
+        width, top = max(width, line_width * px), top + HEIGHT * px + gap
     height = top - gap
     label = " ".join(line for line, _ in lines).title()
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
