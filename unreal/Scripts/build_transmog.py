@@ -18,8 +18,9 @@ own look. The menu offers only items the character has found (the save's itemsFo
     WBP_SequelMenu         the menu: tabs Melee / Ranged / Armor, a grid of the found items' icons, "Own looks",
                            the menu key and Change, Close. Holds the item list (tools/transmog_items.py)
     WBP_SequelLookEntry    one icon in the grid; a click calls the menu's Pick(Index)
-    BPLoader/Lobby/SequelTransmog, BPLoader/Ingame/SequelTransmog   levels holding the actor; the Blueprint Loader
-                           loads them in camp and in missions
+    BP_AvatarInfo          the mod's loader: a copy of the game's own empty helper /Game/Actors/BP_AvatarInfo
+                           (placed in the menu, camp and mission maps) that, outside the menu, spawns
+                           BP_SequelTransmog once. Needs no other mod.
 
 Run headless: python tools/blueprints.py build_transmog
 """
@@ -40,7 +41,7 @@ SAVE = "/Game/SequelMod/BP_SequelLooksSave"
 ACTOR = "/Game/SequelMod/BP_SequelTransmog"
 MENU = "/Game/SequelMod/WBP_SequelMenu"
 ENTRY = "/Game/SequelMod/WBP_SequelLookEntry"
-LEVELS = ["/Game/BPLoader/Lobby/SequelTransmog", "/Game/BPLoader/Ingame/SequelTransmog"]
+STARTER = "/Game/Actors/BP_AvatarInfo"
 SAVE_CLASS = SAVE + ".BP_SequelLooksSave_C"
 ACTOR_CLASS = ACTOR + ".BP_SequelTransmog_C"
 MENU_CLASS = MENU + ".WBP_SequelMenu_C"
@@ -52,7 +53,8 @@ LOOK_FILE = "softobject:/Script/CoreUObject.Object"
 SLOTS = [("Melee", "MeleeWeapon"), ("Ranged", "RangedWeapon"), ("Armor", "Armor")]
 DARK = unreal.LinearColor(0.08, 0.08, 0.1, 1.0)
 
-remove("/Game/SequelMod/WBP_SequelStatus")
+for old in ["/Game/SequelMod/WBP_SequelStatus", "/Game/BPLoader/Lobby/SequelTransmog", "/Game/BPLoader/Ingame/SequelTransmog"]:
+    remove(old)
 
 # 1. The save.
 save = blueprint(SAVE, unreal.SaveGame)
@@ -64,7 +66,7 @@ compile_save(save, "save")
 
 # 2. The actor's routines the menu calls (bodies come in step 5).
 bp = blueprint(ACTOR, unreal.Actor)
-for name, kind in [("Save", "object:" + SAVE_CLASS), ("Waiting", "bool"),
+for name, kind in [("Save", "object:" + SAVE_CLASS), ("Waiting", "bool"), ("Listening", "bool"),
                    ("Applied", "array:object:" + GEAR_ITEM), ("Originals", "array:class:" + GEAR_LOOK)] +                   [(name + "Look", "class:" + GEAR_LOOK) for name, _ in SLOTS]:
     check(LIB.add_variable(bp, name, kind), "variable " + name)
 a = Graph(bp)
@@ -387,12 +389,9 @@ for name, _ in SLOTS:
 # BeginPlay, continued (LoadLooks exists now).
 a.row(300)
 call_looks = a.self_call("LoadLooks")
-controller = a.call("/Script/Engine.GameplayStatics", "GetPlayerController", PlayerIndex=0)
-listen = a.call("/Script/Engine.Actor", "EnableInput")
-a.link(controller, "ReturnValue", listen, "PlayerController")
 timer = a.call("/Script/Engine.KismetSystemLibrary", "K2_SetTimer", FunctionName="Reapply", Time=0.2, bLooping="true")
 a.flow(set_loaded, call_looks)
-a.flow(set_made, call_looks, listen, timer)
+a.flow(set_made, call_looks, timer)
 
 # ApplySlot(Type, Look): the slot's equipped item should wear Look (or, with no Look, its own).
 a.row(1200)
@@ -448,8 +447,28 @@ a.flow((shown, "then"), rebuild)
 
 # Reapply: every 0.2 s (timer by name).
 a.row(1800)
-steps = [a.custom_event("Reapply")]
-for name, slot_type in SLOTS:
+# Listen to keys once the player controller exists (the actor can be spawned before it).
+reapply = a.custom_event("Reapply")
+controller = a.call("/Script/Engine.GameplayStatics", "GetPlayerController", PlayerIndex=0)
+has_controller = a.call("/Script/Engine.KismetSystemLibrary", "IsValid")
+a.link(controller, "ReturnValue", has_controller, "Object")
+not_listening = a.call("/Script/Engine.KismetMathLibrary", "Not_PreBool")
+a.link(a.var("Listening"), "Listening", not_listening, "A")
+start_listening = a.call("/Script/Engine.KismetMathLibrary", "BooleanAND")
+a.link(has_controller, "ReturnValue", start_listening, "A")
+a.link(not_listening, "ReturnValue", start_listening, "B")
+should_listen = a.branch((start_listening, "ReturnValue"))
+listen = a.call("/Script/Engine.Actor", "EnableInput")
+a.link(controller, "ReturnValue", listen, "PlayerController")
+now_listening = a.var("Listening", set_=True)
+a.set(now_listening, Listening="true")
+first_apply = a.self_call("ApplySlot", Type=SLOTS[0][1])
+a.flow(reapply, should_listen)
+a.flow((should_listen, "then"), listen, now_listening, first_apply)
+a.flow((should_listen, "else"), first_apply)
+steps = [first_apply]
+a.link(a.var(SLOTS[0][0] + "Look"), SLOTS[0][0] + "Look", first_apply, "Look")
+for name, slot_type in SLOTS[1:]:
     step = a.self_call("ApplySlot", Type=slot_type)
     a.link(a.var(name + "Look"), name + "Look", step, "Look")
     steps.append(step)
@@ -530,7 +549,26 @@ a.flow((menu_key, "then"), call_toggle)
 
 compile_save(bp, "actor")
 
-# 6. The levels the Blueprint Loader picks up in camp and in missions.
-for path in LEVELS:
-    level(path, ACTOR)
+# 6. The loader: the game's BP_AvatarInfo (an empty AvatarInfo with a scene root, in the Menu, Lobby and Ingame
+# maps and some sublevels) plus: outside the menu, spawn BP_SequelTransmog unless one is already there.
+starter = blueprint(STARTER, unreal.load_class(None, "/Script/Dungeons.AvatarInfo"))
+s = Graph(starter)
+began = s.event("/Script/Engine.Actor", "ReceiveBeginPlay")
+map_name = s.call("/Script/Engine.GameplayStatics", "GetCurrentLevelName", bRemovePrefixString="true")
+in_menu = s.call("/Script/Engine.KismetStringLibrary", "EqualEqual_StrStr", B="Menu")
+s.link(map_name, "ReturnValue", in_menu, "A")
+is_menu = s.branch((in_menu, "ReturnValue"))
+existing = s.call("/Script/Engine.GameplayStatics", "GetAllActorsOfClass", ActorClass=ACTOR_CLASS)
+count = s.array_call("Array_Length", (existing, "OutActors"), "TargetArray")
+none_yet = s.call("/Script/Engine.KismetMathLibrary", "EqualEqual_IntInt", B=0)
+s.link(count, "ReturnValue", none_yet, "A")
+is_first = s.branch((none_yet, "ReturnValue"))
+spawn = s.node("/Script/BlueprintGraph.K2Node_SpawnActorFromClass")
+s.set(spawn, Class=ACTOR_CLASS)
+here = s.call("/Script/Engine.Actor", "GetTransform")
+s.link(here, "ReturnValue", spawn, "SpawnTransform")
+s.flow(began, map_name, is_menu)
+s.flow((is_menu, "else"), existing, is_first)
+s.flow((is_first, "then"), spawn)
+compile_save(starter, "loader")
 check(True, "done")

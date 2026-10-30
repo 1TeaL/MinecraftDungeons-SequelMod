@@ -1,10 +1,11 @@
 """Build the Sequel Mod's blueprints and pack them into ~mods/SequelBlueprints_P.pak.
 
-    python tools/blueprints.py build_transmog_test     run unreal/Scripts/<script>.py, cook, pack
+    python tools/blueprints.py build_transmog          run unreal/Scripts/<script>.py, cook, pack
     python tools/blueprints.py --pack                  only cook and pack what the project has
 
 Needs the Unreal 4.22 editor (UE_ROOT below) and the editor modules built once (unreal/Source; see decisions.md).
-The pak holds only our folders (/Game/SequelMod and /Game/BPLoader); the Blueprint Loader pak loads the levels.
+The pak holds only our folders: /Game/SequelMod and /Game/Actors/BP_AvatarInfo (the loader, a copy of the game's
+own empty helper that starts our actors).
 """
 import os
 import shutil
@@ -21,7 +22,8 @@ COOKED = os.path.join(MOD, "unreal", "Saved", "Cooked", "WindowsNoEditor", "Dung
 STAGE = os.path.join(MOD, "unreal", "Saved", "pak_stage")
 U4PAK = os.path.join(MOD, "..", "Dungeons-Mod-Kit-master", "Tools", "py", "u4pak.py")
 OUT_PAK = os.path.join(GAME, "Dungeons", "Content", "Paks", "~mods", "SequelBlueprints_P.pak")
-FOLDERS = ["SequelMod", "BPLoader"]
+# Actors: only BP_AvatarInfo, the loader (unreal/Content holds nothing else under Actors).
+FOLDERS = ["SequelMod", "Actors"]
 FLAGS = ["-unattended", "-nop4", "-nosplash"]
 
 

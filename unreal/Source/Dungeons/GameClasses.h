@@ -49,6 +49,14 @@ struct FSerializableItemId
 	FName SerializedId;
 };
 
+/** An empty helper the game places in the menu, camp and mission maps (as /Game/Actors/BP_AvatarInfo); the mod's
+ *  copy of that blueprint starts the mod's own actors. */
+UCLASS(Blueprintable)
+class DUNGEONS_API AAvatarInfo : public AInfo
+{
+	GENERATED_BODY()
+};
+
 /** The look of an item: meshes and materials, attached to the player. */
 UCLASS(Blueprintable)
 class DUNGEONS_API AGearActor : public AActor
