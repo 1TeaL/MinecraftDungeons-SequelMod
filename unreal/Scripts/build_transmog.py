@@ -88,7 +88,7 @@ spot.set_alignment(unreal.Vector2D(0.5, 0.5))
 spot.set_position(unreal.Vector2D(0, 0))
 spot.set_size(unreal.Vector2D(1000, 660))
 widget(menu, "Panel", unreal.VerticalBox, "Rows")
-label(menu, "Rows", "Heading", "Transmog", 28)
+label(menu, "Rows", "Heading", "MCD Transmog", 28)
 
 
 def button(wbp, parent, name, words, text_name=None):

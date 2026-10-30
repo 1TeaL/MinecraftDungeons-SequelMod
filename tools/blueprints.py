@@ -1,4 +1,4 @@
-"""Build the Sequel Mod's blueprints and pack them into ~mods/SequelBlueprints_P.pak.
+"""Build the MCD Transmog blueprints (a mod of its own, apart from the Sequel Mod) and pack them into ~mods/MCDTransmog_P.pak.
 
     python tools/blueprints.py build_transmog          run unreal/Scripts/<script>.py, cook, pack
     python tools/blueprints.py --pack                  only cook and pack what the project has
@@ -21,7 +21,7 @@ PROJECT = os.path.join(MOD, "unreal", "Dungeons.uproject")
 COOKED = os.path.join(MOD, "unreal", "Saved", "Cooked", "WindowsNoEditor", "Dungeons", "Content")
 STAGE = os.path.join(MOD, "unreal", "Saved", "pak_stage")
 U4PAK = os.path.join(MOD, "..", "Dungeons-Mod-Kit-master", "Tools", "py", "u4pak.py")
-OUT_PAK = os.path.join(GAME, "Dungeons", "Content", "Paks", "~mods", "SequelBlueprints_P.pak")
+OUT_PAK = os.path.join(GAME, "Dungeons", "Content", "Paks", "~mods", "MCDTransmog_P.pak")
 # Actors: only BP_AvatarInfo, the loader (unreal/Content holds nothing else under Actors).
 FOLDERS = ["SequelMod", "Actors"]
 FLAGS = ["-unattended", "-nop4", "-nosplash"]
