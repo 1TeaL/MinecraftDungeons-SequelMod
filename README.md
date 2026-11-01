@@ -86,8 +86,8 @@ the other was more content, so there's more of the game to play. Part of the fun
 
 You need the **Steam version** of Minecraft Dungeons on **Windows**. Nothing else: the release brings its own Python.
 
-1. Download `SequelMod-1.0-with-Transmog.zip` from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
-   Only want the Sequel Mod? Take `SequelMod-1.0.zip`. Only want the transmog? See [MCD Transmog](#mcd-transmog) below.
+1. Download `SequelMod-1.0-with-Transmog-and-Loadouts.zip` from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
+   Only want the Sequel Mod? Take `SequelMod-1.0.zip`. Only want the transmog? See [MCD Transmog and Loadouts](#mcd-transmog-and-loadouts) below.
 2. In Steam, right-click Minecraft Dungeons → **Manage** → **Browse local files**.
 3. Extract the zip into that folder. You get `Mods\SequelMod` and `Play Sequel Mod.bat` next to the game.
 4. Start the game with **`Play Sequel Mod.bat`** and keep its window open while you play.
@@ -103,10 +103,10 @@ no rebuild needed. The detailed files behind it are in `settings\launcher`.
 To start it from Steam's Play button instead, set Minecraft Dungeons → Properties → General → Launch Options to
 `"<game folder>\Mods\SequelMod\steam_launch.bat" %command%`.
 
-## ![MCD Transmog](docs/headers/mcd-transmog.svg)
+## ![MCD Transmog and Loadouts](docs/headers/mcd-transmog-and-loadouts.svg)
 
-**MCD Transmog** is an optional, separate mod made alongside the Sequel Mod: change how your gear looks without
-changing what it does.
+**MCD Transmog and Loadouts** is an optional, separate mod made alongside the Sequel Mod: change how your gear looks
+without changing what it does, and save whole sets of gear to switch between.
 
 - **One look per slot.** Pick one look for your melee weapon, one for your ranged weapon and one for your armor.
   Every item in that slot wears it while it's chosen; swings, stats, shots and enchantments stay the item's own.
@@ -120,8 +120,8 @@ changing what it does.
   enchantment points stay on their items; rename, save over or delete any of them.
 - **Separate.** It's its own pak file (`MCDTransmog_P.pak`) and needs neither the Sequel Mod nor the launcher; the
   Sequel Mod doesn't need it either. Using both? Keep them from the same release: both carry the small loader that starts
-  the transmog and the Sequel Mod's super bosses, and an older transmog's loader would leave the super bosses out. It comes in `SequelMod-1.0-with-Transmog.zip`, or on its own in
-  `MCD-Transmog-1.0.zip` from the [MCD Transmog release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmog-v1.0)
+  the transmog and the Sequel Mod's super bosses, and an older transmog's loader would leave the super bosses out. It comes in `SequelMod-1.0-with-Transmog-and-Loadouts.zip`, or on its own in
+  `MCD-Transmog-and-Loadouts-1.0.zip` from the [MCD Transmog and Loadouts release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmogandloadouts-v1.0)
   (unpack into the game folder; nothing else to run).
 - **To remove it,** delete `Dungeons\Content\Paks\~mods\MCDTransmog_P.pak` and its readme. Your items go back to
   their own looks and the Sequel Mod keeps working.

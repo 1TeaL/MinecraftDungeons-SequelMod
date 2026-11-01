@@ -319,7 +319,7 @@ def build():
               f"of the screen) takes x{num(boss['takes_damage'])} damage and deals x{num(boss['deals_damage'])}. A+25 is the "
               f"check before Endless; the others are the gates into the trials and the finale.",
               "- The host's game sets it up; tested in single player only.",
-              "- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog, if installed, must be the same "
+              "- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog and Loadouts, if installed, must be the same "
               "release: both paks carry the loader that starts them.", ""]
     unlock = endless_patch.unlock_settings()
     tops = unlock.get("tops") or []

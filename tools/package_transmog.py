@@ -1,7 +1,7 @@
-"""Make the MCD Transmog zip to give other players: the pak and a readme, nothing else.
+"""Make the MCD Transmog and Loadouts zip to give other players: the pak and a readme, nothing else.
 
-    python tools/package_transmog.py            # -> dist/MCD-Transmog-<version>.zip
-    python tools/package_transmog.py --bundle   # also dist/SequelMod-<v>-with-Transmog.zip: the Sequel Mod zip
+    python tools/package_transmog.py            # -> dist/MCD-Transmog-and-Loadouts-<version>.zip
+    python tools/package_transmog.py --bundle   # also dist/SequelMod-<v>-with-Transmog-and-Loadouts.zip: the Sequel Mod zip
                                                 #   (tools/package.py) plus this pak, optional for players
 
 The zip holds Dungeons/Content/Paks/~mods/... so it is unpacked straight into the game folder (the one with
@@ -19,7 +19,7 @@ VERSION = "1.0"
 PAK = "MCDTransmog_P.pak"
 SEQUEL_VERSION = "1.0"   # the Sequel Mod zip the bundle starts from (tools/package.py VERSION)
 MODS = "Dungeons/Content/Paks/~mods/"
-README = f"""MCD Transmog {VERSION} for Minecraft Dungeons
+README = f"""MCD Transmog and Loadouts {VERSION} for Minecraft Dungeons
 
 Change how your gear looks without changing what it does. Pick one look for your melee weapon, one for your
 ranged weapon and one for your armor: every item in that slot wears it while it's chosen. Swings, stats, shots
@@ -57,6 +57,7 @@ Good to know
 
 Uninstall
 Delete {PAK} and this readme from Dungeons\\Content\\Paks\\~mods. Your items go back to their own looks.
+(An older download's "MCD Transmog README.txt" there can be deleted too.)
 (Delete SequelLooks.sav too if you want your chosen looks and loadouts forgotten.)
 """
 
@@ -73,8 +74,8 @@ def bundle(pak, sequel_version=None):
     src = ROOT / "dist" / f"SequelMod-{sequel_version}.zip"
     if not src.exists():
         sys.exit(f"no {src.name} - run python tools/package.py first")
-    out = ROOT / "dist" / f"SequelMod-{sequel_version}-with-Transmog.zip"
-    note = (f"\nOptional, already included: MCD Transmog {VERSION} - press Y in camp or a mission to change how your\n"
+    out = ROOT / "dist" / f"SequelMod-{sequel_version}-with-Transmog-and-Loadouts.zip"
+    note = (f"\nOptional, already included: MCD Transmog and Loadouts {VERSION} - press Y in camp or a mission to change how your\n"
             f"gear looks (stats stay the same). It is a separate mod: to leave it out, delete\n"
             f"Dungeons\\Content\\Paks\\~mods\\{PAK} (its readme is next to it).\n")
     with zipfile.ZipFile(src) as zin, zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
@@ -84,7 +85,7 @@ def bundle(pak, sequel_version=None):
                 data = windows_text(data.decode() + note)
             z.writestr(info, data)
         z.write(pak, MODS + PAK)
-        z.writestr(MODS + "MCD Transmog README.txt", windows_text(README))
+        z.writestr(MODS + "MCD Transmog and Loadouts README.txt", windows_text(README))
     print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
 
 
@@ -92,11 +93,11 @@ def main():
     pak = GAME / "Dungeons" / "Content" / "Paks" / "~mods" / PAK
     if not pak.exists():
         sys.exit(f"no {PAK} built yet - run python tools/blueprints.py build_transmog first")
-    out = ROOT / "dist" / f"MCD-Transmog-{VERSION}.zip"
+    out = ROOT / "dist" / f"MCD-Transmog-and-Loadouts-{VERSION}.zip"
     out.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(pak, MODS + PAK)
-        z.writestr(MODS + "MCD Transmog README.txt", README.replace("\n", "\r\n"))
+        z.writestr(MODS + "MCD Transmog and Loadouts README.txt", README.replace("\n", "\r\n"))
         names = z.namelist()
     print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
     for name in names:

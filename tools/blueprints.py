@@ -1,4 +1,4 @@
-"""Build the blueprints - MCD Transmog's (a mod of its own) and the Sequel Mod's super bosses - with the Unreal editor:
+"""Build the blueprints - MCD Transmog and Loadouts's (a mod of its own) and the Sequel Mod's super bosses - with the Unreal editor:
 pack the transmog into ~mods/MCDTransmog_P.pak, and keep the Sequel Mod's cooked files in blueprints/, which
 tools/sequel.py build puts into SequelMod_P.pak.
 

@@ -520,7 +520,7 @@ A+100 itself: XP Multiplier 10, Loot Quality Boost 100.
 
 - On A+25, 55, 64, 73, 82, 91, 100, every boss (the mobs with the big health bar at the top of the screen) takes x0.6 damage and deals x1.25. A+25 is the check before Endless; the others are the gates into the trials and the finale.
 - The host's game sets it up; tested in single player only.
-- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog, if installed, must be the same release: both paks carry the loader that starts them.
+- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog and Loadouts, if installed, must be the same release: both paks carry the loader that starts them.
 
 ### Unlocking
 
