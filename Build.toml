@@ -44,6 +44,16 @@ enchanted_power = "grow"                  # how strong their enchantments are
 # Stuns and stagger stay at their A+25 values all the way (30% stun duration, 10x stagger resistance).
 
 
+# SUPER BOSSES: on these A+ levels every mission boss (the mobs with the big health bar at the top of the screen)
+# is a super boss - it takes less damage and deals more. Built with the Unreal editor, not by sequel.py: after a
+# change run  python tools/blueprints.py build_transmog  and then  python tools/sequel.py build.
+[super_bosses]
+levels = [25, 55, 64, 73, 82, 91, 100]   # the step into Endless (A+25 bosses open A+26), the gates into
+                                         # each trial (their boss missions open it) and A+100
+takes_damage = 0.6                   # damage it takes: x0.6 (about 1.7 times the health)
+deals_damage = 1.25                  # damage it deals: x1.25
+
+
 #####################################################################################################################
 #  2. PLAYER
 #####################################################################################################################

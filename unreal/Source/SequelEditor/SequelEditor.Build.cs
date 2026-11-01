@@ -11,7 +11,7 @@ public class SequelEditor : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {
-			"UnrealEd", "AssetRegistry", "BlueprintGraph", "Kismet", "KismetCompiler", "UMG", "UMGEditor", "Slate", "SlateCore"
+			"UnrealEd", "AssetRegistry", "BlueprintGraph", "Kismet", "KismetCompiler", "UMG", "UMGEditor", "Slate", "SlateCore", "GameplayAbilities"
 		});
 	}
 }

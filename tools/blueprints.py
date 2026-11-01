@@ -1,12 +1,17 @@
-"""Build the MCD Transmog blueprints (a mod of its own, apart from the Sequel Mod) and pack them into ~mods/MCDTransmog_P.pak.
+"""Build the blueprints - MCD Transmog's (a mod of its own) and the Sequel Mod's super bosses - with the Unreal editor:
+pack the transmog into ~mods/MCDTransmog_P.pak, and keep the Sequel Mod's cooked files in blueprints/, which
+tools/sequel.py build puts into SequelMod_P.pak.
 
     python tools/blueprints.py build_transmog          run unreal/Scripts/<script>.py, cook, pack
     python tools/blueprints.py --pack                  only cook and pack what the project has
 
 Needs the Unreal 4.22 editor (UE_ROOT below) and the editor modules built once (unreal/Source; see decisions.md).
-The pak holds only our folders: /Game/SequelMod and /Game/Actors/BP_AvatarInfo (the loader, a copy of the game's
-own empty helper that starts our actors).
+The transmog pak holds /Game/SequelMod and /Game/Actors/BP_AvatarInfo (the loader, a copy of the game's own empty
+helper that starts our actors); blueprints/ holds /Game/SequelBosses and the same loader. Both paks carry the same
+loader, which starts whichever mod's actors are installed. The super boss values come from Build.toml
+[super_bosses], handed to the editor's scripts in unreal/Scripts/_settings.json.
 """
+import json
 import os
 import shutil
 import subprocess
@@ -24,10 +29,36 @@ U4PAK = os.path.join(MOD, "..", "Dungeons-Mod-Kit-master", "Tools", "py", "u4pak
 OUT_PAK = os.path.join(GAME, "Dungeons", "Content", "Paks", "~mods", "MCDTransmog_P.pak")
 # Actors: only BP_AvatarInfo, the loader (unreal/Content holds nothing else under Actors).
 FOLDERS = ["SequelMod", "Actors"]
+SEQUEL_FOLDERS = ["SequelBosses", "Actors"]   # into SequelMod_P.pak, by sequel.py
+SEQUEL_COOKED = os.path.join(MOD, "blueprints")
+SETTINGS_JSON = os.path.join(MOD, "unreal", "Scripts", "_settings.json")
 FLAGS = ["-unattended", "-nop4", "-nosplash"]
 
 
+def write_settings():
+    """The Build.toml values the editor's scripts need (its Python can't read TOML)."""
+    sys.path.insert(0, HERE)
+    import settings
+    cfg = settings.load(settings.path("Endless.toml")).get("super_bosses", {})
+    values = {"levels": cfg.get("levels", [55, 64, 73, 82, 91, 100]), "takes_damage": cfg.get("takes_damage", 0.6),
+              "deals_damage": cfg.get("deals_damage", 1.25)}
+    with open(SETTINGS_JSON, "w") as f:
+        json.dump({"super_bosses": values}, f, indent=1)
+
+
+def keep_sequel_files():
+    """The Sequel Mod's cooked blueprints, for sequel.py build."""
+    shutil.rmtree(SEQUEL_COOKED, ignore_errors=True)
+    for folder in SEQUEL_FOLDERS:
+        src = os.path.join(COOKED, folder)
+        if os.path.isdir(src):
+            shutil.copytree(src, os.path.join(SEQUEL_COOKED, "Dungeons", "Content", folder))
+    print("kept the Sequel Mod's blueprints in %s - run python tools/sequel.py build to put them in its pak"
+          % SEQUEL_COOKED)
+
+
 def run_script(name):
+    write_settings()
     script = os.path.join(MOD, "unreal", "Scripts", name + ".py")
     out = script[:-3] + "_out.txt"
     if os.path.exists(out):
@@ -78,4 +109,5 @@ if __name__ == "__main__":
     if sys.argv[1] != "--pack":
         run_script(sys.argv[1])
     cook()
+    keep_sequel_files()
     pack()

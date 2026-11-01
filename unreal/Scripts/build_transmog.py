@@ -18,14 +18,19 @@ own look. The menu offers only items the character has found (the save's itemsFo
     WBP_SequelMenu         the menu: tabs Melee / Ranged / Armor, a grid of the found items' icons, "Own looks",
                            the menu key and Change, Close. Holds the item list (tools/transmog_items.py)
     WBP_SequelLookEntry    one icon in the grid; a click calls the menu's Pick(Index)
-    BP_AvatarInfo          the mod's loader: a copy of the game's own empty helper /Game/Actors/BP_AvatarInfo
-                           (placed in the menu, camp and mission maps) that, outside the menu, spawns
-                           BP_SequelTransmog once. Needs no other mod.
+    Loadouts tab           saved sets of gear (and looks) - build_loadouts.py, with WBP_SequelLoadoutRow
+    BP_AvatarInfo          the loader: a copy of the game's own empty helper /Game/Actors/BP_AvatarInfo (placed in
+                           the menu, camp and mission maps) that, outside the menu, spawns BP_SequelTransmog and the
+                           Sequel Mod's BP_SequelSuperBoss once each - whichever is installed. The same loader goes
+                           into both mods' paks, so either works alone and both work together.
+
+Before the transmog it builds the Sequel Mod's super bosses (build_superboss.py), which the loader needs to exist.
 
 Run headless: python tools/blueprints.py build_transmog
 """
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -51,10 +56,27 @@ GEAR_LOOK = "/Script/Dungeons.GearActor"
 ITEM_ID = "/Script/Dungeons.SerializableItemId"
 LOOK_FILE = "softobject:/Script/CoreUObject.Object"
 SLOTS = [("Melee", "MeleeWeapon"), ("Ranged", "RangedWeapon"), ("Armor", "Armor")]
+PAD_KEY = "Gamepad_DPad_Left"   # opens the menu on a gamepad (not changeable)
+PAD_BACK = "Gamepad_FaceButton_Right"   # B: closes a pad-opened menu
 DARK = unreal.LinearColor(0.08, 0.08, 0.1, 1.0)
+DARK_PIN = "(R=0.08,G=0.08,B=0.1,A=1.0)"
+PAD_FOCUS = "(R=0.6,G=0.42,B=0.06,A=1.0)"   # the button the pad has selected
+loadouts = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_loadouts.py")
+exec(compile(open(loadouts).read(), loadouts, "exec"))   # the Loadouts tab's steps, called below
 
 for old in ["/Game/SequelMod/WBP_SequelStatus", "/Game/BPLoader/Lobby/SequelTransmog", "/Game/BPLoader/Ingame/SequelTransmog"]:
     remove(old)
+if not globals().get("EXTRA_ACTORS"):   # a normal build drops the tests (build_modtest/bosstest/bosscheck/loadouttest)
+    for old in ["/Game/SequelMod/BP_SequelModTest", "/Game/SequelMod/WBP_SequelModTest",
+                "/Game/SequelMod/BP_SequelLoadoutTest", "/Game/SequelMod/WBP_SequelLoadoutTest",
+                "/Game/SequelMod/BP_SequelBossTest", "/Game/SequelMod/WBP_SequelBossTest",
+                "/Game/SequelMod/BP_SequelBossCheck", "/Game/SequelMod/WBP_SequelBossCheck",
+                "/Game/SequelMod/GE_SequelSuperBoss"]:
+        remove(old)
+
+# 0. The Sequel Mod's super bosses (their own folder; they go into SequelMod_P.pak, see tools/blueprints.py).
+superboss = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_superboss.py")
+exec(compile(open(superboss).read(), superboss, "exec"))
 
 # 1. The save.
 save = blueprint(SAVE, unreal.SaveGame)
@@ -62,6 +84,7 @@ for name, _ in SLOTS:
     check(LIB.add_variable(save, name, LOOK_FILE), "save " + name)
 check(LIB.add_variable(save, "MenuKey", "struct:/Script/InputCore.Key"), "save MenuKey")
 check(LIB.set_variable_default(save, "MenuKey", "Y"), "MenuKey = Y")
+loadout_save_vars(save)
 compile_save(save, "save")
 
 # 2. The actor's routines the menu calls (bodies come in step 5).
@@ -100,11 +123,63 @@ def button(wbp, parent, name, words, text_name=None):
     return b
 
 
+def highlight(g, names, in_list=False):
+    """Every frame, the one of these buttons the pad has selected turns gold (the game hides the engine's own focus
+    frame); the others stay dark. A newly selected one becomes the menu's LastFocus and, in_list (an icon or a
+    loadout row, ticking in its own widget), is scrolled into view. Returns the exec pins the Tick leaves by."""
+    def of_menu(var_name, set_=False):
+        """A menu variable: the menu's own buttons tick in the menu, the list's in an icon or row (its Menu)."""
+        if not in_list:
+            return g.var(var_name, set_=set_)
+        return g.var(var_name, set_=set_, owner=MENU_CLASS, target=(g.var("Menu"), "Menu"))
+
+    exits = [(g.event("/Script/UMG.UserWidget", "Tick"), "then")]
+    for name in names:
+        focused = g.call("/Script/UMG.Widget", "HasAnyUserFocus")
+        g.link(g.var(name), name, focused, "self")
+        color = g.call("/Script/Engine.KismetMathLibrary", "SelectColor", A=PAD_FOCUS, B=DARK_PIN)
+        g.link(focused, "ReturnValue", color, "bPickA")
+        paint = g.call("/Script/UMG.Button", "SetBackgroundColor")
+        g.link(g.var(name), name, paint, "self")
+        g.link(color, "ReturnValue", paint, "InBackgroundColor")
+        for node, pin in exits:
+            g.link(node, pin, paint, "execute")
+        new = g.call("/Script/Engine.KismetMathLibrary", "NotEqual_ObjectObject")
+        g.link(of_menu("LastFocus"), "LastFocus", new, "A")
+        g.link(g.var(name), name, new, "B")
+        newly = g.call("/Script/Engine.KismetMathLibrary", "BooleanAND")
+        g.link(focused, "ReturnValue", newly, "A")
+        g.link(new, "ReturnValue", newly, "B")
+        is_new = g.branch((newly, "ReturnValue"))
+        remember = of_menu("LastFocus", set_=True)
+        g.link(g.var(name), name, remember, "LastFocus")
+        g.flow(paint, is_new)
+        if in_list:
+            into_view = g.call("/Script/UMG.ScrollBox", "ScrollWidgetIntoView", AnimateScroll="false")
+            g.link(of_menu("Scroll"), "Scroll", into_view, "self")
+            g.link(g.var(name), name, into_view, "WidgetToFind")
+            g.flow((is_new, "then"), into_view, remember)
+        else:
+            g.flow((is_new, "then"), remember)
+        exits = [(remember, "then"), (is_new, "else")]   # the next button follows either way
+    return exits
+
+
+def terminals(wbp, graph_name):
+    """The entry and result nodes of an override graph (made by its first node)."""
+    text = LIB.export_nodes(wbp, graph_name)
+    found = dict(re.findall(r'Class=/Script/BlueprintGraph\.K2Node_Function(Entry|Result) Name="([^"]+)"', text))
+    check("Entry" in found and "Result" in found, graph_name + " entry and result")
+    return found["Entry"], found["Result"]
+
+
 widget(menu, "Rows", unreal.HorizontalBox, "Tabs")
-for name, words in [("MeleeTab", "Melee"), ("RangedTab", "Ranged"), ("ArmorTab", "Armor"), ("OwnLook", "Own looks")]:
+for name, words in [("MeleeTab", "Melee"), ("RangedTab", "Ranged"), ("ArmorTab", "Armor"), ("LoadoutsTab", "Loadouts"),
+                    ("OwnLook", "Own looks")]:
     button(menu, "Tabs", name, words)
 label(menu, "Rows", "Status", "", 16, is_variable=True)
-scroll = widget(menu, "Rows", unreal.ScrollBox, "Scroll")
+loadout_layout(menu)
+scroll = widget(menu, "Rows", unreal.ScrollBox, "Scroll", True)
 scroll.get_editor_property("slot").set_size(unreal.SlateChildSize(1.0, unreal.SlateSizeRule.FILL))
 widget(menu, "Scroll", unreal.WrapBox, "Grid", True)
 widget(menu, "Rows", unreal.HorizontalBox, "Footer")
@@ -112,7 +187,9 @@ button(menu, "Footer", "ChangeKey", "Menu key: Y - change", text_name="KeyLabel"
 button(menu, "Footer", "Close", "Close")
 for name, kind in [("Owner", "object:" + ACTOR_CLASS), ("Tab", "int"), ("Ids", "array:struct:" + ITEM_ID),
                    ("CurId", "struct:" + ITEM_ID),
-                   ("Kinds", "array:int"), ("Looks", "array:" + LOOK_FILE)]:
+                   ("Kinds", "array:int"), ("Looks", "array:" + LOOK_FILE),
+                   ("PadMode", "bool"), ("Reply", "struct:/Script/UMG.EventReply"),
+                   ("LastFocus", "object:/Script/UMG.Widget")]:
     check(LIB.add_variable(menu, name, kind), "menu variable " + name)
 # Ready-made item ids: a Make struct node inside the loop kept giving the first one (every icon was Anchor).
 check(LIB.set_variable_default(menu, "Ids", "(" + ",".join('(SerializedId="%s")' % i["id"] for i in ITEMS) + ")"),
@@ -123,6 +200,7 @@ m = Graph(menu)
 pick = m.custom_event("Pick", "Index=int")
 show = m.custom_event("Show", "Tab=int")
 show_key = m.custom_event("ShowKey")
+loadout_events(m)
 compile_save(menu, "menu routines")
 
 # 4a. One grid entry: an icon and a name; a click picks it.
@@ -148,7 +226,10 @@ call_pick = e.call(MENU_CLASS, "Pick")
 e.link(e.var("Menu"), "Menu", call_pick, "self")
 e.link(e.var("Index"), "Index", call_pick, "Index")
 e.flow(clicked, call_pick)
+e.row(300)
+highlight(e, ["Pick"], in_list=True)
 compile_save(entry, "entry")
+loadout_row()
 
 
 # 4b. The menu's routines.
@@ -254,7 +335,9 @@ add_entry = m.call("/Script/UMG.PanelWidget", "AddChild")
 m.link(m.var("Grid"), "Grid", add_entry, "self")
 m.link(make_entry, "ReturnValue", add_entry, "Content")
 said = set_text(menu_widget("Status"), "Pick a look - every item in this slot will wear it. Own looks: each item wears its own.")
-m.flow(show, set_tab, clear, as_stash)
+m.flow(show, set_tab, clear)
+item_tabs = loadout_tab_switch(m, clear)
+m.link(item_tabs[0], item_tabs[1], as_stash, "execute")
 m.link(as_stash, "then", loop, "execute")
 m.link(loop, "LoopBody", take_id, "execute")
 m.flow(take_id, listed)
@@ -277,7 +360,7 @@ m.flow(pick, call_choose, said_pick)
 
 # Buttons.
 m.row(1200)
-for tab, name in enumerate(["MeleeTab", "RangedTab", "ArmorTab"]):
+for tab, name in enumerate(["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab"]):
     on_tab = m.bound_event(name, "OnClicked")
     call_show = m.self_call("Show", Tab=tab)
     m.flow(on_tab, call_show)
@@ -306,8 +389,113 @@ owner_save = m.var("Save", owner=ACTOR_CLASS, target=(m.var("Owner"), "Owner"))
 menu_key = m.var("MenuKey", owner=SAVE_CLASS, target=(owner_save, "Save"))
 key_name = m.call("/Script/Engine.KismetInputLibrary", "Key_GetDisplayName")
 m.link(menu_key, "MenuKey", key_name, "Key")
-said_key = set_text(menu_widget("KeyLabel"), text_of("Menu key: ", (key_name, "ReturnValue"), " - change"))
+said_key = set_text(menu_widget("KeyLabel"), text_of("Menu key: ", (key_name, "ReturnValue"), " (gamepad: D-pad left, LB/RB tabs, B closes) - change"))
 m.flow(show_key, said_key)
+loadout_routines(m)
+
+# Gamepad. Opened by pad (PadMode), the menu takes all input (the actor's step 5): the game ignores the pad, and
+# keys reach the menu instead of the actor, so here B or the menu key closes it. Closed or torn down (a level
+# change), it gives input back to the game. The selected button is gold. A mouse click on an empty spot takes the
+# selection away from every button, and the pad can't get it back - so then the last selected one (or, if that one
+# is gone, next frame the Melee tab) is selected again.
+m.row(9000)
+ticked = highlight(m, ["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab", "OwnLook", "SaveGear", "SaveAll",
+                       "ChangeKey", "Close"])
+held = m.call("/Script/UMG.Widget", "HasFocusedDescendants")   # any user's focus
+self_menu = m.self_node()
+m.link(self_menu[0], self_menu[1], held, "self")
+not_held = m.call("/Script/Engine.KismetMathLibrary", "Not_PreBool")
+m.link(held, "ReturnValue", not_held, "A")
+lost = m.call("/Script/Engine.KismetMathLibrary", "BooleanAND")
+m.link(m.var("PadMode"), "PadMode", lost, "A")
+m.link(not_held, "ReturnValue", lost, "B")
+is_lost = m.branch((lost, "ReturnValue"))
+for node, pin in ticked:
+    m.link(node, pin, is_lost, "execute")
+had_one = m.call("/Script/Engine.KismetSystemLibrary", "IsValid")
+m.link(m.var("LastFocus"), "LastFocus", had_one, "Object")
+back_to = m.call("/Script/Engine.KismetMathLibrary", "SelectObject")
+m.link(m.var("LastFocus"), "LastFocus", back_to, "A")
+m.link(m.var("MeleeTab"), "MeleeTab", back_to, "B")
+m.link(had_one, "ReturnValue", back_to, "bSelectA")
+as_widget, as_widget_pin = m.cast("/Script/UMG.Widget", (back_to, "ReturnValue"))
+refocus_pad = m.call("/Script/UMG.Widget", "SetUserFocus")
+m.link(as_widget, as_widget_pin, refocus_pad, "self")
+m.link(m.call("/Script/Engine.GameplayStatics", "GetPlayerController", PlayerIndex=0), "ReturnValue", refocus_pad,
+       "PlayerController")
+fallback = m.var("LastFocus", set_=True)   # a button that's still there takes it back next frame
+m.link(m.var("MeleeTab"), "MeleeTab", fallback, "LastFocus")
+m.flow((is_lost, "then"), as_widget, refocus_pad, fallback)
+m.row(9300)
+gone = m.event("/Script/UMG.UserWidget", "Destruct")
+was_pad = m.branch((m.var("PadMode"), "PadMode"))
+game_input = m.call("/Script/UMG.WidgetBlueprintLibrary", "SetInputMode_GameAndUIEx", bHideCursorDuringCapture="false")
+m.link(m.call("/Script/Engine.GameplayStatics", "GetPlayerController", PlayerIndex=0), "ReturnValue", game_input,
+       "PlayerController")
+refocus = m.call("/Script/UMG.WidgetBlueprintLibrary", "SetFocusToGameViewport")
+m.flow(gone, was_pad)
+m.flow((was_pad, "then"), game_input, refocus)
+k = Graph(menu, "OnKeyDown")
+pressed = k.call("/Script/Engine.KismetInputLibrary", "GetKey")
+key_entry, key_result = terminals(menu, "OnKeyDown")
+k.link(key_entry, "InKeyEvent", pressed, "Input")
+is_back = k.call("/Script/Engine.KismetInputLibrary", "EqualEqual_KeyKey", B=PAD_BACK)
+k.link(pressed, "ReturnValue", is_back, "A")
+is_menu_key = k.call("/Script/Engine.KismetInputLibrary", "EqualEqual_KeyKey")
+k.link(pressed, "ReturnValue", is_menu_key, "A")
+k_save = k.var("Save", owner=ACTOR_CLASS, target=(k.var("Owner"), "Owner"))
+k.link(k.var("MenuKey", owner=SAVE_CLASS, target=(k_save, "Save")), "MenuKey", is_menu_key, "B")
+either = k.call("/Script/Engine.KismetMathLibrary", "BooleanOR")
+k.link(is_back, "ReturnValue", either, "A")
+k.link(is_menu_key, "ReturnValue", either, "B")
+closes = k.branch((either, "ReturnValue"))
+k_close = k.call(ACTOR_CLASS, "ToggleMenu")
+k.link(k.var("Owner"), "Owner", k_close, "self")
+handled = k.var("Reply", set_=True)
+k.link(k.call("/Script/UMG.WidgetBlueprintLibrary", "Handled"), "ReturnValue", handled, "Reply")
+unhandled = k.var("Reply", set_=True)   # left to the menu's own navigation
+k.link(k.call("/Script/UMG.WidgetBlueprintLibrary", "Unhandled"), "ReturnValue", unhandled, "Reply")
+k.link(k.var("Reply"), "Reply", key_result, "ReturnValue")
+k.flow(key_entry, closes)
+k.flow((closes, "then"), k_close, handled, key_result)
+# LB / RB: the tab before / after (Melee, Ranged, Armor, Loadouts, round), and the selection goes to its button.
+TAB_BUTTONS = ["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab"]
+is_lb = k.call("/Script/Engine.KismetInputLibrary", "EqualEqual_KeyKey", B="Gamepad_LeftShoulder")
+k.link(pressed, "ReturnValue", is_lb, "A")
+is_rb = k.call("/Script/Engine.KismetInputLibrary", "EqualEqual_KeyKey", B="Gamepad_RightShoulder")
+k.link(pressed, "ReturnValue", is_rb, "A")
+shoulder = k.call("/Script/Engine.KismetMathLibrary", "BooleanOR")
+k.link(is_lb, "ReturnValue", shoulder, "A")
+k.link(is_rb, "ReturnValue", shoulder, "B")
+is_shoulder = k.branch((shoulder, "ReturnValue"))
+step = k.call("/Script/Engine.KismetMathLibrary", "SelectInt", A=1, B=len(TAB_BUTTONS) - 1)
+k.link(is_rb, "ReturnValue", step, "bPickA")
+stepped = k.call("/Script/Engine.KismetMathLibrary", "Add_IntInt")
+k.link(k.var("Tab"), "Tab", stepped, "A")
+k.link(step, "ReturnValue", stepped, "B")
+wrapped = k.call("/Script/Engine.KismetMathLibrary", "Percent_IntInt", B=len(TAB_BUTTONS))
+k.link(stepped, "ReturnValue", wrapped, "A")
+next_tab = k.self_call("Show")
+k.link(wrapped, "ReturnValue", next_tab, "Tab")
+tab_handled = k.var("Reply", set_=True)
+k.link(k.call("/Script/UMG.WidgetBlueprintLibrary", "Handled"), "ReturnValue", tab_handled, "Reply")
+k.flow((closes, "else"), is_shoulder)
+k.flow((is_shoulder, "then"), next_tab)
+prev = (next_tab, "then")
+for t, name in enumerate(TAB_BUTTONS):
+    is_t = k.call("/Script/Engine.KismetMathLibrary", "EqualEqual_IntInt", B=t)
+    k.link(k.var("Tab"), "Tab", is_t, "A")
+    which_tab = k.branch((is_t, "ReturnValue"))
+    k.link(prev[0], prev[1], which_tab, "execute")
+    tab_focus = k.call("/Script/UMG.Widget", "SetUserFocus")
+    k.link(k.var(name), name, tab_focus, "self")
+    k.link(k.call("/Script/Engine.GameplayStatics", "GetPlayerController", PlayerIndex=0), "ReturnValue", tab_focus,
+           "PlayerController")
+    k.flow((which_tab, "then"), tab_focus, tab_handled)
+    prev = (which_tab, "else")
+k.link(prev[0], prev[1], tab_handled, "execute")
+k.flow(tab_handled, key_result)
+k.flow((is_shoulder, "else"), unhandled, key_result)
 compile_save(menu, "menu")
 
 # 5. The actor.
@@ -390,7 +578,15 @@ for name, _ in SLOTS:
 a.row(300)
 call_looks = a.self_call("LoadLooks")
 timer = a.call("/Script/Engine.KismetSystemLibrary", "K2_SetTimer", FunctionName="Reapply", Time=0.2, bLooping="true")
-a.flow(set_loaded, call_looks)
+# A pad button saved as the menu key (possible before the rebind refused them) goes back to Y.
+saved_pad_key = a.call("/Script/Engine.KismetInputLibrary", "Key_IsGamepadKey")
+a.link(save_var("MenuKey"), "MenuKey", saved_pad_key, "Key")
+bad_key = a.branch((saved_pad_key, "ReturnValue"))
+reset_key = save_var("MenuKey", set_=True)
+a.set(reset_key, MenuKey="Y")
+a.flow(set_loaded, bad_key)
+a.flow((bad_key, "then"), reset_key, call_looks)
+a.flow((bad_key, "else"), call_looks)
 a.flow(set_made, call_looks, timer)
 
 # ApplySlot(Type, Look): the slot's equipped item should wear Look (or, with no Look, its own).
@@ -508,8 +704,9 @@ put_up = menu_call("AddToViewport")
 first_tab = menu_call("Show")
 a.set(first_tab, Tab=0)
 key_label = menu_call("ShowKey")
+back_to_game = a.call("/Script/UMG.WidgetBlueprintLibrary", "SetFocusToGameViewport")   # a pad-opened menu had focus
 a.flow(toggle, is_open)
-a.flow((is_open, "then"), take_down, forget, stop_wait)
+a.flow((is_open, "then"), take_down, forget, stop_wait, back_to_game)
 a.flow((is_open, "else"), make_menu, set_menu, set_owner, put_up, first_tab, key_label)
 
 # WaitForKey: the next key press becomes the menu key.
@@ -539,18 +736,48 @@ a.link(pressed_key[0], pressed_key[1], is_menu_key, "A")
 a.link(save_var("MenuKey"), "MenuKey", is_menu_key, "B")
 menu_key = a.branch((is_menu_key, "ReturnValue"))
 call_toggle = a.self_call("ToggleMenu")
+# Gamepad: D-pad left opens it too; opened that way, the menu takes all input (PadMode: the game ignores the pad,
+# the menu closes itself on B, step 4b) and the Melee tab gets focus, so the pad moves between the buttons (the
+# engine's own menu navigation; A presses).
+is_pad = a.call("/Script/Engine.KismetInputLibrary", "EqualEqual_KeyKey", B=PAD_KEY)
+a.link(pressed_key[0], pressed_key[1], is_pad, "A")
+pad = a.branch((is_pad, "ReturnValue"))
+pad_toggle = a.self_call("ToggleMenu")
+pad_opened = a.call("/Script/Engine.KismetSystemLibrary", "IsValid")
+a.link(a.var("Menu"), "Menu", pad_opened, "Object")
+opened = a.branch((pad_opened, "ReturnValue"))
+pad_mode = a.var("PadMode", set_=True, owner=MENU_CLASS, target=(a.var("Menu"), "Menu"))
+a.set(pad_mode, PadMode="true")
+ui_only = a.call("/Script/UMG.WidgetBlueprintLibrary", "SetInputMode_UIOnlyEx")
+a.link(a.var("MeleeTab", owner=MENU_CLASS, target=(a.var("Menu"), "Menu")), "MeleeTab", ui_only, "InWidgetToFocus")
+a.link(a.call("/Script/Engine.GameplayStatics", "GetPlayerController", PlayerIndex=0), "ReturnValue", ui_only,
+       "PlayerController")
+focus = a.call("/Script/UMG.Widget", "SetUserFocus")
+a.link(a.var("MeleeTab", owner=MENU_CLASS, target=(a.var("Menu"), "Menu")), "MeleeTab", focus, "self")
+a.link(a.call("/Script/Engine.GameplayStatics", "GetPlayerController", PlayerIndex=0), "ReturnValue", focus,
+       "PlayerController")
+# A pad button can't become the menu key (as D-pad left it opened the menu the keyboard way: no pad mode).
+is_pad_button = a.call("/Script/Engine.KismetInputLibrary", "Key_IsGamepadKey")
+a.link(pressed_key[0], pressed_key[1], is_pad_button, "Key")
+pad_button = a.branch((is_pad_button, "ReturnValue"))
 a.flow((any_key, "Pressed"), waiting)
 a.flow((waiting, "then"), mouse)
-a.flow((mouse, "else"), escape)
+a.flow((mouse, "else"), pad_button)
+a.flow((pad_button, "else"), escape)   # a pad button while waiting: ignored, still waiting
 a.flow((escape, "else"), new_key, saved_key, done_waiting)
 a.flow((escape, "then"), done_waiting, relabel)
-a.flow((waiting, "else"), menu_key)
+a.flow((waiting, "else"), pad)   # D-pad left first, so it always opens the pad way
+a.flow((pad, "then"), pad_toggle, opened)
+a.flow((opened, "then"), pad_mode, ui_only, focus)
+a.flow((pad, "else"), menu_key)
 a.flow((menu_key, "then"), call_toggle)
 
 compile_save(bp, "actor")
 
 # 6. The loader: the game's BP_AvatarInfo (an empty AvatarInfo with a scene root, in the Menu, Lobby and Ingame
-# maps and some sublevels) plus: outside the menu, spawn BP_SequelTransmog unless one is already there.
+# maps and some sublevels) plus: outside the menu, for each of our actors (and any EXTRA_ACTORS a test build adds,
+# see build_bosstest.py) load its class by name - missing when that mod isn't installed - and spawn one unless one
+# is already there.
 starter = blueprint(STARTER, unreal.load_class(None, "/Script/Dungeons.AvatarInfo"))
 s = Graph(starter)
 began = s.event("/Script/Engine.Actor", "ReceiveBeginPlay")
@@ -558,17 +785,30 @@ map_name = s.call("/Script/Engine.GameplayStatics", "GetCurrentLevelName", bRemo
 in_menu = s.call("/Script/Engine.KismetStringLibrary", "EqualEqual_StrStr", B="Menu")
 s.link(map_name, "ReturnValue", in_menu, "A")
 is_menu = s.branch((in_menu, "ReturnValue"))
-existing = s.call("/Script/Engine.GameplayStatics", "GetAllActorsOfClass", ActorClass=ACTOR_CLASS)
-count = s.array_call("Array_Length", (existing, "OutActors"), "TargetArray")
-none_yet = s.call("/Script/Engine.KismetMathLibrary", "EqualEqual_IntInt", B=0)
-s.link(count, "ReturnValue", none_yet, "A")
-is_first = s.branch((none_yet, "ReturnValue"))
-spawn = s.node("/Script/BlueprintGraph.K2Node_SpawnActorFromClass")
-s.set(spawn, Class=ACTOR_CLASS)
-here = s.call("/Script/Engine.Actor", "GetTransform")
-s.link(here, "ReturnValue", spawn, "SpawnTransform")
 s.flow(began, map_name, is_menu)
-s.flow((is_menu, "else"), existing, is_first)
-s.flow((is_first, "then"), spawn)
+prev = [(is_menu, "else")]
+for i, actor_class in enumerate([ACTOR_CLASS, SUPER_CLASS] + globals().get("EXTRA_ACTORS", [])):
+    soft = "Actor%d" % i   # the class by name (a soft reference: no hard link to the other mod's files)
+    check(LIB.add_variable(starter, soft, "softclass:/Script/Engine.Actor"), "loader variable " + soft)
+    check(LIB.set_variable_default(starter, soft, actor_class), "loader " + soft + " = " + actor_class)
+    load = s.call("/Script/Engine.KismetSystemLibrary", "LoadAsset_Blocking", Asset=actor_class)
+    by_name = s.call("/Script/Engine.KismetSystemLibrary", "Conv_SoftClassReferenceToClass")
+    s.link(s.var(soft), soft, by_name, "SoftClass")
+    as_actor, as_actor_pin = s.cast("/Script/Engine.Actor", (by_name, "ReturnValue"), cls_cast=True)
+    existing = s.call("/Script/Engine.GameplayStatics", "GetAllActorsOfClass")
+    s.link(as_actor, as_actor_pin, existing, "ActorClass")
+    count = s.array_call("Array_Length", (existing, "OutActors"), "TargetArray")
+    none_yet = s.call("/Script/Engine.KismetMathLibrary", "EqualEqual_IntInt", B=0)
+    s.link(count, "ReturnValue", none_yet, "A")
+    is_first = s.branch((none_yet, "ReturnValue"))
+    spawn = s.node("/Script/BlueprintGraph.K2Node_SpawnActorFromClass")
+    s.link(as_actor, as_actor_pin, spawn, "Class")
+    here = s.call("/Script/Engine.Actor", "GetTransform")
+    s.link(here, "ReturnValue", spawn, "SpawnTransform")
+    for node, pin in prev:
+        s.link(node, pin, load, "execute")
+    s.flow(load, as_actor, existing, is_first)
+    s.flow((is_first, "then"), spawn)
+    prev = [(spawn, "then"), (is_first, "else"), (as_actor, "CastFailed")]
 compile_save(starter, "loader")
 check(True, "done")

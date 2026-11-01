@@ -46,3 +46,4 @@ unreal/Binaries/
 unreal/*.sln
 # made by the build scripts in unreal/Scripts (the scripts are the source)
 unreal/Content/
+unreal/Scripts/_settings.json

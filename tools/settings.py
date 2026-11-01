@@ -56,6 +56,9 @@ MAP = {
         "rewards.loot_quality": ("Endless.toml", ("natural", "LootQualityBoost")),
         "rewards.finale_xp": ("Endless.toml", ("finale", "XPMultiplier")),
         "rewards.finale_loot_quality": ("Endless.toml", ("finale", "LootQualityBoost")),
+        "super_bosses.levels": ("Endless.toml", ("super_bosses", "levels")),
+        "super_bosses.takes_damage": ("Endless.toml", ("super_bosses", "takes_damage")),
+        "super_bosses.deals_damage": ("Endless.toml", ("super_bosses", "deals_damage")),
     },
 }
 ON_KEYS = {"builtins", "stacking", "echo", "formulas", "artifact_scaling", "seasonal_drops", "prices", "mob_pool",

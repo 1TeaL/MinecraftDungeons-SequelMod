@@ -117,6 +117,30 @@ name = 'The Berserkers'
 MobDamageMultiplier = 1.3
 LootQualityBoost = 0.5
 XPMultiplier = 0.7
+# Super boss gates (user, 2026-10-31): the levels whose boss missions open each trial have super bosses (Build.toml,
+# SUPER BOSSES), and better loot to make them worth farming - loot quality at 0.3 of the finale's (the trials: 0.5).
+# A+25 has super bosses too but keeps the base game's loot (A+1-25 are never changed).
+[[trial]]
+level = 55
+name = 'Super boss gate'
+LootQualityBoost = 0.3
+[[trial]]
+level = 64
+name = 'Super boss gate'
+LootQualityBoost = 0.3
+[[trial]]
+level = 73
+name = 'Super boss gate'
+LootQualityBoost = 0.3
+[[trial]]
+level = 82
+name = 'Super boss gate'
+LootQualityBoost = 0.3
+[[trial]]
+level = 91
+name = 'Super boss gate'
+LootQualityBoost = 0.3
+
 
 # Regular mobs drop gold past A+25 only. The chance climbs in a straight line between the two values.
 # OFF for now: the way it edited the mission map crashed the game when starting a mission.
@@ -131,3 +155,7 @@ max_amount = 3
 # healing received, XP, loot quality): set in Build.toml in the mod's main folder, which fills in this section.
 # Rows listed here directly are used too, for any A+ row Build.toml doesn't name.
 [natural]
+
+# Super bosses: which A+ levels, and how much less damage they take / more they deal. Set in Build.toml (section
+# SUPER BOSSES), which fills in this section; built into the blueprints by tools/blueprints.py.
+[super_bosses]

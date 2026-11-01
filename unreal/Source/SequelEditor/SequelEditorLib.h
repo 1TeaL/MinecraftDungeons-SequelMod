@@ -122,6 +122,18 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Sequel")
 	static bool MakeLevel(const FString& LevelPath, const TArray<UClass*>& ActorClasses);
 
+	/** Make a GameplayEffect blueprint's effect last for good and add a modifier to it: AttributeSet's Property
+	 *  (e.g. /Script/Dungeons.HealthAttributeSet, TakeDamageMultiplier) changed by Op (0 add, 1 multiply,
+	 *  2 divide, 3 override) with Magnitude. Call after the first compile, then save. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool AddEffectModifier(UBlueprint* Effect, UClass* AttributeSet, const FString& Property, int32 Op,
+		float Magnitude);
+
+	/** Set a gameplay attribute pin (e.g. GetFloatAttribute's Attribute) to AttributeSet's Property. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool SetAttributePin(UBlueprint* Blueprint, const FString& GraphName, const FString& Node,
+		const FString& Pin, UClass* AttributeSet, const FString& Property);
+
 	/** Compile; returns the compiler's messages (empty when clean). */
 	UFUNCTION(BlueprintCallable, Category = "Sequel")
 	static FString Compile(UBlueprint* Blueprint);

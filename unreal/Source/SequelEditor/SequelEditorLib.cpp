@@ -8,6 +8,7 @@
 #include "EdGraph/EdGraph.h"
 #include "EdGraphSchema_K2.h"
 #include "EdGraphUtilities.h"
+#include "GameplayEffect.h"
 #include "Engine/Blueprint.h"
 #include "K2Node_CallArrayFunction.h"
 #include "K2Node_CallFunction.h"
@@ -42,6 +43,14 @@ namespace
 		}
 		UEdGraph* Graph = FBlueprintEditorUtils::CreateNewGraph(Blueprint, FName(*GraphName), UEdGraph::StaticClass(),
 			UEdGraphSchema_K2::StaticClass());
+		// A parent's overridable function with a return value (e.g. UserWidget's OnKeyDown) becomes an override graph
+		UFunction* Parent = Blueprint->ParentClass ? Blueprint->ParentClass->FindFunctionByName(FName(*GraphName)) : nullptr;
+		if (Parent && Parent->HasAnyFunctionFlags(FUNC_BlueprintEvent))
+		{
+			FBlueprintEditorUtils::AddFunctionGraph<UClass>(Blueprint, Graph, /*bIsUserCreated=*/false,
+				Parent->GetOwnerClass());
+			return Graph;
+		}
 		FBlueprintEditorUtils::AddFunctionGraph<UClass>(Blueprint, Graph, /*bIsUserCreated=*/true, nullptr);
 		return Graph;
 	}
@@ -553,4 +562,40 @@ FString USequelEditorLib::Compile(UBlueprint* Blueprint)
 		}
 	}
 	return Out;
+}
+
+bool USequelEditorLib::AddEffectModifier(UBlueprint* Effect, UClass* AttributeSet, const FString& Property, int32 Op,
+	float Magnitude)
+{
+	UGameplayEffect* Defaults = Effect && Effect->GeneratedClass
+		? Cast<UGameplayEffect>(Effect->GeneratedClass->GetDefaultObject()) : nullptr;
+	UProperty* Attribute = AttributeSet ? FindField<UProperty>(AttributeSet, *Property) : nullptr;
+	if (!Defaults || !Attribute || Op < 0 || Op >= EGameplayModOp::Max)
+	{
+		return false;
+	}
+	FGameplayModifierInfo Modifier;
+	Modifier.Attribute = FGameplayAttribute(Attribute);
+	Modifier.ModifierOp = (EGameplayModOp::Type)Op;
+	Modifier.ModifierMagnitude = FGameplayEffectModifierMagnitude(FScalableFloat(Magnitude));
+	Defaults->DurationPolicy = EGameplayEffectDurationType::Infinite;
+	Defaults->Modifiers.Add(Modifier);
+	Defaults->MarkPackageDirty();
+	return true;
+}
+
+bool USequelEditorLib::SetAttributePin(UBlueprint* Blueprint, const FString& GraphName, const FString& NodeName,
+	const FString& PinName, UClass* AttributeSet, const FString& Property)
+{
+	UEdGraphPin* Pin = FindPin(FindNode(Blueprint, GraphName, NodeName), PinName);
+	UProperty* Attribute = AttributeSet ? FindField<UProperty>(AttributeSet, *Property) : nullptr;
+	if (!Pin || !Attribute)
+	{
+		return false;
+	}
+	const FGameplayAttribute Value(Attribute);
+	FString Text;
+	FGameplayAttribute::StaticStruct()->ExportText(Text, &Value, nullptr, nullptr, PPF_None, nullptr);
+	GetDefault<UEdGraphSchema_K2>()->TrySetDefaultValue(*Pin, Text);
+	return Pin->DefaultValue == Text;
 }

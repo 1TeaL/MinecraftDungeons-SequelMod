@@ -40,6 +40,7 @@ ENDLESS_CONFIG = settings.path("Endless.toml")
 LOCRES = "Dungeons/Content/Localization/Game/{lang}/Game.locres"
 INDEX = ROOT / "tools" / "fields.json"
 BUILD = ROOT / "build"
+BLUEPRINTS = ROOT / "blueprints"   # cooked blueprints from tools/blueprints.py (super bosses, loader)
 UE4SS_MOD = GAME / "Dungeons" / "Binaries" / "Win64" / "ue4ss" / "Mods" / "SequelMod"  # old, removed on build
 
 # Exports that never hold gameplay numbers.
@@ -619,6 +620,8 @@ def build(out_pak=None):
     bars.build(BUILD, EXTRACT, GEAR_CONFIG)
     player.build(BUILD, EXTRACT, settings.path("Player.toml"))
     build_text(texts)
+    if BLUEPRINTS.exists():   # the super bosses and the loader, cooked by tools/blueprints.py
+        shutil.copytree(BLUEPRINTS, BUILD, dirs_exist_ok=True)
     out_pak.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run([sys.executable, str(U4PAK), "pack", str(out_pak), "Dungeons"], cwd=BUILD, check=True)
     print(f"Built {out_pak} ({len(todo)} stats in {len(by_file)} files, {len(texts)} text changes"
