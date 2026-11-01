@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 GAME = ROOT.parents[1]
 VERSION = "1.0"
 PAK = "MCDTransmog_P.pak"
+SEQUEL_VERSION = "1.0"   # the Sequel Mod zip the bundle starts from (tools/package.py VERSION)
 MODS = "Dungeons/Content/Paks/~mods/"
 README = f"""MCD Transmog {VERSION} for Minecraft Dungeons
 
@@ -32,22 +33,31 @@ Install
 
 Use
 - In camp or in a mission, press Y to open the menu (press Y again or Close to shut it).
+- Controller: D-pad left opens it. Move with the D-pad or stick (the selected button turns gold), A presses,
+  LB / RB switch tabs, B closes. While it's open the game ignores the controller.
 - Tabs Melee / Ranged / Armor list the items your character has found, with their icons. Click one to wear its
   look in that slot. "Own looks" goes back to each item's own look for that tab's slot.
 - Your choices are saved and come back after missions and restarts.
+- Loadouts tab: "Save gear" keeps what you wear (melee, ranged, armor, 3 artifacts); "Save gear + looks" keeps
+  your chosen looks too. Type a name first, or leave it empty for "Loadout 1", "Loadout 2"... Up to 100.
+  Each loadout has Load, Save over and Delete (click twice); click its name to rename it. Load moves each item
+  in from your inventory, like dragging it in the inventory screen, so enchantment points stay on their items.
+  An item you no longer have is skipped.
 - Another key: click "Menu key: Y - change" at the bottom of the menu and press the new key (Esc keeps the old one).
 
 Good to know
 - Works on its own or together with other pak mods, the Sequel Mod included.
 - Only items your character has found show up, so it never shows anything you haven't earned.
-- Keyboard and mouse only for now (no gamepad).
+- Keyboard and mouse, or a controller. Typing a loadout name needs a keyboard (without one they're numbered).
 - Tested on the Steam version, in single player.
-- Looks and the menu key are kept in %LOCALAPPDATA%\\Dungeons\\Saved\\SaveGames\\SequelLooks.sav, apart from your
-  characters. Your character saves are never touched.
+- Looks, loadouts and the menu key are kept in %LOCALAPPDATA%\\Dungeons\\Saved\\SaveGames\\SequelLooks.sav, apart
+  from your characters. The mod never writes your character saves; when a loadout moves items, the game saves
+  that itself, as after the inventory screen.
+- Using the Sequel Mod too? Take both from the same release (they share the small loader that starts them).
 
 Uninstall
 Delete {PAK} and this readme from Dungeons\\Content\\Paks\\~mods. Your items go back to their own looks.
-(Delete SequelLooks.sav too if you want your chosen looks forgotten.)
+(Delete SequelLooks.sav too if you want your chosen looks and loadouts forgotten.)
 """
 
 
@@ -56,9 +66,10 @@ def windows_text(text):
     return text.replace("\r\n", "\n").replace("\n", "\r\n").encode()
 
 
-def bundle(pak, sequel_version="1.0"):
+def bundle(pak, sequel_version=None):
     """The Sequel Mod's release zip with the transmog added: its pak goes straight into ~mods (the launcher only
     installs and replaces its own SequelMod_P.pak, never other paks), and INSTALL.txt says it can be deleted."""
+    sequel_version = sequel_version or SEQUEL_VERSION
     src = ROOT / "dist" / f"SequelMod-{sequel_version}.zip"
     if not src.exists():
         sys.exit(f"no {src.name} - run python tools/package.py first")

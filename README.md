@@ -16,6 +16,9 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 - **Endless Apocalypse.** Apocalypse Plus goes past 25, all the way to A+100; A+1 to A+25 are unchanged. Higher
   levels open a few at a time as you beat different boss missions on your top level, with trial levels along the
   way that push one thing hard (more mobs, more enchanted mobs, tankier or harder-hitting ones).
+- **Super bosses.** On A+25 (a check that your build is ready for Endless), the gates into each trial (A+55, 64,
+  73, 82, 91) and A+100, bosses take 0.6x damage and hit 1.25x harder. The gates also drop better loot than the
+  levels around them, so they're worth farming.
 - **Rewards past the gear cap.** Gear power reaches the game's cap (315) at A+38, and from there it keeps rising to
   365 at A+100. Instead of raw stats, the higher power adds **bonus built-in enchantments**: extra enchantments on
   the item card that cost no enchantment points, growing a tier at a time. Armor gets extra perks, artifacts keep
@@ -110,15 +113,22 @@ changing what it does.
 - **In-game menu.** Press **Y** in camp or in a mission. The Melee / Ranged / Armor tabs show the items your
   character has found, with their icons. Click one to wear its look; "Own looks" switches that slot back. Choices
   are saved across missions and restarts, and the menu key can be changed at the bottom of the menu.
+- **Controller.** D-pad left opens the menu; move with the D-pad or stick (the selected button turns gold), A
+  presses, LB / RB switch tabs, B closes. While it's open the game ignores the controller.
+- **Loadouts.** The Loadouts tab saves up to 100 sets of gear (melee, ranged, armor and 3 artifacts), with or
+  without your chosen looks. Load swaps each item in from your inventory like the inventory screen does, so
+  enchantment points stay on their items; rename, save over or delete any of them.
 - **Separate.** It's its own pak file (`MCDTransmog_P.pak`) and needs neither the Sequel Mod nor the launcher; the
-  Sequel Mod doesn't need it either. It comes in `SequelMod-1.0-with-Transmog.zip`, or on its own in
+  Sequel Mod doesn't need it either. Using both? Keep them from the same release: both carry the small loader that starts
+  the transmog and the Sequel Mod's super bosses, and an older transmog's loader would leave the super bosses out. It comes in `SequelMod-1.0-with-Transmog.zip`, or on its own in
   `MCD-Transmog-1.0.zip` from the [MCD Transmog release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmog-v1.0)
   (unpack into the game folder; nothing else to run).
 - **To remove it,** delete `Dungeons\Content\Paks\~mods\MCDTransmog_P.pak` and its readme. Your items go back to
   their own looks and the Sequel Mod keeps working.
 
-It never touches your character saves: the looks are kept in their own file, `SequelLooks.sav`. Keyboard and mouse
-only for now; tested in single player. It's built from blueprints made by script (`unreal/Scripts/build_transmog.py`,
+It never writes your character saves: looks and loadouts are kept in their own file, `SequelLooks.sav` (when a
+loadout moves items, the game saves that itself, as after the inventory screen). Keyboard and mouse or a
+controller; tested in single player. It's built from blueprints made by script (`unreal/Scripts/build_transmog.py`,
 packed with `python tools/blueprints.py build_transmog`), which needs the Unreal 4.22 editor - players don't.
 
 ## ![How it works](docs/headers/how-it-works.svg)

@@ -302,13 +302,25 @@ def build():
         rows.append((words(row), text))
     L += ["### Level modifiers past A+25", ""] + table(["Modifier", "Value"], rows)
     L += [f"A+100 itself: " + ", ".join(f"{words(k)} {num(v)}" for k, v in endless.get("finale", {}).items()) + ".", ""]
-    rows = []
-    for t in endless.get("trial", []):
+    rows, finale = [], endless.get("finale", {})
+    for t in sorted(endless.get("trial", []), key=lambda t: t["level"]):
         first = t["level"] - t.get("levels", 1) + 1
         what = ", ".join(f"{words(k)} x{num(v)} of its A+100 value" for k, v in t.items()
                          if k not in ("level", "levels", "name", "LootQualityBoost", "XPMultiplier"))
-        rows.append((f"A+{first}" + (f"-{t['level']}" if first != t["level"] else ""), t.get("name", ""), what))
-    L += ["### Trials", ""] + table(["Levels", "Trial", "Raised"], rows)
+        pays = ", ".join(f"{words(k)} {num(t[k] * finale[k])}" for k in ("LootQualityBoost", "XPMultiplier")
+                         if k in t and k in finale)
+        rows.append((f"A+{first}" + (f"-{t['level']}" if first != t["level"] else ""), t.get("name", ""), what or "-",
+                     pays or "-"))
+    L += ["### Trials", ""] + table(["Levels", "Trial", "Raised", "Rewards"], rows)
+    boss = endless.get("super_bosses", {})
+    if boss.get("levels"):
+        L += ["### Super bosses", "",
+              f"- On A+{', '.join(str(v) for v in boss['levels'])}, every boss (the mobs with the big health bar at the top "
+              f"of the screen) takes x{num(boss['takes_damage'])} damage and deals x{num(boss['deals_damage'])}. A+25 is the "
+              f"check before Endless; the others are the gates into the trials and the finale.",
+              "- The host's game sets it up; tested in single player only.",
+              "- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog, if installed, must be the same "
+              "release: both paks carry the loader that starts them.", ""]
     unlock = endless_patch.unlock_settings()
     tops = unlock.get("tops") or []
     if unlock.get("staged") and tops:

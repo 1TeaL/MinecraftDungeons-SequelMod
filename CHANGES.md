@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-10-29 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-11-01 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -498,18 +498,29 @@ A+100 itself: XP Multiplier 10, Loot Quality Boost 100.
 
 ### Trials
 
-| Levels | Trial | Raised |
-|---|---|---|
-| A+56-58 | The Horde | Mob Count Multiplier x1.15 of its A+100 value |
-| A+65-67 | The Enchanted | Enchanted Mob Chance Multiplier x1.15 of its A+100 value, Enchanted Mob Power Multiplier x1.15 of its A+100 value |
-| A+74-76 | The Undying | Mob Resurrection Chance x2 of its A+100 value |
-| A+83-85 | The Titans | Mob Max Health Multiplier x1.25 of its A+100 value |
-| A+92-94 | The Berserkers | Mob Damage Multiplier x1.3 of its A+100 value |
-| A+95 | The Horde | Mob Count Multiplier x1.15 of its A+100 value |
-| A+96 | The Enchanted | Enchanted Mob Chance Multiplier x1.15 of its A+100 value, Enchanted Mob Power Multiplier x1.15 of its A+100 value |
-| A+97 | The Undying | Mob Resurrection Chance x2 of its A+100 value |
-| A+98 | The Titans | Mob Max Health Multiplier x1.25 of its A+100 value |
-| A+99 | The Berserkers | Mob Damage Multiplier x1.3 of its A+100 value |
+| Levels | Trial | Raised | Rewards |
+|---|---|---|---|
+| A+55 | Super boss gate | - | Loot Quality Boost 30 |
+| A+56-58 | The Horde | Mob Count Multiplier x1.15 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+64 | Super boss gate | - | Loot Quality Boost 30 |
+| A+65-67 | The Enchanted | Enchanted Mob Chance Multiplier x1.15 of its A+100 value, Enchanted Mob Power Multiplier x1.15 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+73 | Super boss gate | - | Loot Quality Boost 30 |
+| A+74-76 | The Undying | Mob Resurrection Chance x2 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+82 | Super boss gate | - | Loot Quality Boost 30 |
+| A+83-85 | The Titans | Mob Max Health Multiplier x1.25 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+91 | Super boss gate | - | Loot Quality Boost 30 |
+| A+92-94 | The Berserkers | Mob Damage Multiplier x1.3 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+95 | The Horde | Mob Count Multiplier x1.15 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+96 | The Enchanted | Enchanted Mob Chance Multiplier x1.15 of its A+100 value, Enchanted Mob Power Multiplier x1.15 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+97 | The Undying | Mob Resurrection Chance x2 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+98 | The Titans | Mob Max Health Multiplier x1.25 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+| A+99 | The Berserkers | Mob Damage Multiplier x1.3 of its A+100 value | Loot Quality Boost 50, XP Multiplier 7 |
+
+### Super bosses
+
+- On A+25, 55, 64, 73, 82, 91, 100, every boss (the mobs with the big health bar at the top of the screen) takes x0.6 damage and deals x1.25. A+25 is the check before Endless; the others are the gates into the trials and the finale.
+- The host's game sets it up; tested in single player only.
+- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog, if installed, must be the same release: both paks carry the loader that starts them.
 
 ### Unlocking
 
