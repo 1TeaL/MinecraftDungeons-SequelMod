@@ -11,6 +11,7 @@
 #include "Components/ChildActorComponent.h"
 #include "Engine/GameInstance.h"
 #include "AttributeSet.h"
+#include "GameplayEffect.h"
 #include "GameFramework/Character.h"
 #include "Engine/Texture2D.h"
 #include "GameFramework/Info.h"
@@ -63,6 +64,13 @@ class DUNGEONS_API AAvatarInfo : public AInfo
 /** The look of an item: meshes and materials, attached to the player. */
 UCLASS(Blueprintable)
 class DUNGEONS_API AGearActor : public AActor
+{
+	GENERATED_BODY()
+};
+
+/** Kinds of actor a dropped item may be on the ground (the drop test counts them). */
+UCLASS(Blueprintable)
+class DUNGEONS_API AItemActor : public AGearActor
 {
 	GENERATED_BODY()
 };
@@ -161,7 +169,30 @@ enum class EItemRarity : uint8
 	Unique,
 };
 
-/** One item as the save keeps it (only the members our blueprints read). */
+/** One enchantment on an item (our blueprints only pass it along whole; the type/category/source enums are left out). */
+USTRUCT(BlueprintType)
+struct FEnchantmentData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 Level = 0;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 InvestedPoints = 0;
+};
+
+/** One armor property (passed along whole). */
+USTRUCT(BlueprintType)
+struct FArmorPropertyData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	EItemRarity Rarity = EItemRarity::Common;
+};
+
+/** One item as the save keeps it. */
 USTRUCT(BlueprintType)
 struct FInventoryItemData
 {
@@ -178,6 +209,44 @@ struct FInventoryItemData
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool bHasNetherite = false;
+
+	// The rest, so a blueprint can copy a whole item field by field (Break -> Make) without losing any.
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<FEnchantmentData> Enchantments;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<FArmorPropertyData> ArmorProperties;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bIsUpgraded = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bIsGifted = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bIsModified = false;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 timesModified = 0;
+
+	/** The gilded enchantment (with bHasNetherite). */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FEnchantmentData NetheriteEnchantData;
+};
+
+/** An item lying on the ground, ready to pick up (the reroll reads what dropped). */
+UCLASS(Blueprintable)
+class DUNGEONS_API AStorableItem : public AActor
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FInventoryItemData ItemData;
+
+	/** The game's own end of a dropped item's time on the ground (back to its pool). */
+	UFUNCTION(BlueprintCallable)
+	void TimeToPoolFinished() {}
 };
 
 /** An item in the inventory screen. */
@@ -695,6 +764,131 @@ public:
 	/** Damage the character takes is multiplied by this. */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float TakeDamageMultiplier;
+};
+
+/** The game's item dropper: drops new items of a kind - the game rolls their enchantments, power and gilding. */
+UCLASS(Blueprintable)
+class DUNGEONS_API AItemDropActor : public AInfo
+{
+	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void DropItems(const FVector& spawnLocation, const FSerializableItemId& ItemType, const int32 dropCount,
+	               AActor* targetPlayer, bool lockItemToOwner) {}
+};
+
+/** Which rarity odds a drop uses (exe+0xB51970: common / rare / unique weights) - Mob, WoodenChest and Default
+ *  84/15/1, Boss 0/50/50, DeluxeChest and AncientMob 0/75/25, LuxuryMerchant 0/80/20, EventMob 65/25/10. */
+UENUM(BlueprintType)
+enum class EItemRarityChanceCategory : uint8
+{
+	Mob,
+	Boss,
+	WoodenChest,
+	FancyChest,
+	DeluxeChest,
+	LobbyChest,
+	MissionEnd,
+	PiggyBank,
+	ProgressCommand,
+	Default,
+	EnchantedMobGroup,
+	EventMob,
+	VillageMerchant,
+	LuxuryMerchant,
+	PiglinMerchant,
+	MysteryBox,
+	OnlyCommon,
+	AncientMob,
+};
+
+UENUM(BlueprintType)
+enum class EDropSpawnType : uint8
+{
+	All,
+	Individual,
+	Shared,
+};
+
+/** The game's base for things that drop items (mobs, chests): the rarity odds they use. */
+UCLASS(Blueprintable, ClassGroup = Custom, meta = (BlueprintSpawnableComponent))
+class DUNGEONS_API UItemDropComponent : public UActorComponent
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bEnableDrops;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bElongatedDrops;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float ElongatedDropDelay;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float ElongatedDropDelayCountSpeedUpFactor;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool bApplyAutomatically;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	EItemRarityChanceCategory rarityChanceCategory;
+
+	UFUNCTION(BlueprintCallable)
+	void ServerDropItems(const FVector& spawnLocation, AActor* TriggeringPlayer, AActor* Source) {}
+};
+
+/** Drops from a list of item kinds; IncludeUniques lets a plain kind come out as one of its uniques. */
+UCLASS(Blueprintable, ClassGroup = Custom, meta = (BlueprintSpawnableComponent))
+class DUNGEONS_API ULootTableItemDropComponent : public UItemDropComponent
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	EDropSpawnType SpawnType;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<FSerializableItemId> LootTable;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float Proability;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 MinCount;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 MaxCount;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool IncludeUniques;
+};
+
+/** A player's emeralds, gold and Eyes of Ender (on the player character). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UWalletComponent : public UActorComponent
+{
+	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void Deduct(const FSerializableItemId& Type, int32 Amount) {}
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	int32 Balance(const FSerializableItemId& Type) { return 0; }
+};
+
+/** The poison of Dipping Poison's arrows (BP_PlayerPoisonArrow applies it on a hit). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UPoisonArrowGameplayEffect : public UGameplayEffect
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float damagePerSecond = 15.f;
 };
 
 /** What the difficulty does to a character. */

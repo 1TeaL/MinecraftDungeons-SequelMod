@@ -134,6 +134,11 @@ public:
 	static bool SetAttributePin(UBlueprint* Blueprint, const FString& GraphName, const FString& Node,
 		const FString& Pin, UClass* AttributeSet, const FString& Property);
 
+	/** Add a component to an actor blueprint (its construction script), named Name, or the one it already has by that
+	 *  name. Returns the component's template, whose properties Python can then set. Compile before graph nodes use it. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static UActorComponent* AddComponent(UBlueprint* Blueprint, UClass* ComponentClass, const FString& Name);
+
 	/** Compile; returns the compiler's messages (empty when clean). */
 	UFUNCTION(BlueprintCallable, Category = "Sequel")
 	static FString Compile(UBlueprint* Blueprint);

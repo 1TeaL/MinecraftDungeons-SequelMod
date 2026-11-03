@@ -19,6 +19,10 @@ own look. The menu offers only items the character has found (the save's itemsFo
                            the menu key and Change, Close. Holds the item list (tools/transmog_items.py)
     WBP_SequelLookEntry    one icon in the grid; a click calls the menu's Pick(Index)
     Loadouts tab           saved sets of gear (and looks) - build_loadouts.py, with WBP_SequelLoadoutRow
+    Reroll tab             a new copy of the worn melee weapon, ranged weapon or armor for emeralds or gold -
+                           build_reroll.py
+    WBP_SequelCampButton   in camp only: a "Transmog, Loadouts & Reroll" button at the bottom left that opens the menu
+                           (hidden while it is open)
     BP_AvatarInfo          the loader: a copy of the game's own empty helper /Game/Actors/BP_AvatarInfo (placed in
                            the menu, camp and mission maps) that, outside the menu, spawns BP_SequelTransmog and the
                            Sequel Mod's BP_SequelSuperBoss once each - whichever is installed. The same loader goes
@@ -51,6 +55,9 @@ SAVE_CLASS = SAVE + ".BP_SequelLooksSave_C"
 ACTOR_CLASS = ACTOR + ".BP_SequelTransmog_C"
 MENU_CLASS = MENU + ".WBP_SequelMenu_C"
 ENTRY_CLASS = ENTRY + ".WBP_SequelLookEntry_C"
+CAMP_BUTTON = "/Game/SequelMod/WBP_SequelCampButton"
+CAMP_BUTTON_CLASS = CAMP_BUTTON + ".WBP_SequelCampButton_C"
+CAMP_MAP = "Lobby"   # the camp's level name (GetCurrentLevelName)
 GEAR_ITEM = "/Script/Dungeons.GearItemInstance"
 GEAR_LOOK = "/Script/Dungeons.GearActor"
 ITEM_ID = "/Script/Dungeons.SerializableItemId"
@@ -63,20 +70,25 @@ DARK_PIN = "(R=0.08,G=0.08,B=0.1,A=1.0)"
 PAD_FOCUS = "(R=0.6,G=0.42,B=0.06,A=1.0)"   # the button the pad has selected
 loadouts = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_loadouts.py")
 exec(compile(open(loadouts).read(), loadouts, "exec"))   # the Loadouts tab's steps, called below
+reroll = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_reroll.py")
+exec(compile(open(reroll).read(), reroll, "exec"))   # the reroll buttons' steps, called below
 
 for old in ["/Game/SequelMod/WBP_SequelStatus", "/Game/BPLoader/Lobby/SequelTransmog", "/Game/BPLoader/Ingame/SequelTransmog"]:
     remove(old)
-if not globals().get("EXTRA_ACTORS"):   # a normal build drops the tests (build_modtest/bosstest/bosscheck/loadouttest)
+if not globals().get("EXTRA_ACTORS"):   # a normal build drops the tests (build_modtest/bosstest/bosscheck/loadouttest/droptest)
     for old in ["/Game/SequelMod/BP_SequelModTest", "/Game/SequelMod/WBP_SequelModTest",
                 "/Game/SequelMod/BP_SequelLoadoutTest", "/Game/SequelMod/WBP_SequelLoadoutTest",
                 "/Game/SequelMod/BP_SequelBossTest", "/Game/SequelMod/WBP_SequelBossTest",
                 "/Game/SequelMod/BP_SequelBossCheck", "/Game/SequelMod/WBP_SequelBossCheck",
+                "/Game/SequelMod/BP_SequelDropTest", "/Game/SequelMod/WBP_SequelDropTest",
                 "/Game/SequelMod/GE_SequelSuperBoss"]:
         remove(old)
 
 # 0. The Sequel Mod's super bosses (their own folder; they go into SequelMod_P.pak, see tools/blueprints.py).
 superboss = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_superboss.py")
 exec(compile(open(superboss).read(), superboss, "exec"))
+effects = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_effects.py")
+exec(compile(open(effects).read(), effects, "exec"))   # its own copies of game effects (the poison arrows')
 
 # 1. The save.
 save = blueprint(SAVE, unreal.SaveGame)
@@ -92,11 +104,13 @@ bp = blueprint(ACTOR, unreal.Actor)
 for name, kind in [("Save", "object:" + SAVE_CLASS), ("Waiting", "bool"), ("Listening", "bool"),
                    ("Applied", "array:object:" + GEAR_ITEM), ("Originals", "array:class:" + GEAR_LOOK)] +                   [(name + "Look", "class:" + GEAR_LOOK) for name, _ in SLOTS]:
     check(LIB.add_variable(bp, name, kind), "variable " + name)
+reroll_actor_vars(bp)
 a = Graph(bp)
 a.row(3000)
 choose = a.custom_event("Choose", "Kind=int;Look=" + LOOK_FILE)
 toggle = a.custom_event("ToggleMenu")
 wait_key = a.custom_event("WaitForKey")
+reroll_actor_events(a)
 compile_save(bp, "actor routines")
 
 # 3. The menu: layout and routines (bodies in step 4b).
@@ -109,9 +123,9 @@ spot = panel.get_editor_property("slot")
 spot.set_anchors(unreal.Anchors(minimum=unreal.Vector2D(0.5, 0.5), maximum=unreal.Vector2D(0.5, 0.5)))
 spot.set_alignment(unreal.Vector2D(0.5, 0.5))
 spot.set_position(unreal.Vector2D(0, 0))
-spot.set_size(unreal.Vector2D(1000, 660))
+spot.set_size(unreal.Vector2D(1100, 660))
 widget(menu, "Panel", unreal.VerticalBox, "Rows")
-label(menu, "Rows", "Heading", "MCD Transmog and Loadouts", 28)
+label(menu, "Rows", "Heading", "MCD Transmog, Loadouts and Reroll", 28)
 
 
 def button(wbp, parent, name, words, text_name=None):
@@ -175,10 +189,11 @@ def terminals(wbp, graph_name):
 
 widget(menu, "Rows", unreal.HorizontalBox, "Tabs")
 for name, words in [("MeleeTab", "Melee"), ("RangedTab", "Ranged"), ("ArmorTab", "Armor"), ("LoadoutsTab", "Loadouts"),
-                    ("OwnLook", "Own looks")]:
+                    ("RerollTab", "Reroll"), ("OwnLook", "Own looks")]:
     button(menu, "Tabs", name, words)
-label(menu, "Rows", "Status", "", 16, is_variable=True)
+label(menu, "Rows", "Status", "", 16, is_variable=True).set_auto_wrap_text(True)   # long lines wrap
 loadout_layout(menu)
+reroll_layout(menu)
 scroll = widget(menu, "Rows", unreal.ScrollBox, "Scroll", True)
 scroll.get_editor_property("slot").set_size(unreal.SlateChildSize(1.0, unreal.SlateSizeRule.FILL))
 widget(menu, "Scroll", unreal.WrapBox, "Grid", True)
@@ -201,6 +216,7 @@ pick = m.custom_event("Pick", "Index=int")
 show = m.custom_event("Show", "Tab=int")
 show_key = m.custom_event("ShowKey")
 loadout_events(m)
+reroll_menu_events(m)
 compile_save(menu, "menu routines")
 
 # 4a. One grid entry: an icon and a name; a click picks it.
@@ -335,14 +351,20 @@ add_entry = m.call("/Script/UMG.PanelWidget", "AddChild")
 m.link(m.var("Grid"), "Grid", add_entry, "self")
 m.link(make_entry, "ReturnValue", add_entry, "Content")
 said = set_text(menu_widget("Status"), "Pick a look - every item in this slot will wear it. Own looks: each item wears its own.")
-m.flow(show, set_tab, clear)
+m.flow(show, set_tab, rr_visible(m, "RerollBox", False), clear)
 item_tabs = loadout_tab_switch(m, clear)
 m.link(item_tabs[0], item_tabs[1], as_stash, "execute")
 m.link(as_stash, "then", loop, "execute")
 m.link(loop, "LoopBody", take_id, "execute")
 m.flow(take_id, listed)
 m.flow((listed, "then"), make_entry, set_index, set_menu, set_icon, set_name, add_entry)
-m.link(loop, "Completed", said, "execute")
+on_reroll = m.call("/Script/Engine.KismetMathLibrary", "EqualEqual_IntInt", B=REROLL_TAB)
+m.link(m.var("Tab"), "Tab", on_reroll, "A")
+reroll_tab = m.branch((on_reroll, "ReturnValue"))
+m.link(loop, "Completed", reroll_tab, "execute")
+m.flow((reroll_tab, "else"), said)
+said_reroll = set_text(menu_widget("Status"), " ")   # the line shows the last reroll's result
+m.flow((reroll_tab, "then"), said_reroll, m.self_call("ShowReroll"))
 
 # Pick(Index): that item's look for its slot.
 m.row(800)
@@ -360,7 +382,7 @@ m.flow(pick, call_choose, said_pick)
 
 # Buttons.
 m.row(1200)
-for tab, name in enumerate(["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab"]):
+for tab, name in enumerate(["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab", "RerollTab"]):
     on_tab = m.bound_event(name, "OnClicked")
     call_show = m.self_call("Show", Tab=tab)
     m.flow(on_tab, call_show)
@@ -392,6 +414,7 @@ m.link(menu_key, "MenuKey", key_name, "Key")
 said_key = set_text(menu_widget("KeyLabel"), text_of("Menu key: ", (key_name, "ReturnValue"), " (gamepad: D-pad left, LB/RB tabs, B closes) - change"))
 m.flow(show_key, said_key)
 loadout_routines(m)
+reroll_menu_routines(m)
 
 # Gamepad. Opened by pad (PadMode), the menu takes all input (the actor's step 5): the game ignores the pad, and
 # keys reach the menu instead of the actor, so here B or the menu key closes it. Closed or torn down (a level
@@ -399,8 +422,8 @@ loadout_routines(m)
 # selection away from every button, and the pad can't get it back - so then the last selected one (or, if that one
 # is gone, next frame the Melee tab) is selected again.
 m.row(9000)
-ticked = highlight(m, ["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab", "OwnLook", "SaveGear", "SaveAll",
-                       "ChangeKey", "Close"])
+ticked = highlight(m, ["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab", "RerollTab", "OwnLook", "SaveGear",
+                       "SaveAll"] + REROLL_FOCUS + ["ChangeKey", "Close"])
 held = m.call("/Script/UMG.Widget", "HasFocusedDescendants")   # any user's focus
 self_menu = m.self_node()
 m.link(self_menu[0], self_menu[1], held, "self")
@@ -458,8 +481,8 @@ k.link(k.call("/Script/UMG.WidgetBlueprintLibrary", "Unhandled"), "ReturnValue",
 k.link(k.var("Reply"), "Reply", key_result, "ReturnValue")
 k.flow(key_entry, closes)
 k.flow((closes, "then"), k_close, handled, key_result)
-# LB / RB: the tab before / after (Melee, Ranged, Armor, Loadouts, round), and the selection goes to its button.
-TAB_BUTTONS = ["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab"]
+# LB / RB: the tab before / after (Melee, Ranged, Armor, Loadouts, Reroll, round), and the selection goes to its button.
+TAB_BUTTONS = ["MeleeTab", "RangedTab", "ArmorTab", "LoadoutsTab", "RerollTab"]
 is_lb = k.call("/Script/Engine.KismetInputLibrary", "EqualEqual_KeyKey", B="Gamepad_LeftShoulder")
 k.link(pressed, "ReturnValue", is_lb, "A")
 is_rb = k.call("/Script/Engine.KismetInputLibrary", "EqualEqual_KeyKey", B="Gamepad_RightShoulder")
@@ -498,8 +521,39 @@ k.flow(tab_handled, key_result)
 k.flow((is_shoulder, "else"), unhandled, key_result)
 compile_save(menu, "menu")
 
+# 4c. The camp button: bottom left, opens the menu (the actor shows it in camp only).
+camp = fresh(CAMP_BUTTON, unreal.WidgetBlueprint, unreal.WidgetBlueprintFactory())
+widget(camp, "", unreal.CanvasPanel, "Root")
+open_button = widget(camp, "Root", unreal.Button, "Open", True)   # not button(): its padding is a box slot's
+open_button.set_editor_property("background_color", DARK)
+label(camp, "Open", "OpenText", "Transmog, Loadouts & Reroll", 16)
+corner = open_button.get_editor_property("slot")
+corner.set_anchors(unreal.Anchors(minimum=unreal.Vector2D(0.0, 1.0), maximum=unreal.Vector2D(0.0, 1.0)))
+corner.set_alignment(unreal.Vector2D(0.0, 1.0))
+corner.set_position(unreal.Vector2D(30, -30))
+corner.set_auto_size(True)
+check(LIB.add_variable(camp, "Owner", "object:" + ACTOR_CLASS), "camp button Owner")
+c = Graph(camp)
+pressed_open = c.bound_event("Open", "OnClicked")
+open_menu = c.call(ACTOR_CLASS, "ToggleMenu")
+c.link(c.var("Owner"), "Owner", open_menu, "self")
+c.flow(pressed_open, open_menu)
+compile_save(camp, "camp button")
+
 # 5. The actor.
 check(LIB.add_variable(bp, "Menu", "object:" + MENU_CLASS), "variable Menu")
+check(LIB.add_variable(bp, "CampButton", "object:" + CAMP_BUTTON_CLASS), "variable CampButton")
+
+
+def camp_button_shown(shown):
+    """(first, exits): the camp button shown or hidden, if there is one (camp only)."""
+    there = a.call("/Script/Engine.KismetSystemLibrary", "IsValid")
+    a.link(a.var("CampButton"), "CampButton", there, "Object")
+    has = a.branch((there, "ReturnValue"))
+    put = a.call("/Script/UMG.Widget", "SetVisibility", InVisibility="Visible" if shown else "Collapsed")
+    a.link(a.var("CampButton"), "CampButton", put, "self")
+    a.flow((has, "then"), put)
+    return has
 
 
 def save_var(name, set_=False):
@@ -588,6 +642,21 @@ a.flow(set_loaded, bad_key)
 a.flow((bad_key, "then"), reset_key, call_looks)
 a.flow((bad_key, "else"), call_looks)
 a.flow(set_made, call_looks, timer)
+# In camp: the button at the bottom left.
+level = a.call("/Script/Engine.GameplayStatics", "GetCurrentLevelName", bRemovePrefixString="true")
+is_camp = a.call("/Script/Engine.KismetStringLibrary", "EqualEqual_StrStr", B=CAMP_MAP)
+a.link(level, "ReturnValue", is_camp, "A")
+in_camp = a.branch((is_camp, "ReturnValue"))
+make_camp = a.node("/Script/UMGEditor.K2Node_CreateWidget")
+a.set(make_camp, Class=CAMP_BUTTON_CLASS)
+keep_camp = a.var("CampButton", set_=True)
+a.link(make_camp, "ReturnValue", keep_camp, "CampButton")
+camp_owner = a.var("Owner", set_=True, owner=CAMP_BUTTON_CLASS, target=(make_camp, "ReturnValue"))
+a.link(*(a.self_node() + (camp_owner, "Owner")))
+camp_up = a.call("/Script/UMG.UserWidget", "AddToViewport")
+a.link(make_camp, "ReturnValue", camp_up, "self")
+a.flow(timer, level, in_camp)
+a.flow((in_camp, "then"), make_camp, keep_camp, camp_owner, camp_up)
 
 # ApplySlot(Type, Look): the slot's equipped item should wear Look (or, with no Look, its own).
 a.row(1200)
@@ -706,8 +775,8 @@ a.set(first_tab, Tab=0)
 key_label = menu_call("ShowKey")
 back_to_game = a.call("/Script/UMG.WidgetBlueprintLibrary", "SetFocusToGameViewport")   # a pad-opened menu had focus
 a.flow(toggle, is_open)
-a.flow((is_open, "then"), take_down, forget, stop_wait, back_to_game)
-a.flow((is_open, "else"), make_menu, set_menu, set_owner, put_up, first_tab, key_label)
+a.flow((is_open, "then"), take_down, forget, stop_wait, back_to_game, camp_button_shown(True))
+a.flow((is_open, "else"), make_menu, set_menu, set_owner, put_up, first_tab, key_label, camp_button_shown(False))
 
 # WaitForKey: the next key press becomes the menu key.
 a.row(3200)
@@ -771,6 +840,7 @@ a.flow((pad, "then"), pad_toggle, opened)
 a.flow((opened, "then"), pad_mode, ui_only, focus)
 a.flow((pad, "else"), menu_key)
 a.flow((menu_key, "then"), call_toggle)
+reroll_actor_routines(a)
 
 compile_save(bp, "actor")
 

@@ -69,17 +69,25 @@ def loadout_row():
     row = fresh(ROW, unreal.WidgetBlueprint, unreal.WidgetBlueprintFactory())
     box = widget(row, "", unreal.SizeBox, "Box")
     box.set_width_override(940)
-    box.set_height_override(64)
-    widget(row, "Box", unreal.HorizontalBox, "Line")
+    box.set_height_override(68)
+    band = widget(row, "Box", unreal.Border, "Band")   # a row's background, like the Reroll tab's
+    band.set_editor_property("brush_color", unreal.LinearColor(0.07, 0.07, 0.09, 0.95))
+    band.set_editor_property("padding", unreal.Margin(6, 2, 6, 2))
+    widget(row, "Band", unreal.HorizontalBox, "Line")
     size = widget(row, "Line", unreal.SizeBox, "NameSize")
     size.set_width_override(220)
     size.get_editor_property("slot").set_vertical_alignment(unreal.VerticalAlignment.V_ALIGN_CENTER)
-    widget(row, "NameSize", unreal.EditableTextBox, "NameBox", True)
+    name_box = widget(row, "NameSize", unreal.EditableTextBox, "NameBox", True)
+    style = name_box.get_editor_property("widget_style")
+    font = style.get_editor_property("font")
+    font.set_editor_property("size", 15)
+    style.set_editor_property("font", font)
+    name_box.set_editor_property("widget_style", style)
     kind_size = widget(row, "Line", unreal.SizeBox, "KindSize")
     kind_size.set_width_override(110)
     kind_size.get_editor_property("slot").set_vertical_alignment(unreal.VerticalAlignment.V_ALIGN_CENTER)
     kind_size.get_editor_property("slot").set_padding(unreal.Margin(8, 0, 0, 0))
-    label(row, "KindSize", "Kind", "", 12, is_variable=True).set_auto_wrap_text(True)
+    label(row, "KindSize", "Kind", "", 13, is_variable=True).set_auto_wrap_text(True)
     for k in range(len(KEYS)):
         icon = widget(row, "Line", unreal.Image, "Icon%d" % k, True)
         brush = icon.get_editor_property("brush")
@@ -355,8 +363,8 @@ def loadout_routines(g):
     for node, pin in prev:
         g.link(node, pin, add_row, "execute")
     count = length(local("Names"))
-    listed = status(int_text(count), " of %d loadouts. Load swaps each item in from your inventory (enchantment "
-                                      "points stay on their items); a loadout with looks puts them on too." % MOST)
+    listed = status(int_text(count), " of %d loadouts   |   Load swaps the items in from your inventory "
+                                      "(enchantment points stay on them); gear + looks also puts on the looks." % MOST)
     g.flow((rows, "Completed"), listed)
 
     # Remember: the 6 equipment slots' items -> Picked (an empty entry for an empty slot).

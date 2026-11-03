@@ -10,6 +10,8 @@
 #include "EdGraphUtilities.h"
 #include "GameplayEffect.h"
 #include "Engine/Blueprint.h"
+#include "Engine/SCS_Node.h"
+#include "Engine/SimpleConstructionScript.h"
 #include "K2Node_CallArrayFunction.h"
 #include "K2Node_CallFunction.h"
 #include "K2Node_ComponentBoundEvent.h"
@@ -598,4 +600,25 @@ bool USequelEditorLib::SetAttributePin(UBlueprint* Blueprint, const FString& Gra
 	FGameplayAttribute::StaticStruct()->ExportText(Text, &Value, nullptr, nullptr, PPF_None, nullptr);
 	GetDefault<UEdGraphSchema_K2>()->TrySetDefaultValue(*Pin, Text);
 	return Pin->DefaultValue == Text;
+}
+
+UActorComponent* USequelEditorLib::AddComponent(UBlueprint* Blueprint, UClass* ComponentClass, const FString& Name)
+{
+	if (!Blueprint || !Blueprint->SimpleConstructionScript || !ComponentClass ||
+		!ComponentClass->IsChildOf(UActorComponent::StaticClass()))
+	{
+		return nullptr;
+	}
+	USimpleConstructionScript* Script = Blueprint->SimpleConstructionScript;
+	for (USCS_Node* Existing : Script->GetAllNodes())
+	{
+		if (Existing && Existing->GetVariableName() == FName(*Name))
+		{
+			return Existing->ComponentTemplate;
+		}
+	}
+	USCS_Node* Node = Script->CreateNode(ComponentClass, FName(*Name));
+	Script->AddNode(Node);
+	FBlueprintEditorUtils::MarkBlueprintAsStructurallyModified(Blueprint);
+	return Node->ComponentTemplate;
 }

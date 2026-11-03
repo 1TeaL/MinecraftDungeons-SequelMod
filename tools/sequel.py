@@ -41,6 +41,12 @@ LOCRES = "Dungeons/Content/Localization/Game/{lang}/Game.locres"
 INDEX = ROOT / "tools" / "fields.json"
 BUILD = ROOT / "build"
 BLUEPRINTS = ROOT / "blueprints"   # cooked blueprints from tools/blueprints.py (super bosses, loader)
+# Game assets pointed at our own copies of game effects (cooked into blueprints/ by unreal/Scripts/build_effects.py):
+# (game file, export, property, our blueprint). Done only when the cooked blueprint is there.
+REPOINT = [
+    ("Dungeons/Content/Actors/Items/Arrow/Player/BP_PlayerPoisonArrow", "EffectToRandomTargetsAction_0",
+     "EffectToApply", "/Game/SequelEffects/GE_SequelPoisonArrow"),   # Dipping Poison's arrows: double poison
+]
 UE4SS_MOD = GAME / "Dungeons" / "Binaries" / "Win64" / "ue4ss" / "Mods" / "SequelMod"  # old, removed on build
 
 # Exports that never hold gameplay numbers.
@@ -622,6 +628,24 @@ def build(out_pak=None):
     build_text(texts)
     if BLUEPRINTS.exists():   # the super bosses and the loader, cooked by tools/blueprints.py
         shutil.copytree(BLUEPRINTS, BUILD, dirs_exist_ok=True)
+    for rel, export, prop, ours in REPOINT:
+        if not (BLUEPRINTS / "Dungeons" / "Content" / (ours[len("/Game/"):] + ".uasset")).exists():
+            print(f"  ! {ours} not cooked yet (python tools/blueprints.py build_transmog) - {Path(rel).name} left as is")
+            continue
+        dest = BUILD / (rel + ".uasset")
+        src = dest if dest.exists() else EXTRACT / (rel + ".uasset")
+        pkg = Package(src)
+        ref = ("/Script/Engine", "BlueprintGeneratedClass", ours, ours.rsplit("/", 1)[1] + "_C")
+        head, uexp = set_export_properties(pkg, export, [(prop, "object", ref)])
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_bytes(head)
+        dest.with_suffix(".uexp").write_bytes(uexp)
+        check = Package(dest)
+        got = next(x["value"] for x in check.export_props(next(e for e in check.exports if e["name"] == export))
+                   if x["name"] == prop)
+        if got != ref[3]:
+            sys.exit(f"Verification failed for {dest.name} {export}.{prop}: read back {got!r}")
+        print(f"  {Path(rel).name} {export}.{prop} -> {ref[3]}")
     out_pak.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run([sys.executable, str(U4PAK), "pack", str(out_pak), "Dungeons"], cwd=BUILD, check=True)
     print(f"Built {out_pak} ({len(todo)} stats in {len(by_file)} files, {len(texts)} text changes"

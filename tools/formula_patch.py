@@ -23,6 +23,7 @@ What each number means (research/ctor_members.py, 2026-10-05):
     HealthSynergy    heal per artifact use      0.03 / 0.04 / 0.05 of max health
     Cowardice        damage multiplier          1.2 / 1.3 / 1.4 (at full health)
     Frenzied         attack speed multiplier    1.1 / 1.2 / 1.3 (below its health threshold)
+    Protection       damage taken divisor       1.06 / 1.12 / 1.18 (tier*0.06+1: -6/11/15%)
 The description's {0} is this same number, so a value set here also shows on the item card (2026-10-15: Cowardice
 and Frenzied moved here from a hidden extra in the pak, whose description could only say "{0} +20%").
 """
@@ -52,6 +53,7 @@ KNOWN = {
     "HealthSynergy": ([0x32C0EE0], 0x32C86E0, (0.03, 0.04, 0.05)),
     "Cowardice": ([0x32B5358], 0x32C81D0, (1.2, 1.3, 1.4)),       # damage multiplier at full health: tier*0.1+1.1
     "Frenzied": ([0x32BE9A8], 0x32C85C0, (1.1, 1.2, 1.3)),        # attack speed multiplier when low: tier*0.1+1.0
+    "Protection": ([0x32D4B18], 0x32F1A10, (1.06, 1.12, 1.18)),   # damage taken divisor: tier*0.06+1.0 (exe+0xACEDB0)
 }
 # float f(void *self, const int *tier): table[clamp(*tier, 1, 3) - 1]; the table follows the code
 ROUTINE = bytes.fromhex(
