@@ -208,6 +208,10 @@ def build():
         else:
             name, cat = names.get(folder.lower(), (ench(folder), "Other"))
             groups[cat].append((name, setting, num(old), num(new)))
+    # our own copies of game effects (unreal/Scripts/build_effects.py), applied through sequel.py REPOINT
+    m = re.search(r"^POISON_ARROW_DPS = ([\d.]+)", (ROOT / "unreal" / "Scripts" / "build_effects.py").read_text(), re.M)
+    if m and float(m.group(1)) != 15:
+        groups["Armor"].append(("Dipping Poison", "Poison arrow damage per second", "15", num(m.group(1))))
     L += ["## 1. Enchantments", ""]
     for cat in ("Melee", "Ranged", "Armor", "Other"):
         if groups[cat]:
@@ -319,7 +323,7 @@ def build():
               f"of the screen) takes x{num(boss['takes_damage'])} damage and deals x{num(boss['deals_damage'])}. A+25 is the "
               f"check before Endless; the others are the gates into the trials and the finale.",
               "- The host's game sets it up; tested in single player only.",
-              "- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog and Loadouts, if installed, must be the same "
+              "- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog, Loadouts and Reroll, if installed, must be the same "
               "release: both paks carry the loader that starts them.", ""]
     unlock = endless_patch.unlock_settings()
     tops = unlock.get("tops") or []

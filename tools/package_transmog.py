@@ -1,7 +1,7 @@
-"""Make the MCD Transmog and Loadouts zip to give other players: the pak and a readme, nothing else.
+"""Make the MCD Transmog, Loadouts and Reroll zip to give other players: the pak and a readme, nothing else.
 
-    python tools/package_transmog.py            # -> dist/MCD-Transmog-and-Loadouts-<version>.zip
-    python tools/package_transmog.py --bundle   # also dist/SequelMod-<v>-with-Transmog-and-Loadouts.zip: the Sequel Mod zip
+    python tools/package_transmog.py            # -> dist/MCD-Transmog-Loadouts-and-Reroll-<version>.zip
+    python tools/package_transmog.py --bundle   # also dist/SequelMod-<v>-with-Transmog-Loadouts-and-Reroll.zip: the Sequel Mod zip
                                                 #   (tools/package.py) plus this pak, optional for players
 
 The zip holds Dungeons/Content/Paks/~mods/... so it is unpacked straight into the game folder (the one with
@@ -19,9 +19,12 @@ VERSION = "1.0"
 PAK = "MCDTransmog_P.pak"
 SEQUEL_VERSION = "1.0"   # the Sequel Mod zip the bundle starts from (tools/package.py VERSION)
 MODS = "Dungeons/Content/Paks/~mods/"
-README = f"""MCD Transmog and Loadouts {VERSION} for Minecraft Dungeons
+README = f"""MCD Transmog, Loadouts and Reroll {VERSION} for Minecraft Dungeons
 
-Change how your gear looks without changing what it does. Pick one look for your melee weapon, one for your
+Change how your gear looks without changing what it does, switch whole sets of gear in one click, and reroll
+the gear you wear for emeralds or gold.
+
+Looks: Pick one look for your melee weapon, one for your
 ranged weapon and one for your armor: every item in that slot wears it while it's chosen. Swings, stats, shots
 and enchantments stay the item's own - only the look changes.
 
@@ -32,7 +35,8 @@ Install
 3. Start the game as usual. Nothing else to install or run.
 
 Use
-- In camp or in a mission, press Y to open the menu (press Y again or Close to shut it).
+- In camp or in a mission, press Y to open the menu (press Y again or Close to shut it). In camp there's also
+  a "Transmog, Loadouts & Reroll" button at the bottom left.
 - Controller: D-pad left opens it. Move with the D-pad or stick (the selected button turns gold), A presses,
   LB / RB switch tabs, B closes. While it's open the game ignores the controller.
 - Tabs Melee / Ranged / Armor list the items your character has found, with their icons. Click one to wear its
@@ -43,21 +47,27 @@ Use
   Each loadout has Load, Save over and Delete (click twice); click its name to rename it. Load moves each item
   in from your inventory, like dragging it in the inventory screen, so enchantment points stay on their items.
   An item you no longer have is skipped.
+- Reroll tab: a row for the melee weapon, ranged weapon and armor you wear. Reroll drops a completely new item
+  of the same kind, with a chance of any of its uniques. Exact copy (uniques only) drops a completely new item
+  but keeps the same unique, with the same gilded enchantment. Pay with emeralds or gold; the odds and prices
+  go with your gear's power (500 emeralds / 10 gold and 5000 emeralds / 100 gold at power 255). New items
+  drop at your feet and your own item stays.
 - Another key: click "Menu key: Y - change" at the bottom of the menu and press the new key (Esc keeps the old one).
 
 Good to know
 - Works on its own or together with other pak mods, the Sequel Mod included.
 - Only items your character has found show up, so it never shows anything you haven't earned.
 - Keyboard and mouse, or a controller. Typing a loadout name needs a keyboard (without one they're numbered).
-- Tested on the Steam version, in single player.
+- Tested on the Steam version, in single player (in multiplayer the reroll is untested for anyone but the host).
 - Looks, loadouts and the menu key are kept in %LOCALAPPDATA%\\Dungeons\\Saved\\SaveGames\\SequelLooks.sav, apart
-  from your characters. The mod never writes your character saves; when a loadout moves items, the game saves
-  that itself, as after the inventory screen.
+  from your characters. The mod never writes your character saves; when a loadout moves items or a reroll
+  spends emeralds or gold (through the game's own wallet), the game saves that itself.
 - Using the Sequel Mod too? Take both from the same release (they share the small loader that starts them).
 
 Uninstall
 Delete {PAK} and this readme from Dungeons\\Content\\Paks\\~mods. Your items go back to their own looks.
-(An older download's "MCD Transmog README.txt" there can be deleted too.)
+(An older download's "MCD Transmog, Loadouts and Reroll README.txt" or "MCD Transmog README.txt" there can be
+deleted too.)
 (Delete SequelLooks.sav too if you want your chosen looks and loadouts forgotten.)
 """
 
@@ -74,9 +84,9 @@ def bundle(pak, sequel_version=None):
     src = ROOT / "dist" / f"SequelMod-{sequel_version}.zip"
     if not src.exists():
         sys.exit(f"no {src.name} - run python tools/package.py first")
-    out = ROOT / "dist" / f"SequelMod-{sequel_version}-with-Transmog-and-Loadouts.zip"
-    note = (f"\nOptional, already included: MCD Transmog and Loadouts {VERSION} - press Y in camp or a mission to change how your\n"
-            f"gear looks (stats stay the same). It is a separate mod: to leave it out, delete\n"
+    out = ROOT / "dist" / f"SequelMod-{sequel_version}-with-Transmog-Loadouts-and-Reroll.zip"
+    note = (f"\nOptional, already included: MCD Transmog, Loadouts and Reroll {VERSION} - press Y in camp or a mission to\n"
+            f"change how your gear looks (stats stay the same), save loadouts and reroll your gear. It is a separate mod: to leave it out, delete\n"
             f"Dungeons\\Content\\Paks\\~mods\\{PAK} (its readme is next to it).\n")
     with zipfile.ZipFile(src) as zin, zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
         for info in zin.infolist():
@@ -85,7 +95,7 @@ def bundle(pak, sequel_version=None):
                 data = windows_text(data.decode() + note)
             z.writestr(info, data)
         z.write(pak, MODS + PAK)
-        z.writestr(MODS + "MCD Transmog and Loadouts README.txt", windows_text(README))
+        z.writestr(MODS + "MCD Transmog, Loadouts and Reroll README.txt", windows_text(README))
     print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
 
 
@@ -93,11 +103,11 @@ def main():
     pak = GAME / "Dungeons" / "Content" / "Paks" / "~mods" / PAK
     if not pak.exists():
         sys.exit(f"no {PAK} built yet - run python tools/blueprints.py build_transmog first")
-    out = ROOT / "dist" / f"MCD-Transmog-and-Loadouts-{VERSION}.zip"
+    out = ROOT / "dist" / f"MCD-Transmog-Loadouts-and-Reroll-{VERSION}.zip"
     out.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(pak, MODS + PAK)
-        z.writestr(MODS + "MCD Transmog and Loadouts README.txt", README.replace("\n", "\r\n"))
+        z.writestr(MODS + "MCD Transmog, Loadouts and Reroll README.txt", README.replace("\n", "\r\n"))
         names = z.namelist()
     print(f"wrote {out} ({out.stat().st_size // 1024} KB)")
     for name in names:

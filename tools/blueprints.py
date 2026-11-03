@@ -1,4 +1,4 @@
-"""Build the blueprints - MCD Transmog and Loadouts's (a mod of its own) and the Sequel Mod's super bosses - with the Unreal editor:
+"""Build the blueprints - MCD Transmog, Loadouts and Reroll's (a mod of its own) and the Sequel Mod's super bosses - with the Unreal editor:
 pack the transmog into ~mods/MCDTransmog_P.pak, and keep the Sequel Mod's cooked files in blueprints/, which
 tools/sequel.py build puts into SequelMod_P.pak.
 
@@ -7,7 +7,8 @@ tools/sequel.py build puts into SequelMod_P.pak.
 
 Needs the Unreal 4.22 editor (UE_ROOT below) and the editor modules built once (unreal/Source; see decisions.md).
 The transmog pak holds /Game/SequelMod and /Game/Actors/BP_AvatarInfo (the loader, a copy of the game's own empty
-helper that starts our actors); blueprints/ holds /Game/SequelBosses and the same loader. Both paks carry the same
+helper that starts our actors); blueprints/ holds /Game/SequelBosses, /Game/SequelEffects (our copies of game
+effects) and the same loader. Both paks carry the same
 loader, which starts whichever mod's actors are installed. The super boss values come from Build.toml
 [super_bosses], handed to the editor's scripts in unreal/Scripts/_settings.json.
 """
@@ -29,7 +30,7 @@ U4PAK = os.path.join(MOD, "..", "Dungeons-Mod-Kit-master", "Tools", "py", "u4pak
 OUT_PAK = os.path.join(GAME, "Dungeons", "Content", "Paks", "~mods", "MCDTransmog_P.pak")
 # Actors: only BP_AvatarInfo, the loader (unreal/Content holds nothing else under Actors).
 FOLDERS = ["SequelMod", "Actors"]
-SEQUEL_FOLDERS = ["SequelBosses", "Actors"]   # into SequelMod_P.pak, by sequel.py
+SEQUEL_FOLDERS = ["SequelBosses", "SequelEffects", "Actors"]   # into SequelMod_P.pak, by sequel.py
 SEQUEL_COOKED = os.path.join(MOD, "blueprints")
 SETTINGS_JSON = os.path.join(MOD, "unreal", "Scripts", "_settings.json")
 FLAGS = ["-unattended", "-nop4", "-nosplash"]

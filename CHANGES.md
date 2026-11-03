@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-11-01 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-11-03 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -70,6 +70,7 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Dipping Poison | Arrows given 1 | 6 | 10 |
 | Dipping Poison | Arrows given 2 | 8 | 15 |
 | Dipping Poison | Arrows given 3 | 12 | 20 |
+| Dipping Poison | Poison arrow damage per second | 15 | 30 |
 | Electrified | Zap Count | 2 | 4 |
 | Electrified | Zap Damage | 50 | 100 |
 | Explorer | Block Threshold | 100 | 10 |
@@ -121,6 +122,7 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Rapid Fire | 1.1 / 1.15 / 1.2 | 1.2 / 1.35 / 1.5 |
 | Cowardice | 1.2 / 1.3 / 1.4 | 1.4 / 1.5 / 1.6 |
 | Frenzied | 1.1 / 1.2 / 1.3 | 1.4 / 1.5 / 1.6 |
+| Protection | 1.06 / 1.12 / 1.18 | 1.1765 / 1.3333 / 1.5385 |
 | Echo (seconds between repeats) | 5 / 4 / 3 | 2.1 / 1.1 / 0.1 |
 
 ### Several copies of one enchantment on an item
@@ -520,7 +522,7 @@ A+100 itself: XP Multiplier 10, Loot Quality Boost 100.
 
 - On A+25, 55, 64, 73, 82, 91, 100, every boss (the mobs with the big health bar at the top of the screen) takes x0.6 damage and deals x1.25. A+25 is the check before Endless; the others are the gates into the trials and the finale.
 - The host's game sets it up; tested in single player only.
-- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog and Loadouts, if installed, must be the same release: both paks carry the loader that starts them.
+- It comes with the mod's blueprints (inside SequelMod_P.pak). MCD Transmog, Loadouts and Reroll, if installed, must be the same release: both paks carry the loader that starts them.
 
 ### Unlocking
 

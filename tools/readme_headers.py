@@ -15,7 +15,7 @@ HEADERS = {   # file name -> [(text, pixel size), ...]: one line, or several sta
     "why-it-was-made": [("WHY IT WAS MADE", 4)],
     "what-it-does": [("WHAT IT DOES", 4)],
     "playing-it": [("PLAYING IT", 4)],
-    "mcd-transmog-and-loadouts": [("MCD TRANSMOG AND LOADOUTS", 4)],
+    "mcd-transmog-loadouts-and-reroll": [("MCD TRANSMOG, LOADOUTS AND REROLL", 4)],
     "how-it-works": [("HOW IT WORKS", 4)],
     "how-it-was-made": [("HOW IT WAS MADE", 4)],
     "building-it-yourself": [("BUILDING IT YOURSELF", 4)],
@@ -52,6 +52,7 @@ FONT = {   # rows top to bottom; a letter is as wide as its rows
     "Y": "##..## ##..## ##..## .####. ..##.. ..##.. ..##.. ..##..",
     "Z": "####### ####### ....##. ...##.. ..##... .##.... ####### #######",
     " ": "... ... ... ... ... ... ... ...",
+    ",": "... ... ... ... ... ### ### .#.",
     ":": ".. ## ## .. .. ## ## ..",
 }
 STYLE = ".t{fill:#1c7c45}@media (prefers-color-scheme:dark){.t{fill:#4cc17f}}"

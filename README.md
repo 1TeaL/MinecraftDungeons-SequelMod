@@ -86,8 +86,8 @@ the other was more content, so there's more of the game to play. Part of the fun
 
 You need the **Steam version** of Minecraft Dungeons on **Windows**. Nothing else: the release brings its own Python.
 
-1. Download `SequelMod-1.0-with-Transmog-and-Loadouts.zip` from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
-   Only want the Sequel Mod? Take `SequelMod-1.0.zip`. Only want the transmog? See [MCD Transmog and Loadouts](#mcd-transmog-and-loadouts) below.
+1. Download `SequelMod-1.0-with-Transmog-Loadouts-and-Reroll.zip` from the [latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest).
+   Only want the Sequel Mod? Take `SequelMod-1.0.zip`. Only want the transmog? See [MCD Transmog, Loadouts and Reroll](#mcd-transmog-loadouts-and-reroll) below.
 2. In Steam, right-click Minecraft Dungeons → **Manage** → **Browse local files**.
 3. Extract the zip into that folder. You get `Mods\SequelMod` and `Play Sequel Mod.bat` next to the game.
 4. Start the game with **`Play Sequel Mod.bat`** and keep its window open while you play.
@@ -103,10 +103,10 @@ no rebuild needed. The detailed files behind it are in `settings\launcher`.
 To start it from Steam's Play button instead, set Minecraft Dungeons → Properties → General → Launch Options to
 `"<game folder>\Mods\SequelMod\steam_launch.bat" %command%`.
 
-## ![MCD Transmog and Loadouts](docs/headers/mcd-transmog-and-loadouts.svg)
+## ![MCD Transmog, Loadouts and Reroll](docs/headers/mcd-transmog-loadouts-and-reroll.svg)
 
-**MCD Transmog and Loadouts** is an optional, separate mod made alongside the Sequel Mod: change how your gear looks
-without changing what it does, and save whole sets of gear to switch between.
+**MCD Transmog, Loadouts and Reroll** is an optional, separate mod made alongside the Sequel Mod: change how your gear
+looks without changing what it does, save whole sets of gear to switch between, and reroll the gear you wear.
 
 - **One look per slot.** Pick one look for your melee weapon, one for your ranged weapon and one for your armor.
   Every item in that slot wears it while it's chosen; swings, stats, shots and enchantments stay the item's own.
@@ -118,17 +118,22 @@ without changing what it does, and save whole sets of gear to switch between.
 - **Loadouts.** The Loadouts tab saves up to 100 sets of gear (melee, ranged, armor and 3 artifacts), with or
   without your chosen looks. Load swaps each item in from your inventory like the inventory screen does, so
   enchantment points stay on their items; rename, save over or delete any of them.
+- **Reroll.** The Reroll tab has a row for the melee weapon, ranged weapon and armor you wear. **Reroll** drops a
+  completely new item of the same kind, with a chance of any of its uniques; **Exact copy** (uniques only) drops a
+  completely new item but keeps the same unique, with the same gilded enchantment. Pay with emeralds or gold; the
+  odds (the game's own drop odds, better as your gear's power rises) and the prices go with your power. New items
+  drop at your feet and your own item stays. In camp, a button at the bottom left opens the menu too.
 - **Separate.** It's its own pak file (`MCDTransmog_P.pak`) and needs neither the Sequel Mod nor the launcher; the
   Sequel Mod doesn't need it either. Using both? Keep them from the same release: both carry the small loader that starts
-  the transmog and the Sequel Mod's super bosses, and an older transmog's loader would leave the super bosses out. It comes in `SequelMod-1.0-with-Transmog-and-Loadouts.zip`, or on its own in
-  `MCD-Transmog-and-Loadouts-1.0.zip` from the [MCD Transmog and Loadouts release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmogandloadouts-v1.0)
+  the transmog and the Sequel Mod's super bosses, and an older transmog's loader would leave the super bosses out. It comes in `SequelMod-1.0-with-Transmog-Loadouts-and-Reroll.zip`, or on its own in
+  `MCD-Transmog-Loadouts-and-Reroll-1.0.zip` from the [MCD Transmog, Loadouts and Reroll release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmogloadoutsandreroll-v1.0)
   (unpack into the game folder; nothing else to run).
 - **To remove it,** delete `Dungeons\Content\Paks\~mods\MCDTransmog_P.pak` and its readme. Your items go back to
   their own looks and the Sequel Mod keeps working.
 
 It never writes your character saves: looks and loadouts are kept in their own file, `SequelLooks.sav` (when a
-loadout moves items, the game saves that itself, as after the inventory screen). Keyboard and mouse or a
-controller; tested in single player. It's built from blueprints made by script (`unreal/Scripts/build_transmog.py`,
+loadout moves items or a reroll spends emeralds or gold, the game saves that itself). Keyboard and mouse or a
+controller; tested in single player (in multiplayer the reroll is untested for anyone but the host). It's built from blueprints made by script (`unreal/Scripts/build_transmog.py`,
 packed with `python tools/blueprints.py build_transmog`), which needs the Unreal 4.22 editor - players don't.
 
 ## ![How it works](docs/headers/how-it-works.svg)
