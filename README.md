@@ -126,7 +126,7 @@ looks without changing what it does, save whole sets of gear to switch between, 
 - **Separate.** It's its own pak file (`MCDTransmog_P.pak`) and needs neither the Sequel Mod nor the launcher; the
   Sequel Mod doesn't need it either. Using both? Keep them from the same release: both carry the small loader that starts
   the transmog and the Sequel Mod's super bosses, and an older transmog's loader would leave the super bosses out. It comes in `SequelMod-1.0-with-Transmog-Loadouts-and-Reroll.zip`, or on its own in
-  `MCD-Transmog-Loadouts-and-Reroll-1.0.zip` from the [MCD Transmog, Loadouts and Reroll release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmogloadoutsandreroll-v1.0)
+  `MCD-Transmog-Loadouts-and-Reroll-1.0.zip` from the [MCD Transmog, Loadouts and Reroll release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmog-v1.0)
   (unpack into the game folder; nothing else to run).
 - **To remove it,** delete `Dungeons\Content\Paks\~mods\MCDTransmog_P.pak` and its readme. Your items go back to
   their own looks and the Sequel Mod keeps working.
