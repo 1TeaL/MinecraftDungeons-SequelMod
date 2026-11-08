@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-11-03 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-11-09 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -20,7 +20,6 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Chains | Base Mob Chain Amount | 2 | 4 |
 | Chains | Trigger Chance | 0.3 | 0.45 |
 | Critical Hit | Damage Multiplier | 3 | 5 |
-| Fire Aspect | Damage Per Second | 30 | 60 |
 | Freezing | Slow Amount Base | 0.7 | 0.6 |
 | Freezing | Slow Amount Per Level | 0.1 | 0.15 |
 | Illager's Bane | Bane Multiplier | 1.25 | 1.5 |
@@ -28,17 +27,16 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Pain Cycle | Bonus Damage Multiplier Per Extra Level | 1 | 2 |
 | Pain Cycle | Drain Magnitude | 0.03 | 0.02 |
 | Pain Cycle | Minimum Bonus Damage Multiplier | 3 | 4 |
-| Poison Cloud | Base Damage Per Second | 15 | 30 |
-| Poison Cloud | Trigger Chance | 0.3 | 0.6 |
+| Poison Cloud | Trigger Chance | 0.3 | 1 |
 | Radiance | Base Healing | 30 | 6 |
 | Radiance | Heal Chance | 0.2 | 1 |
-| Rampaging | Boost Time | 5 | 2 |
+| Rampaging | Boost Time | 5 | 1 |
 | Rampaging | Trigger Chance | 0.1 | 1 |
 | Shockwave | Base Damage | 30 | 60 |
 | Smiting | Damage Multiplier Base | 1.15 | 1.25 |
 | Smiting | Damage Multiplier Per Level | 0.1 | 0.25 |
 | Stunning | Chance To Stun Per Level | 0.05 | 0.15 |
-| Thundering | Base Damage | 12.5 | 7.5 |
+| Thundering | Base Damage | 12.5 | 3.75 |
 | Thundering | Trigger Chance | 0.3 | 1 |
 
 ### Ranged
@@ -49,8 +47,7 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Fuse Shot | Explosion Delay Seconds | 1 | 0.1 |
 | Fuse Shot | Explosion Radius | 300 | 450 |
 | Growing | Max Distance | 1600 | 1000 |
-| Poison Cloud | Base Damage Per Second | 15 | 30 |
-| Poison Cloud | Trigger Chance | 0.3 | 0.6 |
+| Poison Cloud | Trigger Chance | 0.3 | 1 |
 | Radiance Shot | Base Healing | 30 | 20 |
 | Radiance Shot | Heal Chance | 0.5 | 1 |
 | Refreshment | Cooldown Reduction Base | 1 | 3 |
@@ -65,28 +62,21 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Beast Boss | Base Damage Boost | 0.2 | 0.5 |
 | Beast Boss | Per Level Damage Boost | 0.2 | 0.5 |
 | Beast Surge | Effect Duration | 10 | 20 |
-| Burning | Burn Base Damage | 5 | 15 |
 | Burning | Radius | 300 | 400 |
 | Dipping Poison | Arrows given 1 | 6 | 10 |
 | Dipping Poison | Arrows given 2 | 8 | 15 |
 | Dipping Poison | Arrows given 3 | 12 | 20 |
 | Dipping Poison | Poison arrow damage per second | 15 | 30 |
-| Electrified | Zap Count | 2 | 4 |
-| Electrified | Zap Damage | 50 | 100 |
-| Explorer | Block Threshold | 100 | 10 |
 | Final Shout | Trigger Cooldown Base | 12 | 8 |
 | Final Shout | Trigger Health Fraction Threshold | 0.25 | 0.5 |
 | Fire Focus | Damage Increase Per Level | 0.25 | 0.5 |
-| Fire Trail | Base Damage Per Second | 20 | 60 |
 | Fire Trail | Damage Duration (Fire Block Player) | 4 | 6 |
 | Fire Trail | Fire Block Duration | 4 | 6 |
 | Fire Trail | Total Life Span (Fire Block Player) | 6 | 8 |
 | Life Boost | Surge Per Level | 0.11 | 0.2 |
-| Lightning Focus | Damage Increase Per Level | 0.25 | 0.5 |
 | Luck Of The Sea | Luck level 1 | 0.1 | 0.25 |
 | Luck Of The Sea | Luck level 2 | 0.2 | 0.5 |
 | Luck Of The Sea | Luck level 3 | 0.3 | 0.75 |
-| Lucky Explorer | Percentage To Spawn | 0.05 | 0.1 |
 | Poison Focus | Damage Increase Per Level | 0.25 | 0.5 |
 | Reckless | Damage Increase At Level One | 0.5 | 1 |
 | Reckless | Damage Increase Per Level | 0.2 | 0.25 |
@@ -97,15 +87,16 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Soul Speed | Speed Bonus | 0.05 | 0.1 |
 | Speed Synergy | Movement Speed Multiplier | 1.2 | 1.5 |
 | Swiftfooted | Swift Duration | 3 | 5 |
-| Thorns | Percent Damage Returned Base | 1 | 5 |
+| Thorns | Percent Damage Returned Base | 1 | 2 |
 | Thorns | Percent Damage Returned Mob | 0.1 | 0.03 |
-| Thorns | Percent Damage Returned Per Level | 0.5 | 2.5 |
+| Thorns | Percent Damage Returned Per Level | 0.5 | 1 |
 | Thrive Under Pressure | Mob Threshold | 4 | 3 |
 
 ### Other
 
 | Enchantment | Setting | Base game | Mod |
 |---|---|---|---|
+| Freezing Ranged | Slow Amount Base | 0.8 | 0.7 |
 | Poison Cloud | Area Of Effect (Poison Cloud) | 250 | 400 |
 | Void Blast | Blast Damage | 40 | 160 |
 | Void Quiver | Effect To Random Targets Action 2:Search Radius (Void Arrow) | 400 | 600 |
@@ -116,13 +107,25 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Enchantment | Base game | Mod |
 |---|---|---|
 | Bonus Shot | 0.1 / 0.17 / 0.24 | 0.3 / 0.5 / 0.75 |
-| Recycler | 30 / 20 / 10 | 15 / 10 / 5 |
+| Explorer | 0.0033 / 0.0066 / 0.0099 | 0.3 / 0.5 / 0.7 |
+| Knockback | 0.1 / 0.2 / 0.3 | 0.2 / 0.3 / 0.4 |
+| Heals Allies | 0.25 / 0.5 / 0.75 | 0.03 / 0.04 / 0.05 |
+| Barrier | 1.03093 / 1.06383 / 1.0989 | 1.01 / 1.02 / 1.03 |
+| Food Reserves | 1 / 2 / 3 | 0 / 0 / 0 |
+| Recycler | 30 / 20 / 10 | 60 / 90 / 120 |
 | Punch | 3 / 4 / 5 | 8 / 12 / 16 |
 | Enigma Resonator | 0.15 / 0.2 / 0.25 | 0.3 / 0.4 / 0.5 |
 | Rapid Fire | 1.1 / 1.15 / 1.2 | 1.2 / 1.35 / 1.5 |
 | Cowardice | 1.2 / 1.3 / 1.4 | 1.4 / 1.5 / 1.6 |
 | Frenzied | 1.1 / 1.2 / 1.3 | 1.4 / 1.5 / 1.6 |
 | Protection | 1.06 / 1.12 / 1.18 | 1.1765 / 1.3333 / 1.5385 |
+| Thrive Under Pressure | 1.06 / 1.12 / 1.18 | 0.5 / 0.4 / 0.3333 |
+| Regeneration | 4 / 5 / 6 | 50 / 100 / 150 |
+| Leeching | 0 / 0 / 0 | 0.04 / 0.05 / 0.06 |
+| Refreshment | 0 / 0 / 0 | 1 / 2 / 3 |
+| Refreshment | 0 / 0 / 0 | 2 / 4 / 6 |
+| Gravity Pulse | 1 / 1.5 / 2 | 0.2 / 0.35 / 0.5 |
+| Exploding | 0 / 0 / 0 | 0.15 / 0.25 / 0.35 |
 | Echo (seconds between repeats) | 5 / 4 / 3 | 2.1 / 1.1 / 0.1 |
 
 ### Several copies of one enchantment on an item
@@ -131,9 +134,9 @@ A built-in copy plus a chosen one, or the same pick in more than one slot. Tried
 
 | Result | Enchantments |
 |---|---|
-| Adds up | Ambush, Anima Conduit, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cool Down, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Aspect, Fire Focus, Fire Trail, Fuse Shot, Illager's Bane, Infinity, Leeching, Lightning Focus, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Sharpness, Shock Web, Shockwave, Smiting, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thorns, Thundering, Unchanting, Wild Rage |
+| Adds up | Ambush, Anima Conduit, Barrier, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cool Down, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Aspect, Fire Focus, Fire Trail, Fuse Shot, Illager's Bane, Infinity, Leeching, Levitation Shot, Lightning Focus, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Sharpness, Shock Web, Shockwave, Smiting, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thundering, Unchanting, Wild Rage |
 | Adds up in part | Rampaging (the boost lasts longer in total); Dynamo (stacks build faster, the cap of 20 stays); Multishot (the chance goes up); Ricochet (the chance goes up; an arrow still bounces twice at most); Radiance (extra copies heal at about half strength); Growing (only partly: a second tier 3 adds, mixed tiers don't seem to); Accelerate (every copy adds its speed per shot, so the stacks fill sooner) |
-| No gain | Poison Cloud (procs several times, no extra damage); Exploding (procs several times, no extra damage); Echo (shows several procs, one extra hit); Punch; Artifact Synergy; Tempo Theft; Void Strike; Gravity; Piercing (counts every few arrows, so copies change nothing); Pain Cycle (worse: the stacks build faster and overshoot the fifth hit); Weakening; Rapid Fire; Overcharge; Chilling (the aura's slow is the same); Potion Barrier (still the same duration); Swiftfooted; Speed Synergy (several procs, same speed); Health Synergy; Guarding Strike (same duration, same damage reduction); Freezing (procs again, the slow gets no stronger); Final Shout; Cowardice; Rush (a buff); Frenzied (a buff); Soul Speed (a buff) |
+| No gain | Poison Cloud (procs several times, no extra damage); Exploding (one explosion per kill); Thorns (one discharge per hit); Echo (shows several procs, one extra hit); Punch; Artifact Synergy; Tempo Theft; Void Strike; Gravity; Piercing (counts every few arrows, so copies change nothing); Pain Cycle (worse: the stacks build faster and overshoot the fifth hit); Weakening; Rapid Fire; Overcharge; Chilling (the aura's slow is the same); Potion Barrier (still the same duration); Swiftfooted; Speed Synergy (several procs, same speed); Health Synergy; Guarding Strike (same duration, same damage reduction); Freezing (procs again, the slow gets no stronger); Final Shout; Cowardice; Rush (a buff); Frenzied (a buff); Soul Speed (a buff) |
 
 These can also roll in more than one slot of the same item (base game: only Sharpness, Smiting, Fire Aspect, Leeching, Rampaging, Radiance, Chains, Looting, Prospector, Cool Down, Thorns and Knockback): Ambush, Anima Conduit, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Focus, Fire Trail, Fuse Shot, Illager's Bane, Infinity, Lightning Focus, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Shock Web, Shockwave, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thundering, Unchanting, Wild Rage.
 
@@ -337,7 +340,6 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 | Item | Type | Base game | Mod |
 |---|---|---|---|
 | Arctic Fox Armor | Armor | - | Bows Boon 2, Beast Surge 2 |
-| Black Spot Armor | Armor | Food Reserves 1 | Food Reserves 3 |
 | Black Wolf Armor | Armor | Acrobat 1 | Acrobat 3 |
 | Cauldron Armor | Armor | - | Burning 2, Fire Focus 2 |
 | Cloaked Skull | Armor | Fire Trail 1 | Electrified 2, Lightning Focus 2 |
@@ -345,20 +347,22 @@ Base game = the built-ins that were changed; Mod = what the item has instead (ne
 | Frost Armor | Armor | Chilling 2 | Chilling 3 |
 | Frost Bite | Armor | Snowball 1 | Snowball 3 |
 | Ghost Kindler | Armor | Fire Trail 1 | Fire Trail 3 |
-| Gilded Glory | Armor | Lucky Explorer 1, Death Barter 1 | Lucky Explorer 3, Death Barter 3 |
+| Gilded Glory | Armor | Lucky Explorer 1, Death Barter 1 | Prospector 3, Death Barter 3 |
 | Goat Gear | Armor | Multi-Roll 1 | Multi-Roll 2 |
 | Golden Piglin Armor | Armor | Surprise Gift 1 | Surprise Gift 3 |
 | Hungriest Horror | Armor | - | Reckless 2, Frenzied 2 |
-| Hungry Horror | Armor | - | Thorns 2, Gravity Pulse 2 |
+| Hungry Horror | Armor | - | Thrive Under Pressure 2, Chilling 2 |
 | Living Vines Armor | Armor | Acrobat 1 | Acrobat 2, Poison Focus 2 |
 | Nimble Turtle Armor | Armor | Rush 1 | Rush 3 |
-| Opulent Armor | Armor | Lucky Explorer 1 | Lucky Explorer 3 |
+| Opulent Armor | Armor | Lucky Explorer 1 | Prospector 3 |
+| Shulker Armor | Armor | Thrive Under Pressure 1 | Barrier 2 |
+| Sturdy Shulker Armor | Armor | Thrive Under Pressure 1 | Barrier 2 |
 | Sweet Tooth | Armor | - | Surprise Gift 2, Food Reserves 2 |
 | The Spooky Gourdian | Armor | - | Final Shout 2, Death Barter 2 |
 | Unstable Robes | Armor | Void Blast 1 | Void Blast 3 |
 | Bonehead Hammer | Melee | - | Exploding 1 |
 | Broadsword | Melee | Sharpness 1 | Sharpness 3 |
-| Cackling Broom | Melee | Smiting 1 | Swirling 2, Gravity 2 |
+| Cackling Broom | Melee | Smiting 1 | Knockback 2, Gravity 2 |
 | Chill Gale knife | Melee | Freezing 1 | Freezing 3 |
 | Diamond Sword | Melee | Sharpness 1 | Sharpness 3 |
 | Eternal knife | Melee | Soul Siphon 1 | Soul Siphon 3 |
@@ -573,31 +577,33 @@ Different boss missions to clear on the level in the first column.
 |---|---|
 | Anchor | Shockwave, Stunning, Committed, Critical Hit, Sharpness |
 | Axe | Swirling, Critical Hit, Committed, Sharpness, Shockwave |
-| Backstabber | Ambush (second copy), Critical Hit, Leeching, Committed, Sharpness |
+| Backstabber | Ambush (second copy), Rushdown, Critical Hit, Leeching, Committed, Sharpness |
 | Battlestaff | Stunning, Shockwave, Committed, Swirling, Critical Hit |
 | Battlestaff of Terror | Leeching, Committed, Critical Hit, Rampaging, Shockwave |
 | Boneclub | Committed, Shockwave, Critical Hit, Sharpness, Stunning |
 | Bonehead Hammer | Shockwave, Stunning, Committed, Critical Hit, Sharpness |
 | Broken Sawblade | Chains, Committed, Critical Hit, Thundering, Sharpness |
 | Cackling Broom | Shockwave, Stunning, Committed, Critical Hit, Sharpness |
-| Claymore | Shockwave, Swirling, Committed, Sharpness, Critical Hit |
+| Chill Gale knife | Thrive Under Pressure, Critical Hit, Leeching, Committed, Rampaging, Thundering |
+| Claymore | Knockback, Shockwave, Swirling, Committed, Sharpness, Critical Hit |
 | Coral Blade | Rampaging, Leeching, Critical Hit, Committed, Thundering |
 | Cursed Axe | Leeching, Rampaging, Critical Hit, Committed, Swirling |
 | Cutlass | Rampaging, Critical Hit, Leeching, Committed, Thundering |
 | Daggers | Thundering, Critical Hit, Committed, Stunning, Leeching |
 | Dancer's Sword | Rampaging (second copy), Critical Hit, Leeching, Committed, Thundering |
 | Double Axe | Swirling, Shockwave, Critical Hit, Committed, Sharpness |
-| Firebrand | Fire Aspect (second copy), Void Strike, Committed, Critical Hit, Sharpness |
-| Frost Slayer | Sharpness, Committed, Critical Hit, Stunning, Smiting |
+| Fangs of Frost | Thrive Under Pressure, Critical Hit, Committed, Stunning, Leeching, Thundering |
+| Firebrand | Lucky Explorer, Fire Aspect (second copy), Void Strike, Committed, Critical Hit, Sharpness |
+| Frost Slayer | Thrive Under Pressure, Sharpness, Committed, Critical Hit, Stunning, Smiting |
 | Gauntlets | Rampaging, Leeching, Critical Hit, Committed, Thundering |
-| Glaive | Swirling, Sharpness, Committed, Critical Hit, Shockwave |
+| Glaive | Knockback, Swirling, Sharpness, Committed, Critical Hit, Shockwave |
 | Great Hammer | Shockwave, Stunning, Committed, Critical Hit, Sharpness |
 | Heartstealer | Leeching (second copy), Committed, Critical Hit, Shockwave, Swirling |
 | Katana | Smiting, Sharpness, Committed, Critical Hit, Leeching |
 | Mace | Stunning, Committed, Critical Hit, Shockwave, Sharpness |
 | Maulers | Rampaging (second copy), Leeching, Critical Hit, Committed, Thundering |
 | Moon Daggers | Soul Siphon, Anima Conduit, Critical Hit, Committed, Thundering |
-| Nightmare's Bite | Thundering, Critical Hit, Stunning, Chains, Committed |
+| Nightmare's Bite | Heals Allies, Thundering, Critical Hit, Stunning, Chains, Committed |
 | Obsidian Claymore | Void Strike, Committed, Critical Hit, Sharpness, Shockwave |
 | Pickaxe | Prospector, Committed, Critical Hit, Sharpness, Swirling |
 | Rapier | Rampaging, Leeching, Critical Hit, Committed, Thundering |
@@ -608,14 +614,14 @@ Different boss missions to clear on the level in the first column.
 | Soul Knife | Soul Siphon, Anima Conduit, Enigma Resonator, Committed, Critical Hit |
 | Soul Scythe | Soul Siphon, Enigma Resonator, Chains, Committed, Critical Hit |
 | Sparkler | Thundering, Critical Hit, Committed, Chains, Leeching |
-| Spear | Sharpness, Swirling, Committed, Critical Hit, Shockwave |
-| Spine-Chill Spear | Committed, Critical Hit, Sharpness, Swirling, Shockwave |
-| Stormlander | Thundering (second copy), Void Strike, Committed, Critical Hit, Shockwave |
+| Spear | Sharpness, Knockback, Swirling, Committed, Critical Hit, Shockwave |
+| Spine-Chill Spear | Rushdown, Committed, Critical Hit, Sharpness, Swirling, Shockwave |
+| Stormlander | Thundering (second copy), Thorns, Void Strike, Committed, Critical Hit, Shockwave |
 | Sun's Grace | Radiance (second copy), Stunning, Committed, Critical Hit, Shockwave |
 | Sword | Sharpness, Critical Hit, Swirling, Committed, Shockwave |
 | Tempest knife | Rampaging, Leeching, Critical Hit, Committed, Thundering |
 | The Last Laugh | Leeching, Rampaging, Critical Hit, Committed, Thundering |
-| Venom glaive | Void Strike, Committed, Critical Hit, Stunning, Swirling |
+| Venom glaive | Heals Allies, Void Strike, Committed, Critical Hit, Stunning, Swirling |
 | Void Touched Blades | Critical Hit, Leeching, Rampaging, Committed, Thundering |
 | Whip | Chains, Swirling, Committed, Critical Hit, Shockwave |
 | Whirlwind | Shockwave (second copy), Swirling, Critical Hit, Committed, Sharpness |
@@ -637,14 +643,14 @@ Different boss missions to clear on the level in the first column.
 | Heavy Crossbow | Infinity, Power, Bonus Shot, Ricochet, Supercharge |
 | Hunting Bow | Power, Supercharge, Dynamo, Infinity, Bonus Shot |
 | Longbow | Supercharge, Power, Infinity, Bonus Shot, Multishot |
-| Phantom Bow | Power, Infinity, Unchanting, Bonus Shot, Multishot |
+| Phantom Bow | Rushdown, Power, Infinity, Unchanting, Bonus Shot, Multishot |
 | Power Bow | Infinity, Supercharge, Power, Bonus Shot, Multishot |
 | Rapid Crossbow | Accelerate, Infinity, Chain Reaction, Multishot, Bonus Shot |
 | Scatter Crossbow | Chain Reaction, Multishot, Ricochet, Infinity, Bonus Shot |
-| Shadow Crossbow | Unchanting, Bonus Shot, Infinity, Multishot, Power |
+| Shadow Crossbow | Rushdown, Unchanting, Bonus Shot, Infinity, Multishot, Power |
 | Shivering Bow | Enigma Resonator, Multishot, Infinity, Ricochet, Bonus Shot |
 | Shortbow | Accelerate, Infinity, Multishot, Bonus Shot, Chain Reaction |
-| Shrieking Crossbow | Unchanting, Bonus Shot, Infinity, Multishot, Power |
+| Shrieking Crossbow | Rushdown, Unchanting, Bonus Shot, Infinity, Multishot, Power |
 | Snow Bow | Multishot, Ricochet, Power, Infinity, Bonus Shot |
 | Soul Bow | Soul Siphon, Anima Conduit, Multishot, Enigma Resonator, Infinity |
 | Soul Crossbow | Soul Siphon, Anima Conduit, Enigma Resonator, Multishot, Infinity |
@@ -663,42 +669,43 @@ Different boss missions to clear on the level in the first column.
 |---|---|
 | Any other | Protection, Cool Down, Potion Barrier, Health Synergy |
 | Arctic Fox Armor | Roll Charge, Recycler, Burst Bowstring, Protection |
-| Battle Robe | Cool Down, Lightning Focus, Electrified, Protection |
+| Battle Robe | Cool Down, Lightning Focus, Electrified, Thorns, Protection |
 | Beenest Armor | Tumble Bee, Beast Boss, Beast Burst, Protection |
-| Cauldron Armor | Thorns, Protection, Cool Down, Electrified |
-| Champions Armor | Protection, Food Reserves, Thorns, Cool Down |
+| Cauldron Armor | Lucky Explorer, Barrier, Protection, Cool Down, Electrified |
+| Champions Armor | Protection, Food Reserves, Regeneration, Cool Down, Explorer |
 | Climbing Gear | Cool Down, Protection, Snowball, Potion Barrier |
-| Cloaked Skull | Acrobat, Lightning Focus, Protection, Cool Down |
+| Cloaked Skull | Acrobat, Thorns, Lightning Focus, Protection, Cool Down |
 | Curious Armor | Acrobat, Multi-Roll, Swiftfooted, Protection |
-| Dark Armor | Bag Of Souls, Protection, Cool Down, Potion Barrier |
-| Emerald Gear | Lucky Explorer, Death Barter, Luck Of The Sea, Protection |
+| Dark Armor | Bag Of Souls, Gravity Pulse, Protection, Cool Down, Potion Barrier |
+| Emerald Gear | Prospector, Death Barter, Luck Of The Sea, Protection |
 | Entertainer's Garb | Cool Down, Surprise Gift, Protection, Potion Barrier |
-| Evocation Robe | Cool Down, Fire Focus, Burning, Protection |
+| Evocation Robe | Cool Down, Fire Focus, Lucky Explorer, Burning, Protection |
 | Ghostly Armor | Acrobat, Fire Trail, Multi-Roll, Protection |
-| Grim Armor | Soul Focus, Bag Of Souls, Protection, Cool Down |
+| Grim Armor | Soul Focus, Gravity Pulse, Bag Of Souls, Protection, Cool Down |
 | Guard's Armor | Bows Boon, Roll Charge, Burst Bowstring, Protection |
-| Hungriest Horror | Acrobat, Death Barter, Electrified, Protection |
+| Hungriest Horror | Shielding, Acrobat, Death Barter, Electrified, Protection |
 | Hungry Horror | Protection, Cool Down, Deflect, Burning |
 | Hunter's Armor | Bows Boon, Roll Charge, Burst Bowstring, Protection |
-| Mercenary Armor | Protection, Fire Trail, Thorns, Cool Down |
+| Living Vines Armor | Heals Allies, Acrobat, Multi-Roll, Protection, Cool Down |
+| Mercenary Armor | Protection, Fire Trail, Barrier, Cool Down, Shielding |
 | Ocelot Armor | Acrobat, Electrified, Protection, Cool Down |
 | Phantom Armor | Burst Bowstring, Recycler, Cool Down, Protection |
 | Piglin Armor | Cool Down, Fire Trail, Protection, Potion Barrier |
-| Plate Armor | Thorns, Protection, Cool Down, Burning |
-| Reinforced Mail | Protection, Thorns, Cool Down, Snowball |
-| Root Rot Armor | Food Reserves, Cool Down, Protection, Potion Barrier |
+| Plate Armor | Barrier, Protection, Cool Down, Burning, Shielding |
+| Reinforced Mail | Protection, Explorer, Cool Down, Snowball, Regeneration |
+| Root Rot Armor | Food Reserves, Explorer, Cool Down, Protection, Potion Barrier |
 | Scale Mail | Protection, Cool Down, Electrified, Potion Barrier |
 | Shulker Armor | Potion Barrier, Deflect, Protection, Cool Down |
-| Snow Armor | Snowball, Protection, Potion Barrier, Cool Down |
-| Soul Robe | Soul Focus, Bag Of Souls, Protection, Cool Down |
+| Snow Armor | Snowball, Thrive Under Pressure, Protection, Potion Barrier, Cool Down |
+| Soul Robe | Soul Focus, Gravity Pulse, Bag Of Souls, Protection, Cool Down |
 | Spelunker Armor | Beast Boss, Beast Surge, Cool Down, Protection |
 | Sprout Armor | Acrobat, Poison Focus, Multi-Roll, Protection |
 | Squid Armor | Acrobat, Multi-Roll, Electrified, Protection |
-| Sweet Tooth | Cool Down, Protection, Potion Barrier, Snowball |
-| Teleportation Robes | Cool Down, Soul Focus, Protection, Potion Barrier |
-| The Spooky Gourdian | Cool Down, Protection, Potion Barrier, Snowball |
+| Sweet Tooth | Explorer, Cool Down, Protection, Potion Barrier, Snowball |
+| Teleportation Robes | Cool Down, Gravity Pulse, Soul Focus, Protection, Potion Barrier |
+| The Spooky Gourdian | Shielding, Cool Down, Protection, Potion Barrier, Snowball |
 | Thief Armor | Acrobat, Protection, Electrified, Cool Down |
-| Turtle Armor | Protection, Thorns, Cool Down, Snowball |
+| Turtle Armor | Protection, Regeneration, Cool Down, Snowball, Barrier |
 | Wolf Armor | Beast Boss, Beast Surge, Beast Burst, Protection |
 
 ### Extra armor perks above the gear cap
@@ -740,7 +747,7 @@ Different boss missions to clear on the level in the first column.
 
 ## 7. Mobs
 
-- Enchanted mobs no longer roll: Deflect, Levitation Shot.
+- Enchanted mobs no longer roll: Gravity Pulse, Heals Allies, Thorns, Deflect, Levitation Shot.
 - Enchanted mobs can now also roll: Committed, Cowardice, Echo, Fuse Shot, Huge, Leeching, Rampaging, Sharpness, Shockwave, Swirling, Thundering.
 - Deflect is switched off on every mob that carries it (ancient mobs and the Tower Guard included). The player's Deflect is unchanged.
 - Levitation Shot from mobs does nothing.
@@ -779,18 +786,18 @@ These event items drop in missions like the other uniques of their family (base 
 - Speed kept right after a roll: 0.8 -> 1.
 - Enchantsmith (gold): prices x0.1.
 - Piglin merchant (gold): prices x0.5.
+- Blacksmith: prices x0.5.
 - Head Start in Apocalypse: a new character (below the starting level) gets Apocalypse unlocked, and a starter kit at power 70 (Sword, Bow, Scale Mail, Fireworks Arrow, Iron Hide Amulet, Death Cap Mushroom) if its gear is weaker, and starts at level 60 (59 enchantment points) (base game: Default and Adventure first). On by default; set start = "off" in Settings.toml section HEAD START to play from the start.
 - Blacksmith: an upgrade takes 1 mission (base game: 3).
 - Blacksmith: an upgraded weapon or armor comes back at least at your power level (the game's own result stops near A+25 power).
 
 ## 10. Changed texts
 
-The descriptions of 33 enchantments whose copies don't add up end with "Copies stack only partly." or "Copies do not stack." (see section 1).
+The descriptions of 34 enchantments whose copies don't add up end with "Copies stack only partly." or "Copies do not stack." (see section 1).
 
 | Text | Base game | Mod |
 |---|---|---|
 | Enchantment/Backstabber_effect | {0}% Damage Bonus | +50% Damage Bonus per level |
-| Enchantment/Explorer_desc | For every one hundred blocks explored on the map, you regain a small amount of health. | For every ten blocks explored on the map, you regain a small amount of health. |
 | Enchantment/FuseShot_desc | Every few shots has a timed charge that explodes {0} after impact, dealing {1} damage to nearby mobs. | Every few shots has a timed charge that explodes almost instantly after impact, dealing {1} damage to nearby mobs. |
 | Mission/endless_struggle_mob_health | {0}x mob health | Mobs have more health |
 | Mission/endless_struggle_mob_damage | {0}x mob damage | Mobs deal more damage |
@@ -799,3 +806,74 @@ The descriptions of 33 enchantments whose copies don't add up end with "Copies s
 | ArmorProperties/RangedDamageBoost_description | {0} ranged damage | +40% ranged damage |
 | ArmorProperties/TeleportChance_description | {0} chance to teleport away when hit | 15% chance to teleport away when hit |
 | ValuesFormat/duration_seconds_more_than_1 | {0} second | {0} seconds |
+| Enchantment/Recycler | Recycler | Ancient Alchemy |
+| Enchantment/Recycler_desc | Being hit by damage-inflicting projectiles will occasionally craft a small quiver of arrows. | Using a healing potion grants souls. |
+| Enchantment/Recycler_effect | Every {0} projectile | {0} souls |
+| ValuesFormat/ordinal_above_20 | {0}th | {0} |
+| Enchantment/FoodReserves | Food Reserves | Bottomless Brew |
+| Enchantment/FoodReserves_desc | Whenever you use a healing potion, you also create random food items. | Grants 1 / 2 / 3 extra health potion drinks at tier I / II / III. Each one comes back on its own after one potion cooldown. |
+| Enchantment/FoodReserves_effect | {0} items crafted | Extra health potion drinks |
+| Enchantment/Rushdown | Rushdown | Shadowcloak |
+| Enchantment/Rushdown_desc | Defeating a mob increases the players movement speed by 100% temporarily. | Defeating a mob has a chance to put you in Shadow Form: 15% / 20% / 25% at tier I / II / III. |
+| Enchantment/Rushdown_effect | 200% movement speed | Chance of Shadow Form when you defeat a mob |
+| Enchantment/Knockback | Knockback | Sweeping Edge |
+| Enchantment/Knockback_desc | Every once in awhile, enemies will be knocked back after a melee attack. | Every melee hit sends out a shockwave that damages the mobs around the one you hit that your swing missed. |
+| Enchantment/BlindMelee_effect | BLIND_EFFECT | {0} splash damage |
+| Enchantment/Shock_desc | The last attack in a combo launches a shockwave, damaging enemies. | The last attack in a combo launches a shockwave that damages enemies, scaling with your weapon. |
+| Enchantment/Swirling_desc | Hitting an enemy with the last attack in a combo performs a swirling attack, damaging nearby enemies. | Hitting an enemy with the last attack in a combo performs a swirling attack that damages nearby enemies, scaling with your weapon. |
+| Enchantment/Leeching_desc | Defeating a mob heals you a small portion of the mob's max health. | Defeating a mob heals you a small portion of the mob's max health. Kills by your melee attacks heal twice. |
+| Enchantment/Exploding_desc | Mobs explode after they are defeated. | Mobs you defeat explode at once. Mobs the blast defeats explode too. |
+| Enchantment/Rampaging_desc | After defeating a mob, there is a {0} chance to increase your attack speed by {1} for a short time. | Defeating a mob increases your attack speed by 50% for a short time. |
+| Enchantment/Thundering_desc | Has a {0} chance to summon a lightning strike that damages nearby enemies. | Every hit summons a lightning strike that damages nearby mobs and takes 1 / 2 / 3% of their max health. |
+| Enchantment/Electrified_desc | Rolling zaps {0} nearby enemies with lightning bolts, dealing damage. | Rolling zaps {0} nearby mobs with lightning bolts, dealing damage and 4 / 6 / 8% of their max health. |
+| Enchantment/LightningFocus_desc | The lightning damage you deal is increased. | All lightning damage you deal is increased: lightning artifacts, Thundering, Electrified and Overload. |
+| Enchantment/Thorns | Thorns | Overload |
+| Enchantment/Thorns_desc | Whenever you take damage, you deal damage back to the attacker. | Lightning charges the mobs it strikes. Your hits and arrows on a charged mob take 3 / 4 / 5% of its max health and arc to up to 3 / 4 / 5 mobs around it, charging them. |
+| Enchantment/Thorns_effect | {0} damage returned | Discharges into nearby mobs |
+| Enchantment/LevitationShot | Levitation Shot | Relentless |
+| Enchantment/LevitationShot_desc | After rolling, your next attack will cause the target to levitate briefly. | Melee hits on mobs and every arrow you shoot build up to 10 stacks. Each stack gives 2 / 3 / 4% more damage and attack speed. The stacks fade 3 seconds after your last hit. |
+| Enchantment/LevitationShot_effect | {0} Fall Damage | Up to 10 stacks of damage and attack speed |
+| Enchantment/FreezingRanged | Freezing Ranged | Frost Shot |
+| Enchantment/GravityPulse | Gravity Pulse | Artifact Amplifier |
+| Enchantment/GravityPulse_desc | A blast occurs every {0} that pulls nearby enemies towards you. | Your artifacts deal more damage and you gather more souls. |
+| Enchantment/GravityPulse_effect | {0} range | {0} more artifact damage and souls |
+| Enchantment/Explorer | Explorer | Barrier Brew |
+| Enchantment/Explorer_desc | For every one hundred blocks explored on the map, you regain a small amount of health. | Drinking a healing potion gives you and nearby allies less damage taken for 6 seconds. |
+| Enchantment/Explorer_effect | {0} health regained | {0} less damage for you and allies |
+| Enchantment/Altruistic | Heals Allies | Venom Siphon |
+| Enchantment/Altruistic_desc | Whenever you take damage you heal your allies. | Attacks on a poisoned mob deal bonus max health damage, and you heal 10% of it. |
+| Enchantment/Altruistic_effect | {0} of damage becomes healing | {0} of max health as extra damage |
+| Enchantment/Barrier | Barrier | Battle Hardened |
+| Enchantment/Barrier_desc | Your damage resistance increase with the number of nearby enemies. | Each melee hit on a mob and each arrow you shoot gives you a stack of damage resistance, up to 10 stacks. The stacks fade 3 seconds after your last hit. |
+| Enchantment/Barrier_effect | {0} resisted damage per enemy | {0} damage resistance per stack |
+| Enchantment/Regeneration | Regeneration | Buddy Brew |
+| Enchantment/Regeneration_desc | If you avoid taking damage for {0}, you will start regenerating health. | Drinking a healing potion gives you, nearby allies and your pets Regenerating, healing 5% of max health every second. |
+| Enchantment/Regeneration_effect | {0} health per second | {0} of max health healed in total |
+| Enchantment/Shielding | Shielding | Last Stand |
+| Enchantment/Shielding_desc | Adds damage resistance to you and nearby allies. | While you are below half health, you take 20% / 40% / 60% less damage at tier I / II / III. |
+| Enchantment/Shielding_effect | {0} damage | Less damage below half health |
+| Enchantment/EmeraldDivination | Lucky Explorer | Ignite |
+| Enchantment/EmeraldDivination_effect_desc | Chance to spawn emeralds with every block explored. | Attacks on a burning mob deal bonus max health damage and spread the fire to nearby mobs. |
+| Enchantment/EmeraldDivination_effect | {0} emeralds spawned | {0}% of max health as extra damage |
+| Enchantment/ThriveUnderPressure | Thrive Under Pressure | Shatter |
+| Enchantment/ThriveUnderPressure_desc | Take 50% less damage when closely surrounded by at least 4 mobs. | Attacks on a chilled or frozen mob deal bonus damage. |
+| Enchantment/ThriveUnderPressure_effect | THRIVEUNDERPRESSURE_EFFECT | {0} more damage to chilled mobs |
+| Enchantment/Fire_desc | Sets mobs on fire for {0}, dealing damage over time. | Sets mobs on fire for {0}, dealing damage over time. Burning mobs lose 3% / 4% / 5% of their max health every second. |
+| Enchantment/Burning_desc | Every {0} damages all nearby enemies. | Every {0} damages all nearby enemies. Burning mobs lose 3% / 4% / 5% of their max health every second. |
+| Enchantment/FireTrail_desc | Rolling creates a trail of fire behind you, which deals damage to mobs for {0}. | Rolling creates a trail of fire behind you, which deals damage to mobs for {0}. Burning mobs lose 3% / 4% / 5% of their max health every second. |
+| Enchantment/Poisoned_desc | Has a {0} chance to summon a poison cloud that deals damage to enemies in an area for {1}. | Has a {0} chance to summon a poison cloud that deals damage to enemies in an area for {1}. Poisoned mobs lose 5% / 7.5% / 10% of their max health every second. |
+| Enchantment/DippingPoison_desc | When you use a health potion, you are given a quiver of Poison Arrows. | When you use a health potion, you are given a quiver of Poison Arrows. Poisoned mobs lose 5% / 7.5% / 10% of their max health every second. |
+| ItemType/knocks_enemies_back | Knocks enemies back | Hits splash nearby mobs |
+| ItemType/rushdown_speed_increase | Speed burst after mob defeated | Chance of Shadow Form on kill |
+| ItemType/may_spawn_emerald | Chance to spawn emeralds when exploring | Extra damage to burning mobs |
+| ItemType/Thrive_Underpressure | When surrounded by 4 or more enemies, take 50% less damage. | Extra damage to chilled mobs |
+| ItemType/inflics_damage_to_attacker | Inflicts damage to attacker | Lightning charges mobs to discharge |
+| ItemType/Levitation_Shot | Levitation Shot | Hits build damage and attack speed |
+| ItemType/health_regeneration | Health regeneration | Potions heal you and allies over time |
+| ItemType/spawn_food_on_potion_use | Spawn food on potion use | Extra potion drinks |
+| ItemType/gain_health_when_exploring | Gain health when exploring | Potions shield you and allies |
+| ItemType/crafts_arrows_on_hit | Crafts arrows on hit | Potions grant souls |
+| ItemType/pulls_enemies_in | Pulls enemies in | More artifact damage and souls |
+| Enchantment/BlindMelee | Blind | Drains health from poisoned mobs |
+| Enchantment/BlindMelee_desc | BLIND_DESC | Hits build damage resistance |
+| Enchantment/ChargingAcceleration_effect | {0} times increased | Less damage taken at low health |

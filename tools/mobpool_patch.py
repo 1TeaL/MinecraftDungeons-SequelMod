@@ -37,6 +37,11 @@ CONFIG = settings.path("MobPool.toml")
 IDS = json.loads((ROOT / "tools" / "enchant_ids.json").read_text())
 GEAR, TYPE_ID, MOBS, OFF = 0x00, 0x03, 0xD3, 0xD5
 TABLE = 0x44EF680     # global: pointer to the definitions by type id (8 bytes each)
+# The rolls don't read those definitions: the first roll copies every one into a list of its own (a TArray of
+# 0x140-byte copies at exe+0x44EFBA0, count at +8; exe+0xA7ABE0), and every roll after reads the copies - the player
+# roll exe+0xA7ADA0 and the mob roll exe+0xA7ACB0 alike (found 2026-11-05: the launcher's changes to the definitions
+# never reached a drop). So a change goes to the definition AND to its copy, if the copy is made yet.
+COPIES, COPY_SIZE = 0x44EFBA0, 0x140
 GEARS = {1: "melee", 2: "ranged", 8: "armor"}
 
 
@@ -54,6 +59,25 @@ def definition(h, base, name):
     return at, body
 
 
+def copies(h, base, name):
+    """Addresses of the rolls' copies of an enchantment's definition (none before the game's first roll)."""
+    raw = read(h, base + COPIES, 12)
+    if not raw or name not in IDS:
+        return []
+    data, count = struct.unpack("<Qi", raw)
+    if not data or not 0 < count < 1000:
+        return []
+    table = read(h, data, count * COPY_SIZE) or b""
+    return [data + i * COPY_SIZE for i in range(len(table) // COPY_SIZE) if table[i * COPY_SIZE + TYPE_ID] == IDS[name]]
+
+
+def write_both(h, base, name, at, offset, value):
+    """Write value (bytes) at offset into the definition at `at` and into the rolls' copies of it."""
+    write(h, at + offset, value)
+    for copy in copies(h, base, name):
+        write(h, copy + offset, value)
+
+
 def apply(h, base):
     plan = settings.load(CONFIG)
     changed = []
@@ -68,10 +92,12 @@ def apply(h, base):
                 print(f"  ! {name}: not found in the game - skipped")
             elif body[MOBS] > 1 or body[OFF] > 1:
                 print(f"  ! {name}: unexpected data in its definition - left alone")
-            elif bool(body[MOBS]) != bool(value):
-                write(h, at + MOBS, bytes([value]))
-                changed.append(name)
-                print(f"  {name}: {word}")
+            else:
+                stale = [c for c in copies(h, base, name) if (read(h, c + MOBS, 1) or b"\x00")[0] != value]
+                if bool(body[MOBS]) != bool(value) or stale:
+                    write_both(h, base, name, at, MOBS, bytes([value]))
+                    changed.append(name)
+                    print(f"  {name}: {word}")
     print(f"mob enchantment pool: {len(changed)} changed")
 
 

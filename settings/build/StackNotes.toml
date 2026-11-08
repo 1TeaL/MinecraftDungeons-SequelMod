@@ -3,7 +3,7 @@
 # page (tools/change_sheet.py). Names: tools/enchant_ids.json.
 
 full = ["BaneOfIllagers", "PotionThirstMelee", "RadianceRanged", "ShockWeb", "FireFocus", "LightningFocus", "PoisonFocus",
-        "SoulFocus", "CooldownShot", "FireTrail", "Reckless", "Unchanting", "Snowing", "Thorns", "Celerity", "Leeching", "Backstabber", "BusyBee", "Supercharge", "CriticalHit", "Thundering", "FireAspect", "Shockwave", "Swirling", "Sharpness", "Committed", "Smiting",
+        "SoulFocus", "CooldownShot", "FireTrail", "Reckless", "Unchanting", "Snowing", "Celerity", "Barrier", "LevitationShot", "Leeching", "Backstabber", "BusyBee", "Supercharge", "CriticalHit", "Thundering", "FireAspect", "Shockwave", "Swirling", "Sharpness", "Committed", "Smiting",
         "EnigmaResonatorMelee", "SoulSiphon", "AnimaConduitMelee", "BonusShot", "ChainReaction", "FuseShot", "Infinity",
         "WildRage", "Protection", "Burning", "Electrified"]
 
@@ -19,7 +19,8 @@ Accelerating = "every copy adds its speed per shot, so the stacks fill sooner"
 [none]
 PoisonedMelee = "procs several times, no extra damage"
 PoisonedRanged = "procs several times, no extra damage"
-Exploding = "procs several times, no extra damage"
+Exploding = "one explosion per kill"
+Thorns = "one discharge per hit"   # Overload now (2026-11-08)
 Echo = "shows several procs, one extra hit"
 Punch = ""
 DamageSynergy = ""

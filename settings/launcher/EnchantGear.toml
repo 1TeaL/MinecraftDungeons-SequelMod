@@ -1,0 +1,49 @@
+# Which gear an enchantment can roll on - applied by the launcher when the game starts (tools/gear_patch.py).
+# Data only. Each enchantment here is offered on the listed gear IN ADDITION to its own (melee, ranged, armor);
+# nothing is ever taken away. It works from any gear: an enchantment runs on its wearer, not on the item.
+# python tools/gear_patch.py --show   lists every enchantment's gear in the running game.
+# Names are the game's internal ones (tools/enchant_ids.json). New offers only reach new drops and rerolls.
+
+# Enchantments the game keeps for one unique item, let into the normal rolls (byte +0xD0 cleared; a guess until
+# seen in game). Only ones whose tiers really differ (user rule, 2026-11-05). They roll on their own gear, plus any
+# also_on below.
+# Thrive Under Pressure was unlocked and seen rolling (2026-11-05), but its tiers do nothing (a fixed 50%), so it is
+# out again (user rule).
+# Sponge Strike is Shadowcloak now (unreal/Scripts/build_enchants.py: 15 / 20 / 25% chance of Shadow Form on a kill;
+# user, 2026-11-05) - unlocked, and on ranged weapons too (below). It is a DLC5 enchantment: it only rolls for
+# players who own that DLC (the roll's own DLC check).
+# Knockback is Sweeping Edge (unreal/Scripts/build_enchants.py: every melee hit splashes 10 / 20 / 30% of its damage
+# on the mobs around the one hit; user, 2026-11-07). Unique-only, used by no item or mob; base game. Melee only.
+# FreezingRanged (Frost Shot) rolled from 2026-11-06 to 11-07, then out again (user: its card can only show a name,
+# and a slow is weak for a bow slot). It stays a free ranged host.
+# Four of the game's unused armor enchantments, now hosting our own (unreal/Scripts/build_enchants.py; user,
+# 2026-11-06 / 07): Altruistic = Venom Siphon (was Radiant Guard), Barrier = Battle Hardened, Shielding = Last Stand, Regeneration =
+# Buddy Brew (swapped 2026-11-09). Mobs: the mob roll doesn't read the unique-only byte - see MobPool.toml (Heals Allies off there).
+# Debuffer enchantments (user, 2026-11-07; build_enchants.py): Heals Allies = Venom Siphon (was Radiant Guard),
+# Lucky Explorer = Ignite (already rolls on armor), Charging Acceleration = Shatter (a hidden ranged one, no item has it).
+# All three on every gear (below): they work from anywhere.
+# 2026-11-08: Shadowcloak moved from Sponge Strike to Rushdown, Shatter from Charging Acceleration to Thrive Under
+# Pressure (their icons are listed by the game; the old ones' weren't) - the old two are locked again.
+unlock = ["Rushdown", "Knockback", "Altruistic", "Shielding", "Barrier", "Regeneration", "ThriveUnderPressure"]
+
+[also_on]
+# Burst Bowstring (rolling fires arrows at nearby mobs) on armor too: the roll arrows without spending a bow slot,
+# a melee player who carries a bow can roll and shoot, and a bow + armor copy both fire (user, 2026-11-05: rather
+# than a Tumbleshot rework). Its numbers stay the game's / SequelMod.toml's. Not yet seen working.
+BurstBowstring = ["armor"]
+Rushdown = ["ranged", "armor"]   # Shadowcloak: every gear (user, 2026-11-05 ranged; 2026-11-08 armor - each copy rolls on each kill)
+Altruistic = ["melee", "ranged"]            # Venom Siphon: every gear (user, 2026-11-07)
+EmeraldDivination = ["melee", "ranged"]     # Ignite
+ThriveUnderPressure = ["melee", "ranged"]   # Shatter
+Thorns = ["melee", "ranged"]                # Overload (Thorns' slot): every gear (user, 2026-11-08)
+LevitationShot = ["melee", "armor"]         # Relentless (Levitation Shot's slot): every gear (user, 2026-11-08)
+Exploding = ["ranged"]                      # arrow kills count now (kill credit; user, 2026-11-08)
+Leeching = ["ranged"]                       # the same
+
+# Rarity (user, 2026-11-08): "Powerful" enchantments cost 2 / 3 / 4 points per tier (common 1 / 2 / 3), carry the badge
+# and roll from their own, rarer list. Rule: an enchantment that deals a share of max health or that a build is centred
+# on is powerful. Already powerful in the game: Heals Allies (Venom Siphon), Levitation Shot (Relentless), Barrier
+# (Battle Hardened), Gravity Pulse (Artifact Amplifier). Only changes are listed.
+[rarity]
+powerful = ["EmeraldDivination", "ThriveUnderPressure", "Thorns", "Shielding"]   # Ignite, Shatter, Overload, Last Stand
+common = []

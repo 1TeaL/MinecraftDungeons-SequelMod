@@ -134,7 +134,7 @@
 
 [Enchantments.Burning]  # Burning (Armor)
 "BP_Burning.Radius" = 400.0  # default 300.0
-"BP_Burning.BurnBaseDamage" = 15.0  # default 5.0
+"BP_Burning.BurnBaseDamage" = 5.0  # default 5.0. Was 15; back to the game's (max-health fire damage, Debuffs.toml; user, 2026-11-07)
 "BP_Burning.MobBurnDamage" = 45.0  # default 45.0
 "BP_Burning.BurnInterval" = 0.5  # default 0.5
 
@@ -227,13 +227,13 @@
 "BP_Electrified.OnKillPushback.pushbackStrength" = 2.0  # default 2.0
 "BP_Electrified.ZapDelayMob" = 4.0  # default 4.0
 "BP_Electrified.ZapCountMob" = 1  # default 1
-"BP_Electrified.ZapCount" = 4  # default 2
-"BP_Electrified.ZapDamage" = 100.0  # default 50.0
+"BP_Electrified.ZapCount" = 2  # default 2 (was 4 - back to the game's with the max-health share, user 2026-11-08)
+"BP_Electrified.ZapDamage" = 50.0  # default 50.0 (was 100 - back to the game's with the max-health share, user 2026-11-08)
 "BP_Electrified.MobZapDamage" = 90.0  # default 90.0
 "BP_Electrified.Radius" = 700.0  # default 700.0
 
 [Enchantments.EmeraldDivination]  # Lucky Explorer (Armor)
-"BP_EmeraldDivination.PercentageToSpawn" = 0.1  # default 0.05
+"BP_EmeraldDivination.PercentageToSpawn" = 0.05  # default 0.05. Lucky Explorer = Ignite now: our own BP_EmeraldDivination (build_enchants.py) replaces this file and switches the emeralds off (was 0.1, 2026-11-07)
 "BP_EmeraldDivination.BlockThreshold" = 1  # default 1
 "BP_EmeraldDivination.EmeraldToSpawnBase" = 1.0  # default 1.0
 "BP_EmeraldDivination.EmeraldToSpawnPerLevel" = 2.0  # default 2.0
@@ -250,7 +250,7 @@
 "BP_Exploding.explosionMaxHealthFactorPerLevel" = 0.2  # default 0.2
 
 [Enchantments.Explorer]  # Explorer (Armor)
-"BP_Explorer.BlockThreshold" = 10  # default 100
+"BP_Explorer.BlockThreshold" = 100  # default 100. Explorer = Barrier Brew now (Bottomless Brew until 2026-11-08): our own BP_Explorer (build_enchants.py) replaces this file and switches the heal off (was 10, 2026-11-05)
 
 [Enchantments.FinalShout]  # Final Shout (Armor)
 "BP_FinalShout.triggerCooldownBase" = 8.0  # default 12.0
@@ -259,7 +259,7 @@
 
 [Enchantments.FireAspect]  # Fire Aspect (Melee)
 "BP_FireAspect.MobDamagePerSecond" = 100.0  # default 100.0
-"BP_FireAspect.damagePerSecond" = 60.0  # default 30.0
+"BP_FireAspect.damagePerSecond" = 30.0  # default 30.0. Was 60; back to the game's now that burning mobs lose a share of their max health (Debuffs.toml; user, 2026-11-07)
 "BP_FireAspect.fireDuration" = 3.0  # default 3.0
 
 [Enchantments.FireFocus]  # Fire Focus (Armor)
@@ -271,7 +271,7 @@
 "BP_FireBlockPlayer.TotalLifeSpan" = 8.0  # default 6.0
 "BP_FireBlockPlayer.DamageDuration" = 6.0  # default 4.0
 "BP_FireTrail.DurationAfterDodgeEnd" = 0.5  # default 0.5
-"BP_FireTrail.BaseDamagePerSecond" = 60.0  # default 20.0
+"BP_FireTrail.BaseDamagePerSecond" = 20.0  # default 20.0. Was 60; back to the game's (max-health fire damage, Debuffs.toml; user, 2026-11-07)
 "BP_FireTrail.FireBlockDuration" = 6.0  # default 4.0
 
 [Enchantments.Flee]  # Rush (Armor)
@@ -288,8 +288,8 @@
 "BP_FreezingAoe.SlowAmountPerLevel" = 0.1  # default 0.1
 "BP_FreezingAoe.FreezeTime" = 3.0  # default 3.0
 
-[Enchantments.FreezingRanged]  # FreezingRanged (unique item, mob or shared effect)
-"BP_FreezingRanged.SlowAmountBase" = 0.8  # default 0.8
+[Enchantments.FreezingRanged]  # FreezingRanged - unlocked as Frost Shot (EnchantGear.toml, 2026-11-06): the arrow's mob is slowed 30 / 40 / 50% for 3 s, the game's own melee Freezing numbers (melee is 40 / 55 / 70% here)
+"BP_FreezingRanged.SlowAmountBase" = 0.7  # default 0.8
 "BP_FreezingRanged.SlowAmountPerLevel" = 0.1  # default 0.1
 "BP_FreezingRanged.FreezeTime" = 3.0  # default 3.0
 
@@ -393,7 +393,7 @@
 "BP_levitationShot.FallDamagePercentagePerLevel" = 0.1  # default 0.1
 
 [Enchantments.LightningFocus]  # Lightning Focus (Armor)
-"BP_LightningFocus.DamageIncreasePerLevel" = 0.5  # default 0.25
+"BP_LightningFocus.DamageIncreasePerLevel" = 0.25  # default 0.25 (was 0.5 - back to the game's: it now boosts the max-health shares too, user 2026-11-08)
 
 [Enchantments.Looting]  # Looting (Melee)
 "BP_Looting.DropRateIncreasePerLevel" = 1.0  # default 1.0
@@ -462,16 +462,16 @@
 [Enchantments.PoisonedMelee]  # Poison Cloud (Melee)
 "BP_PoisonedMelee.EffectGroupParameters.IndividualSpawnRadius" = 150.0  # default 150.0
 "BP_PoisonedMelee.MobDamagePerSecond" = 150.0  # default 150.0
-"BP_PoisonedMelee.BaseDamagePerSecond" = 30.0  # default 15.0
-"BP_PoisonedMelee.TriggerChance" = 0.6  # default 0.3
+"BP_PoisonedMelee.BaseDamagePerSecond" = 15.0  # default 15.0. Was 30; back to the game's (max-health poison damage, Debuffs.toml; user, 2026-11-07)
+"BP_PoisonedMelee.TriggerChance" = 1.0  # default 0.3
 "BP_PoisonedMelee.CloudDuration" = 2.5  # default 2.5
 "BP_PoisonedMelee.MobCloudDuration" = 4.0  # default 4.0
 
 [Enchantments.PoisonedRanged]  # Poison Cloud (Ranged)
 "BP_PoisonedRanged.EffectGroupParameters.IndividualSpawnRadius" = 150.0  # default 150.0
 "BP_PoisonedRanged.MobDamagePerSecond" = 150.0  # default 150.0
-"BP_PoisonedRanged.BaseDamagePerSecond" = 30.0  # default 15.0
-"BP_PoisonedRanged.TriggerChance" = 0.6  # default 0.3
+"BP_PoisonedRanged.BaseDamagePerSecond" = 15.0  # default 15.0. Was 30; back to the game's (max-health poison damage, Debuffs.toml; user, 2026-11-07)
+"BP_PoisonedRanged.TriggerChance" = 1.0  # default 0.3
 "BP_PoisonedRanged.CloudDuration" = 2.5  # default 2.5
 "BP_PoisonedRanged.MobCloudDuration" = 4.0  # default 4.0
 
@@ -537,7 +537,7 @@
 
 [Enchantments.Rampaging]  # Rampaging (Melee)
 "BP_Rampaging.AttackSpeedBoost" = 1.5  # default 1.5
-"BP_Rampaging.BoostTime" = 2.0  # default 5.0
+"BP_Rampaging.BoostTime" = 1.0  # default 5.0. x tier: 1 / 2 / 3 s after every kill credited to you (user, 2026-11-08: was 2 / 4 / 6)
 "BP_Rampaging.TriggerChance" = 1.0  # default 0.1
 
 [Enchantments.Reckless]  # Reckless (Armor)
@@ -736,8 +736,8 @@
 "BP_AncientGuardianThorns.PercentDamageReturnedMob" = 0.1  # default 0.1
 "BP_Thorns.OnKillPushback.enablePushback" = true  # default true
 "BP_Thorns.OnKillPushback.pushbackStrength" = 2.0  # default 2.0
-"BP_Thorns.PercentDamageReturnedBase" = 5.0  # default 1.0
-"BP_Thorns.PercentDamageReturnedPerLevel" = 2.5  # default 0.5
+"BP_Thorns.PercentDamageReturnedBase" = 2.0  # default 1.0. Unused: Thorns is Overload now (our BP sets these to 0; user, 2026-11-08)
+"BP_Thorns.PercentDamageReturnedPerLevel" = 1.0  # default 0.5
 "BP_Thorns.PercentDamageReturnedMob" = 0.03  # default 0.1
 
 [Enchantments.ThriveUnderPressure]  # Thrive Under Pressure (Armor)
@@ -748,9 +748,9 @@
 "BP_Thundering.StrikeRadius" = 150.0  # default 150.0
 "BP_Thundering.IndividualChainRadius" = 700.0  # default 700.0
 "BP_Thundering.ChainLightningDelay" = 0.1  # default 0.1
-"BP_Thundering.BaseDamage" = 7.5  # default 12.5
+"BP_Thundering.BaseDamage" = 3.75  # default 12.5. x0.3 for the 100% chance: the same damage on average (user, 2026-11-08)
 "BP_Thundering.MobDamage" = 100.0  # default 100.0
-"BP_Thundering.TriggerChance" = 1.0  # default 0.3
+"BP_Thundering.TriggerChance" = 1.0  # default 0.3. Every hit strikes (user, 2026-11-08), damage x0.3 to match
 
 [Enchantments.TumbleBee]  # Tumble Bee (Armor)
 "BP_TumbleBee.SpawnDelaySeconds" = 0.1  # default 0.1

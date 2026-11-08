@@ -90,6 +90,34 @@ def saved_best():
         return {}
 
 
+def other_characters_items():
+    """({(item id in lower case, power as 4 float bytes)} of the items only the OTHER characters own - not the one
+    played last -, the newest change time of the saves), or None if the saves can't be read. The character select
+    screen loads every character's gear: an alt's Full Metal Armor at 363 gave the played character's 263 copy its
+    bonus enchantments for a while (user, 2026-11-08)."""
+    try:
+        import savefile
+        files = sorted(save_folder().glob("*/Characters/*.dat"), key=lambda f: f.stat().st_mtime)
+        if not files:
+            return None
+
+        def owned(f):
+            data = json.loads(savefile.decrypt(f.read_bytes()))
+            return {(item["type"].lower(), struct.pack("<f", item["power"]))
+                    for item in (data.get("items") or []) + (data.get("storageChestItems") or [])
+                    if isinstance(item.get("type"), str) and isinstance(item.get("power"), (int, float))}
+        mine = owned(files[-1])
+        others = set()
+        for f in files[:-1]:
+            try:
+                others |= owned(f)
+            except Exception:  # noqa: BLE001 - an empty or unreadable character file
+                pass
+        return others - mine, files[-1].stat().st_mtime
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def upgraded_items():
     """(power level of the character played last, {(item id in lower case, power as 4 float bytes)} of its items the
     Blacksmith has upgraded, the save's change time), or None if the save can't be read."""
@@ -174,6 +202,8 @@ class Watch:
         self.upgrades_time = got[2] if got else 0.0
         self.saves_retry = 0.0
         self.upgrades_due = {}                               # (id, power bytes) -> (power level, when first seen)
+        got = other_characters_items() if base else None     # the other characters' gear (character select) doesn't count
+        self.alts, self.alts_time, self.alts_checked = (got[0], got[1], 0.0) if got else (set(), 0.0, 0.0)
         self.upgrades_checked = 0.0
 
     def learn_types(self):
@@ -190,6 +220,17 @@ class Watch:
         if self.own_scanner:
             self.scanner.refresh()
         objs = self.scanner.found.get(self.item_vt, [])
+        now = time.time()
+        if now - self.alts_checked > 30:                 # re-read when a save has changed (another character played)
+            self.alts_checked = now
+            try:
+                newest = max(f.stat().st_mtime for f in save_folder().glob("*/Characters/*.dat"))
+            except ValueError:
+                newest = 0.0
+            if newest != self.alts_time:
+                got = other_characters_items()
+                if got:
+                    self.alts, self.alts_time = got
         best, self.held, self.raw_power = {}, [], {}
         for o in objs:
             raw = read(self.h, o + ITEM_TYPE, 12)
@@ -198,6 +239,8 @@ class Watch:
             name = self.types.get(struct.unpack_from("<I", raw)[0])
             power = struct.unpack_from("<f", raw, 8)[0]
             if name and 1.0 <= power < 60.0:
+                if (name.split("/")[1].lower(), raw[8:12]) in self.alts:
+                    continue                             # another character's (the character select screen)
                 shown = int((power - 1) * 10 + 1 + 1e-3)
                 if o not in self.wares:                  # what a merchant has on the shelf isn't the player's yet
                     best[name] = max(best.get(name, 0), shown)

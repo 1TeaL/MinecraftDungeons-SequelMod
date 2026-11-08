@@ -1,0 +1,22 @@
+# Card texts an enchantment's own code can't give it - applied by the launcher when the game starts
+# (tools/text_patch.py). Data only: an enchantment's text slot is pointed at a DONOR enchantment's text, and the
+# donor key's words are set in settings/build/SequelText.toml. Donors are enchantments the game never uses, so
+# nothing else shows their texts. Fields: name, desc, bullet, effect (the tier line). A donor is "Enchantment" (same
+# field) or "Enchantment.field".
+#
+# Free donor texts (Blind: unfinished melee enchantment, no blueprint, never rolls, no item has it; its keys hold only
+# placeholders): BlindMelee.name, BlindMelee.desc, BlindMelee.effect. Used: all three (BlindMelee.effect, .name, .desc); also ChargingAcceleration.effect (unused again since 2026-11-08).
+
+[texts]
+# Sweeping Edge (Knockback): its code uses the shared "{0} chance to trigger" for the tier line; ours reads
+# "{0} splash damage" (Enchantment/BlindMelee_effect in SequelText.toml) with Formulas.toml Knockback 0.4 / 0.6 / 0.8.
+Knockback = { effect = "BlindMelee.effect" }
+# Shadowcloak (Sponge Strike): its code gives the tier rows no text and no number (no value routine found, research/
+# value_lambda.py 2026-11-08), so the rows read a fixed line (Enchantment/BlindMelee_desc in SequelText.toml); the
+# chances stay in its description.
+# (Shadowcloak lent Blind's description key while it sat on Sponge Strike; on Rushdown it has its own keys.)
+# Short lines on item tooltips (the "bullet" field) for the three hosts that have none (user, 2026-11-08); the words are
+# in SequelText.toml
+Altruistic = { bullet = "BlindMelee.name" }              # Venom Siphon
+Barrier = { bullet = "BlindMelee.desc" }                 # Battle Hardened (the Shulker Armors' built-in)
+Shielding = { bullet = "ChargingAcceleration.effect" }   # Last Stand (since 2026-11-09; Buddy Brew before)

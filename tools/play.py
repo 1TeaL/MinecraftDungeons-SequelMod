@@ -42,6 +42,9 @@ import live_objects  # noqa: E402
 import memprobe  # noqa: E402
 import mob_enchants  # noqa: E402
 import mobpool_patch  # noqa: E402
+import gear_patch  # noqa: E402
+import text_patch  # noqa: E402
+import sequel_log  # noqa: E402
 import qol_patch  # noqa: E402
 import stack_patch  # noqa: E402
 import start_kit  # noqa: E402
@@ -229,6 +232,16 @@ if __name__ == "__main__":
     except (SystemExit, Exception) as e:  # noqa: B014
         print(f"Mob enchantment pool NOT changed: {e}")
     try:
+        if switches.get("enchant_gear", True):
+            gear_patch.apply(h, base)
+    except (SystemExit, Exception) as e:  # noqa: B014
+        print(f"Enchantment gear NOT changed: {e}")
+    try:
+        if switches.get("enchant_gear", True):
+            text_patch.apply(h, base)                   # our enchantments' card texts (CardTexts.toml)
+    except (SystemExit, Exception) as e:  # noqa: B014
+        print(f"Card texts NOT changed: {e}")
+    try:
         if switches.get("formulas", True):
             accelerate_patch.apply(h, base)
     except (SystemExit, Exception) as e:  # noqa: B014
@@ -280,12 +293,18 @@ if __name__ == "__main__":
         watchers.append(formula_patch.Formulas(h, base, scanner))
     if switches.get("qol", True):
         watchers.append(qol_patch.Blacksmith(h, base, scanner))
+    if switches.get("test_log", True):   # what our enchantments see and do -> test.log (sequel_log.py; TEST, 2026-11-07)
+        try:
+            watchers.append(sequel_log.SequelLog(h, base, scanner))
+            print("Test log: " + str(sequel_log.LOG))
+        except Exception as e:  # noqa: BLE001
+            print(f"Test log NOT started: {e!r}")
     # Five passes a second. Most of them only ask the game's object list what is new (a few milliseconds) and let
     # the watchers that must catch an object as it appears - a mob's Deflect, a newly equipped Echo - deal with
     # just that; every fifth pass goes over everything known for those watchers and the prices, every fifteenth
     # (3 s) for the rest, as before.
     quick = (echo_patch.EchoWatch, mob_enchants.MobEnchants, formula_patch.Formulas)
-    each_second = quick + (prices_patch.Prices, qol_patch.Blacksmith)
+    each_second = quick + (prices_patch.Prices, qol_patch.Blacksmith, sequel_log.SequelLog)
     passes, complained = 0, {}
 
     def trouble(where, e):

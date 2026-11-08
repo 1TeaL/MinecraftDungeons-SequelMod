@@ -47,3 +47,8 @@ unreal/*.sln
 # made by the build scripts in unreal/Scripts (the scripts are the source)
 unreal/Content/
 unreal/Scripts/_settings.json
+
+# Test output and this machine's cached game addresses
+test.log
+research/*.log
+tools/sequel_log_names.txt

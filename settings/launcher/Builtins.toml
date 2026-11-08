@@ -46,7 +46,7 @@ SoulSiphon = 3
 
 # --- Armor ---
 ["Armor/EmeraldArmor_Unique2"]         # Gilded Glory
-EmeraldDivination = 3
+EmeraldDivination = { to = "Prospector", level = 3 }   # Lucky Explorer is Ignite now (user, 2026-11-07)
 DeathBarter = 3
 
 ["Armor/PhantomArmor_Unique1"]         # Frost Bite
@@ -68,7 +68,7 @@ Burning = 3
 Chilling = 3
 
 ["Armor/NatureArmor_Unique1"]          # Black Spot Armor
-FoodReserves = 3
+# its own Food Reserves III is Bottomless Brew (2026-11-08: Bottomless Brew moved onto Food Reserves; was replaced by Explorer)
 
 ["Armor/WolfArmor_Unique2"]            # Black Wolf Armor
 Acrobat = 3
@@ -170,8 +170,8 @@ Freezing = { to = "AnimaConduitMelee", level = 2 }
 add = { AnimaConduitMelee = 2, SoulSiphon = 2 }
 
 ["MeleeWeapons/Glaive_Spooky2"]           # Cackling Broom: pull and sweep
-Smiting = { to = "Swirling", level = 2 }
-add = { Swirling = 2, GravityMelee = 2 }
+Smiting = { to = "Knockback", level = 2 }   # Knockback = Sweeping Edge (2026-11-08; was Swirling 2)
+add = { Knockback = 2, GravityMelee = 2 }
 
 ["MeleeWeapons/Spear_spooky2"]            # Spine-Chill Spear: stealth spear - strike unseen, then mark (2026-10-26)
 Echo = { to = "Backstabber", level = 2 }   # Backstabber = Ambush
@@ -192,8 +192,8 @@ add = { ShockWeb = 2, Gravity = 2 }
 ReliableRicochet = { to = "CooldownShot", level = 2 }   # (was Poison Cloud 3 + Chain Reaction 2, a third poison bow)
 add = { CooldownShot = 2, PotionThirstRanged = 2 }
 
-["Armor/MercenaryArmor_Spooky1"]          # Hungry Horror: retaliation tank - pulls mobs in to hurt themselves on it
-add = { Thorns = 2, GravityPulse = 2 }
+["Armor/MercenaryArmor_Spooky1"]          # Hungry Horror: shatter tank - chills the mobs around it, then shatters them
+add = { ThriveUnderPressure = 2, Chilling = 2 }   # Shatter (was Thorns, now Overload - 2026-11-08); Chilling: was Gravity Pulse (2026-11-04)
 
 ["Armor/MercenaryArmor_Spooky2"]          # Hungriest Horror: low-health berserker
 add = { Reckless = 2, Frenzied = 2 }
@@ -202,7 +202,7 @@ add = { Reckless = 2, Frenzied = 2 }
 add = { BowsBoon = 2, BeastSurge = 2 }
 
 ["Armor/SpelunkersArmor_Year1"]           # Sweet Tooth: consumables
-add = { SurpriseGift = 2, FoodReserves = 2 }
+add = { SurpriseGift = 2, FoodReserves = 2 }     # FoodReserves = Bottomless Brew (2026-11-08; was Explorer)
 
 ["Armor/FullPlateArmor_Spooky2"]          # Cauldron Armor: furnace tank
 add = { Burning = 2, FireFocus = 2 }
@@ -240,8 +240,18 @@ VoidBlast = 3                          # and 4x the damage (SequelMod.toml BP_Vo
 FireTrail = 3
 
 ["Armor/EmeraldArmor_Unique1"]         # Opulent Armor (stat guide B): Lucky Explorer at tier III (2026-10-19)
-EmeraldDivination = 3
+EmeraldDivination = { to = "Prospector", level = 3 }   # Lucky Explorer is Ignite now (user, 2026-11-07)
 
 ["Armor/SproutArmor_Unique1"]           # Living Vines Armor: the poison armor - roll, root, poison (2026-10-26)
 Acrobat = 2
 add = { PoisonFocus = 2 }
+
+# ---- 2026-11-08: the hosts Shadowcloak and Shatter moved to (their icons are listed by the game) ----
+# Rushdown is Shadowcloak now: all three Tempest Knives (Rushdown built in) get Shadowcloak - the user's choice (Rushdown's
+# second-long speed burst was weak and could run you into a bug that dealt huge damage).
+# Thrive Under Pressure is Shatter now: the Shulker Armors keep a defensive built-in instead - Battle Hardened.
+["Armor/ShulkerArmor"]                    # Shulker Armor
+ThriveUnderPressure = { to = "Barrier", level = 2 }   # Barrier = Battle Hardened
+
+["Armor/ShulkerArmor_Unique1"]            # Sturdy Shulker Armor
+ThriveUnderPressure = { to = "Barrier", level = 2 }

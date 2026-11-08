@@ -14,6 +14,7 @@ HEADERS = {   # file name -> [(text, pixel size), ...]: one line, or several sta
     "sequel-mod": [("MINECRAFT DUNGEONS:", 4), ("SEQUEL MOD", 8)],
     "why-it-was-made": [("WHY IT WAS MADE", 4)],
     "what-it-does": [("WHAT IT DOES", 4)],
+    "enchantments": [("ENCHANTMENTS", 4)],
     "playing-it": [("PLAYING IT", 4)],
     "mcd-transmog-loadouts-and-reroll": [("MCD TRANSMOG, LOADOUTS AND REROLL", 4)],
     "how-it-works": [("HOW IT WORKS", 4)],

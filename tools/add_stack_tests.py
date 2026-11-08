@@ -38,8 +38,21 @@ ITEMS = [
     ("ScaleMail", "Common", ["Reckless", "Frenzied", "FireTrail"]),
     ("EvocationRobe", "Common", ["Cowardice", "Flee", "FinalShout"]),
 ]
-EXTRA = [   # --add: put these in without taking the current batch out (2026-10-14: Unchanting, user)
-    ("Sword", "Common", ["Unchanting", "BaneOfIllagers", "Smiting"]),
+EXTRA = [   # --add: put these in without taking the current batch out (2026-10-14: Unchanting; 2026-11-08: our
+    # kill-credit Exploding - one explosion per kill with two copies? - plus Leeching and Refreshment, user)
+    ("Axe", "Common", ["Exploding", "Leeching", "PotionThirstMelee"]),
+]
+EXTRA = [   # 2026-11-08 (user: equipment with all the new things to test) - game names: Knockback = Sweeping Edge,
+    # Rushdown = Shadowcloak, EmeraldDivination = Ignite, Altruistic = Venom Siphon, ThriveUnderPressure = Shatter,
+    # Thorns = Overload, LevitationShot = Relentless, FoodReserves = Bottomless Brew, Explorer = Barrier Brew (swapped 2026-11-08),
+    # Recycler = Ancient Alchemy, GravityPulse = Artifact Amplifier, Regeneration = Buddy Brew, Shielding = Last Stand
+    ("Sword", "Common", ["Knockback", "Rushdown", "EmeraldDivination"]),
+    ("Axe", "Common", ["Altruistic", "ThriveUnderPressure", "Exploding"]),
+    ("Bow", "Common", ["LevitationShot", "Rushdown", "ThriveUnderPressure"]),
+    ("Crossbow", "Common", ["EmeraldDivination", "Altruistic", "Thorns"]),
+    ("TempestKnife", "Common", ["Leeching", "Rampaging", "PotionThirstMelee"]),   # its built-in shows Shadowcloak
+    ("ScaleMail", "Common", ["FoodReserves", "Explorer", "Recycler"]),
+    ("EvocationRobe", "Common", ["GravityPulse", "Regeneration", "Shielding"]),
 ]
 STACK_TYPES = {"Sword", "Daggers", "Axe", "Glaive", "SoulScythe", "Katana", "Cutlass", "Mace", "Bow", "Crossbow",
                "Shortbow", "Longbow", "SoulBow", "HeavyCrossbow", "ScaleMail", "EvocationRobe"}   # every batch so far

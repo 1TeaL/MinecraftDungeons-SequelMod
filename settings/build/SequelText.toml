@@ -10,10 +10,6 @@
 # Original: "{0}% Damage Bonus"
 "Enchantment/Backstabber_effect" = "+50% Damage Bonus per level"
 
-# Explorer - heals every 10 blocks now (number is written into the text).
-# Original: "For every one hundred blocks explored on the map, you regain a small amount of health."
-"Enchantment/Explorer_desc" = "For every ten blocks explored on the map, you regain a small amount of health."
-
 # Fuse Shot - the 0.1 s fuse shows as "zero seconds".
 # Original: "Every few shots has a timed charge that explodes {0} after impact, dealing {1} damage to nearby mobs."
 "Enchantment/FuseShot_desc" = "Every few shots has a timed charge that explodes almost instantly after impact, dealing {1} damage to nearby mobs."
@@ -42,3 +38,170 @@
 # A typo in the game itself: durations of more than one second read "3 second" (seen on Poison Cloud; user, 2026-10-13).
 # Original: "{0} second"
 "ValuesFormat/duration_seconds_more_than_1" = "{0} seconds"
+
+# Recycler is reworked into Ancient Alchemy (our own BP_Recycler, unreal/Scripts/build_enchants.py): a healing
+# potion grants 60 / 90 / 120 souls. The tier line's {0} is Recycler's per-tier value, which Formulas.toml sets to
+# 60 / 90 / 120, so it reads "60 souls" etc. (user, 2026-11-05: numbers only on the tier lines). Gravity Pulse, its
+# first host, is the game's own again.
+# Originals: "Recycler" / "Being hit by damage-inflicting projectiles will occasionally craft a small quiver of
+# arrows." / "Every {0} projectile"
+"Enchantment/Recycler" = "Ancient Alchemy"
+"Enchantment/Recycler_desc" = "Using a healing potion grants souls."
+"Enchantment/Recycler_effect" = "{0} souls"
+# Recycler's code prints its number as an ordinal ("Every 15th projectile"), so 60 / 90 / 120 came out "60th souls"
+# (user screenshot, 2026-11-05). Numbers above 20 use this one format; only Recycler's card shows ordinals that
+# high, so the plain number is used. Original: "{0}th"
+"ValuesFormat/ordinal_above_20" = "{0}"
+
+# Bottomless Brew (our own BP_FoodReserves since 2026-11-08 - swapped with Barrier Brew, user; first on Food Reserves
+# 2026-11-04, then Explorer). 1 / 2 / 3 extra potion drinks. Food Reserves' {0} is its food count, kept at 0
+# (Formulas.toml), so the tier line is fixed text and the numbers are in the description.
+# Originals: "Food Reserves" / "Whenever you use a healing potion, you also create random food items." / "{0} items crafted"
+"Enchantment/FoodReserves" = "Bottomless Brew"
+"Enchantment/FoodReserves_desc" = "Grants 1 / 2 / 3 extra health potion drinks at tier I / II / III. Each one comes back on its own after one potion cooldown."
+"Enchantment/FoodReserves_effect" = "Extra health potion drinks"
+
+# Sponge Strike is reworked into Shadowcloak (our own BP_SpongeStrike, unreal/Scripts/build_enchants.py): a kill has
+# a 15 / 20 / 25% chance of Shadow Form (user, 2026-11-05; Dungeons II's name). The game has no tier-line text key for
+# Sponge Strike (only a key the game knows can be changed), so the numbers are in the description.
+# Originals: "Sponge Strike" / "Deals the damage taken, during combo, on last attack."
+"Enchantment/Rushdown" = "Shadowcloak"
+"Enchantment/Rushdown_desc" = "Defeating a mob has a chance to put you in Shadow Form: 15% / 20% / 25% at tier I / II / III."
+# Shadowcloak's tier rows (Rushdown has no number the mod can set). Original: "200% movement speed"
+"Enchantment/Rushdown_effect" = "Chance of Shadow Form when you defeat a mob"
+
+# Knockback is reworked into Sweeping Edge (our own BP_Knockback, unreal/Scripts/build_enchants.py): melee swings hit a
+# wider arc and reach further (user, 2026-11-06; Dungeons II's name). Knockback has no tier-line key, so the numbers are
+# in the description. Originals: "Knockback" / "Every once in awhile, enemies will be knocked back after a melee attack."
+"Enchantment/Knockback" = "Sweeping Edge"
+"Enchantment/Knockback_desc" = "Every melee hit sends out a shockwave that damages the mobs around the one you hit that your swing missed."
+# Its tier line: Knockback's code uses the shared "{0} chance to trigger"; the launcher points it at Blind's tier line
+# instead (settings/launcher/CardTexts.toml - Blind is unused, its key held "BLIND_EFFECT"); {0} is Knockback's
+# per-tier value, 0.4 / 0.6 / 0.8 in Formulas.toml.
+"Enchantment/BlindMelee_effect" = "{0} splash damage"
+
+# Shockwave and Swirling scale with your weapon (user, 2026-11-07; build_enchants.py): on top of their own damage, the
+# mobs they reach take 50 / 75 / 100% of your last weapon hit. Their tier lines stay the game's (their own damage).
+# Originals: "The last attack in a combo launches a shockwave, damaging enemies." / "Hitting an enemy with the last
+# attack in a combo performs a swirling attack, damaging nearby enemies."
+"Enchantment/Shock_desc" = "The last attack in a combo launches a shockwave that damages enemies, scaling with your weapon."
+"Enchantment/Swirling_desc" = "Hitting an enemy with the last attack in a combo performs a swirling attack that damages nearby enemies, scaling with your weapon."
+
+# Exploding: every kill credited to you explodes at once, and mobs the blast kills explode too (user, 2026-11-08;
+# build_enchants.py). Original: "Mobs explode after they are defeated."
+# Leeching (user, 2026-11-08): a kill by the weapon itself also triggers the game's own Leeching, so it heals twice -
+# the card says so. Original: "Defeating a mob heals you a small portion of the mob's max health."
+"Enchantment/Leeching_desc" = "Defeating a mob heals you a small portion of the mob's max health. Kills by your melee attacks heal twice."
+
+"Enchantment/Exploding_desc" = "Mobs you defeat explode at once. Mobs the blast defeats explode too."
+
+# Rampaging, Thundering: reworked 2026-11-08 (build_enchants.py). Originals: "After defeating a mob, there is a {0}
+# chance to increase your attack speed by {1} for a short time." / "Has a {0} chance to summon a lightning strike that
+# damages nearby enemies."
+"Enchantment/Rampaging_desc" = "Defeating a mob increases your attack speed by 50% for a short time."
+"Enchantment/Thundering_desc" = "Every hit summons a lightning strike that damages nearby mobs and takes 1 / 2 / 3% of their max health."
+
+# Electrified (2026-11-08, build_enchants.py): its zap also takes a share of max health. Original: "Rolling zaps {0}
+# nearby enemies with lightning bolts, dealing damage."
+"Enchantment/Electrified_desc" = "Rolling zaps {0} nearby mobs with lightning bolts, dealing damage and 4 / 6 / 8% of their max health."
+
+# Lightning Focus (2026-11-08): ours boosts Thundering's, Electrified's and Overload's max-health damage too.
+# Original: "The lightning damage you deal is increased."
+"Enchantment/LightningFocus_desc" = "All lightning damage you deal is increased: lightning artifacts, Thundering, Electrified and Overload."
+
+# Thorns is reworked into Overload (our own BP_Thorns, build_enchants.py; user, 2026-11-08). Its tier line's number is
+# also the game's Thorns damage back (kept at 0), so the line is fixed text and the numbers are in the description.
+# Originals: "Thorns" / "Whenever you take damage, you deal damage back to the attacker." / "{0} damage returned"
+"Enchantment/Thorns" = "Overload"
+"Enchantment/Thorns_desc" = "Lightning charges the mobs it strikes. Your hits and arrows on a charged mob take 3 / 4 / 5% of its max health and arc to up to 3 / 4 / 5 mobs around it, charging them."
+"Enchantment/Thorns_effect" = "Discharges into nearby mobs"
+
+# Levitation Shot is reworked into Relentless (our own BP_levitationShot, build_enchants.py; user, 2026-11-08). Its tier
+# line's number would be the fall damage (now 0), so the line is fixed text and the numbers are in the description.
+# Originals: "Levitation Shot" / "After rolling, your next attack will cause the target to levitate briefly." / "{0} Fall Damage"
+"Enchantment/LevitationShot" = "Relentless"
+"Enchantment/LevitationShot_desc" = "Melee hits on mobs and every arrow you shoot build up to 10 stacks. Each stack gives 2 / 3 / 4% more damage and attack speed. The stacks fade 3 seconds after your last hit."
+"Enchantment/LevitationShot_effect" = "Up to 10 stacks of damage and attack speed"
+
+# FreezingRanged is unlocked as Frost Shot (2026-11-06). The game gave it only a name - no description or tier-line key
+# exists, so its card can only show the name. Original: "Freezing Ranged"
+"Enchantment/FreezingRanged" = "Frost Shot"
+
+# Gravity Pulse is reworked into Artifact Amplifier (our own BP_GravityPulse, unreal/Scripts/build_enchants.py; user,
+# 2026-11-06; Dungeons II's name and durations). Its tier line's {0} is Artifact Amplifier's artifact damage
+# and souls (the same; Formulas.toml GravityPulse - the game's own was a fixed 100 / 150 / 200%).
+# Originals: "Gravity Pulse" / "A blast occurs every {0} that pulls nearby enemies towards you." / "{0} range"
+"Enchantment/GravityPulse" = "Artifact Amplifier"
+"Enchantment/GravityPulse_desc" = "Your artifacts deal more damage and you gather more souls."
+"Enchantment/GravityPulse_effect" = "{0} more artifact damage and souls"
+
+# Barrier Brew (our own BP_Explorer since 2026-11-08 - swapped with Bottomless Brew, user): 30 / 50 / 70% less damage
+# taken for 6 s. Explorer's card shows its per-tier number as a percent ("30.0%"), Formulas.toml Explorer.
+# Originals: "Explorer" / "For every one hundred blocks explored on the map, you regain a small amount of health." /
+# "{0} health regained"
+"Enchantment/Explorer" = "Barrier Brew"
+"Enchantment/Explorer_desc" = "Drinking a healing potion gives you and nearby allies less damage taken for 6 seconds."
+"Enchantment/Explorer_effect" = "{0} less damage for you and allies"
+
+# Four unique-only armor enchantments taken over (our own blueprints, unreal/Scripts/build_enchants.py; user,
+# 2026-11-06). Heals Allies' and Barrier's tier lines show our numbers (Formulas.toml); Regeneration's and Shielding's
+# {0} can't, so theirs are fixed text and the numbers are in the description.
+# Originals: "Heals Allies" / "Whenever you take damage you heal your allies." / "{0} of damage becomes healing"
+# Heals Allies was Radiant Guard (2026-11-06 / 07), Poison Drain, renamed Venom Siphon (user, 2026-11-07). Its tier line: Formulas.toml.
+"Enchantment/Altruistic" = "Venom Siphon"
+"Enchantment/Altruistic_desc" = "Attacks on a poisoned mob deal bonus max health damage, and you heal 10% of it."
+"Enchantment/Altruistic_effect" = "{0} of max health as extra damage"
+# Originals: "Barrier" / "Your damage resistance increase with the number of nearby enemies." / "{0} resisted damage per enemy"
+"Enchantment/Barrier" = "Battle Hardened"
+"Enchantment/Barrier_desc" = "Each melee hit on a mob and each arrow you shoot gives you a stack of damage resistance, up to 10 stacks. The stacks fade 3 seconds after your last hit."
+"Enchantment/Barrier_effect" = "{0} damage resistance per stack"
+# Last Stand and Buddy Brew swapped hosts 2026-11-09 (user: the icons fit better). Regeneration's {0} is Buddy Brew's
+# whole heal (Formulas.toml); Shielding's {0} can't be set, so Last Stand's numbers are in its description.
+# Originals: "Regeneration" / "If you avoid taking damage for {0}, you will start regenerating health." / "{0} health per second"
+"Enchantment/Regeneration" = "Buddy Brew"
+"Enchantment/Regeneration_desc" = "Drinking a healing potion gives you, nearby allies and your pets Regenerating, healing 5% of max health every second."
+"Enchantment/Regeneration_effect" = "{0} of max health healed in total"
+# Originals: "Shielding" / "Adds damage resistance to you and nearby allies." / "{0} damage"
+"Enchantment/Shielding" = "Last Stand"
+"Enchantment/Shielding_desc" = "While you are below half health, you take 20% / 40% / 60% less damage at tier I / II / III."
+"Enchantment/Shielding_effect" = "Less damage below half health"
+
+
+
+# The debuffer enchantments (unreal/Scripts/build_enchants.py; numbers in settings/build/Debuffs.toml; user,
+# 2026-11-07). Tier lines: Ignite's {0} = Lucky Explorer's base + per tier (set in our BP); Shatter's via Formulas.toml.
+# Originals: "Lucky Explorer" / "Chance to spawn emeralds with every block explored." / "{0} emeralds spawned"
+"Enchantment/EmeraldDivination" = "Ignite"
+"Enchantment/EmeraldDivination_effect_desc" = "Attacks on a burning mob deal bonus max health damage and spread the fire to nearby mobs."
+"Enchantment/EmeraldDivination_effect" = "{0}% of max health as extra damage"
+# Originals: "ChargingAcceleration" / "Attack speed charges up over time when not firing, decreases again when firing." /
+# "{0} times increased"
+"Enchantment/ThriveUnderPressure" = "Shatter"
+"Enchantment/ThriveUnderPressure_desc" = "Attacks on a chilled or frozen mob deal bonus damage."
+"Enchantment/ThriveUnderPressure_effect" = "{0} more damage to chilled mobs"
+# The game's fire and poison enchantments: burning / poisoned mobs near their wearer lose a share of their max health
+# (build_enchants.py, the status watcher). Their {0} stays.
+"Enchantment/Fire_desc" = "Sets mobs on fire for {0}, dealing damage over time. Burning mobs lose 3% / 4% / 5% of their max health every second."
+"Enchantment/Burning_desc" = "Every {0} damages all nearby enemies. Burning mobs lose 3% / 4% / 5% of their max health every second."
+"Enchantment/FireTrail_desc" = "Rolling creates a trail of fire behind you, which deals damage to mobs for {0}. Burning mobs lose 3% / 4% / 5% of their max health every second."
+"Enchantment/Poisoned_desc" = "Has a {0} chance to summon a poison cloud that deals damage to enemies in an area for {1}. Poisoned mobs lose 5% / 7.5% / 10% of their max health every second."
+"Enchantment/DippingPoison_desc" = "When you use a health potion, you are given a quiver of Poison Arrows. Poisoned mobs lose 5% / 7.5% / 10% of their max health every second."
+
+# ---- Short lines (user, 2026-11-08): the line an item's tooltip shows for each built-in enchantment is the
+# enchantment's own "bullet" text (ItemType/<key>, one per enchantment - checked: each key below is used by its
+# enchantment's registration only). Heals Allies, Barrier and Shielding have none: CardTexts.toml lends them one.
+"ItemType/knocks_enemies_back" = "Hits splash nearby mobs"                      # Knockback = Sweeping Edge. Was "Knocks enemies back"
+"ItemType/rushdown_speed_increase" = "Chance of Shadow Form on kill"           # Rushdown = Shadowcloak. Was "Speed burst after mob defeated"
+"ItemType/may_spawn_emerald" = "Extra damage to burning mobs"                  # Lucky Explorer = Ignite. Was "Chance to spawn emeralds when exploring"
+"ItemType/Thrive_Underpressure" = "Extra damage to chilled mobs"               # Thrive Under Pressure = Shatter. Was "When surrounded by 4 or more enemies, take 50% less damage."
+"ItemType/inflics_damage_to_attacker" = "Lightning charges mobs to discharge"   # Thorns = Overload. Was "Inflicts damage to attacker"
+"ItemType/Levitation_Shot" = "Hits build damage and attack speed"              # Levitation Shot = Relentless. Was "Levitation Shot"
+"ItemType/health_regeneration" = "Potions heal you and allies over time"       # Regeneration = Buddy Brew (2026-11-09). Was "Health regeneration"
+"ItemType/spawn_food_on_potion_use" = "Extra potion drinks"                   # Food Reserves = Bottomless Brew. Was "Spawn food on potion use"
+"ItemType/gain_health_when_exploring" = "Potions shield you and allies"        # Explorer = Barrier Brew. Was "Gain health when exploring"
+"ItemType/crafts_arrows_on_hit" = "Potions grant souls"                        # Recycler = Ancient Alchemy. Was "Crafts arrows on hit"
+"ItemType/pulls_enemies_in" = "More artifact damage and souls"                 # Gravity Pulse = Artifact Amplifier. Was "Pulls enemies in"
+# lent (CardTexts.toml): Blind's name and description keys, Charging Acceleration's tier line (it's unused again)
+"Enchantment/BlindMelee" = "Drains health from poisoned mobs"                  # Venom Siphon's short line
+"Enchantment/BlindMelee_desc" = "Hits build damage resistance"                 # Battle Hardened's short line
+"Enchantment/ChargingAcceleration_effect" = "Less damage taken at low health"   # Last Stand's short line (Shielding's)

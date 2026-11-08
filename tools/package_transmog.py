@@ -8,6 +8,7 @@ The zip holds Dungeons/Content/Paks/~mods/... so it is unpacked straight into th
 Dungeons/ in it). The pak is the installed one (tools/blueprints.py builds it there). A mod of its own: it needs
 neither the Sequel Mod nor its launcher, and holds nothing of the Blueprint Loader.
 """
+import json
 import sys
 import zipfile
 from datetime import date
@@ -103,6 +104,9 @@ def main():
     pak = GAME / "Dungeons" / "Content" / "Paks" / "~mods" / PAK
     if not pak.exists():
         sys.exit(f"no {PAK} built yet - run python tools/blueprints.py build_transmog first")
+    settings_json = ROOT / "unreal" / "Scripts" / "_settings.json"   # the last build's settings (tools/blueprints.py)
+    if settings_json.exists() and json.loads(settings_json.read_text()).get("free_reroll"):
+        sys.exit(f"{PAK} is the FREE-REROLL TEST build - run python tools/blueprints.py build_transmog first")
     out = ROOT / "dist" / f"MCD-Transmog-Loadouts-and-Reroll-{VERSION}.zip"
     out.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:

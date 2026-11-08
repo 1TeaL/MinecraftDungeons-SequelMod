@@ -21,15 +21,15 @@ FireAspect = true
 FireTrail = true
 Freezing = true
 Frenzied = true
-GravityPulse = true
-Altruistic = true           # Heals Allies
+GravityPulse = false        # mobs pulling you in; off since the first Ancient Alchemy (2026-11-04), kept off
+Altruistic = false          # Heals Allies = Radiant Guard now, players only: nothing on a mob (2026-11-07)
 PoisonedMelee = true        # Poison Cloud
 Protection = true
 Quick = true
 RadianceMelee = true        # Radiance
-Regeneration = true
+Regeneration = true         # = Buddy Brew for players (Last Stand before 2026-11-09); on a mob still the game's own regeneration (Mob... settings)
 Flee = true                 # Rush
-Thorns = true               # weakened on mobs: "Thorns PercentDamageReturnedMob" in SequelMod.toml
+Thorns = false              # Thorns is Overload now (user, 2026-11-08) - off on mobs
 Weakening = true
 
 # ranged mobs

@@ -16,6 +16,10 @@
 #include "Engine/Texture2D.h"
 #include "GameFramework/Info.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "GameFramework/GameStateBase.h"
+#include "GameplayEffectUIData.h"
+#include "GameplayCueNotify_Static.h"
+#include "Blueprint/UserWidget.h"
 #include "GameClasses.generated.h"
 
 UENUM(BlueprintType)
@@ -61,6 +65,475 @@ class DUNGEONS_API AAvatarInfo : public AInfo
 	GENERATED_BODY()
 };
 
+/** The base of everything gear gives its wearer (enchantments are these components on the wearer). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UGearUtil : public UActorComponent
+{
+	GENERATED_BODY()
+};
+
+/** One enchantment on its wearer, at its level. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UEnchantment : public UGearUtil
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadOnly)
+	int32 Level;
+
+	/** Shows the enchantment's "triggered" icon on the left of its wearer's screen (the game's own, e.g. the
+	 *  "x23 Sweeping Edge" Knockback's code shows; a client call in the game). */
+	UFUNCTION(BlueprintCallable)
+	void BroadcastEnchantmentTriggeredEvent(bool canCombo) const {}
+};
+
+/** An enchantment that does its thing every PulseInterval seconds. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UIntervalExecutionEnchantment : public UEnchantment
+{
+	GENERATED_BODY()
+};
+
+/** Gravity Pulse (armor): pulls nearby mobs in every PulseInterval seconds; the game's own values as defaults, so a
+ *  blueprint that sets other values writes them. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UGravityPulse : public UIntervalExecutionEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float BaseRadius = 400.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float PulseInterval = 3.0f;
+};
+
+/** Sponge Strike (melee, unique-only; its only item gets Pain Cycle instead): the host of Shadowcloak
+ *  (unreal/Scripts/build_enchants.py). */
+UCLASS(Blueprintable)
+class DUNGEONS_API USpongeStrike : public UEnchantment
+{
+	GENERATED_BODY()
+};
+
+/** Rushdown (melee, unique-only, no item in the mod carries it): the host of Shadowcloak since 2026-11-08. Its own
+ *  speed-up applies Effect on a weapon kill - ours is a do-nothing child, never empty. */
+UCLASS(Blueprintable)
+class DUNGEONS_API URushdownGameplayEffect : public UGameplayEffect
+{
+	GENERATED_BODY()
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API URushdown : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) TSubclassOf<URushdownGameplayEffect> Effect;
+};
+
+/** Thrive Under Pressure (armor, unique-only, no item in the mod carries it): the host of Shatter since 2026-11-08.
+ *  Defaults differ from ours (0 / 9999) so ours are saved. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UThriveUnderPressure : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float TriggerRange = 600.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 MobThreshold = 4;
+};
+
+/** Knockback (melee, unique-only, no item or mob uses it): the host of Sweeping Edge
+ *  (unreal/Scripts/build_enchants.py). knockbackPower is the game's own push; ours sets it to 0. The default here is
+ *  1 so that a 0 in our blueprint is saved (only values that differ from this parent are saved). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UKnockback : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float knockbackPower = 1.0f;
+};
+
+/** The four unique-only armor enchantments taken over by our own (unreal/Scripts/build_enchants.py): Heals Allies ->
+ *  Radiant Guard, Barrier -> Battle Hardened, Shielding -> Last Stand, Regeneration -> Buddy Brew (swapped 2026-11-09). Each one's own
+ *  effect is switched off by these settings; the defaults here are the game's, so our changed values are saved. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UAltruistic : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PercentageOfDamageToHeal = 0.25f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float AffectionRadius = 1000.0f;
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API UBarrier : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float AffectionRadius = 1500.0f;
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API URegeneration : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float RegenerationAmountPerSecond = 3.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float TimeUntilRegeneration = 10.0f;
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API UShielding : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float ShieldMultiplier = 0.95f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float ShieldRadius = 1000.0f;
+};
+
+/** Damage dealt (all characters; pets get theirs from their artifact). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UDamageAttributeSet : public UAttributeSet
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float DamageMultiplier;
+};
+
+// Refreshment: seconds cut from the potion cooldown per kill (Base at tier I, +PerLevel per tier above).
+/** Rampaging (melee): a kill by the weapon has TriggerChance to multiply attack speed by AttackSpeedBoost for
+ *  BoostTime x tier s (card: tier x BoostTime, exe+0x32F1B30). Ours (build_enchants.py): chance 0, every kill
+ *  credited to the wearer boosts. */
+UCLASS(Blueprintable)
+class DUNGEONS_API URampaging : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float AttackSpeedBoost = 1.5f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float BoostTime = 5.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float TriggerChance = 0.1f;
+};
+
+/** Electrified (armor): a roll zaps ZapCount mobs within Radius for ZapDamage. Ours (build_enchants.py) keeps it and
+ *  adds a share of the zapped mob's max health. Radius / MobZapDamage: the game's defaults aren't known - 0 here, and
+ *  never set, so the cooked file leaves them out and the game's own stay. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UElectrified : public UIntervalExecutionEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float ZapDelayMob = 4.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 ZapCountMob = 1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 ZapCount = 2;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float ZapDamage = 50.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float MobZapDamage = 0.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float Radius = 0.0f;
+};
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBeginRangedAttack);
+
+/** A character's ranged attacks; OnBeginRangedAttack fires at every shot (Accelerating's trigger). Relentless and
+ *  Battle Hardened listen to it (a stack per shot). The game's parent is UAttackComponent; only the event matters here. */
+UCLASS(Blueprintable)
+class DUNGEONS_API URangedAttackComponent : public UActorComponent
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere)
+	FOnBeginRangedAttack OnBeginRangedAttack;
+};
+
+/** Levitation Shot (ranged; the game's BP_levitationShot is a LevitationRanged): after a roll, the next attack launches
+ *  the target. Ours (build_enchants.py) is Relentless; the launch is set to 0. The game's own defaults here; its
+ *  "ready" Effect is left out (empty in ours, so none is given). */
+/** The "levitation ready" effect Levitation Shot gives on a roll (the game's own class; ours is a do-nothing child). */
+UCLASS(Blueprintable)
+class DUNGEONS_API ULevitationReadyGameplayEffect : public UGameplayEffect
+{
+	GENERATED_BODY()
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API ULevitation : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	/** Applied on every roll by the game's code - it must never be empty (an empty one crashed the game on a roll,
+	 *  2026-11-08). Ours points it at our do-nothing child. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) TSubclassOf<ULevitationReadyGameplayEffect> Effect;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float Duration = 2.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float EffectStrength = -0.03f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float LaunchStrength = 0.3f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float FallDamagePercentagePerLevel = 0.1f;
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API ULevitationRanged : public ULevitation
+{
+	GENERATED_BODY()
+};
+
+/** Guarding Strike (melee): a kill gives a shield (DamageReduction) for effectBaseDuration + effectDurationPerLevel x
+ *  tier s. Ours (build_enchants.py) does it on kill credit; the game's DamageReduction is set to 0. Its effect class is
+ *  left out (never set by us, so the game's stays). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UGuardingStrike : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float effectBaseDuration = 2.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float effectDurationPerLevel = 1.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float DamageReduction = 0.5f;
+};
+
+/** Thorns (armor): returns a share of the damage taken. Ours (build_enchants.py) is Overload; the share is set to 0. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UThorns : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PercentDamageReturnedBase = 1.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PercentDamageReturnedPerLevel = 0.5f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PercentDamageReturnedMob = 0.1f;
+};
+
+/** Thundering (melee): a hit has TriggerChance to strike lightning (StrikeRadius) that chains (IndividualChainRadius).
+ *  Ours (build_enchants.py) keeps it and adds a share of the wearer's own hit to the mobs the strike reaches. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UThundering : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float StrikeRadius = 150.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float IndividualChainRadius = 700.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float ChainLightningDelay = 0.1f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float BaseDamage = 12.5f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float MobDamage = 100.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float TriggerChance = 0.3f;
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API UPotionThirstMelee : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float cooldownReductionBase = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float cooldownReductionPerLevel = 1.0f;
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API UPotionThirstRanged : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float cooldownReductionBase = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float cooldownReductionPerLevel = 1.0f;
+};
+
+/** Leeching (melee): a kill by the weapon heals mob max health x (Base + PerLevel x (tier - 1)) (card routine
+ *  exe+0x32C8770). Ours (build_enchants.py) sets both 0 and heals on every kill credited to the wearer. */
+UCLASS(Blueprintable)
+class DUNGEONS_API ULeeching : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float HealPerLevelFactor = 0.02f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float BaseHealFactor = 0.05f;
+};
+
+/** Exploding (melee): a kill by the weapon explodes for max health x (Base + PerLevel x (tier - 1)) (card routine
+ *  exe+0x32C8440). Ours (build_enchants.py) sets all 0 and explodes every kill credited to the wearer at once. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UExploding : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float ExplosionRadius = 450.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float explosionMaxHealthFactorBase = 0.2f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float explosionMaxHealthFactorPerLevel = 0.2f;
+	/** The look and sound of the game's own (delayed) explosion; ours point both at empty assets of ours. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) class UParticleSystem* ExplosionEffect = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) class USoundCue* ExplosionSound = nullptr;
+};
+
+/** Shockwave (melee): the last attack of a combo sends out ShockWaveProjectileClass (BP_ShockwaveProjectile).
+ *  Ours (build_enchants.py) keeps all of it and adds a share of the wearer's own hit to the mobs the wave passes.
+ *  The game's BP_Shockwave only sets the projectile class; the numbers are SequelMod.toml's. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UShockwave : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float BaseDamage = 30.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float BaseMoveSpeed = 1850.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float spawnOffset = 150.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float spawnSafetyMargin = 15.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float MobDamage = 125.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) TSubclassOf<AActor> ShockWaveProjectileClass;
+};
+
+/** Swirling (melee): the last attack of a combo spins, damaging mobs within Range. Ours (build_enchants.py) adds a
+ *  share of the wearer's own hit to the mobs within Range. */
+UCLASS(Blueprintable)
+class DUNGEONS_API USwirling : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float Range = 400.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float DamageIncreaseFactorPerLevel = 0.5f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float SwirlBaseDamage = 40.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float MobSwirlDamage = 150.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 MinimalHitCountToTrigger = 1;
+};
+
+/** Explorer (armor): heals every BlockThreshold blocks explored. The host of Bottomless Brew
+ *  (unreal/Scripts/build_enchants.py), whose old heal is switched off with a huge BlockThreshold. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UExplorer : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 BlockThreshold = 100;
+};
+
+/** Recycler (armor): gives arrows every N projectile hits taken. No settings of its own; the host of Ancient Alchemy
+ *  (unreal/Scripts/build_enchants.py), whose card text comes from this class's code. */
+UCLASS(Blueprintable)
+class DUNGEONS_API URecycler : public UEnchantment
+{
+	GENERATED_BODY()
+};
+
+/** Food Reserves' base (it and Surprise Gift make drops when a potion is drunk). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UStorableDropBaseEnchantment : public UEnchantment
+{
+	GENERATED_BODY()
+};
+
+/** Food Reserves (armor): the host of Barrier Brew (unreal/Scripts/build_enchants.py). Its food count is its per-tier
+ *  value, set to 0 in settings/launcher/Formulas.toml, so it crafts nothing. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UFoodReserves : public UStorableDropBaseEnchantment
+{
+	GENERATED_BODY()
+};
+
+/** Lucky Explorer (armor): emeralds while exploring. The host of Ignite (unreal/Scripts/build_enchants.py); ours sets
+ *  PercentageToSpawn 0. The game's default, so the 0 is saved. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UEmeraldDivination : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float PercentageToSpawn = 0.05f;
+	/** Its card's tier number: Base + PerLevel x (tier - 1) (exe+0x32C83E0's routine). Ignite shows 3 / 4 / 5 with it. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float EmeraldToSpawnBase = 1.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float EmeraldToSpawnPerLevel = 2.0f;
+};
+
+/** Charging Acceleration (ranged, no item has it): the host of Shatter; ours sets AccelerationAmount 0. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UChargingAcceleration : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float AccelerationAmount = 0.2f;
+	/** Its own effect: its code applies it when worn and crashes when it is empty (exe+0xA6B3E9, 2026-11-07) - ours
+	 *  links the game's (a placeholder at its path). */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) TSubclassOf<UGameplayEffect> Effect;
+};
+
+/** Charging Acceleration's own effect's base (ours: an empty one - the game's showed a "Charged arrows" counter). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UChargingAccelerationBaseGameplayEffect : public UGameplayEffect
+{
+	GENERATED_BODY()
+};
+
+/** The game's fire and poison enchantments - only named here: our status watcher (build_enchants.py) checks whether a
+ *  player wears one (fire / poison damage of a share of the mob's max health). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UFireAspect : public UEnchantment
+{
+	GENERATED_BODY()
+};
+UCLASS(Blueprintable)
+class DUNGEONS_API UBurning : public UIntervalExecutionEnchantment
+{
+	GENERATED_BODY()
+};
+UCLASS(Blueprintable)
+class DUNGEONS_API UFireTrail : public UEnchantment
+{
+	GENERATED_BODY()
+};
+UCLASS(Blueprintable)
+class DUNGEONS_API UPoisoned : public UEnchantment
+{
+	GENERATED_BODY()
+};
+UCLASS(Blueprintable)
+class DUNGEONS_API UPoisonedMelee : public UPoisoned
+{
+	GENERATED_BODY()
+};
+UCLASS(Blueprintable)
+class DUNGEONS_API UPoisonedRanged : public UPoisoned
+{
+	GENERATED_BODY()
+};
+UCLASS(Blueprintable)
+class DUNGEONS_API UJunglePoisonMelee : public UEnchantment
+{
+	GENERATED_BODY()
+};
+UCLASS(Blueprintable)
+class DUNGEONS_API UJunglePoisonRanged : public UEnchantment
+{
+	GENERATED_BODY()
+};
+UCLASS(Blueprintable)
+class DUNGEONS_API UDippingPoison : public UEnchantment
+{
+	GENERATED_BODY()
+};
+
 /** The look of an item: meshes and materials, attached to the player. */
 UCLASS(Blueprintable)
 class DUNGEONS_API AGearActor : public AActor
@@ -97,6 +570,9 @@ public:
 	TSubclassOf<AGearActor> GearActor;
 };
 
+// OnItemSlotActivationCompletedDelegate.h in the game
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemSlotActivationCompleted, UItemSlot*, slot, bool, success);
+
 /** One equipment slot on the player (melee, ranged, armor, artifacts). */
 UCLASS(Blueprintable)
 class DUNGEONS_API UItemSlot : public UActorComponent
@@ -109,6 +585,32 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	AItemInstance* GetItem() const { return nullptr; }
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	bool IsOnCooldown() const { return false; }
+
+	/** Broadcast when the slot's item has been used (Artifact Amplifier listens on the artifact slots). */
+	UPROPERTY(BlueprintAssignable)
+	FOnItemSlotActivationCompleted OnItemSlotActivationCompleted;
+};
+
+/** The souls a character carries. */
+// OnAnyMobKilledDelegate.h in the game
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAnyMobKilled, AActor*, killedBy);
+
+UCLASS(Blueprintable)
+class DUNGEONS_API USoulComponent : public UActorComponent
+{
+	GENERATED_BODY()
+
+public:
+	/** Broadcast when a mob dies, with who killed it (the game's Shadow Feast listens to it). */
+	UPROPERTY(BlueprintAssignable)
+	FOnAnyMobKilled OnAnyMobKilled;
+
+	/** A server call in the game: adds souls (up to the maximum). */
+	UFUNCTION(BlueprintCallable)
+	void ServerAddSouls(int32 Amount) {}
 };
 
 UCLASS(Blueprintable)
@@ -730,6 +1232,98 @@ public:
 	static FEndlessStruggle getEndlessStruggle(const FLevelSettings& LevelSettings) { return FEndlessStruggle(); }
 };
 
+/** The game's base for its one-shot effects (gameplay cues), e.g. /Game/Cues/HitCues/BP_HitMeleeNotifyStatic - the
+ *  spark on every mob a melee swing hits, which our copy replaces to add Sweeping Edge's shockwave. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UDungeonsGameplayCueNotify_Static : public UGameplayCueNotify_Static
+{
+	GENERATED_BODY()
+};
+
+/** A gameplay effect's buff on the left of the screen (the effect's UIData): its name and icon widget, e.g. the game's
+ *  /Game/UI/StatusEffects/GameplayEffect/Icons/UMG_ProtectionIcon. Our timed effects get one (build_enchants.py). */
+UCLASS(Blueprintable, EditInlineNew)
+class DUNGEONS_API UDungeonsGameplayEffectUIData : public UGameplayEffectUIData
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FText Name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TSubclassOf<UUserWidget> iconClass;
+};
+
+UCLASS(Blueprintable)
+class DUNGEONS_API ADungeonsGameStateBase : public AGameStateBase
+{
+	GENERATED_BODY()
+};
+
+/** The mission's game state. HostileMobsKilled counts every hostile mob killed this mission (all players and pets);
+ *  Shadowcloak watches it - the soul component's OnAnyMobKilled only fires for players with soul gathering above 0
+ *  (exe+0xA233A0 gates exe+0xA25F90). */
+UCLASS(Blueprintable)
+class DUNGEONS_API ADungeonsGameState : public ADungeonsGameStateBase
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadOnly)
+	int32 HostileMobsKilled = 0;
+};
+
+/** The game's audio helpers; CinematicPlaying asks the game state whether a cutscene is playing (exe+0xB83DF0; the
+ *  game's own BP_SoundCue uses it). Our overlays hide themselves while it is true. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UDungeonsAudioUtils : public UBlueprintFunctionLibrary
+{
+	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (WorldContext = "WorldContextObject"))
+	static bool CinematicPlaying(UObject* WorldContextObject) { return false; }
+};
+
+/** A character's melee numbers (gameplay attributes; Sweeping Edge's effect raises Angle and Range - the game's melee
+ *  hit code multiplies each swing's angle and reach by them). */
+UCLASS(Blueprintable)
+class DUNGEONS_API UMeleeAttributeSet : public UAttributeSet
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackItemPowerFactor;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeHealItemPowerFactor;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackDamageMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackSpeedMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackAngleMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackRangeMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackPushbackMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackLifeStealAmount;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackHitChanceMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float MeleeAttackDamageIncrease;
+};
+
+/** A character's ranged numbers (gameplay attributes; Relentless raises damage and speed). The game's own spelling,
+ *  "Multipler", kept. */
+UCLASS(Blueprintable)
+class DUNGEONS_API URangedAttributeSet : public UAttributeSet
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float RangedAttackItemPowerFactor;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float RangedHealItemPowerFactor;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float RangedAttackDamageMultipler;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float RangedAttackSpeedMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float RangedAttackPushbackMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float RangedAttackLifeStealAmount;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float RangedAttackHitChanceMultiplier;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere) float RangedAttackDamageIncrease;
+};
+
 /** A character's health numbers (gameplay attributes; effects change them). */
 UCLASS(Blueprintable)
 class DUNGEONS_API UHealthAttributeSet : public UAttributeSet
@@ -891,6 +1485,27 @@ public:
 	float damagePerSecond = 15.f;
 };
 
+/** The character's item numbers; Bottomless Brew reads the potion cooldown multiplier (build_enchants.py). */
+UCLASS(BlueprintType)
+class DUNGEONS_API UItemAttributeSet : public UAttributeSet
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float PotionCooldownMultiplier = 1.0f;
+
+	/** Artifact cooldowns are multiplied by this (the game's cooldown code, exe+0xAEB656); Artificing lowers it. */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float ItemCooldownMultiplier = 1.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float ItemDamageMultiplier = 1.0f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float SoulGatheringMultiplier = 1.0f;
+};
+
 /** What the difficulty does to a character. */
 UCLASS(Blueprintable)
 class DUNGEONS_API UDifficultyAttributeSet : public UAttributeSet
@@ -913,10 +1528,48 @@ class DUNGEONS_API UGlobalHealthBarComponent : public UActorComponent
 	GENERATED_BODY()
 };
 
+/** A character's side. Players and their pets are Heroes; camp animals are not (World...). */
+UENUM(BlueprintType)
+enum class ETeamName : uint8
+{
+	Loner,
+	Heroes,
+	Villains,
+	Keys,
+	WorldLoner,
+	World,
+};
+
 UCLASS(Blueprintable)
 class DUNGEONS_API ABaseCharacter : public ACharacter
 {
 	GENERATED_BODY()
+
+public:
+	/** Radiant Guard and Buddy Brew help characters on the wearer's team (IsFriendlyTowards also takes animals). */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	ETeamName TeamName = ETeamName::Loner;
+
+	/** Same side (players, their pets). Pack Leader finds pets with it. */
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	bool IsFriendlyTowards(const ABaseCharacter* Target) const { return false; }
+};
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNormalDamageReceived);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWeakDamageReceived);
+
+/** A hero (Barrier Brew finds the players near the drinker; Radiant Guard listens to its damage taken). */
+UCLASS(Blueprintable)
+class DUNGEONS_API APlayerCharacter : public ABaseCharacter
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere)
+	FOnNormalDamageReceived OnNormalDamageReceived;
+
+	UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere)
+	FOnWeakDamageReceived OnWeakDamageReceived;
 };
 
 UCLASS(Blueprintable)

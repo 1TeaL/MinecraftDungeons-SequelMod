@@ -9,6 +9,7 @@
 #include "EdGraphSchema_K2.h"
 #include "EdGraphUtilities.h"
 #include "GameplayEffect.h"
+#include "GameplayEffectUIData.h"
 #include "Engine/Blueprint.h"
 #include "Engine/SCS_Node.h"
 #include "Engine/SimpleConstructionScript.h"
@@ -586,6 +587,86 @@ bool USequelEditorLib::AddEffectModifier(UBlueprint* Effect, UClass* AttributeSe
 	return true;
 }
 
+bool USequelEditorLib::MakeInstantSetByCallerEffect(UBlueprint* Effect, UClass* AttributeSet, const FString& Property,
+	int32 Op, const FString& DataName)
+{
+	UGameplayEffect* Defaults = Effect && Effect->GeneratedClass
+		? Cast<UGameplayEffect>(Effect->GeneratedClass->GetDefaultObject()) : nullptr;
+	UProperty* Attribute = AttributeSet ? FindField<UProperty>(AttributeSet, *Property) : nullptr;
+	if (!Defaults || !Attribute || Op < 0 || Op >= EGameplayModOp::Max || DataName.IsEmpty())
+	{
+		return false;
+	}
+	FSetByCallerFloat Amount;
+	Amount.DataName = FName(*DataName);
+	FGameplayModifierInfo Modifier;
+	Modifier.Attribute = FGameplayAttribute(Attribute);
+	Modifier.ModifierOp = (EGameplayModOp::Type)Op;
+	Modifier.ModifierMagnitude = FGameplayEffectModifierMagnitude(Amount);
+	Defaults->DurationPolicy = EGameplayEffectDurationType::Instant;
+	Defaults->Modifiers.Add(Modifier);
+	Defaults->MarkPackageDirty();
+	return true;
+}
+
+bool USequelEditorLib::SetEffectDuration(UBlueprint* Effect, const FString& DurationName)
+{
+	UGameplayEffect* Defaults = Effect && Effect->GeneratedClass
+		? Cast<UGameplayEffect>(Effect->GeneratedClass->GetDefaultObject()) : nullptr;
+	if (!Defaults || DurationName.IsEmpty())
+	{
+		return false;
+	}
+	FSetByCallerFloat Seconds;
+	Seconds.DataName = FName(*DurationName);
+	Defaults->DurationPolicy = EGameplayEffectDurationType::HasDuration;
+	Defaults->DurationMagnitude = FGameplayEffectModifierMagnitude(Seconds);
+	Defaults->StackingType = EGameplayEffectStackingType::AggregateByTarget;
+	Defaults->StackLimitCount = 1;
+	Defaults->StackDurationRefreshPolicy = EGameplayEffectStackingDurationPolicy::RefreshOnSuccessfulApplication;
+	Defaults->MarkPackageDirty();
+	return true;
+}
+
+bool USequelEditorLib::SetDefaultProperty(UBlueprint* Blueprint, const FString& Property, const FString& Value)
+{
+	UObject* Defaults = Blueprint && Blueprint->GeneratedClass ? Blueprint->GeneratedClass->GetDefaultObject() : nullptr;
+	UProperty* Field = Defaults ? FindField<UProperty>(Defaults->GetClass(), *Property) : nullptr;
+	if (!Field)
+	{
+		return false;
+	}
+	if (!Field->ImportText(*Value, Field->ContainerPtrToValuePtr<void>(Defaults), PPF_None, Defaults))
+	{
+		return false;
+	}
+	Defaults->MarkPackageDirty();
+	return true;
+}
+
+bool USequelEditorLib::SetEffectUIData(UBlueprint* Effect, UClass* UIDataClass, const FText& Name, UClass* Icon)
+{
+	UGameplayEffect* Defaults = Effect && Effect->GeneratedClass
+		? Cast<UGameplayEffect>(Effect->GeneratedClass->GetDefaultObject()) : nullptr;
+	if (!Defaults || !UIDataClass || !UIDataClass->IsChildOf(UGameplayEffectUIData::StaticClass()))
+	{
+		return false;
+	}
+	UGameplayEffectUIData* Data = NewObject<UGameplayEffectUIData>(Defaults, UIDataClass, NAME_None,
+		Defaults->GetMaskedFlags(RF_PropagateToSubObjects) | RF_Public);
+	UTextProperty* NameProperty = FindField<UTextProperty>(UIDataClass, TEXT("Name"));
+	UClassProperty* IconProperty = FindField<UClassProperty>(UIDataClass, TEXT("iconClass"));
+	if (!NameProperty || !IconProperty)
+	{
+		return false;
+	}
+	NameProperty->SetPropertyValue_InContainer(Data, Name);
+	IconProperty->SetObjectPropertyValue_InContainer(Data, Icon);
+	Defaults->UIData = Data;
+	Defaults->MarkPackageDirty();
+	return true;
+}
+
 bool USequelEditorLib::SetAttributePin(UBlueprint* Blueprint, const FString& GraphName, const FString& NodeName,
 	const FString& PinName, UClass* AttributeSet, const FString& Property)
 {
@@ -621,4 +702,79 @@ UActorComponent* USequelEditorLib::AddComponent(UBlueprint* Blueprint, UClass* C
 	Script->AddNode(Node);
 	FBlueprintEditorUtils::MarkBlueprintAsStructurallyModified(Blueprint);
 	return Node->ComponentTemplate;
+}
+
+bool USequelEditorLib::AddEffectCue(UBlueprint* Effect, UClass* AttributeSet, const FString& Property, const FString& Tags)
+{
+	UGameplayEffect* Defaults = Effect && Effect->GeneratedClass
+		? Cast<UGameplayEffect>(Effect->GeneratedClass->GetDefaultObject()) : nullptr;
+	UProperty* Attribute = AttributeSet ? FindField<UProperty>(AttributeSet, *Property) : nullptr;
+	if (!Defaults || !Attribute)
+	{
+		return false;
+	}
+	FGameplayEffectCue Cue;
+	Cue.MagnitudeAttribute = FGameplayAttribute(Attribute);
+	TArray<FString> Names;
+	Tags.ParseIntoArray(Names, TEXT(","), true);
+	for (const FString& Name : Names)
+	{
+		FGameplayTag Tag = FGameplayTag::RequestGameplayTag(FName(*Name.TrimStartAndEnd()), false);
+		if (!Tag.IsValid())
+		{
+			return false;
+		}
+		Cue.GameplayCueTags.AddTag(Tag);
+	}
+	Defaults->GameplayCues.Add(Cue);
+	Defaults->MarkPackageDirty();
+	return true;
+}
+
+bool USequelEditorLib::AddEffectTags(UBlueprint* Effect, const FString& Tags)
+{
+	UGameplayEffect* Defaults = Effect && Effect->GeneratedClass
+		? Cast<UGameplayEffect>(Effect->GeneratedClass->GetDefaultObject()) : nullptr;
+	if (!Defaults)
+	{
+		return false;
+	}
+	TArray<FString> Names;
+	Tags.ParseIntoArray(Names, TEXT(","), true);
+	for (const FString& Name : Names)
+	{
+		FGameplayTag Tag = FGameplayTag::RequestGameplayTag(FName(*Name.TrimStartAndEnd()), false);
+		if (!Tag.IsValid())
+		{
+			return false;
+		}
+		Defaults->InheritableGameplayEffectTags.Added.AddTag(Tag);
+		Defaults->InheritableGameplayEffectTags.CombinedTags.AddTag(Tag);
+	}
+	Defaults->MarkPackageDirty();
+	return Defaults->InheritableGameplayEffectTags.CombinedTags.Num() > 0;
+}
+
+bool USequelEditorLib::AddEffectGrantedTags(UBlueprint* Effect, const FString& Tags)
+{
+	UGameplayEffect* Defaults = Effect && Effect->GeneratedClass
+		? Cast<UGameplayEffect>(Effect->GeneratedClass->GetDefaultObject()) : nullptr;
+	if (!Defaults)
+	{
+		return false;
+	}
+	TArray<FString> Names;
+	Tags.ParseIntoArray(Names, TEXT(","), true);
+	for (const FString& Name : Names)
+	{
+		FGameplayTag Tag = FGameplayTag::RequestGameplayTag(FName(*Name.TrimStartAndEnd()), false);
+		if (!Tag.IsValid())
+		{
+			return false;
+		}
+		Defaults->InheritableOwnedTagsContainer.Added.AddTag(Tag);
+		Defaults->InheritableOwnedTagsContainer.CombinedTags.AddTag(Tag);
+	}
+	Defaults->MarkPackageDirty();
+	return Defaults->InheritableOwnedTagsContainer.CombinedTags.Num() > 0;
 }

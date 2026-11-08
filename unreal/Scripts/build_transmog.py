@@ -89,6 +89,8 @@ superboss = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_supe
 exec(compile(open(superboss).read(), superboss, "exec"))
 effects = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_effects.py")
 exec(compile(open(effects).read(), effects, "exec"))   # its own copies of game effects (the poison arrows')
+enchants = os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_enchants.py")
+exec(compile(open(enchants).read(), enchants, "exec"))   # its reworked enchantments (Recycler -> Ancient Alchemy, Food Reserves -> Bottomless Brew)
 
 # 1. The save.
 save = blueprint(SAVE, unreal.SaveGame)
@@ -538,6 +540,14 @@ pressed_open = c.bound_event("Open", "OnClicked")
 open_menu = c.call(ACTOR_CLASS, "ToggleMenu")
 c.link(c.var("Owner"), "Owner", open_menu, "self")
 c.flow(pressed_open, open_menu)
+# Hidden during cutscenes (the game's own check; the actor shows / hides the whole widget for the menu, this only
+# the button inside it, so the two never fight).
+in_cutscene = c.branch((c.call("/Script/Dungeons.DungeonsAudioUtils", "CinematicPlaying"), "ReturnValue"))
+c.flow(c.event("/Script/UMG.UserWidget", "Tick"), in_cutscene)
+for pin, seen in [("then", "Collapsed"), ("else", "Visible")]:
+    show = c.call("/Script/UMG.Widget", "SetVisibility", InVisibility=seen)
+    c.link(c.var("Open"), "Open", show, "self")
+    c.flow((in_cutscene, pin), show)
 compile_save(camp, "camp button")
 
 # 5. The actor.

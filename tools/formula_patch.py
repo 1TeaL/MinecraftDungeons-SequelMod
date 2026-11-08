@@ -54,6 +54,43 @@ KNOWN = {
     "Cowardice": ([0x32B5358], 0x32C81D0, (1.2, 1.3, 1.4)),       # damage multiplier at full health: tier*0.1+1.1
     "Frenzied": ([0x32BE9A8], 0x32C85C0, (1.1, 1.2, 1.3)),        # attack speed multiplier when low: tier*0.1+1.0
     "Protection": ([0x32D4B18], 0x32F1A10, (1.06, 1.12, 1.18)),   # damage taken divisor: tier*0.06+1.0 (exe+0xACEDB0)
+    # Thrive Under Pressure: the same routine as Protection (exe+0xACEDB0); what it does there is untested (2026-11-05)
+    "ThriveUnderPressure": ([0x32E6EE0], 0x32F2070, (1.06, 1.12, 1.18)),
+    # Explorer = Bottomless Brew: its heal share (tier * 0.0033, exe+0xA794D0) is unused now - only the card shows it
+    "Explorer": ([0x32BBFF8], 0x32C8470, (0.0033, 0.0066, 0.0099)),
+    # Food Reserves = Barrier Brew: its value is the food count (tier, exe+0xA4E3B0's target; read as a whole number,
+    # rounded down, by exe+0xAAE850 - 0 or less crafts nothing, exe+0xAAC5E2), 2026-11-06
+    "FoodReserves": ([0x32BE440], 0x32C8560, (1.0, 2.0, 3.0)),
+    # Knockback = Sweeping Edge: its value is the knockback chance (tier / 10, exe+0xA51F00's target); the card's
+    # tier line is the shared "{0} chance to trigger" - 1.0 makes it read 100% (the push itself is 0), 2026-11-06
+    "Knockback": ([0x32C3870], 0x32C8740, (0.1, 0.2, 0.3)),
+    # Heals Allies = Radiant Guard: tier x PercentageOfDamageToHeal (+0x1F8, 0 in ours) - the card's "{0} of max
+    # health healed"; Barrier = Battle Hardened: 1 / (1 - 0.03 x tier), shown as (value - 1) - "+10% damage
+    # resistance at full stacks". Display only: both enchantments' own effects are off (2026-11-06)
+    "Altruistic": ([0x3296D40], 0x329AC28, (0.25, 0.5, 0.75)),
+    "Barrier": ([0x3299358], 0x329AD78, (1 / 0.97, 1 / 0.94, 1 / 0.91)),
+    # Charging Acceleration = Shatter: a constant 1 (exe+0x32C80E0's routine) - its card's "{0}" only; its own speed-up
+    # is off (AccelerationAmount 0), 2026-11-07
+    "ChargingAcceleration": ([0x32B31D0], 0x32C80E0, (1.0, 1.0, 1.0)),
+    # Regeneration = Last Stand: heal per second x (1 + tier / 3) from +0x214 (exe+0x32F1BF0's routine) - card only;
+    # its heal never starts (TimeUntilRegeneration 1e9). Mobs' copies are left alone (PLAYER_ONLY, 2026-11-09): their
+    # heal has its own number (MobRegenerationAmountPerSecond, +0x210) - this keeps ours off them either way
+    "Regeneration": ([0x32DA018], 0x32F1BF0, (4.0, 5.0, 6.0)),
+    # Leeching and Refreshment (melee): their own triggers are off (numbers 0: Base + PerLevel x (tier - 1), exe+0x32C8770
+    # / exe+0x32F1980's routines), ours count every kill credited to the wearer (build_enchants.py) - so the card shows
+    # 0 unless patched; the third item is what it shows in our build, 2026-11-07
+    "Leeching": ([0x32C3D70], 0x32C8770, (0.0, 0.0, 0.0)),
+    "PotionThirstMelee": ([0x32D36C8], 0x32F1980, (0.0, 0.0, 0.0)),
+    # Exploding: Base (+0x20C) + PerLevel (+0x210) x (tier - 1) (exe+0x32C8440's routine); ours explodes every
+    # credited kill at once and its own numbers are 0, 2026-11-08
+    "Exploding": ([0x32BBAB0], 0x32C8440, (0.0, 0.0, 0.0)),
+    # Refreshment (ranged): as the melee one (exe+0x32F19B0), ours on kill credit with arrow marks, 2026-11-08
+    "PotionThirstRanged": ([0x32D3BC8], 0x32F19B0, (0.0, 0.0, 0.0)),
+    # (Thorns, exe+0x32F2040, class vtable 0x32E69E0: not patched - the game's Thorns uses that number for its damage
+    # back, so a card number there made Overload reflect damage, 2026-11-08)
+    # Gravity Pulse = Artifact Amplifier: a fixed 1 + 0.5 x (tier - 1) (exe+0x32C8650's routine, research/value_lambda.py
+    # 2026-11-08); the card shows Artifact Amplifier's artifact damage instead
+    "GravityPulse": ([0x32BFF18], 0x32C8650, (1.0, 1.5, 2.0)),
 }
 # float f(void *self, const int *tier): table[clamp(*tier, 1, 3) - 1]; the table follows the code
 ROUTINE = bytes.fromhex(
@@ -67,6 +104,9 @@ ROUTINE = bytes.fromhex(
     "488d0d06000000"    # lea rcx, [rip + 6]     -> the table
     "f30f100481"        # movss xmm0, [rcx + rax*4]
     "c3")               # ret
+# enchantments whose number is never changed on a mob's copy (the game's own stays; copies with no owner, like the
+# item card's, get ours)
+PLAYER_ONLY = {"Regeneration"}
 SLOT = 0x80                    # per enchantment: routine + table at +0, vtable copy at +0x40
 
 
@@ -106,6 +146,32 @@ class Formulas:
         self.ready[name] = at + 0x40
         return at + 0x40
 
+    def owner_kind(self, obj):
+        """"mob" / "player" for an enchantment object's owner (mob_enchants' ancestor test), None if not known yet."""
+        import mob_enchants as me   # here, not at the top: mob_enchants imports this module
+        raw = read(self.h, self.base + me.MOB_CLASS, 8)
+        mob = struct.unpack("<Q", raw)[0] if raw else 0
+        raw = read(self.h, obj + me.OWNER, 8)
+        owner = struct.unpack("<Q", raw)[0] if raw else 0
+        if not owner:
+            return None
+        if not mob:
+            return "player"        # MobCharacter isn't loaded yet, so no mob exists
+        depth = read(self.h, mob + me.DEPTH, 4)
+        raw = read(self.h, owner + me.CLASS, 8)
+        cls = struct.unpack("<Q", raw)[0] if raw else 0
+        head = read(self.h, cls + me.CHAIN, 12) if cls and depth else None
+        if not head:
+            return None
+        depth = struct.unpack("<i", depth)[0]
+        chain, own_depth = struct.unpack("<Qi", head)
+        if not chain:
+            return None
+        if depth > own_depth:
+            return "player"
+        entry = read(self.h, chain + 8 * depth, 8)
+        return "mob" if entry and struct.unpack("<Q", entry)[0] == mob + me.CHAIN else "player"
+
     def tick(self, quiet=False):
         if self.own_scanner and self.plan:
             self.scanner.refresh()
@@ -114,9 +180,17 @@ class Formulas:
             for vt in KNOWN[name][0]:
                 for o in self.scanner.found.get(self.base + vt, []):
                     raw = read(self.h, o + FUNCTION, 0x40)
-                    if not raw or struct.unpack_from("<Q", raw, TARGET - FUNCTION)[0] != o + FUNCTION \
-                            or struct.unpack_from("<Q", raw)[0] != own:
-                        continue       # not built as expected, or already ours
+                    if not raw or struct.unpack_from("<Q", raw, TARGET - FUNCTION)[0] != o + FUNCTION:
+                        continue       # not built as expected
+                    now = struct.unpack_from("<Q", raw)[0]
+                    if name in PLAYER_ONLY and self.owner_kind(o) == "mob":
+                        # a mob's copy keeps the game's own number - put back if we changed it before its owner
+                        # was set (the item card's copy has no owner at all, so unknown owners get ours)
+                        if now == self.ready.get(name):
+                            write(self.h, o + FUNCTION, struct.pack("<Q", own))
+                        continue
+                    if now != own:
+                        continue       # already ours
                     ours = self.prepare(name)
                     if not ours:
                         break

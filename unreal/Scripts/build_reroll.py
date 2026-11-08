@@ -32,6 +32,11 @@ DROPPER_CLASS = DROPPER + ".BP_SequelRerollDrop_C"
 DROPPER_LIFE = 30.0   # seconds it stays after its drop
 SLOT_KEY = "enum:/Script/Dungeons.EEquipmentSlot"
 PRICES = {(False, False): 500, (False, True): 10, (True, False): 5000, (True, True): 100}   # (exact, gold) -> price
+import json as _json, os as _os
+with open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "_settings.json")) as _f:
+    FREE = _json.load(_f).get("free_reroll", False)   # a TEST build: every price 0 (tools/blueprints.py)
+if FREE:
+    PRICES = {key: 0 for key in PRICES}
 PRICE_POWER = 255.0   # ... at this average gear power (user, 2026-11-03)
 # the buttons in the order of the actor's Prices list (index = exact * 2 + gold)
 REROLL_BUTTONS = [("RerollEmerald", False, False, "", " emeralds"), ("RerollGold", False, True, "", " gold"),
@@ -570,7 +575,7 @@ def reroll_actor_routines(g):
         g.link(scaled, "ReturnValue", rounded, "A")
         whole = g.call(MATH, "Multiply_IntInt", B=step)
         g.link(rounded, "ReturnValue", whole, "A")
-        least = g.call(MATH, "Max", B=step)
+        least = g.call(MATH, "Max", B=0 if FREE else step)
         g.link(whole, "ReturnValue", least, "A")
         put = g.array_call("Array_Set", (g.var("Prices"), "Prices"), "TargetArray", Item=(least, "ReturnValue"))
         g.set(put, Index=index)

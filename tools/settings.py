@@ -17,7 +17,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LAUNCHER_DIR = ROOT / "settings" / "launcher"
 BUILD_DIR = ROOT / "settings" / "build"
-BUILD_FILES = {"SequelMod.toml", "SequelGear.toml", "SequelText.toml", "Endless.toml", "Player.toml", "StackNotes.toml"}
+BUILD_FILES = {"SequelMod.toml", "SequelGear.toml", "SequelText.toml", "Endless.toml", "Player.toml", "StackNotes.toml",
+               "Debuffs.toml"}
 FRONT = {"Settings.toml": ROOT / "Settings.toml", "Build.toml": ROOT / "Build.toml"}
 
 # "<section>.<key>" of a central file -> (detailed file, path inside it). [on] of Settings.toml maps key for key onto
@@ -36,6 +37,7 @@ MAP = {
         "gear.gilded_early_from": ("Bonus.toml", ("gilded", "early_from")),
         "prices.enchantsmith": ("Prices.toml", ("enchantmentmerchant",)),
         "prices.piglin": ("Prices.toml", ("piglinmerchant",)),
+        "prices.blacksmith": ("Prices.toml", ("blacksmith",)),
         "mobs.deflect": ("MobPool.toml", ("pool", "Deflecting")),
         "mobs.levitation_shot": ("MobPool.toml", ("pool", "LevitationShot")),
         "endless.staged": ("Unlock.toml", ("unlock", "staged")),
@@ -61,7 +63,7 @@ MAP = {
         "super_bosses.deals_damage": ("Endless.toml", ("super_bosses", "deals_damage")),
     },
 }
-ON_KEYS = {"builtins", "stacking", "echo", "formulas", "artifact_scaling", "seasonal_drops", "prices", "mob_pool",
+ON_KEYS = {"builtins", "stacking", "echo", "formulas", "artifact_scaling", "seasonal_drops", "prices", "mob_pool", "enchant_gear",
            "arrows", "mob_enchants", "qol", "bonus", "endless"}   # not "cap": that one changes game code
 
 _cache = {}

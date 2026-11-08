@@ -3,7 +3,18 @@
 # enchantment as the game has it.
 
 BonusShot = [0.30, 0.50, 0.75]         # the extra arrow's share of the shot's damage. Game: 0.10 / 0.17 / 0.24
-Recycler = [15, 10, 5]                 # hits taken before arrows are refilled. Game: 30 / 20 / 10
+Explorer = [0.3, 0.5, 0.7]             # = Barrier Brew now (2026-11-08): its card shows "30.0% / 50.0% / 70.0%" less damage
+                                       # (the BP: BREW_CUT; Explorer's heal is off). Game: 0.0033 / 0.0066 / 0.0099 heal share
+Knockback = [0.2, 0.3, 0.4]            # = Sweeping Edge now: its card reads "10% splash damage" etc. (tier line
+                                       # from Blind's text, CardTexts.toml); also Knockback's own trigger chance, whose
+                                       # push is 0. Game: 0.1 / 0.2 / 0.3 knockback chance
+Altruistic = [0.03, 0.04, 0.05]        # = Venom Siphon now: the extra damage (share of the mob's max health) its card
+                                       # shows (the BP: Debuffs.toml drain_*; Heals Allies' own heal is off). Game: 0.25 / 0.5 / 0.75
+Barrier = [1.01, 1.02, 1.03]           # = Battle Hardened now: its card shows +10/16/20% (full stacks of 2%); shown as
+                                       # value - 1; Barrier's own effect is off. Game: 1/0.97 / 1/0.94 / 1/0.91
+FoodReserves = [0, 0, 0]             # = Bottomless Brew now (Barrier Brew before): no food (its food count is this number). Game: 1 / 2 / 3
+Recycler = [60, 90, 120]               # = Ancient Alchemy now: the souls its card shows (the BP pays 30 + 30 x tier),
+                                       # and still Recycler's hits taken per arrow refill. Game: 30 / 20 / 10
 Punch = [8, 12, 16]                    # pushback strength. Game: 3 / 4 / 5
 EnigmaResonator = [0.30, 0.40, 0.50]   # chance at full souls for the triple-damage hit. Game: 0.15 / 0.20 / 0.25
 RapidFire = [1.20, 1.35, 1.50]       # attack speed multiplier. Game: 1.10 / 1.15 / 1.20 (C tier before)
@@ -12,3 +23,23 @@ Frenzied = [1.40, 1.50, 1.60]          # attack speed multiplier when low on hea
 Protection = [1.1765, 1.3333, 1.5385]  # damage taken is divided by this (-15/25/35%). Game: 1.06 / 1.12 / 1.18 (-6/11/15%)
 # HealthSynergy = [0.03, 0.04, 0.05]   # heal per artifact use. Left as the game has it (already top tier).
 # CriticalHit = [0.10, 0.15, 0.20]     # chance. Left as the game has it.
+ThriveUnderPressure = [0.5, 0.4, 0.3333]  # = Shatter now. Thrive's card shows 1/x - 1 as a percent (made for a damage
+                                       # divisor: 2.0 showed "-50%"), so 0.5 / 0.4 / 0.3333 read "100% / 150% / 200%" -
+                                       # Shatter's +100/150/200% (the BP deals Debuffs.toml shatter_*; Thrive's own cut
+                                       # is off). 2026-11-08. Game: 1.06 / 1.12 / 1.18
+Regeneration = [50, 100, 150]          # = Buddy Brew now (Last Stand until 2026-11-09; player copies only - mobs keep the
+                                       # game's): its card shows a fifth of this with its own % (user screenshot 2026-11-09:
+                                       # 20 read "4.0%") - Buddy Brew's whole heal, 5% a second for 2 / 4 / 6 s = "10.0% /
+                                       # 20.0% / 30.0%". Regeneration's own heal never starts. Game: x + x*tier/3
+Leeching = [0.04, 0.05, 0.06]          # heal, share of the killed mob's max health: our kill-credit Leeching's card (the BP:
+                                       # Debuffs.toml leech_*). NOTE: the game's own kill code reads this number too (its
+                                       # heal on weapon kills) - kept by the user's choice, 2026-11-08. Game: the same
+PotionThirstMelee = [1, 2, 3]          # Refreshment (melee): seconds cut off the potion cooldown per kill (the BP:
+                                       # Debuffs.toml refresh_*; the game's own kill code reads it too, as Leeching). Game: the same
+PotionThirstRanged = [2, 4, 6]         # Refreshment (ranged): seconds cut per kill, ours on kill credit (arrow kills count
+                                       # through arrow marks; Debuffs.toml refresh_ranged_*). Was SequelMod.toml's 3 / 6 / 9
+GravityPulse = [0.2, 0.35, 0.5]       # = Artifact Amplifier now: its card reads "20% more artifact damage and souls" etc.
+# Thorns (= Overload) is NOT here: the game's Thorns uses this same number for its damage back (2026-11-08: Overload
+# returned 3 / 4 / 5% of the damage taken) - its card keeps a fixed tier line.
+Exploding = [0.15, 0.25, 0.35]           # explosion, share of the killed mob's max health: our kill-credit Exploding's card
+                                       # (the BP: Debuffs.toml explode_*; the game's own explosion is off). Game: the same

@@ -27,35 +27,127 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
   5 power past 365 adds another tier of Sharpness, Power or Protection under the other enchantments.
 - **Tougher mobs to match.** From A+38 to A+100 mobs get up to 5x the health, 3x the damage and a little faster;
   your healing, which Apocalypse cuts, comes back to full.
-- **Rebalanced gear.** Weak and middling weapons, bows, enchantments, artifacts and armor perks are brought up to
-  the strong ones; the top tier is left alone. Bonus Shot's second arrow deals 75% instead of 24%, Echo repeats
-  every 0.1 s at tier III instead of 3 s, Cowardice and Frenzied give up to +60%.
+- **Rebalanced gear.** Weak and middling weapons, bows, artifacts and armor perks are brought up to the strong ones;
+  the top tier is left alone.
 - **Uniques with more identity.** Many uniques got new or stronger built-in enchantments - the Whispering Spear's
   Echo is tier III, the Bonehead Hammer pulls mobs in *and* explodes them - and every unique beats its base item.
 - **Seasonal uniques outside the Tower.** Event items, normally only from the Tower, drop in missions and show up at
   merchants, each with built-in enchantments for a build of its own.
+- **Fairer mobs.** Enchanted mobs no longer roll Deflect, Levitation Shot or Gravity Pulse.
+- **Less grind in camp.** Blacksmith upgrades take one mission and cost half, Enchantsmith rerolls cost a tenth,
+  gilded gear at the Piglin merchant costs half, merchants stock gear at your power level, and there's no slowdown after a roll.
+- **Enchantments.** Weak ones buffed, new ones added, kill credit for on-kill enchantments, and builds around
+  statuses and continuous attacking - all in the next section.
+
+## ![Enchantments](docs/headers/enchantments.svg)
+
+### The game's own enchantments
+
+- **Rebalanced.** Weak and middling enchantments are brought up to the strong ones; the top tier is left alone. The
+  biggest changes (tier III unless noted):
+
+  | Enchantment | Base game | Mod |
+  |---|---|---|
+  | Radiance, Radiance Shot | trigger 20-50% of the time | **always trigger** (heals less per proc) |
+  | Rampaging | 10% chance on a weapon kill | **every kill of yours**, shorter (1 / 2 / 3 s) |
+  | Critical Hit | x3 damage | **x5** |
+  | Bonus Shot | second arrow 24% damage | **75%** |
+  | Echo | repeats every 3 s | **every 0.1 s** |
+  | Stunning | +5% chance per tier | **+15%** |
+  | Fire and Poison Focus | +25% per tier | **+50%** |
+  | Fuse Shot | explodes after 1 s | **almost at once, 2x damage, 1.5x radius** |
+  | Cowardice, Frenzied | +40% / +30% | **+60%** |
+
 - **Stacking builds.** 32 enchantments that add up when an item has them more than once (Critical Hit, Swirling,
   Infinity, Protection, the Focuses and more) can roll in more than one slot. The ones that don't add up say so in
   their description.
-- **Fairer mobs.** Enchanted mobs no longer roll Deflect or Levitation Shot.
-- **Less grind in camp.** Blacksmith upgrades take one mission, Enchantsmith rerolls cost a tenth, gilded gear at
-  the Piglin merchant costs half, merchants stock gear at your power level, and there's no slowdown after a roll.
+- **Kill credit: on-kill enchantments count every kill that is yours.** In the base game they only see a mob your
+  weapon finished, so fire, poison, lightning, Shockwave, Swirling, explosions and artifacts "stole" the kill and the
+  on-kill enchantment did nothing. Now a mob counts as your kill when it dies within 5 seconds of your hit, your arrow,
+  your fire or poison on it, standing next to you, or taking damage just after you used an artifact - never a
+  teammate's. Leeching, Refreshment (melee and bow), Exploding, Rampaging, Shadowcloak and Guarding Strike all use it.
+  Since they now trigger far more often, several were brought down:
+  - **Leeching** heals 4 / 5 / 6% of the mob's max health (game: 5 / 7 / 9%). A kill by your melee attack still
+    triggers the game's own Leeching too, so those kills heal twice - a small reward for finishing mobs yourself.
+    (The same goes for Refreshment.)
+  - **Exploding** goes off at once and chains (mobs the blast kills explode too), for 15 / 25 / 35% of the mob's max
+    health (game: 20 / 40 / 60%, a moment after the death, no chains) - guaranteed chains at the game's numbers cleared
+    whole packs.
+  - **Rampaging** triggers on every kill: +50% attack speed for 1 / 2 / 3 seconds (game: a 10% chance, 5 / 10 / 15 s).
+  - **Refreshment (bow)** cuts 2 / 4 / 6 seconds per kill (was 3 / 6 / 9 in the mod, when bows got few kills).
+  - **Guarding Strike** gives its 50% shield for 3 / 4 / 5 s after any kill of yours, not only weapon kills.
+  - Busy Bee and Prospector still only count kills by your weapon (the game makes the bee and the emerald itself).
+- **Fire and poison that keep up.** Poisoned mobs near you lose **5 / 7.5 / 10% of their max health every second**,
+  burning ones **3 / 4 / 5%** (the game's own fire already stacks), while you wear a poison or fire enchantment (your
+  best tier; bosses take 40% of it) - so fire and poison keep up at any difficulty.
+- **Lightning that keeps up.** Lightning deals a share of max health too: **Thundering** strikes on every hit and takes
+  1 / 2 / 3% from the mobs it reaches, every strike (so attack speed scales it); **Electrified**'s zap takes 4 / 6 / 8%
+  (bosses take 40% of it). **Lightning Focus** boosts all of it, Overload included. Electrified and Lightning Focus
+  keep the game's own numbers otherwise.
+- **Shockwave and Swirling scale with your weapon:** on top of their own damage, the mobs they reach take 50 / 75 /
+  100% of your weapon hit.
 
-**The biggest enchantment changes** (tier III unless noted):
+### New enchantments
 
-| Enchantment | Base game | Mod |
+- **Status payoffs** (any gear; arrows count too):
+  - **Ignite:** hits on a burning mob deal an extra 3 / 4 / 5% of its max health and set the mobs around it on fire.
+  - **Venom Siphon:** the same extra on poisoned mobs, and you heal 10% of the damage you deal to them.
+  - **Shatter:** hits on chilled or frozen mobs deal 2x / 2.5x / 3x damage.
+  - **Overload:** lightning charges the mobs it strikes; your hits and arrows on a charged mob take 3 / 4 / 5% of its
+    max health and arc to up to 3 / 4 / 5 mobs around it, charging them (like Ignite's fire).
+- **Continuous attacking:**
+  - **Relentless** (any gear): every hit or arrow on a mob gives a stack of +2 / 3 / 4% damage and attack speed
+    (melee and ranged) for 3 s, up to 10 stacks; copies add.
+  - **Battle Hardened** (armor): its defensive twin - a stack of 1 / 2 / 3% damage resistance per hit or arrow for
+    3 s, up to 10; copies add, so three tier III copies give 90%.
+- **Melee and kills:**
+  - **Sweeping Edge** (melee): every melee hit sends out a shockwave around the mob you hit - other mobs within 5
+    blocks take 20 / 30 / 40% of the hit's damage.
+  - **Shadowcloak** (any gear): a 15 / 20 / 25% chance of Shadow Form on a kill.
+- **Potions:**
+  - **Bottomless Brew:** 1 / 2 / 3 extra potion drinks, each refilling after one potion cooldown, with a counter on
+    screen; Refreshment kills (melee or bow) speed up both the potion and the next extra drink.
+  - **Barrier Brew:** a potion gives you and nearby allies 30 / 50 / 70% less damage for 6 seconds.
+  - **Buddy Brew:** a potion gives you, nearby allies and pets Regenerating for 2 / 4 / 6 s: 5% of max health every
+    second.
+  - **Ancient Alchemy:** a potion grants 60 / 90 / 120 souls, enough for any artifact.
+- **Armor:**
+  - **Last Stand:** 20 / 40 / 60% less damage taken below half health.
+  - **Artifact Amplifier:** while worn, 20 / 35 / 50% more artifact damage and souls gathered.
+- **Rarity.** Ignite, Shatter, Overload and Last Stand are Powerful (2 / 3 / 4 enchantment points per tier), like
+  Venom Siphon, Relentless, Battle Hardened and Artifact Amplifier: enchantments that deal a share of max health or
+  carry a build. Sweeping Edge, Shadowcloak and the potion enchantments stay Common.
+
+### Where they come from
+
+The mod changes no game code, so it can't add enchantments - each new one takes over the slot of one the game
+already has. Seven replaced weak enchantments that did roll: Recycler (now Ancient Alchemy), Food Reserves
+(Bottomless Brew), Explorer (Barrier Brew), Gravity Pulse (Artifact Amplifier), Lucky Explorer (Ignite), Thorns
+(Overload) and Levitation Shot (Relentless). Opulent Armor and Gilded Glory get Prospector III instead of Lucky
+Explorer. The rest use the game's spare slots: enchantments no normal drop carries, kept for one unique item or
+never finished. A spare slot is only as good as what the game gives it - the card texts (name, description, tier
+rows), an icon the game will show, and a tier number the mod can set:
+
+| Slot | What the game gives it | Used for |
 |---|---|---|
-| Rampaging, Thundering, Radiance, Radiance Shot | trigger 10-50% of the time | **always trigger** (Radiance heals less per proc, Thundering's bolt is smaller) |
-| Critical Hit | x3 damage | **x5** |
-| Bonus Shot | second arrow 24% damage | **75%** |
-| Echo | repeats every 3 s | **every 0.1 s** |
-| Thorns | returns part of the damage you take | **5x as much** (mobs' Thorns weakened instead) |
-| Burning, Fire Trail | 5 / 20 damage | **3x** |
-| Stunning | +5% chance per tier | **+15%** |
-| Fire, Lightning and Poison Focus | +25% per tier | **+50%** |
-| Fuse Shot | explodes after 1 s | **almost at once, 2x damage, 1.5x radius** |
-| Cowardice, Frenzied | +40% / +30% | **+60%** |
-| Explorer | heals every 100 blocks explored | **every 10** |
+| Heals Allies, Barrier, Regeneration | everything, tier number included | Venom Siphon, Battle Hardened, Buddy Brew |
+| Thrive Under Pressure | everything, tier number included | Shatter |
+| Shielding, Rushdown | everything but a settable tier number | Last Stand, Shadowcloak |
+| Knockback | name and description (tier rows borrowed from Blind's, which is unused) | Sweeping Edge |
+| Sponge Strike, Charging Acceleration | texts, but no icon the game will show | tried for Shadowcloak and Shatter, given back |
+| Frost Shot (Freezing Ranged) | a name only | not used |
+| Wither (melee and ranged) | nothing - not even a name | not used |
+
+**Why Frost Shot isn't used:** the game finished its effect (an arrow that slows the mob it hits) but gave it nothing
+else: no description, no tier rows and no icon of its own. The mod can only change texts the game already has, not
+add new ones, so its card would be a bare name. A slow is also weak for a bow slot. It rolled for a day in testing
+and was taken out again; it stays free in case a ranged enchantment needs a slot.
+
+**Why some cards read oddly:** each card keeps its slot's tier rows. All three rows share one sentence, and the only
+part that changes per tier is a single number the game works out for that slot. Where that number can be set to
+ours, the rows show our numbers - sometimes in the old enchantment's format, like Barrier Brew's "30.0%". Where it
+can't (Shadowcloak, Overload, Relentless, Last Stand, Bottomless Brew), the three rows read the same and the numbers
+are in the description instead ("20% / 40% / 60% at tier I / II / III").
 
 The full list, with every number, is in [CHANGES.md](CHANGES.md).
 
@@ -68,7 +160,12 @@ cap that limits how many builds you can have, and no difficulty levels in the en
 So I wanted to update the first game instead and make it feel like a sequel. The main goal was more build variety;
 the other was more content, so there's more of the game to play. Part of the fun of build crafting is finding crazy, overpowered builds, so the mod lifts weak gear and enchantments up rather than cutting the strong ones down.
 
-- **Build variety:** the low-tier weapons and enchantments are buffed so more of them are worth using.
+- **Build variety:** the low-tier weapons and enchantments are buffed so more of them are worth using, and there
+  are even new enchantments in place of ones that were literally useless.
+- **Transmog and loadouts:** the game has neither, so I made a supplementary mod, bundled by default:
+  MCD Transmog, Loadouts and Reroll (its own section below). It gives transmog, loadouts (which can
+  save your transmog look too) and an item reroll / duplication feature, so there's a way to target the drops you
+  want, at a cost.
 - **More to play:** more Apocalypse levels to keep the grind going.
 - **Growing past the cap:** as the Tower glitch showed, gear power naturally caps out around 316. So past that point the mod adds extra enchantments to weapons and extra perks to armor, so gear keeps getting stronger and there are
   new ways to build. The enchantments build on each weapon's or armor's playstyle: what's core to the item stays,
@@ -105,7 +202,7 @@ To start it from Steam's Play button instead, set Minecraft Dungeons → Propert
 
 ## ![MCD Transmog, Loadouts and Reroll](docs/headers/mcd-transmog-loadouts-and-reroll.svg)
 
-**MCD Transmog, Loadouts and Reroll** is an optional, separate mod made alongside the Sequel Mod: change how your gear
+**MCD Transmog, Loadouts and Reroll** is a separate mod made alongside the Sequel Mod and bundled with it by default: change how your gear
 looks without changing what it does, save whole sets of gear to switch between, and reroll the gear you wear.
 
 - **One look per slot.** Pick one look for your melee weapon, one for your ranged weapon and one for your armor.

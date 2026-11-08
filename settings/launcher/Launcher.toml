@@ -3,3 +3,7 @@
 # One switch stays here, on purpose:
 cap = false          # raise the power cap above 315 - CHANGES GAME CODE. Tried 2026-10-04: the game crashes when
                      # a mission starts. Keep it off.
+
+# The test log (tools/sequel_log.py -> test.log: what the new enchantments see and do, read once a second; read-only).
+# Off for the release (2026-11-09); set to true while testing.
+test_log = false

@@ -129,6 +129,45 @@ public:
 	static bool AddEffectModifier(UBlueprint* Effect, UClass* AttributeSet, const FString& Property, int32 Op,
 		float Magnitude);
 
+	/** Make a GameplayEffect blueprint's effect last a while instead: DurationName set-by-caller seconds (given with
+	 *  AssignSetByCallerMagnitude when applied). One copy per target: a new application refreshes the time instead of
+	 *  adding a second copy. Call after AddEffectModifier, then save. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool SetEffectDuration(UBlueprint* Effect, const FString& DurationName);
+
+	/** Add gameplay cues to a GameplayEffect blueprint's effect: Tags (comma-separated tag names) played with the
+	 *  change of AttributeSet's Property as their magnitude (e.g. the game's GameplayCue.DamageNumber, which shows
+	 *  the number). Call after the first compile, then save. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool AddEffectCue(UBlueprint* Effect, UClass* AttributeSet, const FString& Property, const FString& Tags);
+
+	/** Give a GameplayEffect blueprint's effect asset tags (comma-separated; e.g. the game's Damage.Elemental.Fire,
+	 *  which the damage number is coloured by). Call after the first compile, then save. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool AddEffectTags(UBlueprint* Effect, const FString& Tags);
+
+	/** Tags a GameplayEffect blueprint's effect GIVES its target while it lasts (comma-separated). Call after the
+	 *  first compile, then save. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool AddEffectGrantedTags(UBlueprint* Effect, const FString& Tags);
+
+	/** An instant GameplayEffect blueprint: AttributeSet's Property changed once by Op with the set-by-caller value
+	 *  DataName (given with AssignSetByCallerMagnitude when applied), e.g. a heal of Health. Call after the first
+	 *  compile, then save. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool MakeInstantSetByCallerEffect(UBlueprint* Effect, UClass* AttributeSet, const FString& Property,
+		int32 Op, const FString& DataName);
+
+	/** Give a gameplay effect blueprint's defaults a buff (UIData): a new UIDataClass object inside the defaults, its
+	 *  FText property "Name" = Name and its class property "iconClass" = Icon. Call after the last compile, then save. */
+	/** Set a property of a blueprint's defaults (native or blueprint-made) from its text form, e.g. a gameplay
+	 *  cue's GameplayCueTag = (TagName="GameplayCue.Hit.Melee"). Call after the last compile, then save. */
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool SetDefaultProperty(UBlueprint* Blueprint, const FString& Property, const FString& Value);
+
+	UFUNCTION(BlueprintCallable, Category = "Sequel")
+	static bool SetEffectUIData(UBlueprint* Effect, UClass* UIDataClass, const FText& Name, UClass* Icon);
+
 	/** Set a gameplay attribute pin (e.g. GetFloatAttribute's Attribute) to AttributeSet's Property. */
 	UFUNCTION(BlueprintCallable, Category = "Sequel")
 	static bool SetAttributePin(UBlueprint* Blueprint, const FString& GraphName, const FString& Node,

@@ -30,7 +30,12 @@ U4PAK = os.path.join(MOD, "..", "Dungeons-Mod-Kit-master", "Tools", "py", "u4pak
 OUT_PAK = os.path.join(GAME, "Dungeons", "Content", "Paks", "~mods", "MCDTransmog_P.pak")
 # Actors: only BP_AvatarInfo, the loader (unreal/Content holds nothing else under Actors).
 FOLDERS = ["SequelMod", "Actors"]
-SEQUEL_FOLDERS = ["SequelBosses", "SequelEffects", "Actors"]   # into SequelMod_P.pak, by sequel.py
+# into SequelMod_P.pak, by sequel.py; Components: our own copies of game enchantments (build_enchants.py)
+SEQUEL_FOLDERS = ["SequelBosses", "SequelEffects", "Actors", "Components", "Content_DLC3", "Content_DLC4",
+                  "Content_DLC5", "Cues"]   # DLC3: Lucky Explorer (Ignite); DLC4: Charging Acceleration (Shatter);
+# DLC5: Sponge Strike; Cues: our copy of the game's melee hit spark (Sweeping Edge and the debuffer enchantments)
+# Never "UI": unreal/Content/UI holds placeholders for the game's own buff icons (build_enchants.py game_icon) - packing
+# them would replace the real icons.
 SEQUEL_COOKED = os.path.join(MOD, "blueprints")
 SETTINGS_JSON = os.path.join(MOD, "unreal", "Scripts", "_settings.json")
 FLAGS = ["-unattended", "-nop4", "-nosplash"]
@@ -43,8 +48,27 @@ def write_settings():
     cfg = settings.load(settings.path("Endless.toml")).get("super_bosses", {})
     values = {"levels": cfg.get("levels", [55, 64, 73, 82, 91, 100]), "takes_damage": cfg.get("takes_damage", 0.6),
               "deals_damage": cfg.get("deals_damage", 1.25)}
+    # SEQUEL_FREE_REROLL=1: a TEST build whose Reroll tab costs nothing (user, 2026-11-05: try the new enchantments'
+    # rolls) - never for a release; build again without it afterwards.
+    free = os.environ.get("SEQUEL_FREE_REROLL") == "1"
+    if free:
+        print("TEST BUILD: the Reroll tab costs nothing")
+    debuffs = settings.load(settings.path("Debuffs.toml")).get("debuffs", {})   # build_enchants.py's numbers
     with open(SETTINGS_JSON, "w") as f:
-        json.dump({"super_bosses": values}, f, indent=1)
+        json.dump({"super_bosses": values, "free_reroll": free, "debuffs": debuffs}, f, indent=1)
+
+
+def drop_placeholders(root):
+    """Placeholders for game assets (build_enchants.py placeholder()) are cooked so our blueprints link to them, but
+    never shipped - in the game the links reach the real assets. Both paks: "Actors" goes into both (a placeholder
+    there, e.g. Shadow Form's effect, would replace the game's own)."""
+    listed = os.path.join(MOD, "unreal", "Scripts", "_placeholders.json")
+    for path in (json.load(open(listed)) if os.path.exists(listed) else []):
+        base = os.path.join(root, "Dungeons", "Content", *path[len("/Game/"):].split("/"))
+        for ext in (".uasset", ".uexp", ".ubulk"):
+            if os.path.exists(base + ext):
+                os.remove(base + ext)
+                print("  left out placeholder " + path + ext)
 
 
 def keep_sequel_files():
@@ -54,6 +78,7 @@ def keep_sequel_files():
         src = os.path.join(COOKED, folder)
         if os.path.isdir(src):
             shutil.copytree(src, os.path.join(SEQUEL_COOKED, "Dungeons", "Content", folder))
+    drop_placeholders(SEQUEL_COOKED)
     print("kept the Sequel Mod's blueprints in %s - run python tools/sequel.py build to put them in its pak"
           % SEQUEL_COOKED)
 
@@ -97,6 +122,7 @@ def pack():
         src = os.path.join(COOKED, folder)
         if os.path.isdir(src):
             shutil.copytree(src, os.path.join(STAGE, "Dungeons", "Content", folder))
+    drop_placeholders(STAGE)
     subprocess.run([sys.executable, U4PAK, "pack", OUT_PAK, "Dungeons"], cwd=STAGE, check=True)
     for root, _, files in os.walk(STAGE):
         for f in files:

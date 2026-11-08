@@ -40,6 +40,7 @@ echo = true               # Echo repeats faster (Echo.toml)
 seasonal_drops = true     # seasonal gear drops in missions (Drops.toml)
 prices = true             # merchant prices, section 4 (Prices.toml)
 mob_pool = true           # which enchantments enchanted mobs can roll, section 5 (MobPool.toml)
+enchant_gear = true       # enchantments offered on more gear: Burst Bowstring on armor too (EnchantGear.toml)
 mob_enchants = true       # Deflect and Levitation Shot do nothing on mobs (MobEnchants.toml)
 qol = true                # Blacksmith missions, section 3
 endless = true            # Endless Apocalypse: A+ levels up to 100
@@ -75,6 +76,7 @@ gilded_early_from = 110        # ... from this power (about A+1)
 [prices]
 enchantsmith = 0.1        # rerolls at the Enchantsmith (gold): base 20 -> 2
 piglin = 0.5              # the Piglin's gilded gear (gold): base 12 -> 6
+blacksmith = 0.5          # Blacksmith upgrades (emeralds): base 150 -> 75 (user, 2026-11-05)
 
 
 #####################################################################################################################
