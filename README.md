@@ -4,7 +4,8 @@ A rebalance mod for **Minecraft Dungeons** that makes more builds worth playing,
 Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 
 **[Download the latest release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/latest)** ·
-**[Every change, base game vs mod](CHANGES.md)**
+**[Every change, base game vs mod](CHANGES.md)** ·
+**[Every enchantment, with icons and tiers](ENCHANTMENTS.md)**
 
 ## ![What it does](docs/headers/what-it-does.svg)
 
@@ -57,8 +58,19 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
   | Fire and Poison Focus | +25% per tier | **+50%** |
   | Fuse Shot | explodes after 1 s | **almost at once, 2x damage, 1.5x radius** |
   | Cowardice, Frenzied | +40% / +30% | **+60%** |
+  | Supercharge | charged shots x1.4 | **x1.8** |
+  | Wild Rage | 40% chance | **60%** |
+  | Soul Focus | +10% per tier | **+25%**, like the other Focuses |
+  | Soul Siphon | 20% chance | **40%** |
+  | Health Synergy | 5% heal per artifact | **10%** |
+  | Deflect | 45% chance | **50%** |
+  | Beast Burst | - | **double damage** |
 
-- **Stacking builds.** 32 enchantments that add up when an item has them more than once (Critical Hit, Swirling,
+  Proc damage that now takes a share of max health or scales with your weapon (Poison Cloud's cloud, Dipping Poison's
+  arrows, Shockwave) keeps the game's own flat damage; the share does the work. Every enchantment is at least a good
+  pick except the farming ones (Looting, Prospector, Luck of the Sea, Surprise Gift) and the movement ones.
+
+- **Stacking builds.** 39 enchantments that add up when an item has them more than once (Critical Hit, Swirling,
   Infinity, Protection, the Focuses and more) can roll in more than one slot. The ones that don't add up say so in
   their description.
 - **Kill credit: on-kill enchantments count every kill that is yours.** In the base game they only see a mob your
@@ -77,14 +89,14 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
   - **Refreshment (bow)** cuts 2 / 4 / 6 seconds per kill (was 3 / 6 / 9 in the mod, when bows got few kills).
   - **Guarding Strike** gives its 50% shield for 3 / 4 / 5 s after any kill of yours, not only weapon kills.
   - Busy Bee and Prospector still only count kills by your weapon (the game makes the bee and the emerald itself).
-- **Fire and poison that keep up.** Poisoned mobs near you lose **5 / 7.5 / 10% of their max health every second**,
-  burning ones **3 / 4 / 5%** (the game's own fire already stacks), while you wear a poison or fire enchantment (your
-  best tier; bosses take 40% of it) - so fire and poison keep up at any difficulty.
+- **Fire and poison that keep up.** Poisoned mobs lose **5 / 7.5 / 10% of their max health every second**, burning
+  ones **3 / 4 / 5%** (the game's own fire already stacks), wherever they are, while you wear a poison or fire
+  enchantment (your best tier; bosses take 40% of it) - so fire and poison keep up at any difficulty.
 - **Lightning that keeps up.** Lightning deals a share of max health too: **Thundering** strikes on every hit and takes
   1 / 2 / 3% from the mobs it reaches, every strike (so attack speed scales it); **Electrified**'s zap takes 4 / 6 / 8%
   (bosses take 40% of it). **Lightning Focus** boosts all of it, Overload included. Electrified and Lightning Focus
   keep the game's own numbers otherwise.
-- **Shockwave and Swirling scale with your weapon:** on top of their own damage, the mobs they reach take 50 / 75 /
+- **Shockwave and Swirling scale with your weapon:** on top of their own (the game's) damage, the mobs they reach take 50 / 75 /
   100% of your weapon hit.
 
 ### New enchantments
@@ -114,9 +126,9 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 - **Armor:**
   - **Last Stand:** 20 / 40 / 60% less damage taken below half health.
   - **Artifact Amplifier:** while worn, 20 / 35 / 50% more artifact damage and souls gathered.
-- **Rarity.** Ignite, Shatter, Overload and Last Stand are Powerful (2 / 3 / 4 enchantment points per tier), like
-  Venom Siphon, Relentless, Battle Hardened and Artifact Amplifier: enchantments that deal a share of max health or
-  carry a build. Sweeping Edge, Shadowcloak and the potion enchantments stay Common.
+- **Rarity.** Ignite, Shatter, Overload, Last Stand and Shadowcloak are Powerful (2 / 3 / 4 enchantment points per
+  tier), like Venom Siphon, Relentless, Battle Hardened and Artifact Amplifier: enchantments that deal a share of max
+  health or carry a build. Sweeping Edge and the potion enchantments stay Common.
 
 ### Where they come from
 
@@ -149,7 +161,8 @@ ours, the rows show our numbers - sometimes in the old enchantment's format, lik
 can't (Shadowcloak, Overload, Relentless, Last Stand, Bottomless Brew), the three rows read the same and the numbers
 are in the description instead ("20% / 40% / 60% at tier I / II / III").
 
-The full list, with every number, is in [CHANGES.md](CHANGES.md).
+Every enchantment, with its icon, tiers, rarity and what changed, is in [ENCHANTMENTS.md](ENCHANTMENTS.md); every
+raw number is in [CHANGES.md](CHANGES.md).
 
 ## ![Why it was made](docs/headers/why-it-was-made.svg)
 

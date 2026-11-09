@@ -21,5 +21,9 @@ stackable = [
     # armor
     "Protection", "Snowing", "FireTrail", "Burning", "Electrified", "FireFocus", "LightningFocus", "PoisonFocus",
     "SoulFocus", "Reckless",
+    # the mod's new enchantments whose copies each act on their own (user, 2026-11-09; by how they're built, not yet
+    # tried in game): Shadowcloak, Sweeping Edge, Ignite, Venom Siphon, Shatter, Relentless, Battle Hardened.
+    # Not Overload (only the first copy acts) or the potion / armor ones (untested).
+    "Rushdown", "Knockback", "EmeraldDivination", "Altruistic", "ThriveUnderPressure", "LevitationShot", "Barrier",
 ]
 except = []

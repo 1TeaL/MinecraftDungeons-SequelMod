@@ -5,7 +5,10 @@
 full = ["BaneOfIllagers", "PotionThirstMelee", "RadianceRanged", "ShockWeb", "FireFocus", "LightningFocus", "PoisonFocus",
         "SoulFocus", "CooldownShot", "FireTrail", "Reckless", "Unchanting", "Snowing", "Celerity", "Barrier", "LevitationShot", "Leeching", "Backstabber", "BusyBee", "Supercharge", "CriticalHit", "Thundering", "FireAspect", "Shockwave", "Swirling", "Sharpness", "Committed", "Smiting",
         "EnigmaResonatorMelee", "SoulSiphon", "AnimaConduitMelee", "BonusShot", "ChainReaction", "FuseShot", "Infinity",
-        "WildRage", "Protection", "Burning", "Electrified"]
+        "WildRage", "Protection", "Burning", "Electrified",
+        # new enchantments, by how they're built (2026-11-09, not yet tried in game): Shadowcloak, Sweeping Edge,
+        # Ignite, Venom Siphon, Shatter
+        "Rushdown", "Knockback", "EmeraldDivination", "Altruistic", "ThriveUnderPressure"]
 
 [partly]
 Rampaging = "the boost lasts longer in total"

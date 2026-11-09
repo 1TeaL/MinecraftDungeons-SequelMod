@@ -120,11 +120,13 @@ class MobEnchants:
                         # nothing (user, 2026-10-12: mobs still deflect, every time).
                         write(self.h, o + ALWAYS, bytes([0]))
                         self.note("Deflect on mobs: 'always triggers' switched off", quiet)
-                    if struct.unpack_from("<Q", raw)[0] != own:
-                        continue                         # chance already ours
                     ours = self.deflect_table()
                     if not ours:
                         break
+                    if struct.unpack_from("<Q", raw)[0] == ours:
+                        continue                         # chance already ours
+                    # anything else - the game's own, or the player's numbers (formula_patch.py Deflecting, if it
+                    # reached this copy before its owner was known) - becomes the mobs' chance
                     write(self.h, o + FUNCTION, struct.pack("<Q", ours))
                     self.note("Deflect on mobs: chance now " + " / ".join(f"{c:.0%}" for c in self.chance), quiet)
         if self.levitation:

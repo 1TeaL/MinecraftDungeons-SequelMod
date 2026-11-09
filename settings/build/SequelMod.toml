@@ -113,8 +113,8 @@
 
 [Enchantments.BeastBurst]  # Beast Burst (Armor)
 "BP_BeastBurst.ExplosionRadius" = 840.0  # default 840.0
-"BP_BeastBurst.BaseDamageValue" = 250.0  # default 250.0
-"BP_BeastBurst.ExtraDamagePerLevel" = 250.0  # default 250.0
+"BP_BeastBurst.BaseDamageValue" = 500.0  # default 250.0 (user, 2026-11-09 balance pass: double)
+"BP_BeastBurst.ExtraDamagePerLevel" = 500.0  # default 250.0
 
 [Enchantments.BeastSurge]  # Beast Surge (Armor)
 "BP_BeastSurge.BaseModifier" = 1.5  # default 1.5
@@ -602,7 +602,7 @@
 "BP_Shielding.ShieldRadius" = 1000.0  # default 1000.0
 
 [Enchantments.Shockwave]  # Shockwave (Melee)
-"BP_Shockwave.BaseDamage" = 60.0  # default 30.0
+"BP_Shockwave.BaseDamage" = 30.0  # default 30.0 (user, 2026-11-09: back from 60 - its weapon scaling does the work)
 "BP_Shockwave.BaseMoveSpeed" = 1850.0  # default 1850.0
 "BP_Shockwave.spawnOffset" = 150.0  # default 150.0
 "BP_Shockwave.spawnSafetyMargin" = 15.0  # default 15.0
@@ -674,7 +674,7 @@
 "BP_Snowing.MinInterval" = 1.0  # default 1.0
 
 [Enchantments.SoulFocus]  # Soul Focus (Armor)
-"BP_SoulFocus.DamageIncreasePerLevel" = 0.1  # default 0.1
+"BP_SoulFocus.DamageIncreasePerLevel" = 0.25  # default 0.1 (user, 2026-11-09: +25 / 50 / 75% like the other Focuses)
 
 [Enchantments.SoulLantern]  # SoulLantern (unique item, mob or shared effect)
 "BP_SoulLanternInstance.SharedPassiveCooldown" = 0.2  # default 0.2
@@ -691,7 +691,7 @@
 
 [Enchantments.SoulSiphon]  # Soul Siphon (Melee)
 "BP_SoulSiphon.BaseSoulSpawnAmount" = 1  # default 1
-"BP_SoulSiphon.TriggerChance" = 0.2  # default 0.2
+"BP_SoulSiphon.TriggerChance" = 0.4  # default 0.2 (user, 2026-11-09 balance pass)
 "BP_SoulSiphon.PerLevelSoulSpawnAmount" = 2  # default 2
 
 [Enchantments.SpeedSynergy]  # Speed Synergy (Armor)

@@ -9,7 +9,7 @@ from seqbp import *  # noqa: F401,F403
 
 EFFECTS_FOLDER = "/Game/SequelEffects"
 POISON_ARROW = EFFECTS_FOLDER + "/GE_SequelPoisonArrow"
-POISON_ARROW_DPS = 30.0   # doubled, like the Poisoned melee/ranged enchantments (SequelMod.toml: 15 -> 30)
+POISON_ARROW_DPS = 15.0   # the game's (user, 2026-11-09: back from 30 - the poison max-health share does the work)
 
 _poison = blueprint(POISON_ARROW, unreal.PoisonArrowGameplayEffect)
 compile_save(_poison, "poison arrow effect")

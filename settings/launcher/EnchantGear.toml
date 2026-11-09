@@ -45,5 +45,5 @@ Leeching = ["ranged"]                       # the same
 # on is powerful. Already powerful in the game: Heals Allies (Venom Siphon), Levitation Shot (Relentless), Barrier
 # (Battle Hardened), Gravity Pulse (Artifact Amplifier). Only changes are listed.
 [rarity]
-powerful = ["EmeraldDivination", "ThriveUnderPressure", "Thorns", "Shielding"]   # Ignite, Shatter, Overload, Last Stand
+powerful = ["EmeraldDivination", "ThriveUnderPressure", "Thorns", "Shielding", "Rushdown"]   # Ignite, Shatter, Overload, Last Stand, Shadowcloak (2026-11-09)
 common = []

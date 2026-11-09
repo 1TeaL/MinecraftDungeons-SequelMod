@@ -6,6 +6,8 @@ Install (Steam version on Windows): unpack the mod's zip into the game folder (S
 
 Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4 Armor perks - 5 Artifacts - 6 Endless Apocalypse - 7 Mobs - 8 Seasonal items - 9 Player, merchants and camp - 10 Changed texts
 
+Every enchantment with its icon, tiers, rarity and what changed, laid out like the wiki: [ENCHANTMENTS.md](ENCHANTMENTS.md).
+
 ## 1. Enchantments
 
 ### Melee
@@ -32,9 +34,9 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Radiance | Heal Chance | 0.2 | 1 |
 | Rampaging | Boost Time | 5 | 1 |
 | Rampaging | Trigger Chance | 0.1 | 1 |
-| Shockwave | Base Damage | 30 | 60 |
 | Smiting | Damage Multiplier Base | 1.15 | 1.25 |
 | Smiting | Damage Multiplier Per Level | 0.1 | 0.25 |
+| Soul Siphon | Trigger Chance | 0.2 | 0.4 |
 | Stunning | Chance To Stun Per Level | 0.05 | 0.15 |
 | Thundering | Base Damage | 12.5 | 3.75 |
 | Thundering | Trigger Chance | 0.3 | 1 |
@@ -61,12 +63,13 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Bag Of Souls | Max Souls Percentage Gained Per Level | 0.5 | 1 |
 | Beast Boss | Base Damage Boost | 0.2 | 0.5 |
 | Beast Boss | Per Level Damage Boost | 0.2 | 0.5 |
+| Beast Burst | Base Damage Value | 250 | 500 |
+| Beast Burst | Extra Damage Per Level | 250 | 500 |
 | Beast Surge | Effect Duration | 10 | 20 |
 | Burning | Radius | 300 | 400 |
 | Dipping Poison | Arrows given 1 | 6 | 10 |
 | Dipping Poison | Arrows given 2 | 8 | 15 |
 | Dipping Poison | Arrows given 3 | 12 | 20 |
-| Dipping Poison | Poison arrow damage per second | 15 | 30 |
 | Final Shout | Trigger Cooldown Base | 12 | 8 |
 | Final Shout | Trigger Health Fraction Threshold | 0.25 | 0.5 |
 | Fire Focus | Damage Increase Per Level | 0.25 | 0.5 |
@@ -84,6 +87,7 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Shadow Blast | Damage | 100 | 300 |
 | Snowball | Base Interval | 5 | 3 |
 | Snowball | Interval Per Level | -2 | -1 |
+| Soul Focus | Damage Increase Per Level | 0.1 | 0.25 |
 | Soul Speed | Speed Bonus | 0.05 | 0.1 |
 | Speed Synergy | Movement Speed Multiplier | 1.2 | 1.5 |
 | Swiftfooted | Swift Duration | 3 | 5 |
@@ -119,6 +123,10 @@ Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4
 | Cowardice | 1.2 / 1.3 / 1.4 | 1.4 / 1.5 / 1.6 |
 | Frenzied | 1.1 / 1.2 / 1.3 | 1.4 / 1.5 / 1.6 |
 | Protection | 1.06 / 1.12 / 1.18 | 1.1765 / 1.3333 / 1.5385 |
+| Health Synergy | 0.03 / 0.04 / 0.05 | 0.05 / 0.075 / 0.1 |
+| Supercharge | 1.2 / 1.3 / 1.4 | 1.4 / 1.6 / 1.8 |
+| Wild Rage | 0.2 / 0.3 / 0.4 | 0.3 / 0.45 / 0.6 |
+| Deflect | 0.25 / 0.35 / 0.45 | 0.3 / 0.4 / 0.5 |
 | Thrive Under Pressure | 1.06 / 1.12 / 1.18 | 0.5 / 0.4 / 0.3333 |
 | Regeneration | 4 / 5 / 6 | 50 / 100 / 150 |
 | Leeching | 0 / 0 / 0 | 0.04 / 0.05 / 0.06 |
@@ -134,11 +142,11 @@ A built-in copy plus a chosen one, or the same pick in more than one slot. Tried
 
 | Result | Enchantments |
 |---|---|
-| Adds up | Ambush, Anima Conduit, Barrier, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cool Down, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Aspect, Fire Focus, Fire Trail, Fuse Shot, Illager's Bane, Infinity, Leeching, Levitation Shot, Lightning Focus, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Sharpness, Shock Web, Shockwave, Smiting, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thundering, Unchanting, Wild Rage |
+| Adds up | Ambush, Anima Conduit, Barrier, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cool Down, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Aspect, Fire Focus, Fire Trail, Fuse Shot, Heals Allies, Illager's Bane, Infinity, Knockback, Leeching, Levitation Shot, Lightning Focus, Lucky Explorer, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Rushdown, Sharpness, Shock Web, Shockwave, Smiting, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thrive Under Pressure, Thundering, Unchanting, Wild Rage |
 | Adds up in part | Rampaging (the boost lasts longer in total); Dynamo (stacks build faster, the cap of 20 stays); Multishot (the chance goes up); Ricochet (the chance goes up; an arrow still bounces twice at most); Radiance (extra copies heal at about half strength); Growing (only partly: a second tier 3 adds, mixed tiers don't seem to); Accelerate (every copy adds its speed per shot, so the stacks fill sooner) |
 | No gain | Poison Cloud (procs several times, no extra damage); Exploding (one explosion per kill); Thorns (one discharge per hit); Echo (shows several procs, one extra hit); Punch; Artifact Synergy; Tempo Theft; Void Strike; Gravity; Piercing (counts every few arrows, so copies change nothing); Pain Cycle (worse: the stacks build faster and overshoot the fifth hit); Weakening; Rapid Fire; Overcharge; Chilling (the aura's slow is the same); Potion Barrier (still the same duration); Swiftfooted; Speed Synergy (several procs, same speed); Health Synergy; Guarding Strike (same duration, same damage reduction); Freezing (procs again, the slow gets no stronger); Final Shout; Cowardice; Rush (a buff); Frenzied (a buff); Soul Speed (a buff) |
 
-These can also roll in more than one slot of the same item (base game: only Sharpness, Smiting, Fire Aspect, Leeching, Rampaging, Radiance, Chains, Looting, Prospector, Cool Down, Thorns and Knockback): Ambush, Anima Conduit, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Focus, Fire Trail, Fuse Shot, Illager's Bane, Infinity, Lightning Focus, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Shock Web, Shockwave, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thundering, Unchanting, Wild Rage.
+These can also roll in more than one slot of the same item (base game: only Sharpness, Smiting, Fire Aspect, Leeching, Rampaging, Radiance, Chains, Looting, Prospector, Cool Down, Thorns and Knockback): Ambush, Anima Conduit, Barrier, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Focus, Fire Trail, Fuse Shot, Heals Allies, Illager's Bane, Infinity, Knockback, Levitation Shot, Lightning Focus, Lucky Explorer, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Rushdown, Shock Web, Shockwave, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thrive Under Pressure, Thundering, Unchanting, Wild Rage.
 
 ## 2. Weapons
 

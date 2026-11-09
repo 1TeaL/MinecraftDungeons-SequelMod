@@ -184,7 +184,9 @@ def build():
          "Manage > Browse local files) and start the game with \"Play Sequel Mod.bat\" there, keeping its window open. "
          "Nothing else to install. In multiplayer everyone needs the mod.", "",
          "Contents: 1 Enchantments - 2 Weapons - 3 Unique items' built-in enchantments - 4 Armor perks - 5 Artifacts - "
-         "6 Endless Apocalypse - 7 Mobs - 8 Seasonal items - 9 Player, merchants and camp - 10 Changed texts", ""]
+         "6 Endless Apocalypse - 7 Mobs - 8 Seasonal items - 9 Player, merchants and camp - 10 Changed texts", "",
+         "Every enchantment with its icon, tiers, rarity and what changed, laid out like the wiki: "
+         "[ENCHANTMENTS.md](ENCHANTMENTS.md).", ""]
 
     # 1 enchantments
     groups = defaultdict(list)

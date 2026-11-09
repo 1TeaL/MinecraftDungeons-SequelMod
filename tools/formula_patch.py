@@ -51,6 +51,13 @@ KNOWN = {
     "Punch": ([0x32D5018], 0x32F1A40, (3.0, 4.0, 5.0)),
     "RapidFire": ([0x32D8EC0], 0x32F1B60, (1.10, 1.15, 1.20)),
     "HealthSynergy": ([0x32C0EE0], 0x32C86E0, (0.03, 0.04, 0.05)),
+    # Deflect: tier * 0.1 + 0.15 (exe+0x32C8290's routine, the same mob_enchants.py points mobs' copies away from);
+    # the player's Deflecting only (the Tower Guard's DeflectingWithShield vtable is left out), PLAYER_ONLY below
+    "Deflecting": ([0x32B70C8], 0x32C8290, (0.25, 0.35, 0.45)),
+    # Supercharge: charged-shot damage multiplier 1.1 + 0.1 x tier; Wild Rage: chance 0.1 + 0.1 x tier (research/
+    # value_lambda.py, 2026-11-09; the same kind of routine as Rapid Fire's)
+    "Supercharge": ([0x32E4920], 0x32F1F50, (1.2, 1.3, 1.4)),
+    "WildRage": ([0x32E9A00], 0x32F2160, (0.2, 0.3, 0.4)),
     "Cowardice": ([0x32B5358], 0x32C81D0, (1.2, 1.3, 1.4)),       # damage multiplier at full health: tier*0.1+1.1
     "Frenzied": ([0x32BE9A8], 0x32C85C0, (1.1, 1.2, 1.3)),        # attack speed multiplier when low: tier*0.1+1.0
     "Protection": ([0x32D4B18], 0x32F1A10, (1.06, 1.12, 1.18)),   # damage taken divisor: tier*0.06+1.0 (exe+0xACEDB0)
@@ -106,7 +113,7 @@ ROUTINE = bytes.fromhex(
     "c3")               # ret
 # enchantments whose number is never changed on a mob's copy (the game's own stays; copies with no owner, like the
 # item card's, get ours)
-PLAYER_ONLY = {"Regeneration"}
+PLAYER_ONLY = {"Regeneration", "Deflecting"}
 SLOT = 0x80                    # per enchantment: routine + table at +0, vtable copy at +0x40
 
 

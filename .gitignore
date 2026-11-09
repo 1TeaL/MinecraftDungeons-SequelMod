@@ -26,6 +26,7 @@ research/transcripts/
 research/wiki/
 research/shinkuny/
 tools/wiki_*.json
+tools/wiki_*.txt
 
 # Build output, the downloaded portable Python, logs
 build/
