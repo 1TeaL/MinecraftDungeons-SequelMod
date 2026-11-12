@@ -11,19 +11,19 @@
 # enchantment costs the slots the rest of the build would have used. Enchantments that only partly stack, or not at
 # all, stay one per item as the game has them.
 
+# 2026-11-12 (user: repeats dilute the pool - but don't limit builds): only enchantments whose repeats make a build
+# roll in several slots - the build stackers and the damage procs. Utility / niche ones roll once per item again
+# (Busy Bee, Soul Siphon, Anima Conduit, Illager's Bane, Unchanting, Infinity, Radiance Shot, Cooldown Shot, Wild
+# Rage, Refreshment, Snowball, Ambush, Shadowcloak); their copies still add up when they come from built-ins, gilding
+# or the bonus enchantments. Repeating rolls: base game 10% of all pools, this list 35%.
 stackable = [
-    # melee
-    "CriticalHit", "Thundering", "Shockwave", "Swirling", "Committed", "BaneOfIllagers", "Unchanting", "Backstabber",
-    "BusyBee", "EnigmaResonatorMelee", "SoulSiphon", "AnimaConduitMelee", "PotionThirstMelee",
-    # ranged
-    "BonusShot", "ChainReaction", "FuseShot", "Infinity", "Supercharge", "WildRage", "RadianceRanged", "ShockWeb",
-    "CooldownShot",
-    # armor
-    "Protection", "Snowing", "FireTrail", "Burning", "Electrified", "FireFocus", "LightningFocus", "PoisonFocus",
-    "SoulFocus", "Reckless",
-    # the mod's new enchantments whose copies each act on their own (user, 2026-11-09; by how they're built, not yet
-    # tried in game): Shadowcloak, Sweeping Edge, Ignite, Venom Siphon, Shatter, Relentless, Battle Hardened.
-    # Not Overload (only the first copy acts) or the potion / armor ones (untested).
-    "Rushdown", "Knockback", "EmeraldDivination", "Altruistic", "ThriveUnderPressure", "LevitationShot", "Barrier",
+    # build stackers
+    "CriticalHit", "Committed", "EnigmaResonatorMelee", "EnigmaResonatorRanged", "Protection", "Reckless", "FireFocus", "LightningFocus",
+    "PoisonFocus", "SoulFocus", "EmeraldDivination", "Altruistic", "ThriveUnderPressure", "LevitationShot", "Barrier",
+    # damage procs
+    "Thundering", "Shockwave", "Swirling", "Knockback", "BonusShot", "ChainReaction", "FuseShot", "Supercharge",
+    "ShockWeb", "Burning", "FireTrail", "Electrified",
 ]
+# the game's own repeats taken away: Thorns is Overload now, and only its first copy acts
+once = ["Thorns"]
 except = []

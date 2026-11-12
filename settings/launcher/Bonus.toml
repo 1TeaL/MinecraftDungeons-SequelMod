@@ -29,6 +29,7 @@ early = [110, 215]   # a taste in the A+ levels (user, 2026-10-27): a unique's o
 # late in Endless, and its copies stack; it suits fast and heavy weapons alike (user, 2026-10-14).
 [final_extra]
 melee = "Unchanting"
+ranged = "Unchanting"   # bows too (user, 2026-11-12: a core pick in late Endless, where most mobs are enchanted)
 
 # The A+100 ladder (user, 2026-10-14: a for-fun climb after everything is set in stone). Past power `final`, every
 # `step` power adds one tier of a plain damage (or defence) enchantment as new lines under all the others: tier I,
@@ -50,35 +51,35 @@ armor = "Protection"
 [melee]
 # Fast weapons get per-hit effects (Thundering, Critical Hit, Rampaging, Leeching, poison); slow, heavy ones get
 # per-swing and combo-end effects (Echo, Shockwave, Swirling, Committed, Void Strike).
-Anchor = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
+Anchor = ["Shockwave", "CriticalHit", "Stunning", "Committed", "Sharpness"]   # every item different (2026-11-12)
 Axe = ["Swirling", "CriticalHit", "Committed", "Sharpness", "Shockwave"]
 Backstabber = ["Backstabber!", "Rushdown", "CriticalHit", "Leeching", "Committed", "Sharpness"]   # Shadowcloak: Ambush works while invisible
-Battlestaff = ["Stunning", "Shockwave", "Committed", "Swirling", "CriticalHit"]
+Battlestaff = ["Stunning", "Swirling", "Committed", "Shockwave", "CriticalHit"]   # every item different (2026-11-12)
 Boneclub = ["Committed", "Shockwave", "CriticalHit", "Sharpness", "Stunning"]
 Chainsword = ["Chains", "Committed", "CriticalHit", "Thundering", "Sharpness"]
 Claymore = ["Knockback", "Shockwave", "Swirling", "Committed", "Sharpness", "CriticalHit"]
-CoralBlade = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
+CoralBlade = ["Rampaging", "Leeching", "Committed", "CriticalHit", "Thundering"]   # every item different (2026-11-12)
 Cutlass = ["Rampaging", "CriticalHit", "Leeching", "Committed", "Thundering"]
 Daggers = ["Thundering", "CriticalHit", "Committed", "Stunning", "Leeching"]
 DoubleAxe = ["Swirling", "Shockwave", "CriticalHit", "Committed", "Sharpness"]
-Gauntlets = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
+Gauntlets = ["Rampaging", "Thundering", "Leeching", "CriticalHit", "Committed"]   # every item different (2026-11-12)
 Glaive = ["Knockback", "Swirling", "Sharpness", "Committed", "CriticalHit", "Shockwave"]
 Hammer = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
-Katana = ["Smiting", "Sharpness", "Committed", "CriticalHit", "Leeching"]   # the fifth is the spare for the Dark Katana, which owns Smiting
+Katana = ["CriticalHit", "Sharpness", "Committed", "Leeching", "Smiting"]   # Critical Hit instead of Smiting (undead only; user, 2026-11-12); the Dark Katana shares it
 Mace = ["Stunning", "Committed", "CriticalHit", "Shockwave", "Sharpness"]
 ObsidianClaymore = ["VoidTouchedMelee", "Committed", "CriticalHit", "Sharpness", "Shockwave"]
 Pickaxe = ["Prospector", "Committed", "CriticalHit", "Sharpness", "Swirling"]
 Pickaxe_Steel = ["Prospector", "Committed", "CriticalHit", "Sharpness", "Swirling"]
-Rapier = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
+Rapier = ["LevitationShot", "CriticalHit", "Leeching", "Rampaging", "Committed"]   # every item different (2026-11-12)
 Sickles = ["Thundering", "CriticalHit", "Stunning", "Committed", "Leeching"]
-SkeletonHammer = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
+SkeletonHammer = ["Shockwave", "Stunning", "Knockback", "Committed", "CriticalHit"]   # every item different (2026-11-12)
 SoulKnife = ["SoulSiphon", "AnimaConduitMelee", "EnigmaResonatorMelee", "Committed", "CriticalHit"]
 SoulScythe = ["SoulSiphon", "EnigmaResonatorMelee", "Chains", "Committed", "CriticalHit"]   # no Anima Conduit: the Skull Scythe's own (2026-10-26)
-Spear = ["Sharpness", "Knockback", "Swirling", "Committed", "CriticalHit", "Shockwave"]
+Spear = ["Sharpness", "Knockback", "Committed", "Swirling", "CriticalHit", "Shockwave"]   # every item different (2026-11-12)
 Sword = ["Sharpness", "CriticalHit", "Swirling", "Committed", "Shockwave"]
 Sword_Steel = ["Sharpness", "CriticalHit", "Swirling", "Committed", "Shockwave"]
-TempestKnife = ["Rampaging", "Leeching", "CriticalHit", "Committed", "Thundering"]
-VoidTouchedBlades = ["CriticalHit", "Leeching", "Rampaging", "Committed", "Thundering"]
+TempestKnife = ["Rampaging", "Backstabber", "CriticalHit", "Leeching", "Committed"]   # every item different (2026-11-12)
+VoidTouchedBlades = ["CriticalHit", "Committed", "LevitationShot", "Leeching", "Rampaging"]   # every item different (2026-11-12)
 Whip = ["Chains", "Swirling", "Committed", "CriticalHit", "Shockwave"]
 
 # 2026-11-08: the kill-credit rework (build_enchants.py) gives a proc enchantment's kills to its wearer, so the lanes
@@ -106,22 +107,31 @@ Daggers_Unique1 = ["ThriveUnderPressure", "CriticalHit", "Committed", "Stunning"
 TempestKnife_Unique2 = ["ThriveUnderPressure", "CriticalHit", "Leeching", "Committed", "Rampaging", "Thundering"]   # Chill Gale Knife: Freezing + Shatter
 DoubleAxe_Unique1 = ["Shockwave!", "Swirling", "CriticalHit", "Committed", "Sharpness"]             # Whirlwind
 Mace_Unique1 = ["RadianceMelee!", "Stunning", "Committed", "CriticalHit", "Shockwave"]                     # Sun's Grace
-DoubleAxe_Unique2 = ["Leeching", "Rampaging", "CriticalHit", "Committed", "Swirling"]             # Cursed Axe (on-kill)
+DoubleAxe_Unique2 = ["Leeching", "Rampaging", "Knockback", "CriticalHit", "Committed"]   # Cursed Axe (on-kill); every item different (2026-11-12)
 Battlestaff_Unique2 = ["Leeching", "Committed", "CriticalHit", "Rampaging", "Shockwave"]           # Battlestaff of Terror (on-kill)
 Claymore_Unique1 = ["Leeching!", "Committed", "CriticalHit", "Shockwave", "Swirling"]                   # Heartstealer (on-kill)
 Cutlass_Unique2 = ["Rampaging!", "CriticalHit", "Leeching", "Committed", "Thundering"]               # Dancer's Sword (on-kill)
-Gauntlets_Unique2 = ["Rampaging!", "Leeching", "CriticalHit", "Committed", "Thundering"]             # Maulers (on-kill)
+Gauntlets_Unique2 = ["Rampaging!", "Leeching", "Thundering", "CriticalHit", "Committed"]   # Maulers (on-kill); every item different (2026-11-12)
 Sickles_Unique2 = ["Leeching", "Rampaging", "CriticalHit", "Committed", "Thundering"]                # The Last Laugh (on-kill)
 # Enigma Resonator built in: it grows with the souls held, so these get soul bonuses (user, 2026-10-14)
 Daggers_Unique2 = ["SoulSiphon", "AnimaConduitMelee", "CriticalHit", "Committed", "Thundering"]       # Moon Daggers
-Gauntlets_Unique1 = ["SoulSiphon", "AnimaConduitMelee", "CriticalHit", "Committed", "Leeching"]       # Soul Fists
+Gauntlets_Unique1 = ["SoulSiphon", "AnimaConduitMelee", "Committed", "CriticalHit", "Leeching"]   # Soul Fists; every item different (2026-11-12)
 # Seasonal items (own identities, Builtins.toml)
 Sword_Spooky1 = ["Rampaging", "CriticalHit", "Sharpness", "Committed", "Swirling"]
 Claymore_Winter1 = ["ThriveUnderPressure", "Sharpness", "Committed", "CriticalHit", "Stunning", "Smiting"]   # Frost Slayer: + Shatter (2026-11-08); no Shockwave: Guarding Strike needs its own kills (user, 2026-10-14)
-Cutlass_Year1 = ["Thundering", "CriticalHit", "Committed", "Chains", "Leeching"]
+Cutlass_Year1 = ["Thorns", "CriticalHit", "Committed", "Thundering", "Leeching"]   # every item different (2026-11-12)
 SoulScythe_Spooky2 = ["Swirling", "Sharpness", "Committed", "CriticalHit", "Thundering"]   # quick sweeps, not the soul scythes' bonuses
 Glaive_Spooky2 = ["Shockwave", "Stunning", "Committed", "CriticalHit", "Sharpness"]
 Spear_spooky2 = ["Rushdown", "Committed", "CriticalHit", "Sharpness", "Swirling", "Shockwave"]   # Spine-Chill Spear: Shadowcloak + Ambush
+# own lists so two uniques of one item never share a bonus set (user, 2026-11-12)
+Sword_Unique1 = ["CriticalHit", "Swirling", "Knockback", "Committed", "Sharpness"]   # Diamond Sword - every item different (2026-11-12)
+Claymore_Unique3 = ["Knockback", "Shockwave", "Committed", "Swirling", "CriticalHit"]   # Great Axeblade - every item different (2026-11-12)
+Rapier_Unique2 = ["ThriveUnderPressure", "CriticalHit", "LevitationShot", "Leeching", "Committed"]   # Freezing Foil: its Freezing feeds Shatter - every item different (2026-11-12)
+Katana_Unique1 = ["Sharpness", "Committed", "LevitationShot", "CriticalHit", "Leeching"]   # Master's Katana - every item different (2026-11-12)
+Pickaxe_Unique2_Steel = ["Prospector", "CriticalHit", "Leeching", "Committed", "Sharpness"]   # The Monkey Motivator - every item different (2026-11-12)
+Anchor_Unique1 = ["Shockwave", "Stunning", "Altruistic", "CriticalHit", "Committed"]   # Encrusted Anchor: its Jungle Poison feeds Venom Siphon (user, 2026-11-12: fill the build gaps with always-good picks)
+Whip_Unique1 = ["Chains", "Swirling", "Altruistic", "Committed", "CriticalHit"]   # Vine Whip: its Jungle Poison feeds Venom Siphon (user, 2026-11-12: fill the build gaps with always-good picks)
+Claymore_Unique2 = ["FireAspect", "EmeraldDivination", "Knockback", "Committed", "CriticalHit"]   # Broadsword: fire greatsword - Fire Aspect, Ignite, Sweeping Edge (user, 2026-11-12: fill the build gaps with always-good picks)
 
 [ranged]
 BatCrossbow = ["Rushdown", "Unchanting", "BonusShot", "Infinity", "MultiShot", "Power"]   # Shrieking Crossbow: + Shadowcloak
@@ -130,23 +140,25 @@ BubbleBow = ["MultiShot", "ChainReaction", "Infinity", "Ricochet", "BonusShot"]
 BurstCrossbow = ["ChainReaction", "Infinity", "Power", "BonusShot", "MultiShot"]
 CogCrossbow = ["Power", "Infinity", "Ricochet", "BonusShot", "Supercharge"]
 Crossbow = ["Power", "Infinity", "BonusShot", "Accelerating", "MultiShot"]
-DualCrossbows = ["MultiShot", "ChainReaction", "Infinity", "Ricochet", "BonusShot"]
+DualCrossbows = ["MultiShot", "Ricochet", "LevitationShot", "Infinity", "ChainReaction"]   # Dual / Spellbound Crossbows: Relentless instead of Shock Web (flat damage) (user, 2026-11-12: fill the build gaps with always-good picks)
 ExplodingCrossbow = ["ChainReaction", "FuseShot", "Infinity", "MultiShot", "Power", "BonusShot"]   # 6: the Firebolt Thrower owns the first two
-HarpoonCrossbow = ["Power", "Infinity", "Supercharge", "BonusShot", "Ricochet"]
-HeavyCrossbow = ["Infinity", "Power", "BonusShot", "Ricochet", "Supercharge"]
+ExplodingCrossbow_Unique2 = ["FireAspect", "EmeraldDivination", "MultiShot", "Infinity", "Power"]   # Firebolt Thrower: fire bow - Fire Aspect's arrows burn, Ignite (user, 2026-11-12)
+HarpoonCrossbow = ["Power", "BonusShot", "Ricochet", "Infinity", "Supercharge"]   # every item different (2026-11-12)
+HeavyCrossbow = ["Power", "Supercharge", "FuseShot", "Infinity", "BonusShot"]   # every item different (2026-11-12)
 HuntingBow = ["Power", "Supercharge", "DynamoRanged", "Infinity", "BonusShot"]
 Longbow = ["Supercharge", "Power", "Infinity", "BonusShot", "MultiShot"]
-PowerBow = ["Infinity", "Supercharge", "Power", "BonusShot", "MultiShot"]
+PowerBow = ["Power", "Supercharge", "Unchanting", "Infinity", "BonusShot"]   # every item different (2026-11-12)
 RapidCrossbow = ["Accelerating", "Infinity", "ChainReaction", "MultiShot", "BonusShot"]
-ScatterCrossbow = ["ChainReaction", "MultiShot", "Ricochet", "Infinity", "BonusShot"]
-ShadowCrossbow = ["Rushdown", "Unchanting", "BonusShot", "Infinity", "MultiShot", "Power"]   # Veiled Crossbow: + Shadowcloak
+ScatterCrossbow = ["ChainReaction", "MultiShot", "FuseShot", "Ricochet", "Infinity"]   # every item different (2026-11-12)
+ShadowCrossbow = ["Rushdown", "ChainReaction", "Infinity", "Unchanting", "BonusShot", "Power"]   # Veiled Crossbow: + Shadowcloak; every item different (2026-11-12)
 Shortbow = ["Accelerating", "Infinity", "MultiShot", "BonusShot", "ChainReaction"]
-SlowBow = ["MultiShot", "Ricochet", "Power", "Infinity", "BonusShot"]
+SlowBow = ["ThriveUnderPressure", "MultiShot", "Ricochet", "Power", "Infinity"]   # Snow Bow: freezes on impact, feeds Shatter (user, 2026-11-12)
+SlowBow_Unique1 = ["ThriveUnderPressure", "Ricochet", "Power", "MultiShot", "Infinity"]   # Winter's Touch: frost build, its charged shot already fires 3 (user, 2026-11-12)
 SoulBow = ["SoulSiphon", "AnimaConduitRanged", "MultiShot", "EnigmaResonatorRanged", "Infinity"]
 SoulCrossbow = ["SoulSiphon", "AnimaConduitRanged", "EnigmaResonatorRanged", "MultiShot", "Infinity"]
-SpiderCrossbow = ["ChainReaction", "MultiShot", "Ricochet", "Infinity", "BonusShot"]
+SpiderCrossbow = ["ChainReaction", "Ricochet", "Power", "MultiShot", "Infinity"]   # Spider Crossbow: Power instead of Shock Web (user, 2026-11-12: fill the build gaps with always-good picks)
 Trickbow = ["ChainReaction", "MultiShot", "Ricochet", "Infinity", "BonusShot"]
-TwistingVineBow = ["Infinity", "MultiShot", "ChainReaction", "Ricochet", "BonusShot"]
+TwistingVineBow = ["Infinity", "MultiShot", "WildRage", "ChainReaction", "Ricochet"]   # every item different (2026-11-12)
 VoidBow = ["FuseShot", "Ricochet", "MultiShot", "ChainReaction", "Infinity"]
 WindBow = ["Supercharge", "Ricochet", "MultiShot", "Infinity", "BonusShot"]
 
@@ -157,8 +169,21 @@ Bow_Spooky1 = ["ChainReaction", "MultiShot", "Infinity", "Power", "BonusShot"]
 SoulBow_Winter1 = ["EnigmaResonatorRanged", "MultiShot", "Infinity", "Ricochet", "BonusShot"]
 Trickbow_Year1 = ["Power", "Supercharge", "BonusShot", "Infinity", "FuseShot"]   # ramping power, not the Trickbows' bounce set (2026-10-26)
 PowerBow_Spooky2 = ["Rushdown", "Power", "Infinity", "Unchanting", "BonusShot", "MultiShot"]   # Phantom Bow: shadow sniper
-SlowBow_Spooky2 = ["Supercharge", "Infinity", "MultiShot", "Ricochet", "ChainReaction"]
+SlowBow_Spooky2 = ["Thorns", "Supercharge", "Infinity", "MultiShot", "Ricochet"]   # Webbed Bow: + Overload, its Shock Web charges mobs (user, 2026-11-12)
 BubbleBow_Spooky2 = ["MultiShot", "Infinity", "Ricochet", "FuseShot", "ChainReaction"]
+# own lists so two uniques of one item never share a bonus set (user, 2026-11-12)
+Bow_Unique2 = ["Power", "Infinity", "FuseShot", "MultiShot", "Ricochet"]   # Twin Bow - every item different (2026-11-12)
+DualCrossbows_Unique2 = ["MultiShot", "Infinity", "Ricochet", "ChainReaction", "Power"]   # Baby Crossbows: Ricochet instead of Shock Web (user, 2026-11-12: fill the build gaps with always-good picks)
+RapidCrossbow_Unique2 = ["Infinity", "ChainReaction", "LevitationShot", "MultiShot", "Power"]   # Auto Crossbow: Relentless instead of Shock Web (user, 2026-11-12: fill the build gaps with always-good picks)
+ScatterCrossbow_Unique2 = ["ChainReaction", "MultiShot", "Thorns", "Infinity", "BonusShot"]   # Lightning Harp Crossbow: + Overload - every item different (2026-11-12)
+Crossbow_Unique2 = ["Power", "BonusShot", "ChainReaction", "Infinity", "MultiShot"]   # Azure Seeker - every item different (2026-11-12)
+Longbow_Unique1 = ["ShockWeb", "Thorns", "Power", "Infinity", "BonusShot"]   # Guardian Bow: charged sniper - Shock Web connects charged arrows and charges mobs, Overload discharges them (user, 2026-11-12)
+HuntingBow_Unique3 = ["Power", "Supercharge", "ChainReaction", "Infinity", "BonusShot"]   # Ancient Bow - every item different (2026-11-12)
+Trickbow_Unique1 = ["ChainReaction", "MultiShot", "Altruistic", "Ricochet", "Infinity"]   # The Green Menace: + Venom Siphon - every item different (2026-11-12)
+Shortbow_Unique3 = ["Accelerating", "Infinity", "BonusShot", "MultiShot", "Power"]   # Love Spell Bow - every item different (2026-11-12)
+SoulCrossbow_Unique1 = ["SoulSiphon", "AnimaConduitRanged", "Power", "Infinity", "MultiShot"]   # Feral Soul Crossbow - every item different (2026-11-12)
+SoulBow_Unique2 = ["SoulSiphon", "EnigmaResonatorRanged", "ChainReaction", "AnimaConduitRanged", "Infinity"]   # Bow of Lost Souls - every item different (2026-11-12)
+Shortbow_Unique1 = ["Accelerating", "Infinity", "LevitationShot", "MultiShot", "BonusShot"]   # Purple Storm: Relentless on the fastest bow (user, 2026-11-12: fill the build gaps with always-good picks)
 
 [armor]
 # Default for every armor: the defensive three everyone runs anyway. Thorns only stays on the tank armors (retaliation is
@@ -171,26 +196,26 @@ SpelunkersArmor = ["BeastBoss", "BeastSurge", "Celerity", "Protection"]         
 BeenestArmor = ["TumbleBee", "BeastBoss", "BeastBurst", "Protection"]           # Beehive Armor
 BeeNestArmor = ["TumbleBee", "BeastBoss", "BeastBurst", "Protection"]           # Beenest Armor (the base item's id is spelled differently)
 SoulRobe = ["SoulFocus", "GravityPulse", "BagOfSouls", "Protection", "Celerity"]             # Soul Robe, Souldancer: soul artifacts
-GrimArmor = ["SoulFocus", "GravityPulse", "BagOfSouls", "Protection", "Celerity"]             # Grim Armor, Wither Armor
+GrimArmor = ["SoulFocus", "GravityPulse", "Protection", "BagOfSouls", "Celerity"]   # Grim Armor, Wither Armor; every item different (2026-11-12)
 DarkArmor = ["BagOfSouls", "GravityPulse", "Protection", "Celerity", "PotionFortification"]   # Dark Armor, Titan's Shroud
 EvocationRobe = ["Celerity", "FireFocus", "EmeraldDivination", "Burning", "Protection"]         # Evocation Robe, Ember Robe, Verdant Robe
 BattleRobe = ["Celerity", "LightningFocus", "Electrified", "Thorns", "Protection"]      # Battle Robe, Splendid Robe
 SnowArmor = ["Snowing", "ThriveUnderPressure", "Protection", "PotionFortification", "Celerity"]                 # Snow Armor, Frost Armor
 EmeraldArmor = ["Prospector", "DeathBarter", "LuckOfTheSea", "Protection"]   # Emerald Gear, Opulent Armor, Gilded Glory
 ArchersStrappings = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]  # Hunter's Armor, Archer's Armor
-CowardsArmor = ["BowsBoon", "RollCharge", "BurstBowstring", "Protection"]       # Guard's Armor
+CowardsArmor = ["BowsBoon", "RollCharge", "Protection", "BurstBowstring"]   # Guard's Armor; every item different (2026-11-12)
 CowardsArmor_Unique1 = ["Acrobat", "MultiDodge", "Swiftfooted", "Protection"]   # Curious Armor: the blink armor (2026-10-26)
 
 # Defensive packages by archetype (2026-10-08): not every armor ends on Potion Barrier + Protection + Cool Down.
 FullPlateArmor = ["Barrier", "Protection", "Celerity", "Burning", "Shielding"]   # Thorns -> Battle Hardened (2026-11-08)          # heavy tanks: punish what hits them
 ReinforcedMail = ["Protection", "Explorer", "Celerity", "Snowing", "Regeneration"]          # potion tanks
 ChampionsArmor = ["Protection", "FoodReserves", "Regeneration", "Celerity", "Explorer"] # Bottomless Brew (2026-11-05)
-ShulkerArmor = ["PotionFortification", "Deflecting", "Protection", "Celerity"]
+ShulkerArmor = ["Celerity", "Shielding", "Protection", "PotionFortification"]   # every item different (2026-11-12)
 TurtleArmor = ["Protection", "Regeneration", "Celerity", "Snowing", "Barrier"]      # healer tank
 MercenaryArmor = ["Protection", "FireTrail", "Barrier", "Celerity", "Shielding"]       # brawlers: damage while healthy
 ScaleMail = ["Protection", "Celerity", "Electrified", "PotionFortification"]
 AssassinArmor = ["Acrobat", "Protection", "Electrified", "Celerity"]                  # assassins and roll armors: avoid the hit
-OcelotArmor = ["Acrobat", "Electrified", "Protection", "Celerity"]
+OcelotArmor = ["Acrobat", "LevitationShot", "Protection", "Electrified", "Celerity"]   # every item different (2026-11-12)
 SquidArmor = ["Acrobat", "MultiDodge", "Electrified", "Protection"]
 GhostArmor = ["Acrobat", "FireTrail", "MultiDodge", "Protection"]
 SproutArmor = ["Acrobat", "PoisonFocus", "MultiDodge", "Protection"]
@@ -219,6 +244,11 @@ GhostArmor_Spooky2 = ["Acrobat", "Thorns", "LightningFocus", "Protection", "Cele
 # archetype perk and then to the first spare (30% chance to negate hits, then life steal).
 # Perk names: PERK_NAMES in tools/perks_patch.py. Resonant = +30% positive effect duration (my reading of its
 # blueprint; to confirm in game).
+# own lists so two uniques of one item never share a bonus set (user, 2026-11-12)
+ClimbingGear_Unique2 = ["Acrobat", "Celerity", "Protection", "Snowing"]   # Goat Gear - every item different (2026-11-12)
+EvocationRobe_Unique2 = ["Celerity", "SoulFocus", "Protection", "GravityPulse"]   # Verdant Robe - every item different (2026-11-12)
+NatureArmor_Unique1 = ["Celerity", "Regeneration", "Explorer", "Protection"]   # Black Spot Armor: + Buddy Brew - every item different (2026-11-12)
+WolfArmor_Unique2 = ["BeastBoss", "BeastSurge", "Protection", "BeastBurst"]   # Black Wolf Armor - every item different (2026-11-12)
 [armor_perks]
 levels = [330, 345, 360]
 all = ["ItemCooldownDecrease", "SuperbDamageAbsorption", "AllyDamageBoost", "MissChance", "LifeStealAura"]

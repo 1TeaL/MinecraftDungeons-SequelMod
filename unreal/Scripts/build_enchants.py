@@ -1336,6 +1336,17 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "_settings.js
 def _num(key, default):
     return float(_DEBUFFS.get(key, default))
 
+def _toml_numbers(prefix):
+    """{field: value} of settings/build/SequelMod.toml's "prefix.field" = number lines."""
+    import re
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "settings", "build", "SequelMod.toml")
+    found = {}
+    for line in open(path):
+        m = re.match(r'\s*"%s\.(\w+)"\s*=\s*([-0-9.]+)' % re.escape(prefix), line)
+        if m:
+            found[m.group(1)] = float(m.group(2))
+    return found
+
 
 IGNITE = (_num("ignite_base", 0.02), _num("ignite_per_tier", 0.01))          # 3 / 4 / 5% of max health
 DRAIN = (_num("drain_base", 0.02), _num("drain_per_tier", 0.01))             # 3 / 4 / 5%
@@ -1836,7 +1847,7 @@ def _arrow_pass(wearer, after, on_hit):
 
 
 
-def measuring_host(path, parent, what, extra=None, arrows=False):
+def measuring_host(path, parent, what, extra=None, arrows=False, players_only=False):
     """Our enchantment at path over the native class parent, told Struck(mob) by our melee hit spark; at each look
     (SPLASH_LOOK s, on the host) the drop of every struck mob's health since the last look is that hit's damage.
     Also starts the status watcher. Returns (the look's per-hit body exec (node, pin), the mob, the drop, where the
@@ -1876,7 +1887,10 @@ def measuring_host(path, parent, what, extra=None, arrows=False):
     look = _g.custom_event("Look")
     authority = _g.call(_AC, "HasAuthority")
     _g.link(wearer[0], wearer[1], authority, "self")
-    host = _g.branch((authority, "ReturnValue"))
+    if players_only:   # a copy on an enchanted mob does nothing of ours (no look for arrows every 0.1 s)
+        host = _g.branch(_math("BooleanAND", (authority, "ReturnValue"), _is_player(wearer)))
+    else:
+        host = _g.branch((authority, "ReturnValue"))
     looked = set_value(_g, "Looks", _math("Add_IntInt", _v("Looks"), 1))
     _g.flow(look, host)
     _g.flow((host, "then"), looked)
@@ -2012,6 +2026,36 @@ _g.flow(*([(_chilled, "then"), _count("Seen")] + _hurt + [_count("Bonuses"), set
 compile_save(_bp, "Shatter (Thrive Under Pressure)")
 # Thrive Under Pressure's own damage cut never triggers: no range, an unreachable crowd
 _switch_off(CHARGING_ACCELERATION, {"TriggerRange": 0.0, "MobThreshold": 9999}, "Thrive Under Pressure's own cut off")
+
+# --- Fire Aspect: arrows set mobs on fire too (user, 2026-11-12) ------------------------------------------------------
+# The game's Fire Aspect burns on melee hits only (it rolls on melee weapons only). Ours keeps that - its own burn, the
+# game's effect through a placeholder (Effect, the only object default of the game's BP_FireAspect) - and every mob the
+# wearer's arrows hit catches fire for its burn time: the game's burning look (Ignite's burn), no damage of its own -
+# burning mobs lose the fire share of their max health (the status watcher). So it can roll on bows (EnchantGear
+# also_on) and a fire build works from range, Ignite included. Players only; enchanted mobs keep the game's melee burn.
+FIRE_ASPECT = "/Game/Components/Enchantments/FireAspect/BP_FireAspect"
+FIRE_ASPECT_EFFECT = "/Game/Components/Enchantments/FireAspect/BP_FireAspectGameplayEffect"
+compile_save(blueprint(FIRE_ASPECT_EFFECT, unreal.GameplayEffect),
+             "placeholder for the game's Fire Aspect burn")
+placeholder(FIRE_ASPECT_EFFECT)
+_fire_numbers = _toml_numbers("BP_FireAspect")
+ARROW_BURN_SECONDS = _fire_numbers.get("fireDuration", 3.0)
+_body, _mob, _drop, _at, _wearer = measuring_host(FIRE_ASPECT, _D + "FireAspect", "Fire Aspect", arrows=True,
+                                                  players_only=True)
+_g.row(1800)
+_asc, _spec, _spec_steps = timed_spec(_burn_class, _math("Add_FloatFloat", ARROW_BURN_SECONDS, 0.0))
+_their = _g.call(_GAS, "GetAbilitySystemComponent")
+_g.link(_mob[0], _mob[1], _their, "Actor")
+_catch = _g.call(_ASC, "BP_ApplyGameplayEffectSpecToTarget")
+_g.link(_asc[0], _asc[1], _catch, "self")
+_g.link(_spec[0], _spec[1], _catch, "SpecHandle")
+_g.link(_their, "ReturnValue", _catch, "Target")
+_g.flow(*([_body, _count("Seen")] + _spec_steps + [_catch, _count("Bonuses")]))
+compile_save(_bp, "Fire Aspect (arrows burn too)")
+_cdo = unreal.get_default_object(assets.load_blueprint_class(FIRE_ASPECT))
+_cdo.set_editor_property("Effect", assets.load_blueprint_class(FIRE_ASPECT_EFFECT))
+check(_cdo.get_editor_property("Effect") is not None, "Fire Aspect: the game's burn effect")
+_switch_off(FIRE_ASPECT, _fire_numbers, "Fire Aspect's numbers (SequelMod.toml)")
 
 # --- Kill credit: our Leeching and Refreshment (melee) ---------------------------------------------------------------
 # The game's on-kill enchantments only count the weapon swing's own kill (tested 2026-11-07: kills by Sweeping Edge's
@@ -2349,16 +2393,6 @@ SWIRL_FX = "/Game/Components/Enchantments/Swirling/PS_Swirling.PS_Swirling"
 SWIRL_SOUND = "/Game/AudioForce/04_playback_soundCue/05_sfx_player_attack1Normal/sfx_ui_swirlingNotifyStaticOnexecute"
 
 
-def _toml_numbers(prefix):
-    """{field: value} of settings/build/SequelMod.toml's "prefix.field" = number lines."""
-    import re
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "settings", "build", "SequelMod.toml")
-    found = {}
-    for line in open(path):
-        m = re.match(r'\s*"%s\.(\w+)"\s*=\s*([-0-9.]+)' % re.escape(prefix), line)
-        if m:
-            found[m.group(1)] = float(m.group(2))
-    return found
 
 
 def _keep_weapon(body, drop):
@@ -2609,6 +2643,64 @@ _g.flow(*([(_ejoin, "then")] + _deal(_WEARER, (_zapped, "Mob"), _eamount, LIGHTN
           + [_count("Bonuses"), set_value(_g, "LastBonus", _eamount)]))
 compile_save(_bp, "Electrified (share of max health)")
 _switch_off(ELECTRIFIED, _elec_numbers, "Electrified's numbers (SequelMod.toml)")
+
+# --- Shock Web: its beams take a share of max health and charge mobs for Overload (user, 2026-11-12) -----------------
+# Every hostile mob a beam of the wearer's web hurts (our copy of its hit cue, further down, tells every Shock Web
+# wearer within SHOCK_REACH: Zapped(mob)) loses SHOCK_SHARE of its max health (bosses BOSS_SHARE of it), boosted by
+# Lightning Focus - at most once every SHOCK_GAP s per mob (a beam hurts 4 times a second) - and is charged for
+# Overload: the ranged half of Thundering + Overload. The game's beams stay (their damage back to the game's).
+# Our BP_ShockWeb keeps the game's object defaults (its node actor, the projectiles it ignores) through placeholders.
+SHOCK_WEB = "/Game/Content_DLC4/Components/Enchantments/ShockWeb/BP_ShockWeb"
+SHOCK_WEB_NODE = "/Game/Content_DLC4/Components/Enchantments/ShockWeb/BP_ShockWebNode"
+SHOCK_DENIED = ["/Game/Actors/Items/Arrow/Player/BP_PlayerFireworksArrow", "/Game/Actors/Items/TormentProjectile/BP_TormentProjectile"]
+SHOCK_SHARE = (_num("shockweb_base", 0.0), _num("shockweb_per_tier", 0.01))   # 1 / 2 / 3% of max health per zap
+SHOCK_GAP = _num("shockweb_gap", 0.5)                                         # so at most 2 / 4 / 6% a second
+_shock_numbers = _toml_numbers("BP_ShockWeb")
+SHOCK_REACH = _shock_numbers.get("Range", 2400.0) + SPLASH_HITTER_RANGE
+compile_save(blueprint(SHOCK_WEB_NODE, unreal.Actor.static_class()),
+             "placeholder for the game's Shock Web node")
+placeholder(SHOCK_WEB_NODE)
+for _path in SHOCK_DENIED:
+    compile_save(blueprint(_path, unreal.Actor.static_class()), "placeholder for " + _path.rsplit("/", 1)[1])
+    placeholder(_path)
+_bp = blueprint(SHOCK_WEB, unreal.load_class(None, _D + "ShockWeb"))
+for _name, _kind in dict(Focus="float", Seen="int", Bonuses="int", LastBonus="float",
+                         GapMobs="array:" + _ACTOR, GapTimes="array:float").items():
+    check(LIB.add_variable(_bp, _name, _kind), "Shock Web: variable " + _name)
+LIB.compile(_bp)
+_g = Graph(_bp)
+_WEARER = (_g.call(_COMPONENT, "GetOwner"), "ReturnValue")
+_g.row(0)
+_zapped = _g.custom_event("Zapped", "Mob=" + _ACTOR)
+_authority = _g.call(_AC, "HasAuthority")
+_g.link(_WEARER[0], _WEARER[1], _authority, "self")
+_mob_char = _g.cast(_BASE, (_zapped, "Mob"))
+_me = _g.cast(_BASE, _WEARER)
+_foe = _g.call(_MATH, "Not_PreBool")
+_g.link(*(_same_team(_me, _mob_char) + (_foe, "A")))
+_alive = _math("Greater_FloatFloat", _attribute((_zapped, "Mob"), _HEALTH_SET, "Health"), 0.0)
+_go = _g.branch(_math("BooleanAND", _math("BooleanAND", (_authority, "ReturnValue"), (_foe, "ReturnValue")),
+                      _math("BooleanAND", _alive, _is_player(_WEARER))))
+_seen = _count("Seen")
+_g.flow(_zapped, _mob_char[0], _me[0], _go, _seen)
+_g.row(300)
+_wpass, _ = _gap_check((_zapped, "Mob"), (_seen, "then"), SHOCK_GAP)
+_wjoin = set_value(_g, "Seen", _v("Seen"))
+_link_exec(_wpass, _wjoin)
+_wfocus = _lightning_focus(_WEARER, (_wjoin, "then"))
+_wjoin2 = set_value(_g, "Seen", _v("Seen"))
+_link_exec(_wfocus, _wjoin2)
+_g.row(600)
+_wamount = _lightning_share((_zapped, "Mob"), _own_share(SHOCK_SHARE))
+_g.flow(*([(_wjoin2, "then")] + _deal(_WEARER, (_zapped, "Mob"), _wamount, LIGHTNING_DAMAGE)
+          + [_count("Bonuses"), set_value(_g, "LastBonus", _wamount)]))
+compile_save(_bp, "Shock Web (share of max health)")
+_cdo = unreal.get_default_object(assets.load_blueprint_class(SHOCK_WEB))
+_cdo.set_editor_property("ActorToSpawn", assets.load_blueprint_class(SHOCK_WEB_NODE))
+_cdo.set_editor_property("DeniedProjectiles", [assets.load_blueprint_class(p) for p in SHOCK_DENIED])
+check(_cdo.get_editor_property("ActorToSpawn") is not None and len(_cdo.get_editor_property("DeniedProjectiles")) == 2,
+      "Shock Web: the game's node actor and ignored projectiles")
+_switch_off(SHOCK_WEB, _shock_numbers, "Shock Web's numbers (SequelMod.toml)")
 
 
 # --- Exploding: kill credit, at once, in chains (user, 2026-11-08) ---------------------------------------------------
@@ -3251,7 +3343,7 @@ check(LIB.set_default_property(_bp, "GameplayCueTag", '(TagName="GameplayCue.Hit
 check(LIB.set_default_property(_bp, "GameplayCueName", "GameplayCue.Hit.Melee"), "cue name")
 assets.save_loaded_asset(_bp)
 
-def _overload_charge(hero, where, radius):
+def _overload_charge(hero, where, radius, reach=None):
     """In a cue's hero loop: ChargeNear(where, radius) on hero's (node, pin) Overload (first copy), if they wear one
     within SPLASH_HITTER_RANGE of where. Returns the first node (its exec input is the step in)."""
     cls = _effect_class(THORNS)
@@ -3265,7 +3357,7 @@ def _overload_charge(hero, where, radius):
     _g.link(at, "ReturnValue", gap, "V1")
     _g.link(where[0], where[1], gap, "V2")
     wears = _g.branch(_math("BooleanAND", (valid, "ReturnValue"),
-                            _math("LessEqual_FloatFloat", (gap, "ReturnValue"), SPLASH_HITTER_RANGE)))
+                            _math("LessEqual_FloatFloat", (gap, "ReturnValue"), reach or SPLASH_HITTER_RANGE)))
     as_ = _g.cast(cls, (has, "ReturnValue"))
     tell = _g.call(cls, "ChargeNear", Radius=radius)
     _g.link(as_[0], as_[1], tell, "self")
@@ -3384,6 +3476,62 @@ _link_exec([(_wears, "else"), (_tell, "then"), (_as[0], "CastFailed")], _charges
 compile_save(_bp, "Electrified's receiver cue")
 check(LIB.set_default_property(_bp, "GameplayCueTag", '(TagName="GameplayCue.Trigger.Enchantment.Electrified.Reciever")'), "cue tag")
 check(LIB.set_default_property(_bp, "GameplayCueName", "GameplayCue.Trigger.Enchantment.Electrified.Reciever"), "cue name")
+assets.save_loaded_asset(_bp)
+
+# Shock Web's hit cue (on every character a beam hurts): as the game's - its hit look and sound at the target (read in
+# its asset's imports, 2026-11-12) - plus Zapped(mob) on the Shock Web of every player within SHOCK_REACH that wears
+# one, and the mob charged for Overload (same reach: a web can be far from its archer)
+SHOCK_HIT_CUE = "/Game/Cues/HitCues/BP_HitShockwebNotifyStatic"
+SHOCK_HIT_SOUND = "/Game/AudioForce/D4/04_playback_soundCue/sfx_enchantment_shockWebNotifyStatic"
+_shock_fx = game_particle("/Game/Content_DLC4/Components/Enchantments/ShockWeb/PS_ShockwebHit")
+assets.save_loaded_asset(fresh(SHOCK_HIT_SOUND, unreal.SoundCue, unreal.SoundCueFactoryNew()))
+placeholder(SHOCK_HIT_SOUND)
+_bp = blueprint(SHOCK_HIT_CUE, unreal.load_class(None, "/Script/Dungeons.DungeonsGameplayCueNotify_Static"))
+LIB.compile(_bp)
+_g = Graph(_bp, "OnExecute")
+_g.row(0)
+_g.call(_MATH, "Not_PreBool")   # makes the override graph
+_cue, _ = terminals(_bp, "OnExecute")
+_TARGET = (_cue, "MyTarget")
+_where = _g.call(_AC, "K2_GetActorLocation")
+_g.link(_TARGET[0], _TARGET[1], _where, "self")
+_fx = _g.call(_GS, "SpawnEmitterAtLocation", EmitterTemplate=_shock_fx)
+if "WorldContextObject" in _g.pins(_fx):
+    _g.link(_TARGET[0], _TARGET[1], _fx, "WorldContextObject")
+_g.link(_where, "ReturnValue", _fx, "Location")
+_noise = _g.call(_GS, "SpawnSoundAtLocation", Sound=SHOCK_HIT_SOUND + "." + SHOCK_HIT_SOUND.rsplit("/", 1)[1])
+if "WorldContextObject" in _g.pins(_noise):
+    _g.link(_TARGET[0], _TARGET[1], _noise, "WorldContextObject")
+_g.link(_where, "ReturnValue", _noise, "Location")
+_g.flow(_cue, _fx, _noise)
+_g.row(300)
+_heroes = _g.call(_GS, "GetAllActorsOfClass", ActorClass="/Script/Dungeons.PlayerCharacter")
+if "WorldContextObject" in _g.pins(_heroes):
+    _g.link(_TARGET[0], _TARGET[1], _heroes, "WorldContextObject")
+_g.flow(_noise, _heroes)
+_loop, _hero, _ = _loop_over((_heroes, "OutActors"), (_heroes, "then"))
+_WEB_CLASS = _effect_class(SHOCK_WEB)
+_has = _pure(_g.call(_AC, "GetComponentByClass", ComponentClass=_WEB_CLASS), "GetComponentByClass")
+_g.link(_hero[0], _hero[1], _has, "self")
+_valid = _g.call(_KSL, "IsValid")
+_g.link(_has, "ReturnValue", _valid, "Object")
+_close = _g.call(_AC, "GetDistanceTo")
+_g.link(_hero[0], _hero[1], _close, "self")
+_g.link(_TARGET[0], _TARGET[1], _close, "OtherActor")
+_wears = _g.branch(_math("BooleanAND", (_valid, "ReturnValue"),
+                         _math("LessEqual_FloatFloat", (_close, "ReturnValue"), SHOCK_REACH)))
+_as = _g.cast(_WEB_CLASS, (_has, "ReturnValue"))
+_tell = _g.call(_WEB_CLASS, "Zapped")
+_g.link(_as[0], _as[1], _tell, "self")
+_g.link(_TARGET[0], _TARGET[1], _tell, "Mob")
+_g.flow((_loop, "LoopBody"), _wears)
+_g.flow((_wears, "then"), _as[0], _tell)
+_g.row(600)
+_charges = _overload_charge(_hero, (_where, "ReturnValue"), 60.0, SHOCK_REACH)
+_link_exec([(_wears, "else"), (_tell, "then"), (_as[0], "CastFailed")], _charges)
+compile_save(_bp, "Shock Web's hit cue")
+check(LIB.set_default_property(_bp, "GameplayCueTag", '(TagName="GameplayCue.Hit.Shockweb")'), "cue tag")
+check(LIB.set_default_property(_bp, "GameplayCueName", "GameplayCue.Hit.Shockweb"), "cue name")
 assets.save_loaded_asset(_bp)
 
 

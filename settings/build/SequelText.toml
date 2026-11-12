@@ -103,6 +103,7 @@
 
 # Electrified (2026-11-08, build_enchants.py): its zap also takes a share of max health. Original: "Rolling zaps {0}
 # nearby enemies with lightning bolts, dealing damage."
+"Enchantment/ShockWeb_desc" = "Beams of lightning connect the last few charged arrows fired. Mobs that touch a beam take lightning damage, lose 1 / 2 / 3% of their max health and are charged for Overload."   # user, 2026-11-12. Was: ... which deal lightning damage to enemies who touch a beam.
 "Enchantment/Electrified_desc" = "Rolling zaps {0} nearby mobs with lightning bolts, dealing damage and 4 / 6 / 8% of their max health."
 
 # Lightning Focus (2026-11-08): ours boosts Thundering's, Electrified's and Overload's max-health damage too.
@@ -181,7 +182,7 @@
 "Enchantment/ThriveUnderPressure_effect" = "{0} more damage to chilled mobs"
 # The game's fire and poison enchantments: burning / poisoned mobs near their wearer lose a share of their max health
 # (build_enchants.py, the status watcher). Their {0} stays.
-"Enchantment/Fire_desc" = "Sets mobs on fire for {0}, dealing damage over time. Burning mobs lose 3% / 4% / 5% of their max health every second."
+"Enchantment/Fire_desc" = "Your hits and arrows set mobs on fire for {0}, dealing damage over time. Burning mobs lose 3% / 4% / 5% of their max health every second."
 "Enchantment/Burning_desc" = "Every {0} damages all nearby enemies. Burning mobs lose 3% / 4% / 5% of their max health every second."
 "Enchantment/FireTrail_desc" = "Rolling creates a trail of fire behind you, which deals damage to mobs for {0}. Burning mobs lose 3% / 4% / 5% of their max health every second."
 "Enchantment/Poisoned_desc" = "Has a {0} chance to summon a poison cloud that deals damage to enemies in an area for {1}. Poisoned mobs lose 5% / 7.5% / 10% of their max health every second."

@@ -72,6 +72,24 @@ def apply(h, base, names=None):
         write(h, definition + TAGS, struct.pack("<QII", at, len(new), ROOM))
         changed += 1
     print(f"stacking: {changed} more enchantments can now be rolled in several slots")
+    if names is not None and not cfg_given(names):
+        return
+    for name in settings.load(CONFIG).get("once", []):   # the game's own repeats taken away (a second copy does nothing)
+        definition, cur = tags(h, base, name)
+        if cur is None or STACKABLE not in cur:
+            continue
+        at = alloc(h, ROOM)
+        if not at:
+            continue
+        new = [t for t in cur if t != STACKABLE]
+        write(h, at, bytes(new) or bytes(1))
+        write(h, definition + TAGS, struct.pack("<QII", at, len(new), ROOM))
+        print(f"stacking: {name} rolls once per item again")
+
+
+def cfg_given(names):
+    """True when apply() runs from the settings (not a test list from the command line)."""
+    return names == settings.load(CONFIG).get("stackable", []) or settings.load(CONFIG).get("stackable") == "all"
 
 
 if __name__ == "__main__":

@@ -39,6 +39,7 @@ Thorns = ["melee", "ranged"]                # Overload (Thorns' slot): every gea
 LevitationShot = ["melee", "armor"]         # Relentless (Levitation Shot's slot): every gear (user, 2026-11-08)
 Exploding = ["ranged"]                      # arrow kills count now (kill credit; user, 2026-11-08)
 Leeching = ["ranged"]                       # the same
+FireAspect = ["ranged"]                     # its arrows set mobs on fire too (our BP_FireAspect; user, 2026-11-12)
 
 # Rarity (user, 2026-11-08): "Powerful" enchantments cost 2 / 3 / 4 points per tier (common 1 / 2 / 3), carry the badge
 # and roll from their own, rarer list. Rule: an enchantment that deals a share of max health or that a build is centred

@@ -612,7 +612,7 @@
 
 [Enchantments.ShockWeb]  # Shock Web (Ranged)
 "BP_ShockWeb.Range" = 2400.0  # default 2400.0
-"BP_ShockWeb.damagePerSecond" = 75.0  # default 37.5
+"BP_ShockWeb.damagePerSecond" = 37.5  # default 37.5. Was 75; back to the game's now that its beams take 1 / 2 / 3% of max health and charge mobs for Overload (Debuffs.toml; user, 2026-11-12)
 "BP_ShockWeb.Period" = 0.25  # default 0.25
 "BP_ShockWeb.Duration" = 20.0  # default 20.0
 "BP_ShockWebNode.WorldSpawnOffset" = 85.0  # default 85.0

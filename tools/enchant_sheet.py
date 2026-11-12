@@ -78,7 +78,7 @@ MOD = {
     "Critical Hit": (None, "x5 damage (game: x3)."),
     "Echo": (["2.1", "1.1", "0.1"], "Repeats far sooner."),
     "Exploding": (["15%", "25%", "35%"], "Goes off at once and chains (mobs the blast kills explode too). Uses kill credit. Also rolls on bows."),
-    "Fire Aspect": (None, "Burning mobs lose 3 / 4 / 5% of their max health every second (bosses 40% of it)."),
+    "Fire Aspect": (None, "Arrows set mobs on fire too, and it also rolls on bows. Burning mobs lose 3 / 4 / 5% of their max health every second (bosses 40% of it)."),
     "Freezing": (["-40%", "-55%", "-70%"], "Stronger slow."),
     "Illager's Bane": (["+50%", "+75%", "+100%"], "More damage to illagers."),
     "Leeching": (["4%", "5%", "6%"], "Uses kill credit (fewer % since far more kills count). Kills by your melee attack heal twice. Also rolls on bows."),
@@ -101,7 +101,7 @@ MOD = {
     "Punch": (["700%", "1100%", "1500%"], "Much stronger knockback."),
     "Radiance Shot": (None, "Always triggers (game: 50%), heals less per proc."),
     "Rapid Fire": (["+20%", "+35%", "+50%"], "Faster shooting."),
-    "Shock Web": (None, "Double damage."),
+    "Shock Web": (None, "Mobs a beam touches lose 1 / 2 / 3% of their max health (at most twice a second; bosses 40%) and are charged for Overload. Lightning Focus boosts it. Flat damage back to the game's."),
     "Bag of Souls": (["100%", "200%", "300%"], "More souls."),
     "Beast Boss": (["50% increase", "100% increase", "150% increase"], "More pet damage."),
     "Beast Surge": (None, "Lasts 20 s (game: 10 s)."),
@@ -192,10 +192,17 @@ def main():
     mobs = settings.load(settings.path("MobPool.toml"))
     mob_off = {cs.ench(k) for k, v in mobs.items() if v is False}
     mob_on = {cs.ench(k) for k, v in mobs.items() if v is True}
-    stack = settings.load(settings.path("Stack.toml")).get("stackable", [])
-    multi = {cs.ench(n) for n in stack}
+    stack_cfg = settings.load(settings.path("Stack.toml"))
+    # what may roll in more than one slot: the game's own repeats (stack_patch.py's list) + Stack.toml, minus `once`
+    game_repeats = {"Sharpness", "Smiting", "Looting", "Prospector", "Chains", "FireAspect", "Leeching", "Rampaging",
+                    "RadianceMelee", "Celerity", "Thorns", "Knockback"}
+    multi = {cs.ench(n) for n in (game_repeats | set(stack_cfg.get("stackable", []))) - set(stack_cfg.get("once", []))}
     descs = desc_overrides()
     builts = built_ins()
+    notes = tomllib.loads((ROOT / "settings" / "build" / "StackNotes.toml").read_text(encoding="utf-8"))
+    stacks = {cs.ench(n): YES for n in notes.get("full", [])}
+    stacks.update({cs.ench(n): f"partly: {why}" if why else "partly" for n, why in notes.get("partly", {}).items()})
+    stacks.update({cs.ench(n): f"{NO} ({why})" if why else NO for n, why in notes.get("none", {}).items()})
 
     def rarity(name, wiki_rarity):
         r = "Powerful" if name in powerful else "Common" if name in common else wiki_rarity
@@ -211,9 +218,14 @@ def main():
          "says how. Every raw number is in [CHANGES.md](CHANGES.md). Icons: the game's, from the wiki; the new "
          "enchantments' icons are the mod's own.", "",
          "**Enchantment points per tier (I / II / III):** Common 1 / 2 / 3, Powerful 2 / 3 / 4; gilded (a free built-in "
-         "on gilded gear) one more each. **Multiple** = can roll in more than one slot of the same item. **Mobs** = "
-         "enchanted mobs can roll it. **Short line** = what an item card shows under the item for a built-in copy.", ""]
-    head = ["Icon", "Name", "Description", "Tier text", "I", "II", "III", "Rarity (points)", "Mobs", "Multiple",
+         "on gilded gear) one more each. **Repeats** = can roll in more than one slot of the same item (the game's own "
+         "repeats, plus the mod's stacking builds; utility picks roll once per item so items don't fill up with "
+         "repeats). Copies of most enchantments add up however they come - built in, gilded, bonus or picked; "
+         "see **Stacks**. **Mobs** = "
+         "enchanted mobs can roll it. **Stacks** = whether two copies on one item add up (tested in game by the user, "
+         "2026-10; the new enchantments by how they are built; ? = not tried). **Short line** = what an item card "
+         "shows under the item for a built-in copy.", ""]
+    head = ["Icon", "Name", "Description", "Tier text", "I", "II", "III", "Rarity (points)", "Mobs", "Stacks", "Repeats",
             "Built into", "Short line", "What changed"]
 
     # our new enchantments first
@@ -226,7 +238,7 @@ def main():
         art = ART / f"T_{n['id']}_Icon.png"
         icon = img(f"New_{n['name'].replace(' ', '_')}.png" if art.exists() else icon_file(w), n["name"])
         rows.append([icon, f"**{n['name']}**<br>({n['gear']})", cell(descs.get(base, ("whole", ""))[1]), n["tier_text"],
-                     *n["tiers"], rarity(base, w["rarity"]), NO, YES if (base in multi or w["multiple"] == YES) else NO,
+                     *n["tiers"], rarity(base, w["rarity"]), NO, stacks.get(base, "?"), YES if base in multi else NO,
                      built_cell(base), NEW_LINES[base], NEW_CHANGED[base]])
     L += cs.table(head, rows)
 
@@ -240,10 +252,11 @@ def main():
             how, extra = descs.get(w["name"], ("add", ""))
             desc = extra if how == "whole" else " ".join(filter(None, [w["description"][0] if w["description"] else "", extra]))
             mob = NO if w["name"] in mob_off else YES if (w["name"] in mob_on or w["mobs"] == YES) else NO
-            many = YES if (w["multiple"] == YES or w["name"] in multi) else NO
+            many = YES if w["name"] in multi else NO
             tiers = [t or "-" for t in (tiers or w["tiers"])]
             rows.append([img(icon_file(w), w["name"]), w["name"], cell(desc), cell(w["tier_text"]) or "-", *tiers,
-                         rarity(w["name"], w["rarity"]).replace("Unknown", "-"), mob, many, built_cell(w["name"]),
+                         rarity(w["name"], w["rarity"]).replace("Unknown", "-"), mob, stacks.get(w["name"], "?"), many,
+                         built_cell(w["name"]),
                          cell(w["gilded"]) or "-", changed])
         title = {"Exclusive": "Unique-only (built into one item, never rolled)"}.get(section, section)
         L += [f"## {title}", ""] + cs.table(head, rows)

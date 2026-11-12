@@ -492,6 +492,29 @@ UCLASS(Blueprintable)
 class DUNGEONS_API UFireAspect : public UEnchantment
 {
 	GENERATED_BODY()
+
+public:
+	// the game's BP_FireAspect sets Effect (its burn); ours (build_enchants.py, 2026-11-12) keeps it - arrows burn too
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) TSubclassOf<UGameplayEffect> Effect;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float MobDamagePerSecond = 100.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float damagePerSecond = 30.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float fireDuration = 3.0f;
+};
+/** Shock Web (ranged): beams between the last charged arrows hurt mobs that touch them. Ours (build_enchants.py,
+ *  2026-11-12) adds a share of max health and an Overload charge; the game's BP_ShockWeb sets ActorToSpawn (its node
+ *  actor) and DeniedProjectiles - ours keeps them. */
+UCLASS(Blueprintable)
+class DUNGEONS_API UShockWeb : public UEnchantment
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) TSubclassOf<AActor> ActorToSpawn;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) TArray<TSubclassOf<AActor>> DeniedProjectiles;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float Range = 2400.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float damagePerSecond = 37.5f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float Period = 0.25f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) float Duration = 20.0f;
 };
 UCLASS(Blueprintable)
 class DUNGEONS_API UBurning : public UIntervalExecutionEnchantment

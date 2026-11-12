@@ -58,6 +58,8 @@ WATCHED = {
     "BP_LevitationShot_C": ("Relentless", ["Hits", "ArrowHits"]),
     "BP_levitationShot_C": ("Relentless", ["Hits", "ArrowHits"]),   # our package's spelling
     "BP_Electrified_C": ("Electrified", ["Seen", "Bonuses", "LastBonus"]),
+    "BP_ShockWeb_C": ("Shock Web", ["Seen", "Bonuses", "LastBonus"]),
+    "BP_FireAspect_C": ("Fire Aspect", ["Looks", "Seen", "Bonuses"]),
     "BP_FoodReserves_C": ("Bottomless Brew", ["Charges", "Recharge", "BaseLeft"]),
     "BP_SequelStatusWatcher_C": ("Fire / poison watcher", ["Ticks", "LastFire", "LastPoison", "Hurt", "LastHurt"]),
 }
@@ -73,7 +75,8 @@ LABELS_FOR = {("Bottomless Brew", "Charges"): "extras ready", ("Bottomless Brew"
               ("Overload", "LastBonus"): "last discharge", ("Overload", "ArrowHits"): "arrow hits", ("Battle Hardened", "Hits"): "your hits",
               ("Battle Hardened", "Stacks"): "stacks", ("Battle Hardened", "Heals"): "boosted heals",
               ("Battle Hardened", "LastBonus"): "last extra heal", ("Electrified", "Seen"): "mobs zapped",
-              ("Electrified", "Bonuses"): "extras", ("Electrified", "LastBonus"): "last extra",
+              ("Electrified", "Bonuses"): "extras", ("Electrified", "LastBonus"): "last extra", ("Shock Web", "Seen"): "beam zaps", ("Shock Web", "Bonuses"): "extras",
+              ("Shock Web", "LastBonus"): "last extra", ("Fire Aspect", "Seen"): "arrow hits", ("Fire Aspect", "Bonuses"): "set on fire",
 ("Shadowcloak", "Kills"): "your kills", ("Shadowcloak", "Extra"): "Shadow Forms",
               ("Rampaging", "Kills"): "your kills", ("Rampaging", "Extra"): "boosts", ("Rampaging", "LastBonus"): "last boost (s)",
               ("Refreshment (ranged)", "Kills"): "your kills", ("Refreshment (ranged)", "Extra"): "cuts",

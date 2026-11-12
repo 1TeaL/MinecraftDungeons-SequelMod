@@ -70,9 +70,11 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
   arrows, Shockwave) keeps the game's own flat damage; the share does the work. Every enchantment is at least a good
   pick except the farming ones (Looting, Prospector, Luck of the Sea, Surprise Gift) and the movement ones.
 
-- **Stacking builds.** 39 enchantments that add up when an item has them more than once (Critical Hit, Swirling,
-  Infinity, Protection, the Focuses and more) can roll in more than one slot. The ones that don't add up say so in
-  their description.
+- **Stacking builds.** Copies of most enchantments add up when an item has them more than once (built in, gilded,
+  bonus or picked). 27 of them, the ones whose stacking makes a build (Critical Hit, Committed, the damage procs,
+  Protection, the Focuses, the max-health enchantments and more), can also roll in more than one slot, besides the
+  game's own (Sharpness, Leeching...). Utility picks roll once per item so items don't fill up with repeats. The
+  ones whose copies don't add up say so in their description.
 - **Kill credit: on-kill enchantments count every kill that is yours.** In the base game they only see a mob your
   weapon finished, so fire, poison, lightning, Shockwave, Swirling, explosions and artifacts "stole" the kill and the
   on-kill enchantment did nothing. Now a mob counts as your kill when it dies within 5 seconds of your hit, your arrow,

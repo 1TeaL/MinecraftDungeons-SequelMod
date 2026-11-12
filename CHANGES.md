@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-11-09 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-11-12 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -54,7 +54,6 @@ Every enchantment with its icon, tiers, rarity and what changed, laid out like t
 | Radiance Shot | Heal Chance | 0.5 | 1 |
 | Refreshment | Cooldown Reduction Base | 1 | 3 |
 | Refreshment | Cooldown Reduction Per Level | 1 | 3 |
-| Shock Web | Damage Per Second | 37.5 | 75 |
 
 ### Armor
 
@@ -146,7 +145,7 @@ A built-in copy plus a chosen one, or the same pick in more than one slot. Tried
 | Adds up in part | Rampaging (the boost lasts longer in total); Dynamo (stacks build faster, the cap of 20 stays); Multishot (the chance goes up); Ricochet (the chance goes up; an arrow still bounces twice at most); Radiance (extra copies heal at about half strength); Growing (only partly: a second tier 3 adds, mixed tiers don't seem to); Accelerate (every copy adds its speed per shot, so the stacks fill sooner) |
 | No gain | Poison Cloud (procs several times, no extra damage); Exploding (one explosion per kill); Thorns (one discharge per hit); Echo (shows several procs, one extra hit); Punch; Artifact Synergy; Tempo Theft; Void Strike; Gravity; Piercing (counts every few arrows, so copies change nothing); Pain Cycle (worse: the stacks build faster and overshoot the fifth hit); Weakening; Rapid Fire; Overcharge; Chilling (the aura's slow is the same); Potion Barrier (still the same duration); Swiftfooted; Speed Synergy (several procs, same speed); Health Synergy; Guarding Strike (same duration, same damage reduction); Freezing (procs again, the slow gets no stronger); Final Shout; Cowardice; Rush (a buff); Frenzied (a buff); Soul Speed (a buff) |
 
-These can also roll in more than one slot of the same item (base game: only Sharpness, Smiting, Fire Aspect, Leeching, Rampaging, Radiance, Chains, Looting, Prospector, Cool Down, Thorns and Knockback): Ambush, Anima Conduit, Barrier, Bonus Shot, Burning, Busy Bee, Chain Reaction, Committed, Cooldown Shot, Critical Hit, Electrified, Enigma Resonator, Fire Focus, Fire Trail, Fuse Shot, Heals Allies, Illager's Bane, Infinity, Knockback, Levitation Shot, Lightning Focus, Lucky Explorer, Poison Focus, Protection, Radiance Shot, Reckless, Refreshment, Rushdown, Shock Web, Shockwave, Snowball, Soul Focus, Soul Siphon, Supercharge, Swirling, Thrive Under Pressure, Thundering, Unchanting, Wild Rage.
+These can also roll in more than one slot of the same item (base game: only Sharpness, Smiting, Fire Aspect, Leeching, Rampaging, Radiance, Chains, Looting, Prospector, Cool Down, Thorns and Knockback): Barrier, Bonus Shot, Burning, Chain Reaction, Committed, Critical Hit, Electrified, Enigma Resonator, Fire Focus, Fire Trail, Fuse Shot, Heals Allies, Knockback, Levitation Shot, Lightning Focus, Lucky Explorer, Poison Focus, Protection, Reckless, Shock Web, Shockwave, Soul Focus, Supercharge, Swirling, Thrive Under Pressure, Thundering.
 
 ## 2. Weapons
 
@@ -569,7 +568,7 @@ Different boss missions to clear on the level in the first column.
 
 ### Rewards above the gear cap
 
-- Bonus built-in enchantments: from power 316, every 4 power adds one tier - first the item's own built-ins rise to tier 3, then bonus enchantments from its list below, each up to tier 3. An item gets as many bonuses as bring it to 4 enchantments beyond its family's plain item: three for a unique with one enchantment of its own, two for one with two (a plain item gets three). At power 365 everything is tier 3 and weapons get one more: Unchanting for every melee weapon, the next name of its list for the others.
+- Bonus built-in enchantments: from power 316, every 4 power adds one tier - first the item's own built-ins rise to tier 3, then bonus enchantments from its list below, each up to tier 3. An item gets as many bonuses as bring it to 4 enchantments beyond its family's plain item: three for a unique with one enchantment of its own, two for one with two (a plain item gets three). At power 365 everything is tier 3 and weapons get one more: Unchanting for every melee weapon, Unchanting for every ranged weapon, the next name of its list for the others.
 - An item type's bonuses follow its best copy; weaker copies of the same item get them too.
 - Enchantments the item already has are skipped, unless the list says second copy; the last entry of a list is a spare for that.
 - Past power 365: every 5 power adds one tier of Sharpness (melee), Power (ranged), Protection (armor) as new lines under the other enchantments (I, II, III, then another line). Drops at power 365 or more come in 1-3 above your power level, so the number keeps climbing.
@@ -583,54 +582,62 @@ Different boss missions to clear on the level in the first column.
 
 | Item or family | In this order |
 |---|---|
-| Anchor | Shockwave, Stunning, Committed, Critical Hit, Sharpness |
+| Anchor | Shockwave, Critical Hit, Stunning, Committed, Sharpness |
 | Axe | Swirling, Critical Hit, Committed, Sharpness, Shockwave |
 | Backstabber | Ambush (second copy), Rushdown, Critical Hit, Leeching, Committed, Sharpness |
-| Battlestaff | Stunning, Shockwave, Committed, Swirling, Critical Hit |
+| Battlestaff | Stunning, Swirling, Committed, Shockwave, Critical Hit |
 | Battlestaff of Terror | Leeching, Committed, Critical Hit, Rampaging, Shockwave |
 | Boneclub | Committed, Shockwave, Critical Hit, Sharpness, Stunning |
-| Bonehead Hammer | Shockwave, Stunning, Committed, Critical Hit, Sharpness |
+| Bonehead Hammer | Shockwave, Stunning, Knockback, Committed, Critical Hit |
+| Broadsword | Fire Aspect, Lucky Explorer, Knockback, Committed, Critical Hit |
 | Broken Sawblade | Chains, Committed, Critical Hit, Thundering, Sharpness |
 | Cackling Broom | Shockwave, Stunning, Committed, Critical Hit, Sharpness |
 | Chill Gale knife | Thrive Under Pressure, Critical Hit, Leeching, Committed, Rampaging, Thundering |
 | Claymore | Knockback, Shockwave, Swirling, Committed, Sharpness, Critical Hit |
-| Coral Blade | Rampaging, Leeching, Critical Hit, Committed, Thundering |
-| Cursed Axe | Leeching, Rampaging, Critical Hit, Committed, Swirling |
+| Coral Blade | Rampaging, Leeching, Committed, Critical Hit, Thundering |
+| Cursed Axe | Leeching, Rampaging, Knockback, Critical Hit, Committed |
 | Cutlass | Rampaging, Critical Hit, Leeching, Committed, Thundering |
 | Daggers | Thundering, Critical Hit, Committed, Stunning, Leeching |
 | Dancer's Sword | Rampaging (second copy), Critical Hit, Leeching, Committed, Thundering |
+| Diamond Sword | Critical Hit, Swirling, Knockback, Committed, Sharpness |
 | Double Axe | Swirling, Shockwave, Critical Hit, Committed, Sharpness |
+| Encrusted Anchor | Shockwave, Stunning, Heals Allies, Critical Hit, Committed |
 | Fangs of Frost | Thrive Under Pressure, Critical Hit, Committed, Stunning, Leeching, Thundering |
 | Firebrand | Lucky Explorer, Fire Aspect (second copy), Void Strike, Committed, Critical Hit, Sharpness |
+| Freezing Foil | Thrive Under Pressure, Critical Hit, Levitation Shot, Leeching, Committed |
 | Frost Slayer | Thrive Under Pressure, Sharpness, Committed, Critical Hit, Stunning, Smiting |
-| Gauntlets | Rampaging, Leeching, Critical Hit, Committed, Thundering |
+| Gauntlets | Rampaging, Thundering, Leeching, Critical Hit, Committed |
 | Glaive | Knockback, Swirling, Sharpness, Committed, Critical Hit, Shockwave |
+| Great Axeblade | Knockback, Shockwave, Committed, Swirling, Critical Hit |
 | Great Hammer | Shockwave, Stunning, Committed, Critical Hit, Sharpness |
 | Heartstealer | Leeching (second copy), Committed, Critical Hit, Shockwave, Swirling |
-| Katana | Smiting, Sharpness, Committed, Critical Hit, Leeching |
+| Katana | Critical Hit, Sharpness, Committed, Leeching, Smiting |
 | Mace | Stunning, Committed, Critical Hit, Shockwave, Sharpness |
-| Maulers | Rampaging (second copy), Leeching, Critical Hit, Committed, Thundering |
+| Master's Katana | Sharpness, Committed, Levitation Shot, Critical Hit, Leeching |
+| Maulers | Rampaging (second copy), Leeching, Thundering, Critical Hit, Committed |
 | Moon Daggers | Soul Siphon, Anima Conduit, Critical Hit, Committed, Thundering |
 | Nightmare's Bite | Heals Allies, Thundering, Critical Hit, Stunning, Chains, Committed |
 | Obsidian Claymore | Void Strike, Committed, Critical Hit, Sharpness, Shockwave |
 | Pickaxe | Prospector, Committed, Critical Hit, Sharpness, Swirling |
-| Rapier | Rampaging, Leeching, Critical Hit, Committed, Thundering |
+| Rapier | Levitation Shot, Critical Hit, Leeching, Rampaging, Committed |
 | Sickles | Thundering, Critical Hit, Stunning, Committed, Leeching |
 | Sinister Sword | Rampaging, Critical Hit, Sharpness, Committed, Swirling |
 | Skull Scythe | Swirling, Sharpness, Committed, Critical Hit, Thundering |
-| Soul Fists | Soul Siphon, Anima Conduit, Critical Hit, Committed, Leeching |
+| Soul Fists | Soul Siphon, Anima Conduit, Committed, Critical Hit, Leeching |
 | Soul Knife | Soul Siphon, Anima Conduit, Enigma Resonator, Committed, Critical Hit |
 | Soul Scythe | Soul Siphon, Enigma Resonator, Chains, Committed, Critical Hit |
-| Sparkler | Thundering, Critical Hit, Committed, Chains, Leeching |
-| Spear | Sharpness, Knockback, Swirling, Committed, Critical Hit, Shockwave |
+| Sparkler | Thorns, Critical Hit, Committed, Thundering, Leeching |
+| Spear | Sharpness, Knockback, Committed, Swirling, Critical Hit, Shockwave |
 | Spine-Chill Spear | Rushdown, Committed, Critical Hit, Sharpness, Swirling, Shockwave |
 | Stormlander | Thundering (second copy), Thorns, Void Strike, Committed, Critical Hit, Shockwave |
 | Sun's Grace | Radiance (second copy), Stunning, Committed, Critical Hit, Shockwave |
 | Sword | Sharpness, Critical Hit, Swirling, Committed, Shockwave |
-| Tempest knife | Rampaging, Leeching, Critical Hit, Committed, Thundering |
+| Tempest knife | Rampaging, Ambush, Critical Hit, Leeching, Committed |
 | The Last Laugh | Leeching, Rampaging, Critical Hit, Committed, Thundering |
+| The Monkey Motivator | Prospector, Critical Hit, Leeching, Committed, Sharpness |
 | Venom glaive | Heals Allies, Void Strike, Committed, Critical Hit, Stunning, Swirling |
-| Void Touched Blades | Critical Hit, Leeching, Rampaging, Committed, Thundering |
+| Vine Whip | Chains, Swirling, Heals Allies, Committed, Critical Hit |
+| Void Touched Blades | Critical Hit, Committed, Levitation Shot, Leeching, Rampaging |
 | Whip | Chains, Swirling, Committed, Critical Hit, Shockwave |
 | Whirlwind | Shockwave (second copy), Swirling, Critical Hit, Committed, Sharpness |
 
@@ -638,38 +645,52 @@ Different boss missions to clear on the level in the first column.
 
 | Item or family | In this order |
 |---|---|
+| Ancient Bow | Power, Supercharge, Chain Reaction, Infinity, Bonus Shot |
+| Auto Crossbow | Infinity, Chain Reaction, Levitation Shot, Multishot, Power |
+| Azure Seeker | Power, Bonus Shot, Chain Reaction, Infinity, Multishot |
+| Baby Crossbows | Multishot, Infinity, Ricochet, Chain Reaction, Power |
 | Bow | Power, Multishot, Infinity, Ricochet, Bonus Shot |
+| Bow of Lost Souls | Soul Siphon, Enigma Resonator, Chain Reaction, Anima Conduit, Infinity |
 | Bubble Bow | Multishot, Chain Reaction, Infinity, Ricochet, Bonus Shot |
 | Burst Crossbow | Chain Reaction, Infinity, Power, Bonus Shot, Multishot |
 | Cog Crossbow | Power, Infinity, Ricochet, Bonus Shot, Supercharge |
 | Crossbow | Power, Infinity, Bonus Shot, Accelerate, Multishot |
-| Dual Crossbows | Multishot, Chain Reaction, Infinity, Ricochet, Bonus Shot |
+| Dual Crossbows | Multishot, Ricochet, Levitation Shot, Infinity, Chain Reaction |
 | Exploding Crossbow | Chain Reaction, Fuse Shot, Infinity, Multishot, Power, Bonus Shot |
+| Feral Soul Crossbow | Soul Siphon, Anima Conduit, Power, Infinity, Multishot |
+| Firebolt Thrower | Fire Aspect, Lucky Explorer, Multishot, Infinity, Power |
 | Gloopy Bow | Multishot, Infinity, Ricochet, Fuse Shot, Chain Reaction |
-| Harpoon Crossbow | Power, Infinity, Supercharge, Bonus Shot, Ricochet |
+| Guardian Bow | Shock Web, Thorns, Power, Infinity, Bonus Shot |
+| Harpoon Crossbow | Power, Bonus Shot, Ricochet, Infinity, Supercharge |
 | Haunted Bow | Chain Reaction, Multishot, Infinity, Power, Bonus Shot |
-| Heavy Crossbow | Infinity, Power, Bonus Shot, Ricochet, Supercharge |
+| Heavy Crossbow | Power, Supercharge, Fuse Shot, Infinity, Bonus Shot |
 | Hunting Bow | Power, Supercharge, Dynamo, Infinity, Bonus Shot |
+| Lightning Harp Crossbow | Chain Reaction, Multishot, Thorns, Infinity, Bonus Shot |
 | Longbow | Supercharge, Power, Infinity, Bonus Shot, Multishot |
+| Love Spell Bow | Accelerate, Infinity, Bonus Shot, Multishot, Power |
 | Phantom Bow | Rushdown, Power, Infinity, Unchanting, Bonus Shot, Multishot |
-| Power Bow | Infinity, Supercharge, Power, Bonus Shot, Multishot |
+| Power Bow | Power, Supercharge, Unchanting, Infinity, Bonus Shot |
+| Purple Storm | Accelerate, Infinity, Levitation Shot, Multishot, Bonus Shot |
 | Rapid Crossbow | Accelerate, Infinity, Chain Reaction, Multishot, Bonus Shot |
-| Scatter Crossbow | Chain Reaction, Multishot, Ricochet, Infinity, Bonus Shot |
-| Shadow Crossbow | Rushdown, Unchanting, Bonus Shot, Infinity, Multishot, Power |
+| Scatter Crossbow | Chain Reaction, Multishot, Fuse Shot, Ricochet, Infinity |
+| Shadow Crossbow | Rushdown, Chain Reaction, Infinity, Unchanting, Bonus Shot, Power |
 | Shivering Bow | Enigma Resonator, Multishot, Infinity, Ricochet, Bonus Shot |
 | Shortbow | Accelerate, Infinity, Multishot, Bonus Shot, Chain Reaction |
 | Shrieking Crossbow | Rushdown, Unchanting, Bonus Shot, Infinity, Multishot, Power |
-| Snow Bow | Multishot, Ricochet, Power, Infinity, Bonus Shot |
+| Snow Bow | Thrive Under Pressure, Multishot, Ricochet, Power, Infinity |
 | Soul Bow | Soul Siphon, Anima Conduit, Multishot, Enigma Resonator, Infinity |
 | Soul Crossbow | Soul Siphon, Anima Conduit, Enigma Resonator, Multishot, Infinity |
 | Soul Hunter Crossbow | Soul Siphon, Anima Conduit, Infinity, Power, Bonus Shot |
-| Spider Crossbow | Chain Reaction, Multishot, Ricochet, Infinity, Bonus Shot |
+| Spider Crossbow | Chain Reaction, Ricochet, Power, Multishot, Infinity |
 | Sugar Rush | Power, Supercharge, Bonus Shot, Infinity, Fuse Shot |
+| The Green Menace | Chain Reaction, Multishot, Heals Allies, Ricochet, Infinity |
 | Trickbow | Chain Reaction, Multishot, Ricochet, Infinity, Bonus Shot |
-| Twisting Vine Bow | Infinity, Multishot, Chain Reaction, Ricochet, Bonus Shot |
+| Twin Bow | Power, Infinity, Fuse Shot, Multishot, Ricochet |
+| Twisting Vine Bow | Infinity, Multishot, Wild Rage, Chain Reaction, Ricochet |
 | Void Bow | Fuse Shot, Ricochet, Multishot, Chain Reaction, Infinity |
-| Webbed Bow | Supercharge, Infinity, Multishot, Ricochet, Chain Reaction |
+| Webbed Bow | Thorns, Supercharge, Infinity, Multishot, Ricochet |
 | Wind Bow | Supercharge, Ricochet, Multishot, Infinity, Bonus Shot |
+| Winter's Touch | Thrive Under Pressure, Ricochet, Power, Multishot, Infinity |
 
 ### Bonus enchantments: armor
 
@@ -679,6 +700,8 @@ Different boss missions to clear on the level in the first column.
 | Arctic Fox Armor | Roll Charge, Recycler, Burst Bowstring, Protection |
 | Battle Robe | Cool Down, Lightning Focus, Electrified, Thorns, Protection |
 | Beenest Armor | Tumble Bee, Beast Boss, Beast Burst, Protection |
+| Black Spot Armor | Cool Down, Regeneration, Explorer, Protection |
+| Black Wolf Armor | Beast Boss, Beast Surge, Protection, Beast Burst |
 | Cauldron Armor | Lucky Explorer, Barrier, Protection, Cool Down, Electrified |
 | Champions Armor | Protection, Food Reserves, Regeneration, Cool Down, Explorer |
 | Climbing Gear | Cool Down, Protection, Snowball, Potion Barrier |
@@ -689,21 +712,22 @@ Different boss missions to clear on the level in the first column.
 | Entertainer's Garb | Cool Down, Surprise Gift, Protection, Potion Barrier |
 | Evocation Robe | Cool Down, Fire Focus, Lucky Explorer, Burning, Protection |
 | Ghostly Armor | Acrobat, Fire Trail, Multi-Roll, Protection |
-| Grim Armor | Soul Focus, Gravity Pulse, Bag Of Souls, Protection, Cool Down |
-| Guard's Armor | Bows Boon, Roll Charge, Burst Bowstring, Protection |
+| Goat Gear | Acrobat, Cool Down, Protection, Snowball |
+| Grim Armor | Soul Focus, Gravity Pulse, Protection, Bag Of Souls, Cool Down |
+| Guard's Armor | Bows Boon, Roll Charge, Protection, Burst Bowstring |
 | Hungriest Horror | Shielding, Acrobat, Death Barter, Electrified, Protection |
 | Hungry Horror | Protection, Cool Down, Deflect, Burning |
 | Hunter's Armor | Bows Boon, Roll Charge, Burst Bowstring, Protection |
 | Living Vines Armor | Heals Allies, Acrobat, Multi-Roll, Protection, Cool Down |
 | Mercenary Armor | Protection, Fire Trail, Barrier, Cool Down, Shielding |
-| Ocelot Armor | Acrobat, Electrified, Protection, Cool Down |
+| Ocelot Armor | Acrobat, Levitation Shot, Protection, Electrified, Cool Down |
 | Phantom Armor | Burst Bowstring, Recycler, Cool Down, Protection |
 | Piglin Armor | Cool Down, Fire Trail, Protection, Potion Barrier |
 | Plate Armor | Barrier, Protection, Cool Down, Burning, Shielding |
 | Reinforced Mail | Protection, Explorer, Cool Down, Snowball, Regeneration |
 | Root Rot Armor | Food Reserves, Explorer, Cool Down, Protection, Potion Barrier |
 | Scale Mail | Protection, Cool Down, Electrified, Potion Barrier |
-| Shulker Armor | Potion Barrier, Deflect, Protection, Cool Down |
+| Shulker Armor | Cool Down, Shielding, Protection, Potion Barrier |
 | Snow Armor | Snowball, Thrive Under Pressure, Protection, Potion Barrier, Cool Down |
 | Soul Robe | Soul Focus, Gravity Pulse, Bag Of Souls, Protection, Cool Down |
 | Spelunker Armor | Beast Boss, Beast Surge, Cool Down, Protection |
@@ -714,6 +738,7 @@ Different boss missions to clear on the level in the first column.
 | The Spooky Gourdian | Shielding, Cool Down, Protection, Potion Barrier, Snowball |
 | Thief Armor | Acrobat, Protection, Electrified, Cool Down |
 | Turtle Armor | Protection, Regeneration, Cool Down, Snowball, Barrier |
+| Verdant Robe | Cool Down, Soul Focus, Protection, Gravity Pulse |
 | Wolf Armor | Beast Boss, Beast Surge, Beast Burst, Protection |
 
 ### Extra armor perks above the gear cap
@@ -833,6 +858,7 @@ The descriptions of 34 enchantments whose copies don't add up end with "Copies s
 | Enchantment/Exploding_desc | Mobs explode after they are defeated. | Mobs you defeat explode at once. Mobs the blast defeats explode too. |
 | Enchantment/Rampaging_desc | After defeating a mob, there is a {0} chance to increase your attack speed by {1} for a short time. | Defeating a mob increases your attack speed by 50% for a short time. |
 | Enchantment/Thundering_desc | Has a {0} chance to summon a lightning strike that damages nearby enemies. | Every hit summons a lightning strike that damages nearby mobs and takes 1 / 2 / 3% of their max health. |
+| Enchantment/ShockWeb_desc | Beams of lightning connect the last few charged arrows fired, which deal lightning damage to enemies who touch a beam. | Beams of lightning connect the last few charged arrows fired. Mobs that touch a beam take lightning damage, lose 1 / 2 / 3% of their max health and are charged for Overload. |
 | Enchantment/Electrified_desc | Rolling zaps {0} nearby enemies with lightning bolts, dealing damage. | Rolling zaps {0} nearby mobs with lightning bolts, dealing damage and 4 / 6 / 8% of their max health. |
 | Enchantment/LightningFocus_desc | The lightning damage you deal is increased. | All lightning damage you deal is increased: lightning artifacts, Thundering, Electrified and Overload. |
 | Enchantment/Thorns | Thorns | Overload |
@@ -866,7 +892,7 @@ The descriptions of 34 enchantments whose copies don't add up end with "Copies s
 | Enchantment/ThriveUnderPressure | Thrive Under Pressure | Shatter |
 | Enchantment/ThriveUnderPressure_desc | Take 50% less damage when closely surrounded by at least 4 mobs. | Attacks on a chilled or frozen mob deal bonus damage. |
 | Enchantment/ThriveUnderPressure_effect | THRIVEUNDERPRESSURE_EFFECT | {0} more damage to chilled mobs |
-| Enchantment/Fire_desc | Sets mobs on fire for {0}, dealing damage over time. | Sets mobs on fire for {0}, dealing damage over time. Burning mobs lose 3% / 4% / 5% of their max health every second. |
+| Enchantment/Fire_desc | Sets mobs on fire for {0}, dealing damage over time. | Your hits and arrows set mobs on fire for {0}, dealing damage over time. Burning mobs lose 3% / 4% / 5% of their max health every second. |
 | Enchantment/Burning_desc | Every {0} damages all nearby enemies. | Every {0} damages all nearby enemies. Burning mobs lose 3% / 4% / 5% of their max health every second. |
 | Enchantment/FireTrail_desc | Rolling creates a trail of fire behind you, which deals damage to mobs for {0}. | Rolling creates a trail of fire behind you, which deals damage to mobs for {0}. Burning mobs lose 3% / 4% / 5% of their max health every second. |
 | Enchantment/Poisoned_desc | Has a {0} chance to summon a poison cloud that deals damage to enemies in an area for {1}. | Has a {0} chance to summon a poison cloud that deals damage to enemies in an area for {1}. Poisoned mobs lose 5% / 7.5% / 10% of their max health every second. |

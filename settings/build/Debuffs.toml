@@ -1,0 +1,86 @@
+# The debuffer enchantments' numbers (unreal/Scripts/build_enchants.py; user, 2026-11-07). Built into the blueprints:
+# after a change, rebuild (python tools/blueprints.py build_transmog, then python tools/sequel.py build).
+# Shares are of the mob's max health unless said otherwise; "base + per_tier x tier" for tier I / II / III.
+
+[debuffs]
+# Ignite (Lucky Explorer's slot): a hit on a burning mob deals this much extra; mobs around it catch fire
+ignite_base = 0.02
+ignite_per_tier = 0.01        # 3 / 4 / 5%
+spread_radius = 300.0         # 3 blocks around the mob hit
+spread_seconds = 3.0          # how long the spread fire lasts
+# Venom Siphon (Heals Allies' slot): a hit on a poisoned mob deals this much extra; you heal drain_heal of the
+# damage you deal to it (the hit and the extra)
+drain_base = 0.02
+drain_per_tier = 0.01         # 3 / 4 / 5%
+drain_heal = 0.1              # 10%
+bonus_gap = 0.5               # Ignite's / Venom Siphon's extra: at most once every this many seconds per mob
+# Shatter (Charging Acceleration's slot): a hit on a chilled or frozen mob deals this much more of the hit
+shatter_base = 0.5
+shatter_per_tier = 0.5        # +100 / 150 / 200% = x2 / x2.5 / x3
+# Burning and poisoned mobs anywhere, while a player wears a fire / poison enchantment (best tier counts), lose this much of
+# their max health every status_every seconds - whatever set them on fire or poisoned them
+status_base = 0.025
+status_per_tier = 0.025       # poison: 5 / 7.5 / 10% per second
+fire_base = 0.02
+fire_per_tier = 0.01          # fire: 3 / 4 / 5% per second (user, 2026-11-09: the game's own fire damage stacks with
+                              # every hit, poison's doesn't - fire was the stronger of the two)
+status_every = 1.0
+status_range = 10000000.0     # anywhere in the mission (user, 2026-11-09; was 20 blocks around the player)
+# Bosses (mobs with the big health bar at the top) take this share of every max-health amount above
+boss_share = 0.4              # 5% -> 2% (user)
+# Kill credit (user, 2026-11-07: on-kill enchantments should work with proc builds). A mob counts as YOUR kill when
+# it dies within kill_window seconds of being marked as yours: you hit it with your weapon, it stood within
+# kill_area of a mob you hit then (Shockwave, Swirling, Sweeping Edge, lightning land there), or it is burning or
+# poisoned within kill_near of you. Our Leeching and Refreshment (melee) use it; the game's own are switched off.
+kill_window = 5.0
+kill_area = 500.0             # 5 blocks around the mob you hit
+kill_near = 800.0             # 8 blocks around you, for burning / poisoned mobs
+kill_close = 300.0
+artifact_reach = 1200.0       # after you use an artifact: the hostile mobs within 12 blocks are noted...
+artifact_window = 5.0         # ...and for 5 s each one that loses health counts as hit by you (user, 2026-11-08)            # 3 blocks around you, any mob (Thorns and other damage right around you)
+leech_base = 0.03
+leech_per_tier = 0.01         # heals 4 / 5 / 6% of the killed mob's max health (user, 2026-11-08: trimmed from the game's
+                              # 5 / 7 / 9% - kill credit makes far more kills count)
+refresh_base = 1.0
+refresh_per_tier = 1.0        # cuts 1 / 2 / 3 s off the health potion's cooldown (the game's numbers)
+refresh_ranged_base = 2.0
+refresh_ranged_per_tier = 2.0 # ranged Refreshment: 2 / 4 / 6 s (user, 2026-11-08: was 3 / 6 / 9 before arrow kills counted)
+arrow_mark = 400.0            # mobs within 4 blocks of your flying arrows count as hit by you (kill credit)
+# Lightning (user, 2026-11-08): a share of max health like fire and poison, boosted by Lightning Focus (+ its
+# DamageIncreasePerLevel per tier, SequelMod.toml); bosses boss_share of it
+thunder_base = 0.0
+thunder_per_tier = 0.01       # Thundering: the mobs its strike reaches take 1 / 2 / 3% per strike, every hit - attack speed
+                              # scales it, hence the low numbers (user, 2026-11-09; was 2.5 / 3.75 / 5% at most every 0.5 s)
+thunder_gap = 0.1             # a mob takes it at most once per 0.1 s: one swing hitting several mobs makes several strikes
+                              # that overlap - they count once, any real attack speed still counts in full
+shockweb_base = 0.0
+shockweb_per_tier = 0.01      # Shock Web: a mob its beams hurt takes 1 / 2 / 3% and is charged for Overload (user, 2026-11-12)
+shockweb_gap = 0.5            # at most once every 0.5 s per mob (a beam hurts 4 times a second): 2 / 4 / 6% a second at most
+electrify_base = 0.02
+electrify_per_tier = 0.02     # Electrified: every mob its zap reaches takes 4 / 6 / 8%
+overload_base = 0.02
+overload_per_tier = 0.01      # Overload (Thorns' slot): a charged mob you hit (melee or arrow) and the mobs it arcs to
+                              # take 3 / 4 / 5% (each at most once every bonus_gap s; the arcs charge them too)
+overload_arcs_base = 2.0
+overload_arcs_per_tier = 1.0  # it arcs to 3 / 4 / 5 mobs
+overload_seconds = 4.0        # a charge lasts this long
+arc_radius = 500.0            # 5 blocks around the charged mob
+relentless_damage_base = 0.01
+relentless_damage_per_tier = 0.01   # Relentless (Levitation Shot's slot): every stack +2 / 3 / 4% melee and ranged damage
+relentless_speed_base = 0.01
+relentless_speed_per_tier = 0.01    # and the same attack speed; 10 stacks; copies add (user, 2026-11-08: equal amounts)
+relentless_seconds = 3.0      # the stacks last this long after your last hit
+arrow_touch = 150.0           # one of your arrows this close to a charged mob counts as an arrow hit (each arrow once)
+
+explode_base = 0.15
+explode_per_tier = 0.1        # Exploding: every kill of yours explodes at once for 15 / 25 / 35% of its max health; mobs
+                              # the blast kills explode too (user, 2026-11-08: was the game's 20 / 40 / 60% - chains clear packs)
+# Shockwave and Swirling scale with your weapon (user, 2026-11-07): on top of the game's own damage, every mob the
+# wave passes / the spin reaches takes this share of your last weapon hit. They fire on a combo's last attack only
+# (about every third swing), hence more than Sweeping Edge's 10 / 20 / 30% per hit.
+combo_base = 0.25
+combo_per_tier = 0.25         # 50 / 75 / 100% of your hit
+wave_reach = 250.0            # how close to the moving wave a mob must be (2.5 blocks; the wave moves ~1.9 blocks per look)
+# TEST: a readout at the top left of the screen - what the hit enchantments and the fire / poison watcher see and do
+# (user, 2026-11-07). Turn off for a release.
+debug = false
