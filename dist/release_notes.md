@@ -36,6 +36,10 @@ Had an earlier download (the 1.0 beta)? Extract the new zip over it. `Settings.t
 - **Separate from the Sequel Mod:** it's its own pak file and needs neither the Sequel Mod nor the launcher. Using both? Keep them from the same release: they share the small loader that starts the transmog and the super bosses. On its own: the [MCD Transmog, Loadouts and Reroll release](https://github.com/1TeaL/MinecraftDungeons-SequelMod/releases/tag/transmog-v1.0).
 - **To remove it:** delete `Dungeons\Content\Paks\~mods\MCDTransmog_P.pak` and its readme next to it. Your items go back to their own looks; the Sequel Mod keeps working.
 
+**Fixes**
+- The Dancer's Sword and the Sparkler missed the damage boost the rest of the Cutlass family got - they hit as hard as the Cutlass and Nameless Blade now.
+- Rushdown's burst on the Tempest Knives could hurt you; the knives carry Shadowcloak in that slot instead.
+
 **Good to know**
 - In multiplayer, everyone in the party needs the mod, started with `Play Sequel Mod.bat`.
 - Every change, item by item: `CHANGES.md` in the mod folder; every enchantment with its tiers: [ENCHANTMENTS.md](https://github.com/1TeaL/MinecraftDungeons-SequelMod/blob/main/ENCHANTMENTS.md). Item and enchantment names for the settings: `NAMES.md`.
