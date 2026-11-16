@@ -62,11 +62,11 @@
 "Enchantment/FoodReserves_effect" = "Extra health potion drinks"
 
 # Sponge Strike is reworked into Shadowcloak (our own BP_SpongeStrike, unreal/Scripts/build_enchants.py): a kill has
-# a 15 / 20 / 25% chance of Shadow Form (user, 2026-11-05; Dungeons II's name). The game has no tier-line text key for
+# a 10 / 15 / 20% chance of Shadow Form (user, 2026-11-16; 15 / 20 / 25% before; Dungeons II's name). The game has no tier-line text key for
 # Sponge Strike (only a key the game knows can be changed), so the numbers are in the description.
 # Originals: "Sponge Strike" / "Deals the damage taken, during combo, on last attack."
 "Enchantment/Rushdown" = "Shadowcloak"
-"Enchantment/Rushdown_desc" = "Defeating a mob has a chance to put you in Shadow Form: 15% / 20% / 25% at tier I / II / III."
+"Enchantment/Rushdown_desc" = "Defeating a mob has a chance to put you in Shadow Form: 10% / 15% / 20% at tier I / II / III. Kills while in Shadow Form don't count."   # user, 2026-11-16 (was 15 / 20 / 25%)
 # Shadowcloak's tier rows (Rushdown has no number the mod can set). Original: "200% movement speed"
 "Enchantment/Rushdown_effect" = "Chance of Shadow Form when you defeat a mob"
 

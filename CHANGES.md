@@ -1,6 +1,6 @@
 # Sequel Mod - every change
 
-Minecraft Dungeons, base game -> mod. Generated 2026-11-12 from the mod's own settings.
+Minecraft Dungeons, base game -> mod. Generated 2026-11-16 from the mod's own settings.
 
 Install (Steam version on Windows): unpack the mod's zip into the game folder (Steam: right-click Minecraft Dungeons > Manage > Browse local files) and start the game with "Play Sequel Mod.bat" there, keeping its window open. Nothing else to install. In multiplayer everyone needs the mod.
 
@@ -847,7 +847,7 @@ The descriptions of 34 enchantments whose copies don't add up end with "Copies s
 | Enchantment/FoodReserves_desc | Whenever you use a healing potion, you also create random food items. | Grants 1 / 2 / 3 extra health potion drinks at tier I / II / III. Each one comes back on its own after one potion cooldown. |
 | Enchantment/FoodReserves_effect | {0} items crafted | Extra health potion drinks |
 | Enchantment/Rushdown | Rushdown | Shadowcloak |
-| Enchantment/Rushdown_desc | Defeating a mob increases the players movement speed by 100% temporarily. | Defeating a mob has a chance to put you in Shadow Form: 15% / 20% / 25% at tier I / II / III. |
+| Enchantment/Rushdown_desc | Defeating a mob increases the players movement speed by 100% temporarily. | Defeating a mob has a chance to put you in Shadow Form: 10% / 15% / 20% at tier I / II / III. Kills while in Shadow Form don't count. |
 | Enchantment/Rushdown_effect | 200% movement speed | Chance of Shadow Form when you defeat a mob |
 | Enchantment/Knockback | Knockback | Sweeping Edge |
 | Enchantment/Knockback_desc | Every once in awhile, enemies will be knocked back after a melee attack. | Every melee hit sends out a shockwave that damages the mobs around the one you hit that your swing missed. |

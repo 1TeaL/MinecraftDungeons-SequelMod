@@ -516,7 +516,7 @@ def game_particle(path):
 
 
 # --- Sponge Strike -> Shadowcloak ----------------------------------------------------------------------------------
-# A kill by the wearer has a CLOAK_BASE + CLOAK_PER_TIER x tier chance (15 / 20 / 25%, user 2026-11-05) to put the
+# A kill by the wearer has a CLOAK_BASE + CLOAK_PER_TIER x tier chance (10 / 15 / 20%, user 2026-11-16) to put the
 # wearer in Shadow Form: the game's Backstabber's Brew effect, applied the way the game's Shadow Shot does it (its
 # code at exe+0xAB6460, read 2026-11-05): a spec of the effect at the enchantment's level with set-by-caller values
 # "Duration" (seconds; the effect's duration goes through StatusDurationModCalculation) and "Magnitude" (the next
@@ -540,7 +540,7 @@ for _old in ("/Game/Content_DLC5/Components/Enchantments/SpongeStrike/BP_SpongeS
     remove(_old)   # the old hosts go back to the game's own
 SHADOW_FORM = ("/Game/Actors/Items/Potions/BackstabbersBrew/BP_BackstabbersBrewGameplayEffect"
                ".BP_BackstabbersBrewGameplayEffect_C")
-CLOAK_BASE, CLOAK_PER_TIER = 0.10, 0.05   # 15 / 20 / 25%
+CLOAK_BASE, CLOAK_PER_TIER = 0.05, 0.05   # 10 / 15 / 20% (user, 2026-11-16: was 15 / 20 / 25%)
 CLOAK_SECONDS = 3.0                       # Shadow Shot's DurationMagnitude
 CLOAK_BOOST = 8.0                         # Shadow Shot's MeleePowerBoostAmount
 _GAS = "/Script/GameplayAbilities.AbilitySystemBlueprintLibrary"
@@ -2768,10 +2768,48 @@ check(_cdo.get_editor_property("ExplosionEffect") is not None and _cdo.get_edito
 # Before: the mission's kill count every WATCH_SECONDS, one roll for all the kills of a look (so a burst of kills
 # gave one try - 4 Shadow Forms in 36 kills) and every player's kills counted. Now: every kill credited to the wearer
 # rolls on its own (15 / 20 / 25%), Shadow Form as before (Shadow Shot's way, see above).
-_kill, _dead, _wearer = kill_credit_host(SPONGE_STRIKE, _D + "Rushdown", "Shadowcloak")
-_chance = _own_share((CLOAK_BASE, CLOAK_PER_TIER))
+# 2026-11-16 (user: no permanent invisibility): kills while the last Shadow Form lasts (CLOAK_SECONDS) don't roll, so
+# it can't refresh itself and there is always a visible stretch. Only the wearer's first copy acts: one roll per copy
+# worn at the best copy's tier (1 - (1 - chance)^copies), 10 / 15 / 20%.
+_kill, _dead, _wearer = kill_credit_host(SPONGE_STRIKE, _D + "Rushdown", "Shadowcloak",
+                                         extra=dict(Best="int", LastCloak="float"),
+                                         defaults=dict(LastCloak="-100.0"))
+_CLOAK_CLASS = _effect_class(SPONGE_STRIKE)
+_first = _pure(_g.call(_AC, "GetComponentByClass", ComponentClass=_CLOAK_CLASS), "GetComponentByClass")
+_g.link(_wearer[0], _wearer[1], _first, "self")
+_is_first = _g.call(_MATH, "EqualEqual_ObjectObject")
+_g.link(_first, "ReturnValue", _is_first, "A")
+_g.link(*(_g.self_node() + (_is_first, "B")))
+_now = _g.call(_GS, "GetTimeSeconds")
+_since = _math("Subtract_FloatFloat", (_now, "ReturnValue"), _v("LastCloak"))
+_counts = _g.branch(_math("BooleanAND", (_is_first, "ReturnValue"), _math("GreaterEqual_FloatFloat", _since, CLOAK_SECONDS)))
+_g.flow(_kill, _counts)
+_g.row(2700)
+_copies = _pure(_g.call(_AC, "GetComponentsByClass", ComponentClass=_CLOAK_CLASS), "GetComponentsByClass")
+_g.link(_wearer[0], _wearer[1], _copies, "self")
+_zero = set_value(_g, "Best", 0)
+_g.flow((_counts, "then"), _zero)
+_cloop, _copy, _ = _loop_over((_copies, "ReturnValue"), (_zero, "then"))
+_as_copy = _g.cast(_D + "Enchantment", _copy)
+_copy_level = _g.var("Level", owner=_D + "Enchantment", target=_as_copy)
+_best = set_value(_g, "Best", _math("Max", _v("Best"), (_copy_level, "Level")))
+_g.flow((_cloop, "LoopBody"), _as_copy[0], _best)
+_g.row(3000)
+_how_many = _g.array_call("Array_Length", (_copies, "ReturnValue"), "TargetArray")
+_copies_f = _g.call(_MATH, "Conv_IntToFloat")
+_g.link(_how_many, "ReturnValue", _copies_f, "InInt")
+_best_tier = _g.call(_MATH, "Clamp", Min=1, Max=3)
+_link_value(_v("Best"), _best_tier, "Value")
+_best_f = _g.call(_MATH, "Conv_IntToFloat")
+_g.link(_best_tier, "ReturnValue", _best_f, "InInt")
+_chance = _math("Add_FloatFloat", CLOAK_BASE, _math("Multiply_FloatFloat", (_best_f, "ReturnValue"), CLOAK_PER_TIER))
+_miss_all = _g.call(_MATH, "MultiplyMultiply_FloatFloat")
+_link_value(_math("Subtract_FloatFloat", 1.0, _chance), _miss_all, "Base")
+_g.link(_copies_f, "ReturnValue", _miss_all, "Exp")
 _roll = _g.call(_MATH, "RandomFloat")
-_lucky = _g.branch(_math("Less_FloatFloat", (_roll, "ReturnValue"), _chance))
+_ready = _g.branch(_math("Less_FloatFloat", (_roll, "ReturnValue"), _math("Subtract_FloatFloat", 1.0, (_miss_all, "ReturnValue"))))
+_g.flow((_cloop, "Completed"), _ready)
+_g.row(3300)
 _asc = _g.call(_GAS, "GetAbilitySystemComponent")
 _g.link(_wearer[0], _wearer[1], _asc, "Actor")
 _context = _g.call(_ASC, "MakeEffectContext")
@@ -2779,7 +2817,7 @@ _g.link(_asc, "ReturnValue", _context, "self")
 _spec = _g.call(_ASC, "MakeOutgoingSpec", GameplayEffectClass=SHADOW_FORM)
 _g.link(_asc, "ReturnValue", _spec, "self")
 _tier_f = _g.call(_MATH, "Conv_IntToFloat")
-_link_value(_tier(), _tier_f, "InInt")
+_g.link(_best_tier, "ReturnValue", _tier_f, "InInt")
 _g.link(_tier_f, "ReturnValue", _spec, "Level")
 _g.link(_context, "ReturnValue", _spec, "Context")
 _duration = _g.call(_GAS, "AssignSetByCallerMagnitude", DataName="Duration", Magnitude=CLOAK_SECONDS)
@@ -2789,8 +2827,10 @@ _g.link(_duration, "ReturnValue", _boost, "SpecHandle")
 _apply = _g.call(_ASC, "BP_ApplyGameplayEffectSpecToSelf")
 _g.link(_asc, "ReturnValue", _apply, "self")
 _g.link(_boost, "ReturnValue", _apply, "SpecHandle")
-_g.flow(_kill, _lucky)
-_g.flow(*([(_lucky, "then")] + _steps(_spec, _duration, _boost) + [_apply, _count("Extra"), _triggered()]))
+_now2 = _g.call(_GS, "GetTimeSeconds")
+_g.flow(*([(_ready, "then")] + _steps(_spec, _duration, _boost)
+          + [_apply, set_value(_g, "LastCloak", (_now2, "ReturnValue")),
+             _count("Extra"), _triggered()]))
 compile_save(_bp, "Shadowcloak (kill credit)")
 # Rushdown's own speed-up (a weapon kill) - its Effect is ours, doing nothing (an empty one would crash: the Levitation
 # lesson, 2026-11-08); its numbers stay

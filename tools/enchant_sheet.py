@@ -30,7 +30,7 @@ YES, NO = "✔", "✖"
 # Our enchantments: the game's enchantment whose slot they use (wiki name, internal id) -> what the page shows.
 NEW = {
     "Knockback": dict(id="Knockback", name="Sweeping Edge", gear="Melee", tier_text="splash damage", tiers=["20%", "30%", "40%"]),
-    "Rushdown": dict(id="Rushdown", name="Shadowcloak", gear="Any", tier_text="chance of Shadow Form on a kill", tiers=["15%", "20%", "25%"]),
+    "Rushdown": dict(id="Rushdown", name="Shadowcloak", gear="Any", tier_text="chance of Shadow Form on a kill", tiers=["10%", "15%", "20%"]),
     "Lucky Explorer": dict(id="EmeraldDivination", name="Ignite", gear="Any", tier_text="of max health as extra damage", tiers=["3%", "4%", "5%"]),
     "Heals Allies": dict(id="Altruistic", name="Venom Siphon", gear="Any", tier_text="of max health as extra damage", tiers=["3%", "4%", "5%"]),
     "Thrive Under Pressure": dict(id="ThriveUnderPressure", name="Shatter", gear="Any", tier_text="more damage to chilled mobs", tiers=["+100%", "+150%", "+200%"]),
@@ -55,7 +55,7 @@ NEW_LINES = {   # the short line an item card shows for a built-in copy (SequelT
 }
 NEW_CHANGED = {
     "Knockback": "New, in Knockback's slot (unused in the game).",
-    "Rushdown": "New, in Rushdown's slot (it was only on the Tempest Knives, which now have Shadowcloak). Uses kill credit.",
+    "Rushdown": "New, in Rushdown's slot (it was only on the Tempest Knives, which now have Shadowcloak). Uses kill credit; kills while in Shadow Form don't roll, so it can't keep you invisible.",
     "Lucky Explorer": "Replaces Lucky Explorer. Arrows count; bosses take 40% of the max-health damage.",
     "Heals Allies": "New, in Heals Allies' slot (unused in the game). Arrows count; you heal 10% of the damage.",
     "Thrive Under Pressure": "New, in Thrive Under Pressure's slot (a unique-only one). Arrows count.",

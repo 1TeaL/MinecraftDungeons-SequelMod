@@ -117,7 +117,7 @@ Apocalypse Plus all the way to A+100, with rewards past the gear cap of 315.
 - **Melee and kills:**
   - **Sweeping Edge** (melee): every melee hit sends out a shockwave around the mob you hit - other mobs within 5
     blocks take 20 / 30 / 40% of the hit's damage.
-  - **Shadowcloak** (any gear): a 15 / 20 / 25% chance of Shadow Form on a kill.
+  - **Shadowcloak** (any gear): a 10 / 15 / 20% chance of Shadow Form on a kill (not while you already are in it).
 - **Potions:**
   - **Bottomless Brew:** 1 / 2 / 3 extra potion drinks, each refilling after one potion cooldown, with a counter on
     screen; Refreshment kills (melee or bow) speed up both the potion and the next extra drink.
